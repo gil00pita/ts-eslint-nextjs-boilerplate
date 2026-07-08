@@ -26,6 +26,10 @@
     "next-devtools": {
       "command": "npx",
       "args": ["-y", "next-devtools-mcp@latest"]
+    },
+    "Storybook MCP": {
+      "url": "http://localhost:6006/mcp",
+      "type": "http"
     }
   },
   "inputs": []

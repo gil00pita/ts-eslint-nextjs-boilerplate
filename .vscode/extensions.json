@@ -1,6 +1,19 @@
 {
   "recommendations": [
+    "axetroy.vscode-npm-import-package-version",
+    "christian-kohler.path-intellisense",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "deque-systems.vscode-axe-linter",
+    "esbenp.prettier-vscode",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "kisstkondoros.vscode-codemetrics",
+    "mhutchie.git-graph",
+    "naumovs.color-highlight",
+    "openai.chatgpt",
+    "shardulm94.trailing-spaces",
+    "streetsidesoftware.code-spell-checker",
+    "unifiedjs.vscode-mdx",
+    "wix.vscode-import-cost"
   ]
 }

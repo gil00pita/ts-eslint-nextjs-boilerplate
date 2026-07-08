@@ -21,7 +21,7 @@ export default defineConfig([
   ...nextVitals,
   eslint.configs.recommended,
   {
-    ignores: ['node_modules', 'build', 'dist', 'coverage'],
+    ignores: ['node_modules', 'build', 'dist', 'coverage', 'storybook-static'],
   },
 
   {
@@ -66,7 +66,6 @@ export default defineConfig([
     plugins: {
       '@typescript-eslint': tsPlugin,
       perfectionist,
-      'react-hooks': reactHooks,
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
@@ -92,12 +91,113 @@ export default defineConfig([
       // perfectionist/unicorn rules (kept from your original)
       'perfectionist/sort-enums': 'error',
       'perfectionist/sort-exports': 'error',
-      'perfectionist/sort-imports': 'error',
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          customGroups: [],
+          environment: 'node',
+          fallbackSort: { type: 'unsorted' },
+          groups: [
+            'type-import',
+            ['value-builtin', 'value-external'],
+            'type-internal',
+            'value-internal',
+            ['type-parent', 'type-sibling', 'type-index'],
+            ['value-parent', 'value-sibling', 'value-index'],
+            'ts-equals-import',
+            'unknown',
+          ],
+          ignoreCase: true,
+          internalPattern: ['^~/.+', '^@/.+', '^#.+'],
+          maxLineLength: undefined,
+          newlinesBetween: 1,
+          newlinesInside: 0,
+          order: 'asc',
+          partitionByComment: false,
+          partitionByNewLine: false,
+          sortBy: 'path',
+          specialCharacters: 'keep',
+          type: 'alphabetical',
+          useExperimentalDependencyDetection: true,
+        },
+      ],
       'perfectionist/sort-jsx-props': 'error',
       'perfectionist/sort-named-imports': 'error',
       'perfectionist/sort-objects': [
         'error',
         {
+          customGroups: [
+            {
+              elementNamePattern: '^base$',
+              groupName: 'base',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^(50|100|200|300|400|500|600|700|800|900|950)$',
+              groupName: 'chakra-color-scale',
+              selector: 'property',
+              type: 'natural',
+            },
+            {
+              elementNamePattern: '^xs$',
+              groupName: 'size-xs',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^sm$',
+              groupName: 'size-sm',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^md$',
+              groupName: 'size-md',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^lg$',
+              groupName: 'size-lg',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^xl$',
+              groupName: 'size-xl',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^2xl$',
+              groupName: 'size-2xl',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^3xl$',
+              groupName: 'size-3xl',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^4xl$',
+              groupName: 'size-4xl',
+              selector: 'property',
+            },
+            {
+              elementNamePattern: '^5xl$',
+              groupName: 'size-5xl',
+              selector: 'property',
+            },
+          ],
+          groups: [
+            'unknown',
+            'chakra-color-scale',
+            'base',
+            'size-xs',
+            'size-sm',
+            'size-md',
+            'size-lg',
+            'size-xl',
+            'size-2xl',
+            'size-3xl',
+            'size-4xl',
+            'size-5xl',
+          ],
           ignoreCase: true,
           order: 'asc',
           type: 'alphabetical',

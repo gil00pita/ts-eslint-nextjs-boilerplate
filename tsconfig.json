@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -23,9 +19,23 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "react": ["./src/node_modules/@types/react"],
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/components": ["./src/components/index"],
+      "@/storybook/*": ["./src/utils/storybook/*"],
+      "@/storybook/utils/*": ["./src/utils/storybook/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/types": ["./src/types/index"],
+      "@/ui/*": ["./src/components/ui/*"],
+      "@/ui": ["./src/components/ui/index"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/utils/storybook/*": ["./src/utils/storybook/*"],
+      "@/utils": ["./src/utils/index"],
+      "@/stories": ["./src/stories/index"],
+      "@/stories/*": ["./src/stories/*"],
+      "@/theme": ["./src/theme/index"],
+      "@/theme/*": ["./src/theme/*"]
     }
   },
   "include": [
@@ -33,9 +43,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
