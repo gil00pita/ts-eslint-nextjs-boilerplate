@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Card, Stat } from "@chakra-ui/react"
-import { LuGlobe } from "react-icons/lu"
-import { Area, AreaChart } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Card, Stat } from '@chakra-ui/react'
+import { LuGlobe } from 'react-icons/lu'
+import { Area, AreaChart } from 'recharts'
 
 export const SparklineCompositionStat = () => {
   return (
-    <Card.Root maxW="sm" size="sm" overflow="hidden">
+    <Card.Root maxW="sm" overflow="hidden" size="sm">
       <Card.Body>
         <Stat.Root>
           <Stat.Label>
@@ -31,23 +31,19 @@ const SparkLine = () => {
       { value: 12 },
       { value: 15 },
     ],
-    series: [{ color: "teal.solid" }],
+    series: [{ color: 'teal.solid' }],
   })
 
   return (
-    <Chart.Root height="10" chart={chart}>
-      <AreaChart
-        data={chart.data}
-        margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-        responsive
-      >
+    <Chart.Root chart={chart} height="10">
+      <AreaChart data={chart.data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }} responsive>
         {chart.series.map((item) => (
           <Area
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             fill={chart.color(item.color)}
             fillOpacity={0.2}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
           />

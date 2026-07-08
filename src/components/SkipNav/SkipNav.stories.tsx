@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Utilities / Skip Nav',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,10 +12,11 @@ export default {
       </Box>
     ),
   ],
+  title: 'Utilities / Skip Nav',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('SkipNav')
 
 export { SkipNavBasic as Basic } from './examples/skip-nav-basic'
-export { SkipNavWithContent as WithContent } from './examples/skip-nav-with-content'
 export { SkipNavCustomId as CustomId } from './examples/skip-nav-custom-id'
+export { SkipNavWithContent as WithContent } from './examples/skip-nav-with-content'

@@ -1,32 +1,32 @@
-"use client"
+'use client'
 
-import { CloseButton, Input, InputGroup } from "@chakra-ui/react"
-import { useRef, useState } from "react"
+import { CloseButton, Input, InputGroup } from '@chakra-ui/react'
+import { useRef, useState } from 'react'
 
 export const InputWithClearButton = () => {
-  const [value, setValue] = useState("Initial value")
+  const [value, setValue] = useState('Initial value')
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const endElement = value ? (
     <CloseButton
-      size="xs"
+      me="-2"
       onClick={() => {
-        setValue("")
+        setValue('')
         inputRef.current?.focus()
       }}
-      me="-2"
+      size="xs"
     />
   ) : undefined
 
   return (
     <InputGroup endElement={endElement}>
       <Input
-        ref={inputRef}
-        placeholder="Email"
-        value={value}
         onChange={(e) => {
           setValue(e.currentTarget.value)
         }}
+        placeholder="Email"
+        ref={inputRef}
+        value={value}
       />
     </InputGroup>
   )

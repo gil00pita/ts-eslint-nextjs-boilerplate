@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Menu, Portal, createOverlay } from "@chakra-ui/react"
+import { Button, createOverlay, Dialog, Menu, Portal } from '@chakra-ui/react'
 
 interface DialogProps {
   title: string
@@ -9,7 +9,7 @@ interface DialogProps {
 }
 
 const dialog = createOverlay<DialogProps>((props) => {
-  const { title, description, content, ...rest } = props
+  const { content, description, title, ...rest } = props
   return (
     <Dialog.Root {...rest}>
       <Portal>
@@ -22,9 +22,7 @@ const dialog = createOverlay<DialogProps>((props) => {
               </Dialog.Header>
             )}
             <Dialog.Body spaceY="4">
-              {description && (
-                <Dialog.Description>{description}</Dialog.Description>
-              )}
+              {description && <Dialog.Description>{description}</Dialog.Description>}
               {content}
             </Dialog.Body>
           </Dialog.Content>
@@ -40,21 +38,21 @@ export const OverlayWithMenuItem = () => {
       <dialog.Viewport />
       <Menu.Root>
         <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Menu
           </Button>
         </Menu.Trigger>
         <Menu.Positioner>
           <Menu.Content>
             <Menu.Item
-              value="more"
               onClick={() =>
-                dialog.open("more", {
-                  title: "Welcome",
-                  description: "Choose an action from the menu below.",
+                dialog.open('more', {
                   content: <ActionsMenu />,
+                  description: 'Choose an action from the menu below.',
+                  title: 'Welcome',
                 })
               }
+              value="more"
             >
               Show More
             </Menu.Item>
@@ -69,7 +67,7 @@ const ActionsMenu = () => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           More Actions
         </Button>
       </Menu.Trigger>

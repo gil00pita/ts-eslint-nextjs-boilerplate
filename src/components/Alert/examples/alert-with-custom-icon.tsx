@@ -1,5 +1,5 @@
-import { Alert } from "@chakra-ui/react"
-import { LuAlarmClockPlus } from "react-icons/lu"
+import { Alert } from '@chakra-ui/react'
+import { LuAlarmClockPlus } from 'react-icons/lu'
 
 export const AlertWithCustomIcon = () => {
   return (

@@ -1,42 +1,42 @@
-"use client"
+'use client'
 
-import { Stack, chakra } from "@chakra-ui/react"
+import { chakra, Stack } from '@chakra-ui/react'
 
-const Badge = chakra("div", {
-  base: {
-    px: "4",
-    py: "2",
+const Badge = chakra('div', {
+  compoundVariants: [
+    {
+      css: { bg: 'gray.700', color: 'white' },
+      pressed: true,
+      variant: 'solid',
+    },
+    { css: { bg: 'gray.300' }, pressed: true, variant: 'subtle' },
+  ],
+  defaultVariants: {
+    variant: 'subtle',
   },
   variants: {
+    pressed: {
+      false: {},
+      true: {},
+    },
     variant: {
       solid: {},
       subtle: {},
     },
-    pressed: {
-      true: {},
-      false: {},
-    },
   },
-  compoundVariants: [
-    {
-      variant: "solid",
-      pressed: true,
-      css: { bg: "gray.700", color: "white" },
-    },
-    { variant: "subtle", pressed: true, css: { bg: "gray.300" } },
-  ],
-  defaultVariants: {
-    variant: "subtle",
+  base: {
+    px: '4',
+    py: '2',
   },
 })
 
 export const WithCompoundBoolean = () => {
   return (
     <Stack>
-      <Badge variant="solid" colorPalette="gray">
+      <Badge colorPalette="gray" variant="solid">
         Hello
       </Badge>
-      <Badge variant="solid" colorPalette="gray" pressed>
+      <Badge colorPalette="gray" pressed variant="solid">
         Hello
       </Badge>
     </Stack>

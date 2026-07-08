@@ -1,53 +1,49 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const LineChartWithCustomDot = () => {
   const chart = useChart({
     data: [
-      { sales: 186, month: "January" },
-      { sales: 190, month: "March" },
-      { sales: 195, month: "May" },
-      { sales: 175, month: "August" },
-      { sales: 180, month: "October" },
+      { month: 'January', sales: 186 },
+      { month: 'March', sales: 190 },
+      { month: 'May', sales: 195 },
+      { month: 'August', sales: 175 },
+      { month: 'October', sales: 180 },
     ],
-    series: [{ name: "sales", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'sales' }],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
+    <Chart.Root chart={chart} maxH="sm">
       <LineChart data={chart.data} responsive>
-        <CartesianGrid
-          stroke={chart.color("border")}
-          strokeDasharray="3 3"
-          horizontal={false}
-        />
+        <CartesianGrid horizontal={false} stroke={chart.color('border')} strokeDasharray="3 3" />
         <XAxis
-          dataKey={chart.key("month")}
+          dataKey={chart.key('month')}
+          stroke={chart.color('border')}
           tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
         />
         <YAxis
-          dataKey={chart.key("sales")}
-          stroke={chart.color("border")}
-          domain={[160, "dataMax + 10"]}
+          dataKey={chart.key('sales')}
+          domain={[160, 'dataMax + 10']}
+          stroke={chart.color('border')}
         />
         <Tooltip
           animationDuration={100}
-          cursor={{ stroke: chart.color("border") }}
           content={<Chart.Tooltip />}
+          cursor={{ stroke: chart.color('border') }}
         />
         {chart.series.map((item) => (
           <Line
-            key={item.name}
+            activeDot={{ r: 6, stroke: chart.color('teal.solid') }}
             connectNulls
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
-            stroke={chart.color(item.color)}
+            dot={{ r: 5, stroke: 'white', strokeDasharray: '0' }}
             fill={chart.color(item.color)}
-            dot={{ strokeDasharray: "0", r: 5, stroke: "white" }}
-            activeDot={{ r: 6, stroke: chart.color("teal.solid") }}
+            isAnimationActive={false}
+            key={item.name}
+            stroke={chart.color(item.color)}
             strokeWidth={4}
           />
         ))}

@@ -1,9 +1,9 @@
-import { Editable } from "@chakra-ui/react"
+import { Editable } from '@chakra-ui/react'
 
 export const EditableDisabled = () => {
   return (
-    <Editable.Root disabled defaultValue="Click to edit">
-      <Editable.Preview opacity={0.5} cursor="not-allowed" />
+    <Editable.Root defaultValue="Click to edit" disabled>
+      <Editable.Preview cursor="not-allowed" opacity={0.5} />
       <Editable.Input />
     </Editable.Root>
   )

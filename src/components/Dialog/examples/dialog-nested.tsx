@@ -1,5 +1,5 @@
-import { Button, Dialog, Portal } from "@chakra-ui/react"
-import Lorem from "react-lorem-ipsum"
+import { Button, Dialog, Portal } from '@chakra-ui/react'
+import Lorem from 'react-lorem-ipsum'
 
 export const DialogNested = () => {
   return (

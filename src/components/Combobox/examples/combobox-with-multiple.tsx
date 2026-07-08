@@ -1,39 +1,20 @@
-"use client"
+'use client'
 
-import {
-  Badge,
-  Combobox,
-  Portal,
-  Wrap,
-  createListCollection,
-} from "@chakra-ui/react"
-import { useMemo, useState } from "react"
+import { Badge, Combobox, createListCollection, Portal, Wrap } from '@chakra-ui/react'
+import { useMemo, useState } from 'react'
 
-const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Node.js",
-  "GraphQL",
-  "PostgreSQL",
-]
+const skills = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'GraphQL', 'PostgreSQL']
 
 export const ComboboxWithMultiple = () => {
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState('')
   const [selectedSkills, setSelectedSkills] = useState<string[]>([])
 
   const filteredItems = useMemo(
-    () =>
-      skills.filter((item) =>
-        item.toLowerCase().includes(searchValue.toLowerCase()),
-      ),
-    [searchValue],
+    () => skills.filter((item) => item.toLowerCase().includes(searchValue.toLowerCase())),
+    [searchValue]
   )
 
-  const collection = useMemo(
-    () => createListCollection({ items: filteredItems }),
-    [filteredItems],
-  )
+  const collection = useMemo(() => createListCollection({ items: filteredItems }), [filteredItems])
 
   const handleValueChange = (details: Combobox.ValueChangeDetails) => {
     setSelectedSkills(details.value)
@@ -41,13 +22,13 @@ export const ComboboxWithMultiple = () => {
 
   return (
     <Combobox.Root
-      multiple
       closeOnSelect
-      width="320px"
-      value={selectedSkills}
       collection={collection}
-      onValueChange={handleValueChange}
+      multiple
       onInputValueChange={(details) => setSearchValue(details.inputValue)}
+      onValueChange={handleValueChange}
+      value={selectedSkills}
+      width="320px"
     >
       <Wrap gap="2">
         {selectedSkills.map((skill) => (
@@ -70,7 +51,7 @@ export const ComboboxWithMultiple = () => {
             <Combobox.ItemGroup>
               <Combobox.ItemGroupLabel>Skills</Combobox.ItemGroupLabel>
               {filteredItems.map((item) => (
-                <Combobox.Item key={item} item={item}>
+                <Combobox.Item item={item} key={item}>
                   {item}
                   <Combobox.ItemIndicator />
                 </Combobox.Item>

@@ -1,8 +1,8 @@
-import { NumberInput } from "@chakra-ui/react"
+import { NumberInput } from '@chakra-ui/react'
 
 export const NumberInputWithStep = () => {
   return (
-    <NumberInput.Root maxW="200px" defaultValue="2" step={3}>
+    <NumberInput.Root defaultValue="2" maxW="200px" step={3}>
       <NumberInput.Control />
       <NumberInput.Input />
     </NumberInput.Root>

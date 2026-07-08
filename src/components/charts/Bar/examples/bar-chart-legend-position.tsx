@@ -1,59 +1,47 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Legend,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const BarChartLegendPosition = () => {
   const chart = useChart({
     data: [
-      { category: "Web Server", value: 200, maxValue: 450 },
-      { category: "Credit Card", value: 700, maxValue: 900 },
-      { category: "Payment", value: 439, maxValue: 500 },
-      { category: "API", value: 147, maxValue: 200 },
-      { category: "AddToCart", value: 84, maxValue: 100 },
+      { category: 'Web Server', maxValue: 450, value: 200 },
+      { category: 'Credit Card', maxValue: 900, value: 700 },
+      { category: 'Payment', maxValue: 500, value: 439 },
+      { category: 'API', maxValue: 200, value: 147 },
+      { category: 'AddToCart', maxValue: 100, value: 84 },
     ],
     series: [
-      { name: "value", color: "blue.solid" },
-      { name: "maxValue", color: "green.solid" },
+      { color: 'blue.solid', name: 'value' },
+      { color: 'green.solid', name: 'maxValue' },
     ],
   })
 
   return (
     <Chart.Root chart={chart} maxH="sm">
       <BarChart data={chart.data} responsive>
-        <CartesianGrid stroke={chart.color("border.muted")} vertical={false} />
-        <XAxis
-          tickLine={false}
-          dataKey={chart.key("category")}
-          stroke={chart.color("border")}
-        />
-        <YAxis tickLine={false} stroke={chart.color("border")} />
+        <CartesianGrid stroke={chart.color('border.muted')} vertical={false} />
+        <XAxis dataKey={chart.key('category')} stroke={chart.color('border')} tickLine={false} />
+        <YAxis stroke={chart.color('border')} tickLine={false} />
         <Tooltip
-          cursor={{ fill: chart.color("bg.muted") }}
           animationDuration={100}
           content={<Chart.Tooltip />}
+          cursor={{ fill: chart.color('bg.muted') }}
         />
         <Legend
-          layout="vertical"
           align="right"
+          content={<Chart.Legend orientation="vertical" />}
+          layout="vertical"
           verticalAlign="top"
           wrapperStyle={{ paddingLeft: 30 }}
-          content={<Chart.Legend orientation="vertical" />}
         />
         {chart.series.map((item) => (
           <Bar
-            isAnimationActive={false}
-            key={item.name}
             dataKey={chart.key(item.name)}
             fill={chart.color(item.color)}
+            isAnimationActive={false}
+            key={item.name}
           />
         ))}
       </BarChart>

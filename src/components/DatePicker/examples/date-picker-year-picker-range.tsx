@@ -1,20 +1,21 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import { CalendarDate } from "@internationalized/date"
-import { LuCalendar } from "react-icons/lu"
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { CalendarDate } from '@internationalized/date'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerYearPickerRange = () => {
   return (
     <DatePicker.Root
-      selectionMode="range"
       defaultView="year"
-      minView="year"
       format={format}
+      maxWidth="20rem"
+      minView="year"
       parse={parse}
       placeholder="yyyy"
-      maxWidth="20rem"
+      selectionMode="range"
     >
       <DatePicker.Label>Select year range</DatePicker.Label>
       <DatePicker.Control>

@@ -2,8 +2,8 @@
 
 import { Alert, For, Span, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const AlertSizeTable = () => {
   const recipe = useSlotRecipe({ key: 'alert' })
@@ -20,14 +20,14 @@ export const AlertSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <AlertDemo size={v} colorPalette={c} />
+                    <AlertDemo colorPalette={c} size={v} />
                   </td>
                 )}
               </For>

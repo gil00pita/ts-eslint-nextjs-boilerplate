@@ -1,12 +1,8 @@
-"use client"
+'use client'
 
-import {
-  CodeBlock,
-  Float,
-  IconButton,
-  createShikiAdapter,
-} from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, Float, IconButton } from '@chakra-ui/react'
 
 const file = {
   code: `
@@ -14,8 +10,8 @@ const file = {
   <h1>Hello, world!</h1>
 </div>
 `,
-  language: "html",
-  title: "index.html",
+  language: 'html',
+  title: 'index.html',
 }
 
 export const CodeBlockWithFloatingCopyButton = () => {
@@ -23,9 +19,9 @@ export const CodeBlockWithFloatingCopyButton = () => {
     <CodeBlock.AdapterProvider value={shikiAdapter}>
       <CodeBlock.Root code={file.code} language={file.language}>
         <CodeBlock.Content>
-          <Float placement="top-end" offset="5" zIndex="1">
+          <Float offset="5" placement="top-end" zIndex="1">
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
@@ -41,11 +37,11 @@ export const CodeBlockWithFloatingCopyButton = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

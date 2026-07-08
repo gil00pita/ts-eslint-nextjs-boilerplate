@@ -1,4 +1,4 @@
-import { ColorPicker } from "@chakra-ui/react"
+import { ColorPicker } from '@chakra-ui/react'
 
 export const ColorPickerSwatchOnly = () => {
   return (
@@ -11,7 +11,7 @@ export const ColorPickerSwatchOnly = () => {
         {swatches.map((item) => (
           <ColorPicker.SwatchTrigger key={item} value={item}>
             <ColorPicker.Swatch value={item}>
-              <ColorPicker.SwatchIndicator boxSize="3" bg="white" />
+              <ColorPicker.SwatchIndicator bg="white" boxSize="3" />
             </ColorPicker.Swatch>
           </ColorPicker.SwatchTrigger>
         ))}
@@ -20,4 +20,4 @@ export const ColorPickerSwatchOnly = () => {
   )
 }
 
-const swatches = ["red", "green", "blue", "purple", "orange", "pink"]
+const swatches = ['red', 'green', 'blue', 'purple', 'orange', 'pink']

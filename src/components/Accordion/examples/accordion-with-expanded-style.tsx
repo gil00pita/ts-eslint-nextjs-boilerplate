@@ -1,11 +1,11 @@
-import { Accordion, Span } from "@chakra-ui/react"
+import { Accordion, Span } from '@chakra-ui/react'
 
 export const AccordionWithExpandedStyle = () => {
   return (
-    <Accordion.Root collapsible defaultValue={["b"]}>
+    <Accordion.Root collapsible defaultValue={['b']}>
       {items.map((item, index) => (
         <Accordion.Item key={index} value={item.value}>
-          <Accordion.ItemTrigger px="3" _open={{ bg: "gray.subtle" }}>
+          <Accordion.ItemTrigger _open={{ bg: 'gray.subtle' }} px="3">
             <Span flex="1">{item.title}</Span>
             <Accordion.ItemIndicator />
           </Accordion.ItemTrigger>
@@ -20,18 +20,18 @@ export const AccordionWithExpandedStyle = () => {
 
 const items = [
   {
-    value: "a",
-    title: "First Item",
-    text: "Click the accordion button to see a different style when expanded.",
+    text: 'Click the accordion button to see a different style when expanded.',
+    title: 'First Item',
+    value: 'a',
   },
   {
-    value: "b",
-    title: "Second Item",
-    text: "The trigger background changes to teal with white text when expanded.",
+    text: 'The trigger background changes to teal with white text when expanded.',
+    title: 'Second Item',
+    value: 'b',
   },
   {
-    value: "c",
-    title: "Third Item",
-    text: "You can use any style props with the _open pseudo selector.",
+    text: 'You can use any style props with the _open pseudo selector.',
+    title: 'Third Item',
+    value: 'c',
   },
 ]

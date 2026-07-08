@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/react'
 
 export const BoxWithPseudoProps = () => {
   return (
-    <Box bg="tomato" w="100%" p="4" color="white" _hover={{ bg: "green" }}>
+    <Box _hover={{ bg: 'green' }} bg="tomato" color="white" p="4" w="100%">
       This is the Box
     </Box>
   )

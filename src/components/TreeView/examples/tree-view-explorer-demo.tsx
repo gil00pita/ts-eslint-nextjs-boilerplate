@@ -1,12 +1,7 @@
-"use client"
+'use client'
 
-import {
-  Checkmark,
-  TreeView,
-  createTreeCollection,
-  useTreeViewNodeContext,
-} from "@chakra-ui/react"
-import { LuFile, LuFolder, LuSquareMinus, LuSquarePlus } from "react-icons/lu"
+import { Checkmark, createTreeCollection, TreeView, useTreeViewNodeContext } from '@chakra-ui/react'
+import { LuFile, LuFolder, LuSquareMinus, LuSquarePlus } from 'react-icons/lu'
 
 interface Node {
   id: string
@@ -15,41 +10,41 @@ interface Node {
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
       {
-        id: "node_modules",
-        name: "node_modules",
         children: [
-          { id: "node_modules/zag-js", name: "zag-js" },
-          { id: "node_modules/pandacss", name: "panda" },
+          { id: 'node_modules/zag-js', name: 'zag-js' },
+          { id: 'node_modules/pandacss', name: 'panda' },
           {
-            id: "node_modules/@types",
-            name: "@types",
             children: [
-              { id: "node_modules/@types/react", name: "react" },
-              { id: "node_modules/@types/react-dom", name: "react-dom" },
+              { id: 'node_modules/@types/react', name: 'react' },
+              { id: 'node_modules/@types/react-dom', name: 'react-dom' },
             ],
+            id: 'node_modules/@types',
+            name: '@types',
           },
         ],
+        id: 'node_modules',
+        name: 'node_modules',
       },
       {
-        id: "src",
-        name: "src",
         children: [
-          { id: "src/app.tsx", name: "app.tsx" },
-          { id: "src/index.ts", name: "index.ts" },
+          { id: 'src/app.tsx', name: 'app.tsx' },
+          { id: 'src/index.ts', name: 'index.ts' },
         ],
+        id: 'src',
+        name: 'src',
       },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { id: 'panda.config', name: 'panda.config.ts' },
+      { id: 'package.json', name: 'package.json' },
+      { id: 'renovate.json', name: 'renovate.json' },
+      { id: 'readme.md', name: 'README.md' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })
 
@@ -58,14 +53,14 @@ const NodeCheckbox = (props: TreeView.NodeCheckboxProps) => {
   return (
     <TreeView.NodeCheckbox aria-label="check node" {...props}>
       <Checkmark
-        size="sm"
         bg={{
-          base: "bg",
-          _checked: "colorPalette.solid",
-          _indeterminate: "colorPalette.solid",
+          _checked: 'colorPalette.solid',
+          _indeterminate: 'colorPalette.solid',
+          base: 'bg',
         }}
         checked={nodeState.checked === true}
-        indeterminate={nodeState.checked === "indeterminate"}
+        indeterminate={nodeState.checked === 'indeterminate'}
+        size="sm"
       />
     </TreeView.NodeCheckbox>
   )
@@ -75,11 +70,11 @@ export const TreeViewExplorerDemo = () => {
   return (
     <TreeView.Root
       collection={collection}
-      maxW="sm"
-      defaultExpandedValue={["node_modules", "node_modules/@types", "src"]}
       defaultCheckedValue={[]}
+      defaultExpandedValue={['node_modules', 'node_modules/@types', 'src']}
+      maxW="sm"
     >
-      <TreeView.Label mb="2" fontWeight="medium">
+      <TreeView.Label fontWeight="medium" mb="2">
         Project Explorer
       </TreeView.Label>
 

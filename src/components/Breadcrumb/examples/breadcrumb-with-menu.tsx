@@ -1,5 +1,5 @@
-import { Breadcrumb, Menu, Portal } from "@chakra-ui/react"
-import { LuChevronDown } from "react-icons/lu"
+import { Breadcrumb, Menu, Portal } from '@chakra-ui/react'
+import { LuChevronDown } from 'react-icons/lu'
 
 interface BreadcrumbMenuItemProps {
   children: React.ReactNode
@@ -39,9 +39,9 @@ export const BreadcrumbWithMenu = () => {
 
         <BreadcrumbMenuItem
           items={[
-            { label: "Components", value: "components" },
-            { label: "Props", value: "props" },
-            { label: "Customization", value: "customization" },
+            { label: 'Components', value: 'components' },
+            { label: 'Props', value: 'props' },
+            { label: 'Customization', value: 'customization' },
           ]}
         >
           <Breadcrumb.Link as="button">

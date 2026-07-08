@@ -2,8 +2,8 @@
 
 import { Avatar, For, HStack, Span, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 function omit<T extends string | undefined>(arr: T[] | undefined, omit: T[]): T[] {
   return arr?.filter((v) => !omit?.includes(v)) ?? []
@@ -25,7 +25,7 @@ export const AvatarSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>

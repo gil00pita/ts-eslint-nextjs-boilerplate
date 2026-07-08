@@ -1,4 +1,4 @@
-import { Group, PinInput, Span } from "@chakra-ui/react"
+import { Group, PinInput, Span } from '@chakra-ui/react'
 
 export const PinInputWithSeparator = () => {
   return (

@@ -1,23 +1,17 @@
-import { Carousel, Center, IconButton } from "@chakra-ui/react"
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
+import { Carousel, Center, IconButton } from '@chakra-ui/react'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 const items = [
-  { id: "1", width: "120px", label: "Small" },
-  { id: "2", width: "200px", label: "Medium Size" },
-  { id: "3", width: "80px", label: "XS" },
-  { id: "4", width: "250px", label: "Large Content Here" },
-  { id: "5", width: "150px", label: "Regular" },
+  { id: '1', label: 'Small', width: '120px' },
+  { id: '2', label: 'Medium Size', width: '200px' },
+  { id: '3', label: 'XS', width: '80px' },
+  { id: '4', label: 'Large Content Here', width: '250px' },
+  { id: '5', label: 'Regular', width: '150px' },
 ]
 
 export const CarouselVariableSize = () => {
   return (
-    <Carousel.Root
-      slideCount={items.length}
-      autoSize
-      spacing="8px"
-      maxW="xl"
-      mx="auto"
-    >
+    <Carousel.Root autoSize maxW="xl" mx="auto" slideCount={items.length} spacing="8px">
       <Carousel.Control gap="4">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
@@ -34,18 +28,8 @@ export const CarouselVariableSize = () => {
 
       <Carousel.ItemGroup>
         {items.map((item, index) => (
-          <Carousel.Item
-            key={item.id}
-            index={index}
-            snapAlign="center"
-            width="auto"
-          >
-            <Center
-              style={{ width: item.width }}
-              height="100px"
-              bg="bg.emphasized"
-              rounded="l2"
-            >
+          <Carousel.Item index={index} key={item.id} snapAlign="center" width="auto">
+            <Center bg="bg.emphasized" height="100px" rounded="l2" style={{ width: item.width }}>
               {item.label}
             </Center>
           </Carousel.Item>

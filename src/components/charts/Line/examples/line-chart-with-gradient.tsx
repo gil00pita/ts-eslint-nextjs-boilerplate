@@ -1,78 +1,78 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const LineChartWithGradient = () => {
   const chart = useChart({
     data: [
-      { temp: -20, month: "January" },
-      { temp: -10, month: "February" },
-      { temp: 0, month: "March" },
-      { temp: 10, month: "May" },
-      { temp: 20, month: "June" },
-      { temp: 4, month: "August" },
-      { temp: 40, month: "October" },
-      { temp: -10, month: "November" },
+      { month: 'January', temp: -20 },
+      { month: 'February', temp: -10 },
+      { month: 'March', temp: 0 },
+      { month: 'May', temp: 10 },
+      { month: 'June', temp: 20 },
+      { month: 'August', temp: 4 },
+      { month: 'October', temp: 40 },
+      { month: 'November', temp: -10 },
     ],
-    series: [{ name: "temp", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'temp' }],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
+    <Chart.Root chart={chart} maxH="sm">
       <LineChart data={chart.data} responsive>
-        <CartesianGrid stroke={chart.color("border")} vertical={false} />
+        <CartesianGrid stroke={chart.color('border')} vertical={false} />
         <XAxis
           axisLine={false}
-          dataKey={chart.key("month")}
+          dataKey={chart.key('month')}
+          stroke={chart.color('border')}
           tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
         />
         <YAxis
           axisLine={false}
+          dataKey={chart.key('temp')}
+          stroke={chart.color('border')}
           tickLine={false}
           tickMargin={10}
-          dataKey={chart.key("temp")}
-          stroke={chart.color("border")}
         />
         <Tooltip
           animationDuration={100}
-          cursor={{ stroke: chart.color("border") }}
           content={<Chart.Tooltip hideIndicator />}
+          cursor={{ stroke: chart.color('border') }}
         />
         <defs>
           <Chart.Gradient
             id="lc-gradient"
             stops={[
-              { offset: "0%", color: "teal.solid" },
-              { offset: "20%", color: "purple.solid" },
-              { offset: "40%", color: "orange.solid" },
-              { offset: "75%", color: "green.solid" },
-              { offset: "100%", color: "red.solid" },
+              { color: 'teal.solid', offset: '0%' },
+              { color: 'purple.solid', offset: '20%' },
+              { color: 'orange.solid', offset: '40%' },
+              { color: 'green.solid', offset: '75%' },
+              { color: 'red.solid', offset: '100%' },
             ]}
           />
         </defs>
         {chart.series.map((item) => (
           <Line
-            key={item.name}
-            isAnimationActive={false}
-            type="natural"
-            dataKey={chart.key(item.name)}
-            fill="none"
-            stroke="url(#lc-gradient)"
-            r={2}
-            dot={{
-              stroke: chart.color("bg"),
-              fill: chart.color("fg"),
-              strokeWidth: 1,
-            }}
             activeDot={{
-              stroke: chart.color("bg"),
-              fill: chart.color("fg"),
-              strokeWidth: 1,
+              fill: chart.color('fg'),
               r: 4,
+              stroke: chart.color('bg'),
+              strokeWidth: 1,
             }}
+            dataKey={chart.key(item.name)}
+            dot={{
+              fill: chart.color('fg'),
+              stroke: chart.color('bg'),
+              strokeWidth: 1,
+            }}
+            fill="none"
+            isAnimationActive={false}
+            key={item.name}
+            r={2}
+            stroke="url(#lc-gradient)"
             strokeWidth={4}
+            type="natural"
           />
         ))}
       </LineChart>

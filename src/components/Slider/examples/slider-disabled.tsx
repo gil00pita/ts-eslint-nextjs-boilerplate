@@ -1,8 +1,8 @@
-import { Slider } from "@chakra-ui/react"
+import { Slider } from '@chakra-ui/react'
 
 export const SliderDisabled = () => {
   return (
-    <Slider.Root width="200px" disabled defaultValue={[40]}>
+    <Slider.Root defaultValue={[40]} disabled width="200px">
       <Slider.Control>
         <Slider.Track>
           <Slider.Range />

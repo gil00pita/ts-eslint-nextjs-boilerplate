@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, HStack, Stack, Text, defaultSystem } from '@chakra-ui/react'
+import { Box, defaultSystem, HStack, Stack, Text } from '@chakra-ui/react'
 
 import { TokenDoc } from './token-doc'
 

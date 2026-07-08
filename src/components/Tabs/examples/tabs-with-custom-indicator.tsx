@@ -1,15 +1,15 @@
-import { Tabs } from "@chakra-ui/react"
+import { Tabs } from '@chakra-ui/react'
 
 export const TabsWithCustomIndicator = () => {
   return (
     <Tabs.Root
+      css={{
+        '--tabs-indicator-bg': 'colors.gray.subtle',
+        '--tabs-indicator-shadow': 'shadows.xs',
+        '--tabs-trigger-radius': 'radii.full',
+      }}
       defaultValue="members"
       variant="plain"
-      css={{
-        "--tabs-indicator-bg": "colors.gray.subtle",
-        "--tabs-indicator-shadow": "shadows.xs",
-        "--tabs-trigger-radius": "radii.full",
-      }}
     >
       <Tabs.List>
         <Tabs.Trigger value="members">Members</Tabs.Trigger>

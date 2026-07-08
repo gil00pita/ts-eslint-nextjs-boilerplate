@@ -1,15 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker, Flex } from "@chakra-ui/react"
+import { DatePicker, Flex } from '@chakra-ui/react'
 
 export const DatePickerCalendarMultipleMonths = () => {
   return (
-    <DatePicker.Root
-      numOfMonths={2}
-      selectionMode="range"
-      inline
-      width="fit-content"
-    >
+    <DatePicker.Root inline numOfMonths={2} selectionMode="range" width="fit-content">
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">
           <DatePicker.Header />

@@ -1,20 +1,20 @@
-"use client"
+'use client'
 
-import { Button, ScrollArea, Stack, useScrollArea } from "@chakra-ui/react"
-import LoremIpsum from "react-lorem-ipsum"
+import { Button, ScrollArea, Stack, useScrollArea } from '@chakra-ui/react'
+import LoremIpsum from 'react-lorem-ipsum'
 
 export const ScrollAreaScrollToPosition = () => {
   const scrollArea = useScrollArea()
   return (
-    <Stack gap="8" align="flex-start" maxW="xl">
+    <Stack align="flex-start" gap="8" maxW="xl">
       <Button
-        variant="outline"
+        onClick={() => scrollArea.scrollTo({ behavior: 'smooth', top: 200 })}
         size="sm"
-        onClick={() => scrollArea.scrollTo({ top: 200, behavior: "smooth" })}
+        variant="outline"
       >
         Scroll to 100px
       </Button>
-      <ScrollArea.RootProvider value={scrollArea} height="8rem" width="24rem">
+      <ScrollArea.RootProvider height="8rem" value={scrollArea} width="24rem">
         <ScrollArea.Viewport>
           <ScrollArea.Content>
             <LoremIpsum p={3} />

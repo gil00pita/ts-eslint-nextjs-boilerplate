@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { Button, DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithButton = () => {
   return (
@@ -9,7 +9,7 @@ export const DatePickerWithButton = () => {
       <DatePicker.Label>Date of birth</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Trigger asChild unstyled>
-          <Button variant="outline" width="full" justifyContent="flex-start">
+          <Button justifyContent="flex-start" variant="outline" width="full">
             <DatePicker.ValueText placeholder="Select date" />
           </Button>
         </DatePicker.Trigger>

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, Button, Menu, Portal } from "@chakra-ui/react"
-import { useRef } from "react"
+import { Box, Button, Menu, Portal } from '@chakra-ui/react'
+import { useRef } from 'react'
 
 export const MenuWithAnchorRect = () => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -10,11 +10,11 @@ export const MenuWithAnchorRect = () => {
   return (
     <Menu.Root positioning={{ getAnchorRect }}>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Menu.Trigger>
-      <Box layerStyle="fill.subtle" p="4" ref={ref} mt="4">
+      <Box layerStyle="fill.subtle" mt="4" p="4" ref={ref}>
         Anchor
       </Box>
       <Portal>

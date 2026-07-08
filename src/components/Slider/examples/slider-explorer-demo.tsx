@@ -1,31 +1,31 @@
-import { Box, Slider, Stack } from "@chakra-ui/react"
+import { Box, Slider, Stack } from '@chakra-ui/react'
 
 export const SliderExplorerDemo = () => {
   return (
-    <Stack maxW="280px" gap="8" w="full">
+    <Stack gap="8" maxW="280px" w="full">
       <Slider.Root defaultValue={[40]} orientation="horizontal">
-        <Slider.Label mb="2" fontWeight="medium">
+        <Slider.Label fontWeight="medium" mb="2">
           Volume
         </Slider.Label>
 
-        <Slider.Control height="6" display="flex" alignItems="center">
-          <Slider.Track bg="gray.200" rounded="full" height="2">
+        <Slider.Control alignItems="center" display="flex" height="6">
+          <Slider.Track bg="gray.200" height="2" rounded="full">
             <Slider.Range bg="blue.500" rounded="full" />
           </Slider.Track>
 
           <Slider.Thumb index={0}>
             <Box
+              alignItems="center"
               bg="white"
-              borderWidth="2px"
               borderColor="blue.500"
-              rounded="full"
+              borderWidth="2px"
               boxSize="5"
               display="flex"
-              alignItems="center"
               justifyContent="center"
+              rounded="full"
               shadow="sm"
             >
-              <Slider.ValueText fontSize="xs" color="blue.600" />
+              <Slider.ValueText color="blue.600" fontSize="xs" />
               <Slider.DraggingIndicator />
             </Box>
           </Slider.Thumb>

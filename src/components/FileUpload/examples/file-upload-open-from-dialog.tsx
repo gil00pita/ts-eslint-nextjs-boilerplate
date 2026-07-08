@@ -1,9 +1,9 @@
-import { Button, Dialog, FileUpload, Icon, Portal } from "@chakra-ui/react"
-import { LuUpload } from "react-icons/lu"
+import { Button, Dialog, FileUpload, Icon, Portal } from '@chakra-ui/react'
+import { LuUpload } from 'react-icons/lu'
 
 export const FileUploadOpenFromDialog = () => {
   return (
-    <Dialog.Root size="sm" placement="center">
+    <Dialog.Root placement="center" size="sm">
       <Dialog.Trigger asChild>
         <Button variant="outline">Open Dialog</Button>
       </Dialog.Trigger>
@@ -21,12 +21,10 @@ export const FileUploadOpenFromDialog = () => {
               <FileUpload.Root>
                 <FileUpload.HiddenInput />
                 <FileUpload.Dropzone width="full">
-                  <Icon size="xl" color="fg.muted">
+                  <Icon color="fg.muted" size="xl">
                     <LuUpload />
                   </Icon>
-                  <FileUpload.DropzoneContent>
-                    Drag and drop files here
-                  </FileUpload.DropzoneContent>
+                  <FileUpload.DropzoneContent>Drag and drop files here</FileUpload.DropzoneContent>
                 </FileUpload.Dropzone>
                 <FileUpload.List />
               </FileUpload.Root>

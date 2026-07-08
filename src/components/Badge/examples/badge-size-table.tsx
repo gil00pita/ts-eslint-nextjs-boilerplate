@@ -2,8 +2,8 @@
 
 import { Badge, For, Span, useRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const BadgeSizeTable = () => {
   const recipe = useRecipe({ key: 'badge' })
@@ -20,14 +20,14 @@ export const BadgeSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <Badge size={v} colorPalette={c} variant="solid">
+                    <Badge colorPalette={c} size={v} variant="solid">
                       New
                     </Badge>
                   </td>

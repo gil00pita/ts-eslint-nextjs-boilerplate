@@ -1,23 +1,23 @@
-"use client"
+'use client'
 
-import { chakra } from "@chakra-ui/react"
+import { chakra } from '@chakra-ui/react'
 
-export const PlaygroundTable = chakra("table", {
+export const PlaygroundTable = chakra('table', {
   base: {
-    width: "full",
-    marginBottom: "32px",
-    borderCollapse: "collapse",
-    "& td:not(.chakra-table__cell)": {
-      paddingRight: "8",
-      paddingBottom: "8",
+    '& td:not(.chakra-table__cell)': {
+      paddingBottom: '8',
+      paddingRight: '8',
     },
-    "& th:not(.chakra-table__column-header)": {
-      fontSize: "sm",
-      color: "fg.muted",
+    '& th:not(.chakra-table__column-header)': {
+      color: 'fg.muted',
+      fontSize: 'sm',
     },
-    "& thead td:not(.chakra-table__cell)": {
-      fontSize: "sm",
-      color: "fg.muted",
+    '& thead td:not(.chakra-table__cell)': {
+      color: 'fg.muted',
+      fontSize: 'sm',
     },
+    borderCollapse: 'collapse',
+    marginBottom: '32px',
+    width: 'full',
   },
 })

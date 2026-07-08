@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -8,20 +8,20 @@ import {
   Portal,
   Text,
   useFloatingPanelContext,
-} from "@chakra-ui/react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 const PanelActions = () => {
   const api = useFloatingPanelContext()
   return (
     <HStack gap="2">
-      <Button size="sm" variant="outline" onClick={() => api.minimize()}>
+      <Button onClick={() => api.minimize()} size="sm" variant="outline">
         Minimize
       </Button>
-      <Button size="sm" variant="outline" onClick={() => api.maximize()}>
+      <Button onClick={() => api.maximize()} size="sm" variant="outline">
         Maximize
       </Button>
-      <Button size="sm" variant="outline" onClick={() => api.restore()}>
+      <Button onClick={() => api.restore()} size="sm" variant="outline">
         Restore
       </Button>
     </HStack>
@@ -31,11 +31,11 @@ const PanelActions = () => {
 export const FloatingPanelContext = () => {
   return (
     <FloatingPanel.Root
-      defaultSize={{ width: 320, height: 200 }}
-      minSize={{ width: 280, height: 160 }}
+      defaultSize={{ height: 200, width: 320 }}
+      minSize={{ height: 160, width: 280 }}
     >
       <FloatingPanel.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Panel
         </Button>
       </FloatingPanel.Trigger>
@@ -49,16 +49,15 @@ export const FloatingPanelContext = () => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>
               </FloatingPanel.Control>
             </FloatingPanel.Header>
             <FloatingPanel.Body>
-              <Text textStyle="sm" mb="3">
-                Control the panel from inside the body using{" "}
-                <code>useFloatingPanelContext</code>.
+              <Text mb="3" textStyle="sm">
+                Control the panel from inside the body using <code>useFloatingPanelContext</code>.
               </Text>
               <PanelActions />
             </FloatingPanel.Body>

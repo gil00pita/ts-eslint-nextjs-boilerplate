@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Checkbox, Table } from "@chakra-ui/react"
-import { useState } from "react"
+import { Checkbox, Table } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const TableWithSelection = () => {
   const [selection, setSelection] = useState<string[]>([])
@@ -9,23 +9,20 @@ export const TableWithSelection = () => {
   const indeterminate = selection.length > 0 && selection.length < items.length
 
   const rows = items.map((item) => (
-    <Table.Row
-      key={item.name}
-      data-selected={selection.includes(item.name) ? "" : undefined}
-    >
+    <Table.Row data-selected={selection.includes(item.name) ? '' : undefined} key={item.name}>
       <Table.Cell>
         <Checkbox.Root
-          size="sm"
-          mt="0.5"
           aria-label="Select row"
           checked={selection.includes(item.name)}
+          mt="0.5"
           onCheckedChange={(changes) => {
             setSelection((prev) =>
               changes.checked
                 ? [...prev, item.name]
-                : selection.filter((name) => name !== item.name),
+                : selection.filter((name) => name !== item.name)
             )
           }}
+          size="sm"
         >
           <Checkbox.HiddenInput />
           <Checkbox.Control />
@@ -43,15 +40,13 @@ export const TableWithSelection = () => {
         <Table.Row>
           <Table.ColumnHeader w="6">
             <Checkbox.Root
-              size="sm"
-              mt="0.5"
               aria-label="Select all rows"
-              checked={indeterminate ? "indeterminate" : selection.length > 0}
+              checked={indeterminate ? 'indeterminate' : selection.length > 0}
+              mt="0.5"
               onCheckedChange={(changes) => {
-                setSelection(
-                  changes.checked ? items.map((item) => item.name) : [],
-                )
+                setSelection(changes.checked ? items.map((item) => item.name) : [])
               }}
+              size="sm"
             >
               <Checkbox.HiddenInput />
               <Checkbox.Control />
@@ -68,9 +63,9 @@ export const TableWithSelection = () => {
 }
 
 const items = [
-  { id: 1, name: "Laptop", category: "Electronics", price: 999.99 },
-  { id: 2, name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
-  { id: 3, name: "Desk Chair", category: "Furniture", price: 150.0 },
-  { id: 4, name: "Smartphone", category: "Electronics", price: 799.99 },
-  { id: 5, name: "Headphones", category: "Accessories", price: 199.99 },
+  { category: 'Electronics', id: 1, name: 'Laptop', price: 999.99 },
+  { category: 'Home Appliances', id: 2, name: 'Coffee Maker', price: 49.99 },
+  { category: 'Furniture', id: 3, name: 'Desk Chair', price: 150.0 },
+  { category: 'Electronics', id: 4, name: 'Smartphone', price: 799.99 },
+  { category: 'Accessories', id: 5, name: 'Headphones', price: 199.99 },
 ]

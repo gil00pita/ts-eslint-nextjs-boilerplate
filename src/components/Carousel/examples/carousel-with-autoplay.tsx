@@ -7,21 +7,21 @@ const items = Array.from({ length: 5 })
 
 export const CarouselWithAutoplay = () => {
   return (
-    <Carousel.Root autoplay={{ delay: 2000 }} slideCount={items.length} mx="auto" maxW="xl">
-      <HStack textStyle="sm" mb="4">
+    <Carousel.Root autoplay={{ delay: 2000 }} maxW="xl" mx="auto" slideCount={items.length}>
+      <HStack mb="4" textStyle="sm">
         <LuClock /> {'autoplay={{ delay: 2000 }}'} or {'autoplay={true}'}
       </HStack>
       <Carousel.ItemGroup>
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
+      <Carousel.Control gap="4" justifyContent="center">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronLeft />

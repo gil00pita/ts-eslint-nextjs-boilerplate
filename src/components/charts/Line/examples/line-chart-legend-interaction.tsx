@@ -1,66 +1,49 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { HStack, VStack } from "@chakra-ui/react"
-import { LuArrowUp } from "react-icons/lu"
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { HStack, VStack } from '@chakra-ui/react'
+import { LuArrowUp } from 'react-icons/lu'
+import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const LineChartLegendInteraction = () => {
   const chart = useChart({
     data: [
-      { mac: 10, linux: 120, month: "January" },
-      { mac: 95, linux: 110, month: "February" },
-      { mac: 87, linux: 125, month: "March" },
-      { mac: 88, linux: 30, month: "May" },
-      { mac: 98, linux: 122, month: "June" },
-      { mac: 90, linux: 15, month: "August" },
+      { linux: 120, mac: 10, month: 'January' },
+      { linux: 110, mac: 95, month: 'February' },
+      { linux: 125, mac: 87, month: 'March' },
+      { linux: 30, mac: 88, month: 'May' },
+      { linux: 122, mac: 98, month: 'June' },
+      { linux: 15, mac: 90, month: 'August' },
     ],
     series: [
-      { name: "mac", color: "teal.solid" },
-      { name: "linux", color: "purple.solid" },
+      { color: 'teal.solid', name: 'mac' },
+      { color: 'purple.solid', name: 'linux' },
     ],
   })
 
   return (
     <Container>
-      <Chart.Root maxH="sm" chart={chart}>
+      <Chart.Root chart={chart} maxH="sm">
         <LineChart data={chart.data} responsive>
-          <CartesianGrid stroke={chart.color("border")} vertical={false} />
+          <CartesianGrid stroke={chart.color('border')} vertical={false} />
           <XAxis
             axisLine={false}
-            dataKey={chart.key("month")}
+            dataKey={chart.key('month')}
+            stroke={chart.color('border')}
             tickFormatter={(value) => value.slice(0, 3)}
-            stroke={chart.color("border")}
           />
-          <YAxis
-            axisLine={false}
-            tickLine={false}
-            tickMargin={10}
-            stroke={chart.color("border")}
-          />
-          <Tooltip
-            animationDuration={100}
-            cursor={false}
-            content={<Chart.Tooltip />}
-          />
+          <YAxis axisLine={false} stroke={chart.color('border')} tickLine={false} tickMargin={10} />
+          <Tooltip animationDuration={100} content={<Chart.Tooltip />} cursor={false} />
           <Legend content={<Chart.Legend interaction="hover" />} />
           {chart.series.map((item) => (
             <Line
-              key={item.name}
-              isAnimationActive={false}
               dataKey={chart.key(item.name)}
+              fill={chart.color('bg')}
+              isAnimationActive={false}
+              key={item.name}
+              opacity={chart.getSeriesOpacity(item.name)}
               stroke={chart.color(item.color)}
               strokeWidth={2}
-              fill={chart.color("bg")}
-              opacity={chart.getSeriesOpacity(item.name)}
             />
           ))}
         </LineChart>
@@ -72,14 +55,9 @@ export const LineChartLegendInteraction = () => {
 const Container = (props: React.PropsWithChildren) => {
   const { children } = props
   return (
-    <VStack pos="relative" gap="4">
+    <VStack gap="4" pos="relative">
       {children}
-      <HStack
-        textStyle="xs"
-        bottom="1"
-        color="teal.fg"
-        animation="slide-to-top 1s infinite"
-      >
+      <HStack animation="slide-to-top 1s infinite" bottom="1" color="teal.fg" textStyle="xs">
         Hover on "mac" <LuArrowUp />
       </HStack>
     </VStack>

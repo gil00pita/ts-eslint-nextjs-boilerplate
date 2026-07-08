@@ -11,21 +11,21 @@ export const CarouselWithStore = () => {
   const carousel = useCarousel({ slideCount: items.length })
 
   return (
-    <Carousel.RootProvider value={carousel} maxW="xl" mx="auto">
-      <Button variant="outline" onClick={() => carousel.scrollTo(2)}>
+    <Carousel.RootProvider maxW="xl" mx="auto" value={carousel}>
+      <Button onClick={() => carousel.scrollTo(2)} variant="outline">
         Go to slide 3
       </Button>
       <Carousel.ItemGroup>
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
+      <Carousel.Control gap="4" justifyContent="center">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronLeft />

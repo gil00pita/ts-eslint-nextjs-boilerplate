@@ -1,4 +1,4 @@
-import { Badge, FormatNumber, HStack, Stat } from "@chakra-ui/react"
+import { Badge, FormatNumber, HStack, Stat } from '@chakra-ui/react'
 
 export const StatWithTrend = () => {
   return (
@@ -6,7 +6,7 @@ export const StatWithTrend = () => {
       <Stat.Label>Unique </Stat.Label>
       <HStack>
         <Stat.ValueText>
-          <FormatNumber value={8456.4} style="currency" currency="USD" />
+          <FormatNumber currency="USD" style="currency" value={8456.4} />
         </Stat.ValueText>
         <Badge colorPalette="green" gap="0">
           <Stat.UpIndicator />

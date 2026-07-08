@@ -1,8 +1,8 @@
-import { Slider } from "@chakra-ui/react"
+import { Slider } from '@chakra-ui/react'
 
 export const SliderVertical = () => {
   return (
-    <Slider.Root height="200px" orientation="vertical" defaultValue={[40]}>
+    <Slider.Root defaultValue={[40]} height="200px" orientation="vertical">
       <Slider.Control>
         <Slider.Track>
           <Slider.Range />

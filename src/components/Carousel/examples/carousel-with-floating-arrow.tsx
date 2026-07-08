@@ -7,8 +7,8 @@ const items = Array.from({ length: 5 })
 
 export const CarouselWithFloatingArrow = () => {
   return (
-    <Carousel.Root slideCount={items.length} maxW="xl" mx="auto" gap="4">
-      <Carousel.Control justifyContent="center" gap="4" width="full">
+    <Carousel.Root gap="4" maxW="xl" mx="auto" slideCount={items.length}>
+      <Carousel.Control gap="4" justifyContent="center" width="full">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="outline">
             <LuArrowLeft />
@@ -17,8 +17,8 @@ export const CarouselWithFloatingArrow = () => {
 
         <Carousel.ItemGroup width="full">
           {items.map((_src, index) => (
-            <Carousel.Item key={index} index={index}>
-              <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+            <Carousel.Item index={index} key={index}>
+              <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
                 {index + 1}
               </DecorativeBox>
             </Carousel.Item>

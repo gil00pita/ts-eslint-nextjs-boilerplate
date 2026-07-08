@@ -1,23 +1,23 @@
-"use client"
+'use client'
 
-import { Button, Field, SegmentGroup, Stack } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Field, SegmentGroup, Stack } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  fontSize: z.string({ message: "Font size is required" }),
+  fontSize: z.string({ message: 'Font size is required' }),
 })
 
 type FormValues = z.infer<typeof formSchema>
 
 export const SegmentedControlWithHookForm = () => {
   const {
-    handleSubmit,
-    formState: { errors },
     control,
+    formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
-    defaultValues: { fontSize: "md" },
+    defaultValues: { fontSize: 'md' },
     resolver: standardSchemaResolver(formSchema),
   })
 
@@ -25,7 +25,7 @@ export const SegmentedControlWithHookForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4" align="flex-start">
+      <Stack align="flex-start" gap="4">
         <Controller
           control={control}
           name="fontSize"
@@ -33,13 +33,13 @@ export const SegmentedControlWithHookForm = () => {
             <Field.Root invalid={!!errors.fontSize}>
               <Field.Label>Font size</Field.Label>
               <SegmentGroup.Root
-                size="sm"
-                onBlur={field.onBlur}
                 name={field.name}
-                value={field.value}
+                onBlur={field.onBlur}
                 onValueChange={({ value }) => field.onChange(value)}
+                size="sm"
+                value={field.value}
               >
-                <SegmentGroup.Items items={["sm", "md", "lg"]} />
+                <SegmentGroup.Items items={['sm', 'md', 'lg']} />
                 <SegmentGroup.Indicator />
               </SegmentGroup.Root>
               <Field.ErrorText>{errors.fontSize?.message}</Field.ErrorText>

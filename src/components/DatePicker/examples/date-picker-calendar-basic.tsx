@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { DatePicker } from "@chakra-ui/react"
+import { DatePicker } from '@chakra-ui/react'
 
 export const DatePickerCalendarBasic = () => {
   return (

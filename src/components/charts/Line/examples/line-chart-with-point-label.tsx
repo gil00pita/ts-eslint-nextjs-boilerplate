@@ -1,64 +1,49 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  CartesianGrid,
-  LabelList,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { CartesianGrid, LabelList, Line, LineChart, Tooltip, XAxis } from 'recharts'
 
 export const LineChartWithPointLabel = () => {
   const chart = useChart({
     data: [
-      { name: "Jan", uv: 400 },
-      { name: "Feb", uv: 300 },
-      { name: "Mar", uv: 200 },
-      { name: "Apr", uv: 278 },
-      { name: "May", uv: 189 },
-      { name: "Jun", uv: 239 },
-      { name: "Jul", uv: 349 },
+      { name: 'Jan', uv: 400 },
+      { name: 'Feb', uv: 300 },
+      { name: 'Mar', uv: 200 },
+      { name: 'Apr', uv: 278 },
+      { name: 'May', uv: 189 },
+      { name: 'Jun', uv: 239 },
+      { name: 'Jul', uv: 349 },
     ],
   })
 
   return (
-    <Chart.Root maxH="md" chart={chart}>
-      <LineChart
-        data={chart.data}
-        margin={{ left: 40, right: 40, top: 40 }}
-        responsive
-      >
-        <CartesianGrid
-          stroke={chart.color("border")}
-          strokeDasharray="3 3"
-          horizontal={false}
-        />
+    <Chart.Root chart={chart} maxH="md">
+      <LineChart data={chart.data} margin={{ left: 40, right: 40, top: 40 }} responsive>
+        <CartesianGrid horizontal={false} stroke={chart.color('border')} strokeDasharray="3 3" />
         <XAxis
-          dataKey={chart.key("name")}
+          dataKey={chart.key('name')}
+          stroke={chart.color('border')}
           tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
         />
         <Tooltip
           animationDuration={100}
-          cursor={{ stroke: chart.color("border") }}
           content={<Chart.Tooltip hideLabel />}
+          cursor={{ stroke: chart.color('border') }}
         />
         <Line
+          dataKey={chart.key('uv')}
+          fill={chart.color('teal.solid')}
           isAnimationActive={false}
-          dataKey={chart.key("uv")}
-          fill={chart.color("teal.solid")}
-          stroke={chart.color("teal.solid")}
+          stroke={chart.color('teal.solid')}
           strokeWidth={2}
         >
           <LabelList
-            dataKey={chart.key("uv")}
-            position="right"
+            dataKey={chart.key('uv')}
             offset={10}
+            position="right"
             style={{
-              fontWeight: "600",
-              fill: chart.color("fg"),
+              fill: chart.color('fg'),
+              fontWeight: '600',
             }}
           />
         </Line>

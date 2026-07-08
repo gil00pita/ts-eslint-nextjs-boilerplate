@@ -1,8 +1,8 @@
-import { Icon } from "@chakra-ui/react"
+import { Icon } from '@chakra-ui/react'
 
 export const IconWithCustomSvg = () => {
   return (
-    <Icon size="lg" color="red.500" asChild>
+    <Icon asChild color="red.500" size="lg">
       <svg viewBox="0 0 32 32">
         <g fill="currentColor">
           <path d="M16,11.5a3,3,0,1,0-3-3A3,3,0,0,0,16,11.5Z" />

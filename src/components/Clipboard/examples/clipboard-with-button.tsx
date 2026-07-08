@@ -1,10 +1,10 @@
-import { Button, Clipboard } from "@chakra-ui/react"
+import { Button, Clipboard } from '@chakra-ui/react'
 
 export const ClipboardWithButton = () => {
   return (
     <Clipboard.Root value="https://chakra-ui.com">
       <Clipboard.Trigger asChild>
-        <Button variant="surface" size="sm">
+        <Button size="sm" variant="surface">
           <Clipboard.Indicator />
           <Clipboard.CopyText />
         </Button>

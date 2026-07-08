@@ -7,7 +7,7 @@ export const RadioCardWithColors = () => {
     <Stack gap="8">
       <For each={colorPalettes}>
         {(colorPalette) => (
-          <RadioCard.Root key={colorPalette} colorPalette={colorPalette} defaultValue="next">
+          <RadioCard.Root colorPalette={colorPalette} defaultValue="next" key={colorPalette}>
             <RadioCard.Label>Select Framework</RadioCard.Label>
             <HStack align="stretch">
               {items.map((item) => (
@@ -28,6 +28,6 @@ export const RadioCardWithColors = () => {
 }
 
 const items = [
-  { value: 'next', title: 'Next.js' },
-  { value: 'vite', title: 'Vite' },
+  { title: 'Next.js', value: 'next' },
+  { title: 'Vite', value: 'vite' },
 ]

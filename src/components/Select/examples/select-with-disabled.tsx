@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
 
 export const SelectWithDisabled = () => {
   return (
-    <Select.Root disabled collection={frameworks} size="sm" width="320px">
+    <Select.Root collection={frameworks} disabled size="sm" width="320px">
       <Select.HiddenSelect />
       <Select.Label>Select framework</Select.Label>
       <Select.Control>
@@ -33,9 +33,9 @@ export const SelectWithDisabled = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

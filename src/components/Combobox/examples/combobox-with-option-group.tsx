@@ -1,19 +1,14 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  Portal,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
+import { Combobox, Portal, useFilter, useListCollection } from '@chakra-ui/react'
 
 export const ComboboxWithOptionGroup = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: frameworks,
     filter: contains,
     groupBy: (item) => item.type,
+    initialItems: frameworks,
   })
 
   return (
@@ -55,12 +50,12 @@ export const ComboboxWithOptionGroup = () => {
 }
 
 const frameworks = [
-  { label: "React", value: "react", type: "Frontend" },
-  { label: "Node.js", value: "nodejs", type: "Backend" },
-  { label: "Django", value: "django", type: "Backend" },
-  { label: "Vue", value: "vue", type: "Frontend" },
-  { label: "Svelte", value: "svelte", type: "Frontend" },
-  { label: "Next.js", value: "nextjs", type: "Frontend" },
-  { label: "Express", value: "express", type: "Backend" },
-  { label: "Ruby on Rails", value: "rails", type: "Backend" },
+  { label: 'React', type: 'Frontend', value: 'react' },
+  { label: 'Node.js', type: 'Backend', value: 'nodejs' },
+  { label: 'Django', type: 'Backend', value: 'django' },
+  { label: 'Vue', type: 'Frontend', value: 'vue' },
+  { label: 'Svelte', type: 'Frontend', value: 'svelte' },
+  { label: 'Next.js', type: 'Frontend', value: 'nextjs' },
+  { label: 'Express', type: 'Backend', value: 'express' },
+  { label: 'Ruby on Rails', type: 'Backend', value: 'rails' },
 ]

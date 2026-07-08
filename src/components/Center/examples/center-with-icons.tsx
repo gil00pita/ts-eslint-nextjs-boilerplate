@@ -1,15 +1,15 @@
-import { Box, Center, HStack } from "@chakra-ui/react"
-import { LuPhone } from "react-icons/lu"
+import { Box, Center, HStack } from '@chakra-ui/react'
+import { LuPhone } from 'react-icons/lu'
 
 export const CenterWithIcons = () => {
   return (
     <HStack>
-      <Center w="40px" h="40px" bg="tomato" color="white">
+      <Center bg="tomato" color="white" h="40px" w="40px">
         <LuPhone />
       </Center>
 
-      <Center w="40px" h="40px" bg="tomato" color="white">
-        <Box as="span" fontWeight="bold" fontSize="lg">
+      <Center bg="tomato" color="white" h="40px" w="40px">
+        <Box as="span" fontSize="lg" fontWeight="bold">
           1
         </Box>
       </Center>

@@ -1,85 +1,50 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Brand Styles/Icons" />
 
-# Icons
-
-Icons in Phenix UI are functional first. They help people scan, confirm intent, and understand state quickly.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Icons"
+  lead="Icons in Phenix UI are functional first. They help people scan, confirm intent, and understand state quickly."
+/>
 
 ## Style
 
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Standard</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Form</td>
-      <td>Outlined, rounded stroke icons.</td>
-    </tr>
-    <tr>
-      <td>Stroke</td>
-      <td>2px at the base 24px size.</td>
-    </tr>
-    <tr>
-      <td>Corners</td>
-      <td>Slightly rounded to match the Phenix radius system.</td>
-    </tr>
-    <tr>
-      <td>Detail</td>
-      <td>Minimal; avoid decorative micro-detail.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'attribute', header: 'Attribute', width: '22%' },
+    { key: 'standard', header: 'Standard' },
+  ]}
+  rows={[
+    { attribute: 'Form', standard: 'Outlined, rounded stroke icons.' },
+    { attribute: 'Stroke', standard: '2px at the base 24px size.' },
+    { attribute: 'Corners', standard: 'Slightly rounded to match the Phenix radius system.' },
+    { attribute: 'Detail', standard: 'Minimal; avoid decorative micro-detail.' },
+  ]}
+/>
 
 ## Sizes
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Size</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>xs</code>
-      </td>
-      <td>12px</td>
-      <td>Inline metadata and compact indicators.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>sm</code>
-      </td>
-      <td>16px</td>
-      <td>Table rows, form help, and dense UI.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>md</code>
-      </td>
-      <td>20px</td>
-      <td>Buttons and navigation.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>lg</code>
-      </td>
-      <td>24px</td>
-      <td>Empty states, page headers, and feature callouts.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'token', header: 'Token', width: '16%', isCode: true },
+    { key: 'size', header: 'Size', width: '14%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'xs', size: '12px', use: 'Inline metadata and compact indicators.' },
+    { token: 'sm', size: '16px', use: 'Table rows, form help, and dense UI.' },
+    { token: 'md', size: '20px', use: 'Buttons and navigation.' },
+    { token: 'lg', size: '24px', use: 'Empty states, page headers, and feature callouts.' },
+  ]}
+/>
 
-## Accessibility
-
+<Callout title="Accessibility" tone="warning">
 - Decorative icons should be hidden from assistive technology.
 - Icon-only actions must use an accessible name.
 - Icons that communicate status need visible text nearby.
 - Do not replace clear button text with an icon when the action could be ambiguous.
+</Callout>

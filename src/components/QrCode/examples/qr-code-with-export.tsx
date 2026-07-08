@@ -1,4 +1,4 @@
-import { Button, QrCode } from "@chakra-ui/react"
+import { Button, QrCode } from '@chakra-ui/react'
 
 export const QrCodeWithExport = () => {
   return (
@@ -7,12 +7,8 @@ export const QrCodeWithExport = () => {
         <QrCode.Pattern />
       </QrCode.Frame>
 
-      <QrCode.DownloadTrigger
-        asChild
-        fileName="qr-code.png"
-        mimeType="image/png"
-      >
-        <Button variant="outline" size="xs" mt="3">
+      <QrCode.DownloadTrigger asChild fileName="qr-code.png" mimeType="image/png">
+        <Button mt="3" size="xs" variant="outline">
           Download
         </Button>
       </QrCode.DownloadTrigger>

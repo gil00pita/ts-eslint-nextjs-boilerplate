@@ -1,35 +1,36 @@
-import { Box, SimpleGrid, Stack, Text } from "@chakra-ui/react";
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
+
+import { Box, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 
 export interface VariantMatrixProps<T extends string> {
   /** Title shown above the matrix. */
-  title?: string;
+  title?: string
   /** Values rendered across the matrix. */
-  values: readonly T[];
+  values: readonly T[]
   /** Render callback for each value. */
-  render: (value: T) => ReactNode;
+  render: (value: T) => ReactNode
   /** Minimum grid item width. */
-  minChildWidth?: string;
+  minChildWidth?: string
 }
 
 export function VariantMatrix<T extends string>({
+  minChildWidth = '150px',
+  render,
   title,
   values,
-  render,
-  minChildWidth = "150px",
 }: VariantMatrixProps<T>) {
   return (
     <Stack gap="3">
       {title ? (
-        <Text fontWeight="semibold" color="text.default">
+        <Text color="text.default" fontWeight="semibold">
           {title}
         </Text>
       ) : null}
-      <SimpleGrid minChildWidth={minChildWidth} gap="3">
+      <SimpleGrid gap="3" minChildWidth={minChildWidth}>
         {values.map((value) => (
-          <Box key={value} p="3" borderWidth="1px" borderColor="border.subtle" borderRadius="md">
+          <Box borderColor="border.subtle" borderRadius="md" borderWidth="1px" key={value} p="3">
             <Stack gap="2">
-              <Text fontSize="sm" color="text.muted">
+              <Text color="text.muted" fontSize="sm">
                 {value}
               </Text>
               {render(value)}
@@ -38,5 +39,5 @@ export function VariantMatrix<T extends string>({
         ))}
       </SimpleGrid>
     </Stack>
-  );
+  )
 }

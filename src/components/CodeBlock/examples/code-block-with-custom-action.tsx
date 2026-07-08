@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
-import { CodeBlock, IconButton, createShikiAdapter } from "@chakra-ui/react"
-import { RxCodesandboxLogo } from "react-icons/rx"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, IconButton } from '@chakra-ui/react'
+import { RxCodesandboxLogo } from 'react-icons/rx'
 
 const file = {
   code: `
@@ -10,8 +11,8 @@ const file = {
   <h1>Hello, world!</h1>
 </div>
 `,
-  language: "html",
-  title: "index.html",
+  language: 'html',
+  title: 'index.html',
 }
 
 export const CodeBlockWithCustomAction = () => {
@@ -21,17 +22,17 @@ export const CodeBlockWithCustomAction = () => {
         <CodeBlock.Header>
           <CodeBlock.Title>{file.title}</CodeBlock.Title>
           <CodeBlock.CopyTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
+            <IconButton size="2xs" variant="ghost">
               <CodeBlock.CopyIndicator />
             </IconButton>
           </CodeBlock.CopyTrigger>
           <IconButton
-            variant="ghost"
-            size="2xs"
             aria-label="Open in CodeSandbox"
             onClick={() => {
-              alert("Open in CodeSandbox")
+              alert('Open in CodeSandbox')
             }}
+            size="2xs"
+            variant="ghost"
           >
             <RxCodesandboxLogo />
           </IconButton>
@@ -48,11 +49,11 @@ export const CodeBlockWithCustomAction = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

@@ -1,14 +1,7 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  ColorPicker,
-  HStack,
-  Portal,
-  Stack,
-  parseColor,
-} from "@chakra-ui/react"
-import { Controller, useForm } from "react-hook-form"
+import { Button, ColorPicker, HStack, parseColor, Portal, Stack } from '@chakra-ui/react'
+import { Controller, useForm } from 'react-hook-form'
 
 interface FormValues {
   color: string
@@ -16,21 +9,21 @@ interface FormValues {
 
 export const ColorPickerWithHookForm = () => {
   const { control, handleSubmit } = useForm<FormValues>({
-    defaultValues: { color: "#000000" },
+    defaultValues: { color: '#000000' },
   })
 
   const onSubmit = handleSubmit((data) => console.log(data))
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4" align="flex-start" maxW="sm">
+      <Stack align="flex-start" gap="4" maxW="sm">
         <Controller
-          name="color"
           control={control}
+          name="color"
           render={({ field }) => (
             <ColorPicker.Root
-              name={field.name}
               defaultValue={parseColor(field.value)}
+              name={field.name}
               onValueChange={(e) => field.onChange(e.valueAsString)}
             >
               <ColorPicker.HiddenInput />

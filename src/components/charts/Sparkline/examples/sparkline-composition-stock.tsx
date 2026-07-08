@@ -1,30 +1,22 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  Badge,
-  Box,
-  Card,
-  FormatNumber,
-  Span,
-  Stack,
-  Stat,
-} from "@chakra-ui/react"
-import { Area, AreaChart } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Badge, Box, Card, FormatNumber, Span, Stack, Stat } from '@chakra-ui/react'
+import { Area, AreaChart } from 'recharts'
 
 export const SparklineCompositionStock = () => {
   const chart = useChart({
     data: [
-      { date: "2023-01", value: 145.43 },
-      { date: "2023-02", value: 151.73 },
-      { date: "2023-03", value: 157.65 },
-      { date: "2023-04", value: 169.68 },
-      { date: "2023-05", value: 173.75 },
-      { date: "2023-06", value: 186.68 },
-      { date: "2023-07", value: 181.99 },
-      { date: "2023-08", value: 189.46 },
+      { date: '2023-01', value: 145.43 },
+      { date: '2023-02', value: 151.73 },
+      { date: '2023-03', value: 157.65 },
+      { date: '2023-04', value: 169.68 },
+      { date: '2023-05', value: 173.75 },
+      { date: '2023-06', value: 186.68 },
+      { date: '2023-07', value: 181.99 },
+      { date: '2023-08', value: 189.46 },
     ],
-    series: [{ name: "value", color: "green.solid" }],
+    series: [{ color: 'green.solid', name: 'value' }],
   })
 
   const closing = chart.data[chart.data.length - 1]
@@ -33,34 +25,34 @@ export const SparklineCompositionStock = () => {
 
   return (
     <Card.Root maxW="sm" size="sm">
-      <Card.Body flexDirection="row" alignItems="center">
-        <Stack gap="0" flex="1">
+      <Card.Body alignItems="center" flexDirection="row">
+        <Stack flex="1" gap="0">
           <Box fontWeight="semibold" textStyle="sm">
             AMZN
           </Box>
-          <Box textStyle="xs" color="fg.muted">
+          <Box color="fg.muted" textStyle="xs">
             Amazon Inc.
           </Box>
         </Stack>
 
-        <Chart.Root width="28" height="12" chart={chart}>
+        <Chart.Root chart={chart} height="12" width="28">
           <AreaChart data={chart.data} responsive>
             <defs>
               <Chart.Gradient
                 id="sp-gradient"
                 stops={[
-                  { offset: 0, color: "green.solid", opacity: 0.8 },
-                  { offset: 1, color: "green.solid", opacity: 0.2 },
+                  { color: 'green.solid', offset: 0, opacity: 0.8 },
+                  { color: 'green.solid', offset: 1, opacity: 0.2 },
                 ]}
               />
             </defs>
             {chart.series.map((item) => (
               <Area
-                key={item.name}
-                isAnimationActive={false}
                 dataKey={chart.key(item.name)}
                 fill={`url(#sp-gradient)`}
                 fillOpacity={0.2}
+                isAnimationActive={false}
+                key={item.name}
                 stroke={chart.color(item.color)}
                 strokeWidth={2}
               />
@@ -68,21 +60,13 @@ export const SparklineCompositionStock = () => {
           </AreaChart>
         </Chart.Root>
 
-        <Stat.Root size="sm" alignItems="flex-end">
+        <Stat.Root alignItems="flex-end" size="sm">
           <Span fontWeight="medium">
-            <FormatNumber
-              value={closing.value}
-              style="currency"
-              currency="USD"
-            />
+            <FormatNumber currency="USD" style="currency" value={closing.value} />
           </Span>
-          <Badge colorPalette={trend > 0 ? "green" : "red"} gap="0">
+          <Badge colorPalette={trend > 0 ? 'green' : 'red'} gap="0">
             <Stat.UpIndicator />
-            <FormatNumber
-              value={trend}
-              style="percent"
-              maximumFractionDigits={2}
-            />
+            <FormatNumber maximumFractionDigits={2} style="percent" value={trend} />
           </Badge>
         </Stat.Root>
       </Card.Body>

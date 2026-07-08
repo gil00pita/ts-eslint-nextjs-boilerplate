@@ -1,12 +1,13 @@
-import { Button } from "@chakra-ui/react"
-import { Tooltip } from "@/ui/tooltip"
+import { Button } from '@chakra-ui/react'
+
+import { Tooltip } from '@/ui/tooltip'
 
 export const TooltipWithInteractive = () => {
-	return (
-		<Tooltip content='This is the tooltip content' interactive>
-			<Button variant='outline' size='sm'>
-				Hover me
-			</Button>
-		</Tooltip>
-	)
+  return (
+    <Tooltip content="This is the tooltip content" interactive>
+      <Button size="sm" variant="outline">
+        Hover me
+      </Button>
+    </Tooltip>
+  )
 }

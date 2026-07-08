@@ -1,10 +1,10 @@
-import { Button, Toggle } from "@chakra-ui/react"
-import { LuBold } from "react-icons/lu"
+import { Button, Toggle } from '@chakra-ui/react'
+import { LuBold } from 'react-icons/lu'
 
 export const ToggleBasic = () => {
   return (
-    <Toggle.Root px="0" asChild>
-      <Button variant={{ base: "subtle", _pressed: "solid" }}>
+    <Toggle.Root asChild px="0">
+      <Button variant={{ _pressed: 'solid', base: 'subtle' }}>
         <LuBold />
       </Button>
     </Toggle.Root>

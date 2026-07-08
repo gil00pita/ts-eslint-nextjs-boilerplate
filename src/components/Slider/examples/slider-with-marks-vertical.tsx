@@ -1,19 +1,14 @@
-import { Slider } from "@chakra-ui/react"
+import { Slider } from '@chakra-ui/react'
 
 const marks = [
-  { value: 0, label: "0%" },
-  { value: 50, label: "50%" },
-  { value: 100, label: "100%" },
+  { label: '0%', value: 0 },
+  { label: '50%', value: 50 },
+  { label: '100%', value: 100 },
 ]
 
 export const SliderWithMarksVertical = () => {
   return (
-    <Slider.Root
-      height="200px"
-      orientation="vertical"
-      colorPalette="pink"
-      defaultValue={[40]}
-    >
+    <Slider.Root colorPalette="pink" defaultValue={[40]} height="200px" orientation="vertical">
       <Slider.Control>
         <Slider.Track>
           <Slider.Range />

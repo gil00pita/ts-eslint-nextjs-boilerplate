@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter } from '@chakra-ui/react'
 
 const file = {
   code: `// Example with very long lines that require horizontal scrolling
@@ -14,8 +15,8 @@ function ExampleComponent() {
 
   return <div>Test</div>
 }`,
-  language: "tsx",
-  title: "horizontal-overflow.tsx",
+  language: 'tsx',
+  title: 'horizontal-overflow.tsx',
 }
 
 export const CodeBlockWithHorizontalOverflow = () => {
@@ -37,11 +38,11 @@ export const CodeBlockWithHorizontalOverflow = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

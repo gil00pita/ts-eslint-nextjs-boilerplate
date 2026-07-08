@@ -1,11 +1,11 @@
 'use client'
 
 import { Box, Button, ButtonGroup, IconButton, ScrollArea, VStack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuArrowDown } from 'react-icons/lu'
+import { useStickToBottom } from 'use-stick-to-bottom'
 
 import { DecorativeBox } from '@/utils/storybook/decorative-box'
-import { LuArrowDown } from 'react-icons/lu'
-import { useState } from 'react'
-import { useStickToBottom } from 'use-stick-to-bottom'
 
 export const ScrollAreaStickToBottom = () => {
   const sticky = useStickToBottom()
@@ -41,19 +41,19 @@ export const ScrollAreaStickToBottom = () => {
   }
 
   return (
-    <VStack gap="4" align="stretch" width="20rem">
+    <VStack align="stretch" gap="4" width="20rem">
       <ButtonGroup gap="2" size="sm" variant="outline">
         <Button onClick={addMessage}>Add Message</Button>
         <Button onClick={addMultipleMessages}>Add 5 Messages</Button>
         <Button onClick={removeMessage}>Remove Message</Button>
       </ButtonGroup>
 
-      <ScrollArea.Root maxHeight="20rem" width="full" borderWidth="1px" rounded="l2" size="xs">
+      <ScrollArea.Root borderWidth="1px" maxHeight="20rem" rounded="l2" size="xs" width="full">
         <ScrollArea.Viewport ref={sticky.scrollRef}>
           <ScrollArea.Content ref={sticky.contentRef}>
-            <VStack gap="2" p="3" align="stretch">
+            <VStack align="stretch" gap="2" p="3">
               {messages.map((message, index) => (
-                <DecorativeBox key={index} h="12">
+                <DecorativeBox h="12" key={index}>
                   {message}
                 </DecorativeBox>
               ))}
@@ -63,13 +63,13 @@ export const ScrollAreaStickToBottom = () => {
         <ScrollArea.Scrollbar />
 
         {!sticky.isAtBottom && (
-          <Box position="absolute" bottom="4" right="4" zIndex="10">
+          <Box bottom="4" position="absolute" right="4" zIndex="10">
             <IconButton
-              size="sm"
+              colorScheme="blue"
               onClick={() => {
                 sticky.scrollToBottom()
               }}
-              colorScheme="blue"
+              size="sm"
               variant="solid"
             >
               <LuArrowDown />

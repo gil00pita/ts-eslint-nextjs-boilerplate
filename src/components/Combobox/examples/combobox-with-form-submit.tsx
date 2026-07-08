@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -9,29 +9,29 @@ import {
   useComboboxContext,
   useFilter,
   useListCollection,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 // This is a hidden input that is used to store the value of the combobox
-const ComboboxHiddenInput = (props: React.ComponentProps<"input">) => {
+const ComboboxHiddenInput = (props: React.ComponentProps<'input'>) => {
   const combobox = useComboboxContext()
-  return <input type="hidden" value={combobox.value[0]} readOnly {...props} />
+  return <input readOnly type="hidden" value={combobox.value[0]} {...props} />
 }
 
 export const ComboboxWithFormSubmit = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
+    filter: contains,
     initialItems: countries,
     itemToString: (item) => item.country,
     itemToValue: (item) => item.code,
-    filter: contains,
   })
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
-    const country = formData.get("country")
-    console.log("Form submitted with country code:", country)
+    const country = formData.get('country')
+    console.log('Form submitted with country code:', country)
     alert(`Selected country code: ${country}`)
   }
 
@@ -41,13 +41,10 @@ export const ComboboxWithFormSubmit = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack gap="4" align="flex-start">
+      <Stack align="flex-start" gap="4">
         <Field.Root width="320px">
           <Field.Label>Country</Field.Label>
-          <Combobox.Root
-            collection={collection}
-            onInputValueChange={handleInputChange}
-          >
+          <Combobox.Root collection={collection} onInputValueChange={handleInputChange}>
             <Combobox.Control>
               <Combobox.Input placeholder="Search countries (e.g. United States)" />
               <Combobox.IndicatorGroup>
@@ -63,7 +60,7 @@ export const ComboboxWithFormSubmit = () => {
                 <Combobox.Content>
                   <Combobox.Empty>No countries found</Combobox.Empty>
                   {collection.items.map((item) => (
-                    <Combobox.Item key={item.code} item={item}>
+                    <Combobox.Item item={item} key={item.code}>
                       {item.flag} {item.country}
                       <Combobox.ItemIndicator />
                     </Combobox.Item>
@@ -73,8 +70,7 @@ export const ComboboxWithFormSubmit = () => {
             </Portal>
           </Combobox.Root>
           <Field.HelperText>
-            The form will submit the country code (e.g. "US"), not the display
-            name
+            The form will submit the country code (e.g. "US"), not the display name
           </Field.HelperText>
         </Field.Root>
 
@@ -87,23 +83,23 @@ export const ComboboxWithFormSubmit = () => {
 }
 
 const countries = [
-  { country: "United States", code: "US", flag: "🇺🇸" },
-  { country: "Canada", code: "CA", flag: "🇨🇦" },
-  { country: "Australia", code: "AU", flag: "🇦🇺" },
-  { country: "United Kingdom", code: "GB", flag: "🇬🇧" },
-  { country: "New Zealand", code: "NZ", flag: "🇳🇿" },
-  { country: "South Africa", code: "ZA", flag: "🇿🇦" },
-  { country: "India", code: "IN", flag: "🇮🇳" },
-  { country: "China", code: "CN", flag: "🇨🇳" },
-  { country: "Japan", code: "JP", flag: "🇯🇵" },
-  { country: "Korea", code: "KR", flag: "🇰🇷" },
-  { country: "Vietnam", code: "VN", flag: "🇻🇳" },
-  { country: "Thailand", code: "TH", flag: "🇹🇭" },
-  { country: "Malaysia", code: "MY", flag: "🇲🇾" },
-  { country: "Indonesia", code: "ID", flag: "🇮🇩" },
-  { country: "Philippines", code: "PH", flag: "🇵🇭" },
-  { country: "Singapore", code: "SG", flag: "🇸🇬" },
-  { country: "Hong Kong", code: "HK", flag: "🇭🇰" },
-  { country: "Macau", code: "MO", flag: "🇲🇴" },
-  { country: "Taiwan", code: "TW", flag: "🇹🇼" },
+  { code: 'US', country: 'United States', flag: '🇺🇸' },
+  { code: 'CA', country: 'Canada', flag: '🇨🇦' },
+  { code: 'AU', country: 'Australia', flag: '🇦🇺' },
+  { code: 'GB', country: 'United Kingdom', flag: '🇬🇧' },
+  { code: 'NZ', country: 'New Zealand', flag: '🇳🇿' },
+  { code: 'ZA', country: 'South Africa', flag: '🇿🇦' },
+  { code: 'IN', country: 'India', flag: '🇮🇳' },
+  { code: 'CN', country: 'China', flag: '🇨🇳' },
+  { code: 'JP', country: 'Japan', flag: '🇯🇵' },
+  { code: 'KR', country: 'Korea', flag: '🇰🇷' },
+  { code: 'VN', country: 'Vietnam', flag: '🇻🇳' },
+  { code: 'TH', country: 'Thailand', flag: '🇹🇭' },
+  { code: 'MY', country: 'Malaysia', flag: '🇲🇾' },
+  { code: 'ID', country: 'Indonesia', flag: '🇮🇩' },
+  { code: 'PH', country: 'Philippines', flag: '🇵🇭' },
+  { code: 'SG', country: 'Singapore', flag: '🇸🇬' },
+  { code: 'HK', country: 'Hong Kong', flag: '🇭🇰' },
+  { code: 'MO', country: 'Macau', flag: '🇲🇴' },
+  { code: 'TW', country: 'Taiwan', flag: '🇹🇼' },
 ]

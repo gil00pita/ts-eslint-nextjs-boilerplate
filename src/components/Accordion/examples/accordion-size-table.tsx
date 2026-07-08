@@ -1,10 +1,11 @@
 'use client'
 
+import type { AccordionRootProps } from '@chakra-ui/react'
+
 import { Accordion, For, Span, useSlotRecipe } from '@chakra-ui/react'
 
-import type { AccordionRootProps } from '@chakra-ui/react'
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const AccordionSizeTable = () => {
   const recipe = useSlotRecipe({ key: 'accordion' })

@@ -1,10 +1,10 @@
-import { For, HStack, Stack, Tag } from "@chakra-ui/react"
-import { HiCheck } from "react-icons/hi"
+import { For, HStack, Stack, Tag } from '@chakra-ui/react'
+import { HiCheck } from 'react-icons/hi'
 
 export const TagWithVariants = () => {
   return (
     <Stack gap="8">
-      <For each={["subtle", "solid", "outline", "surface"]}>
+      <For each={['subtle', 'solid', 'outline', 'surface']}>
         {(variant) => (
           <HStack key={variant}>
             <Tag.Root variant={variant}>

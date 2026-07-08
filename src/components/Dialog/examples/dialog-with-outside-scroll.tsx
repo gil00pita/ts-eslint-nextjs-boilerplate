@@ -1,9 +1,9 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
-import Lorem from "react-lorem-ipsum"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
+import Lorem from 'react-lorem-ipsum'
 
 export const DialogWithOutsideScroll = () => {
   return (
-    <Dialog.Root size="sm" scrollBehavior="outside">
+    <Dialog.Root scrollBehavior="outside" size="sm">
       <Dialog.Trigger asChild>
         <Button variant="outline">Outside Scroll</Button>
       </Dialog.Trigger>

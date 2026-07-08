@@ -1,33 +1,31 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Bar, BarChart, Rectangle } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Bar, BarChart, Rectangle } from 'recharts'
 
 export const SparklineBarChart = () => {
   const chart = useChart({
     data: [
-      { value: 10, fill: "teal.solid" },
-      { value: 16, fill: "green.solid" },
-      { value: 19, fill: "teal.solid" },
-      { value: 15, fill: "green.solid" },
-      { value: 12, fill: "teal.solid" },
-      { value: 15, fill: "teal.solid" },
-      { value: 10, fill: "teal.solid" },
-      { value: 18, fill: "teal.solid" },
+      { fill: 'teal.solid', value: 10 },
+      { fill: 'green.solid', value: 16 },
+      { fill: 'teal.solid', value: 19 },
+      { fill: 'green.solid', value: 15 },
+      { fill: 'teal.solid', value: 12 },
+      { fill: 'teal.solid', value: 15 },
+      { fill: 'teal.solid', value: 10 },
+      { fill: 'teal.solid', value: 18 },
     ],
   })
 
   return (
-    <Chart.Root width="28" height="12" chart={chart}>
-      <BarChart data={chart.data} barSize={8} responsive>
+    <Chart.Root chart={chart} height="12" width="28">
+      <BarChart barSize={8} data={chart.data} responsive>
         <Bar
+          dataKey={chart.key('value')}
+          fill={chart.color('teal.solid')}
           isAnimationActive={false}
-          dataKey={chart.key("value")}
-          fill={chart.color("teal.solid")}
+          shape={(props) => <Rectangle {...props} fill={chart.color(props.payload!.fill)} />}
           stroke=""
-          shape={(props) => (
-            <Rectangle {...props} fill={chart.color(props.payload!.fill)} />
-          )}
         />
       </BarChart>
     </Chart.Root>

@@ -1,17 +1,17 @@
-import { InputGroup, NumberInput } from "@chakra-ui/react"
-import { LuArrowRightLeft } from "react-icons/lu"
+import { InputGroup, NumberInput } from '@chakra-ui/react'
+import { LuArrowRightLeft } from 'react-icons/lu'
 
 export const NumberInputWithScrubber = () => {
   return (
     <NumberInput.Root defaultValue="10" width="200px">
       <NumberInput.Control />
       <InputGroup
-        startElementProps={{ pointerEvents: "auto" }}
         startElement={
           <NumberInput.Scrubber>
             <LuArrowRightLeft />
           </NumberInput.Scrubber>
         }
+        startElementProps={{ pointerEvents: 'auto' }}
       >
         <NumberInput.Input />
       </InputGroup>

@@ -1,16 +1,12 @@
-import { Link, Text } from "@chakra-ui/react"
+import { Link, Text } from '@chakra-ui/react'
 
 export const LinkWithinText = () => {
   return (
     <Text>
-      Visit the{" "}
-      <Link
-        variant="underline"
-        href="https://chakra-ui.com"
-        colorPalette="teal"
-      >
+      Visit the{' '}
+      <Link colorPalette="teal" href="https://chakra-ui.com" variant="underline">
         Chakra UI
-      </Link>{" "}
+      </Link>{' '}
       website
     </Text>
   )

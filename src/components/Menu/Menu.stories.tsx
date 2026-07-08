@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Overlays / Menu',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,13 +12,14 @@ export default {
       </Box>
     ),
   ],
+  title: 'Overlays / Menu',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Menu')
 
 export { MenuBasic as Basic } from './examples/menu-basic'
 export { MenuControlled as Controlled } from './examples/menu-controlled'
-export { MenuWithStore as WithStore } from './examples/menu-with-store'
+export { MenuOpenFromDialog as OpenFromDialog } from './examples/menu-open-from-dialog'
 export { MenuWithAnchorRect as AnchorRect } from './examples/menu-with-anchor-rect'
 export { MenuWithAvatar as WithAvatar } from './examples/menu-with-avatar'
 export { MenuWithCheckboxItems as CheckboxItems } from './examples/menu-with-checkbox-items'
@@ -33,6 +35,6 @@ export { MenuWithMixedLayout as MixedLayout } from './examples/menu-with-mixed-l
 export { MenuWithOverflow as Overflow } from './examples/menu-with-overflow'
 export { MenuWithPlacement as Placement } from './examples/menu-with-placement'
 export { MenuWithRadioItems as RadioItems } from './examples/menu-with-radio-items'
+export { MenuWithStore as WithStore } from './examples/menu-with-store'
 export { MenuWithSubmenu as Submenu } from './examples/menu-with-submenu'
 export { MenuWithSubmenuDynamic as SubmenuDynamic } from './examples/menu-with-submenu-dynamic'
-export { MenuOpenFromDialog as OpenFromDialog } from './examples/menu-open-from-dialog'

@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { Button, Field, Stack, Switch } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Field, Stack, Switch } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  active: z.boolean({ message: "Active is required" }),
+  active: z.boolean({ message: 'Active is required' }),
 })
 
 type FormData = z.infer<typeof formSchema>
 
 export const SwitchWithHookForm = () => {
   const {
-    handleSubmit,
     control,
     formState: { errors },
+    handleSubmit,
   } = useForm<FormData>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -24,13 +24,13 @@ export const SwitchWithHookForm = () => {
     <form onSubmit={handleSubmit((data) => console.log(data))}>
       <Stack align="flex-start">
         <Controller
-          name="active"
           control={control}
+          name="active"
           render={({ field }) => (
             <Field.Root invalid={!!errors.active}>
               <Switch.Root
-                name={field.name}
                 checked={field.value}
+                name={field.name}
                 onCheckedChange={({ checked }) => field.onChange(checked)}
               >
                 <Switch.HiddenInput onBlur={field.onBlur} />
@@ -41,7 +41,7 @@ export const SwitchWithHookForm = () => {
             </Field.Root>
           )}
         />
-        <Button size="sm" type="submit" mt="4">
+        <Button mt="4" size="sm" type="submit">
           Submit
         </Button>
       </Stack>

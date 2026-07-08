@@ -1,19 +1,11 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  HStack,
-  Stack,
-  Strong,
-  Text,
-} from "@chakra-ui/react"
-import { LuCheck, LuX } from "react-icons/lu"
+import { Avatar, Button, Card, HStack, Stack, Strong, Text } from '@chakra-ui/react'
+import { LuCheck, LuX } from 'react-icons/lu'
 
 export const CardWithAvatar = () => {
   return (
     <Card.Root width="320px">
       <Card.Body>
-        <HStack mb="6" gap="3">
+        <HStack gap="3" mb="6">
           <Avatar.Root>
             <Avatar.Image src="https://images.unsplash.com/photo-1511806754518-53bada35f930" />
             <Avatar.Fallback name="Nate Foss" />
@@ -29,16 +21,15 @@ export const CardWithAvatar = () => {
         </HStack>
         <Card.Description>
           <Strong color="fg">Nate Foss </Strong>
-          has requested to join your team. You can approve or decline their
-          request.
+          has requested to join your team. You can approve or decline their request.
         </Card.Description>
       </Card.Body>
       <Card.Footer>
-        <Button variant="subtle" colorPalette="red" flex="1">
+        <Button colorPalette="red" flex="1" variant="subtle">
           <LuX />
           Decline
         </Button>
-        <Button variant="subtle" colorPalette="blue" flex="1">
+        <Button colorPalette="blue" flex="1" variant="subtle">
           <LuCheck />
           Approve
         </Button>

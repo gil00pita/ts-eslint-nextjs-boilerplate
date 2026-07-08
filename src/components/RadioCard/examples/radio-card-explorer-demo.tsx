@@ -1,5 +1,5 @@
-import { HStack, RadioCard } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { HStack, RadioCard } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const RadioCardExplorerDemo = () => {
   return (
@@ -8,27 +8,21 @@ export const RadioCardExplorerDemo = () => {
 
       <HStack align="stretch" gap="4" wrap="wrap">
         {items.map((item) => (
-          <RadioCard.Item key={item.value} value={item.value} flex="1">
+          <RadioCard.Item flex="1" key={item.value} value={item.value}>
             <RadioCard.ItemHiddenInput />
 
             <RadioCard.ItemControl>
               <RadioCard.ItemContent>
-                <RadioCard.ItemText fontWeight="medium">
-                  {item.title}
-                </RadioCard.ItemText>
-                <RadioCard.ItemDescription fontSize="sm" color="gray.600">
+                <RadioCard.ItemText fontWeight="medium">{item.title}</RadioCard.ItemText>
+                <RadioCard.ItemDescription color="gray.600" fontSize="sm">
                   {item.description}
                 </RadioCard.ItemDescription>
               </RadioCard.ItemContent>
 
-              <RadioCard.ItemIndicator
-                borderWidth="0"
-                color="green.500"
-                checked={<LuCheck />}
-              />
+              <RadioCard.ItemIndicator borderWidth="0" checked={<LuCheck />} color="green.500" />
             </RadioCard.ItemControl>
 
-            <RadioCard.ItemAddon fontSize="xs" color="gray.500">
+            <RadioCard.ItemAddon color="gray.500" fontSize="xs">
               {item.addon}
             </RadioCard.ItemAddon>
           </RadioCard.Item>
@@ -40,21 +34,21 @@ export const RadioCardExplorerDemo = () => {
 
 const items = [
   {
-    value: "next",
-    title: "Next.js",
-    description: "Great for full-stack React apps",
-    addon: "Most popular",
+    addon: 'Most popular',
+    description: 'Great for full-stack React apps',
+    title: 'Next.js',
+    value: 'next',
   },
   {
-    value: "vite",
-    title: "Vite",
-    description: "Fast and modern build tool for SPAs",
-    addon: "Super fast dev server",
+    addon: 'Super fast dev server',
+    description: 'Fast and modern build tool for SPAs',
+    title: 'Vite',
+    value: 'vite',
   },
   {
-    value: "astro",
-    title: "Astro",
-    description: "Perfect for content-driven static sites",
-    addon: "Great for blogs/docs",
+    addon: 'Great for blogs/docs',
+    description: 'Perfect for content-driven static sites',
+    title: 'Astro',
+    value: 'astro',
   },
 ]

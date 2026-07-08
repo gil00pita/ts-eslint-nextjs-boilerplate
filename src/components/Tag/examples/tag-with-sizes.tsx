@@ -1,10 +1,10 @@
-import { For, HStack, Stack, Tag } from "@chakra-ui/react"
-import { HiCheck } from "react-icons/hi"
+import { For, HStack, Stack, Tag } from '@chakra-ui/react'
+import { HiCheck } from 'react-icons/hi'
 
 export const TagWithSizes = () => {
   return (
     <Stack gap="8">
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
           <HStack key={size}>
             <Tag.Root size={size}>

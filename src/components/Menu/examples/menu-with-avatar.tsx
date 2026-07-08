@@ -1,9 +1,9 @@
-import { Avatar, Menu, Portal } from "@chakra-ui/react"
+import { Avatar, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithAvatar = () => {
   return (
-    <Menu.Root positioning={{ placement: "right-end" }}>
-      <Menu.Trigger rounded="full" focusRing="outside">
+    <Menu.Root positioning={{ placement: 'right-end' }}>
+      <Menu.Trigger focusRing="outside" rounded="full">
         <Avatar.Root size="sm">
           <Avatar.Fallback name="Segun Adebayo" />
           <Avatar.Image src="https://bit.ly/sage-adebayo" />

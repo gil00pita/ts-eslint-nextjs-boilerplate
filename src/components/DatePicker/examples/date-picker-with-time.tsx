@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Input, Portal } from "@chakra-ui/react"
+import { Button, DatePicker, Input, Portal } from '@chakra-ui/react'
 import {
   CalendarDateTime,
   DateFormatter,
   type DateValue,
   getLocalTimeZone,
-} from "@internationalized/date"
-import { useState } from "react"
-import { LuCalendar } from "react-icons/lu"
+} from '@internationalized/date'
+import { useState } from 'react'
+import { LuCalendar } from 'react-icons/lu'
 
-const formatter = new DateFormatter("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-  hour: "numeric",
-  minute: "2-digit",
+const formatter = new DateFormatter('en-US', {
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit',
+  month: 'short',
+  year: 'numeric',
 })
 
 export const DatePickerWithTime = () => {
@@ -24,11 +24,11 @@ export const DatePickerWithTime = () => {
   ])
 
   const timeValue = value[0]
-    ? `${String(value[0].hour).padStart(2, "0")}:${String(value[0].minute).padStart(2, "0")}`
-    : ""
+    ? `${String(value[0].hour).padStart(2, '0')}:${String(value[0].minute).padStart(2, '0')}`
+    : ''
 
   const onTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const [hours, minutes] = e.currentTarget.value.split(":").map(Number)
+    const [hours, minutes] = e.currentTarget.value.split(':').map(Number)
     setValue((prev) => {
       const current = prev[0] ?? new CalendarDateTime(2025, 1, 1, 0, 0)
       return [current.set({ hour: hours, minute: minutes })]
@@ -45,25 +45,25 @@ export const DatePickerWithTime = () => {
         newDate.month,
         newDate.day,
         prevTime.hour,
-        prevTime.minute,
+        prevTime.minute
       ),
     ])
   }
 
   return (
     <DatePicker.Root
-      value={value}
-      onValueChange={onDateChange}
       closeOnSelect={false}
       maxWidth="20rem"
+      onValueChange={onDateChange}
+      value={value}
     >
       <DatePicker.Label>Date and time</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Trigger asChild unstyled>
-          <Button variant="outline" width="full" justifyContent="space-between">
+          <Button justifyContent="space-between" variant="outline" width="full">
             {value[0]
               ? formatter.format(value[0].toDate(getLocalTimeZone()))
-              : "Select date and time"}
+              : 'Select date and time'}
             <LuCalendar />
           </Button>
         </DatePicker.Trigger>
@@ -74,7 +74,7 @@ export const DatePickerWithTime = () => {
             <DatePicker.View view="day">
               <DatePicker.Header />
               <DatePicker.DayTable />
-              <Input type="time" value={timeValue} onChange={onTimeChange} />
+              <Input onChange={onTimeChange} type="time" value={timeValue} />
             </DatePicker.View>
           </DatePicker.Content>
         </DatePicker.Positioner>

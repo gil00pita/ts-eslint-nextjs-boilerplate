@@ -1,8 +1,8 @@
-import { chakra } from "@chakra-ui/react"
+import { chakra } from '@chakra-ui/react'
 
 export const SystemWithAsChild = () => {
   return (
-    <chakra.button bg="red" padding="20px" asChild>
+    <chakra.button asChild bg="red" padding="20px">
       <a href="dfd">sdfsd</a>
     </chakra.button>
   )

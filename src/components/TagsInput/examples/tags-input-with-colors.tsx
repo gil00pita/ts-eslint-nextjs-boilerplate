@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import { TagsInput } from "@chakra-ui/react"
+import { TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithColors = () => (
-  <TagsInput.Root defaultValue={["React", "Chakra", "TypeScript"]}>
+  <TagsInput.Root defaultValue={['React', 'Chakra', 'TypeScript']}>
     <TagsInput.Label>Colored Tags</TagsInput.Label>
     <TagsInput.Control>
       <TagsInput.Context>
         {({ value }) =>
           value.map((tag, index) => (
-            <TagsInput.Item key={index} index={index} value={tag}>
+            <TagsInput.Item index={index} key={index} value={tag}>
               <TagsInput.ItemPreview
+                _highlighted={{ filter: 'brightness(0.9)' }}
                 style={{ backgroundColor: randomColor(tag) }}
-                _highlighted={{ filter: "brightness(0.9)" }}
               >
                 <TagsInput.ItemText>{tag}</TagsInput.ItemText>
                 <TagsInput.ItemDeleteTrigger />

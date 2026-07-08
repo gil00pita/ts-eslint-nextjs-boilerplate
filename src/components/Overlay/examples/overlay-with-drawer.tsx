@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { Button, Drawer, Portal, createOverlay } from "@chakra-ui/react"
+import { Button, createOverlay, Drawer, Portal } from '@chakra-ui/react'
 
 interface DialogProps {
   title: string
   description?: string
   content?: React.ReactNode
-  placement?: Drawer.RootProps["placement"]
+  placement?: Drawer.RootProps['placement']
 }
 
 const drawer = createOverlay<DialogProps>((props) => {
-  const { title, description, content, ...rest } = props
+  const { content, description, title, ...rest } = props
   return (
     <Drawer.Root {...rest}>
       <Portal>
@@ -23,9 +23,7 @@ const drawer = createOverlay<DialogProps>((props) => {
               </Drawer.Header>
             )}
             <Drawer.Body spaceY="4">
-              {description && (
-                <Drawer.Description>{description}</Drawer.Description>
-              )}
+              {description && <Drawer.Description>{description}</Drawer.Description>}
               {content}
             </Drawer.Body>
           </Drawer.Content>
@@ -40,10 +38,10 @@ export const OverlayWithDrawer = () => {
     <>
       <Button
         onClick={() => {
-          drawer.open("a", {
-            title: "Drawer Title",
-            description: "Drawer Description",
-            placement: "end",
+          drawer.open('a', {
+            description: 'Drawer Description',
+            placement: 'end',
+            title: 'Drawer Title',
           })
         }}
       >

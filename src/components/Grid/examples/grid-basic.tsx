@@ -1,9 +1,10 @@
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
 import { Grid } from '@chakra-ui/react'
+
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const GridBasic = () => {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" gap="6">
+    <Grid gap="6" templateColumns="repeat(3, 1fr)">
       <DecorativeBox h="20" />
       <DecorativeBox h="20" />
       <DecorativeBox h="20" />

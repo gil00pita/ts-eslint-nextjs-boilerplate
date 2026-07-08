@@ -1,11 +1,11 @@
-import { For, Slider, Stack } from "@chakra-ui/react"
+import { For, Slider, Stack } from '@chakra-ui/react'
 
 export const SliderWithSizes = () => {
   return (
-    <Stack width="200px" gap="4">
-      <For each={["sm", "md", "lg"]}>
+    <Stack gap="4" width="200px">
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
-          <Slider.Root defaultValue={[40]} size={size} key={size}>
+          <Slider.Root defaultValue={[40]} key={size} size={size}>
             <Slider.Label>Slider - {size}</Slider.Label>
             <Slider.Control>
               <Slider.Track>

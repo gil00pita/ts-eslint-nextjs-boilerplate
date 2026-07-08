@@ -1,4 +1,4 @@
-import { HStack, RadioCard } from "@chakra-ui/react"
+import { HStack, RadioCard } from '@chakra-ui/react'
 
 export const RadioCardBasic = () => {
   return (
@@ -20,7 +20,7 @@ export const RadioCardBasic = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js" },
-  { value: "vite", title: "Vite" },
-  { value: "astro", title: "Astro" },
+  { title: 'Next.js', value: 'next' },
+  { title: 'Vite', value: 'vite' },
+  { title: 'Astro', value: 'astro' },
 ]

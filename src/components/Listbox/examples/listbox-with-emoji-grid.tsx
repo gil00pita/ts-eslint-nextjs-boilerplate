@@ -1,24 +1,24 @@
-"use client"
+'use client'
 
 import {
+  createGridCollection,
   Input,
   Listbox,
   Square,
-  createGridCollection,
   useFilter,
   useListboxContext,
-} from "@chakra-ui/react"
-import emojibase from "emojibase-data/en/compact.json"
-import { useCallback, useMemo, useState } from "react"
-import { LuSmile } from "react-icons/lu"
+} from '@chakra-ui/react'
+import emojibase from 'emojibase-data/en/compact.json'
+import { useCallback, useMemo, useState } from 'react'
+import { LuSmile } from 'react-icons/lu'
 
 type Emoji = (typeof emojibase)[number]
 const emojis = emojibase
-  .filter((e) => !e.label.startsWith("regional indicator"))
+  .filter((e) => !e.label.startsWith('regional indicator'))
   .slice(0, 200) as Emoji[]
 
 export const ListboxWithEmojiGrid = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const [items, setItems] = useState(emojis)
 
@@ -34,14 +34,14 @@ export const ListboxWithEmojiGrid = () => {
           return item.hexcode
         },
       }),
-    [items],
+    [items]
   )
 
   const filter = useCallback(
     (value: string) => {
       setItems(emojis.filter((e) => contains(e.label, value)))
     },
-    [contains],
+    [contains]
   )
 
   return (
@@ -49,28 +49,23 @@ export const ListboxWithEmojiGrid = () => {
       <SelectedEmoji />
       <Listbox.Input
         as={Input}
-        placeholder="Type to filter frameworks..."
         onChange={(e) => filter(e.target.value)}
+        placeholder="Type to filter frameworks..."
       />
-      <Listbox.Content
-        w="374px"
-        display="grid"
-        gridTemplateColumns="repeat(8, 1fr)"
-        gap="1"
-      >
+      <Listbox.Content display="grid" gap="1" gridTemplateColumns="repeat(8, 1fr)" w="374px">
         {collection.items.map((item, index) => (
           <Listbox.Item
+            css={{
+              alignItems: 'center',
+              borderRadius: 'md',
+              display: 'flex',
+              fontSize: '22px',
+              height: '40px',
+              justifyContent: 'center',
+              width: '40px',
+            }}
             item={item}
             key={index}
-            css={{
-              width: "40px",
-              height: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "md",
-              fontSize: "22px",
-            }}
           >
             {item.unicode}
           </Listbox.Item>
@@ -84,7 +79,7 @@ const SelectedEmoji = () => {
   const listbox = useListboxContext()
   const [item] = listbox.selectedItems as Emoji[]
   return (
-    <Square size="40px" bg="bg.muted" rounded="sm" textStyle="lg">
+    <Square bg="bg.muted" rounded="sm" size="40px" textStyle="lg">
       {item ? item.unicode : <LuSmile />}
     </Square>
   )

@@ -1,4 +1,4 @@
-import { Group, RadioCard } from "@chakra-ui/react"
+import { Group, RadioCard } from '@chakra-ui/react'
 
 export const RadioCardComposition = () => {
   return (
@@ -12,9 +12,7 @@ export const RadioCardComposition = () => {
               <RadioCard.ItemIndicator />
               <RadioCard.ItemContent>
                 <RadioCard.ItemText>{item.title}</RadioCard.ItemText>
-                <RadioCard.ItemDescription>
-                  {item.description}
-                </RadioCard.ItemDescription>
+                <RadioCard.ItemDescription>{item.description}</RadioCard.ItemDescription>
               </RadioCard.ItemContent>
             </RadioCard.ItemControl>
           </RadioCard.Item>
@@ -26,18 +24,18 @@ export const RadioCardComposition = () => {
 
 const items = [
   {
-    value: "advanced",
-    title: "Advanced",
-    description: "I love complex things",
+    description: 'I love complex things',
+    title: 'Advanced',
+    value: 'advanced',
   },
   {
-    value: "professional",
-    title: "Professional",
-    description: "I can hack simple things",
+    description: 'I can hack simple things',
+    title: 'Professional',
+    value: 'professional',
   },
   {
-    value: "beginner",
-    title: "Beginner",
     description: "I don't write code",
+    title: 'Beginner',
+    value: 'beginner',
   },
 ]

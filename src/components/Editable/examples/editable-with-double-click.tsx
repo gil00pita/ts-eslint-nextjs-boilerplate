@@ -1,7 +1,7 @@
-import { Editable } from "@chakra-ui/react"
+import { Editable } from '@chakra-ui/react'
 
 export const EditableWithDoubleClick = () => (
-  <Editable.Root defaultValue="Double click to edit" activationMode="dblclick">
+  <Editable.Root activationMode="dblclick" defaultValue="Double click to edit">
     <Editable.Preview />
     <Editable.Input />
   </Editable.Root>

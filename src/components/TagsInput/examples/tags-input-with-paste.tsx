@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Box, Clipboard, IconButton, Stack, TagsInput } from "@chakra-ui/react"
+import { Box, Clipboard, IconButton, Stack, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithPaste = () => (
   <Stack gap="8">
@@ -20,12 +20,12 @@ export const TagsInputWithPaste = () => (
 
 const SampleClipboard = (props: { value: string }) => (
   <Clipboard.Root value={props.value}>
-    <Box textStyle="label" mb="2">
+    <Box mb="2" textStyle="label">
       Copy Tags
     </Box>
-    <Clipboard.ValueText me="3" textStyle="sm" fontFamily="mono" />
+    <Clipboard.ValueText fontFamily="mono" me="3" textStyle="sm" />
     <Clipboard.Trigger asChild>
-      <IconButton variant="surface" size="2xs">
+      <IconButton size="2xs" variant="surface">
         <Clipboard.Indicator />
       </IconButton>
     </Clipboard.Trigger>

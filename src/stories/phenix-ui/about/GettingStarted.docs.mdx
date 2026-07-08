@@ -1,10 +1,15 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/About/Getting Started" />
 
-# Getting Started
-
-Start with the smallest useful slice: install the package, wrap the app with the provider, then replace one repeated interface pattern with Phenix UI components.
+<DocsHero
+  colorPalette="brand"
+  eyebrow="About"
+  title="Getting Started"
+  lead="Start with the smallest useful slice: install the package, wrap the app with the provider, then replace one repeated interface pattern with Phenix UI components."
+/>
 
 ## Recommended First Steps
 
@@ -40,29 +45,15 @@ export function AccountPageHeader() {
 
 ## Adoption Checklist
 
-<table>
-  <thead>
-    <tr>
-      <th>Step</th>
-      <th>Done when</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Inventory</td>
-      <td>You know which local components overlap with Phenix UI.</td>
-    </tr>
-    <tr>
-      <td>Token mapping</td>
-      <td>Existing colors, spacing, and typography have token equivalents.</td>
-    </tr>
-    <tr>
-      <td>First route</td>
-      <td>One production route uses the provider and selected components.</td>
-    </tr>
-    <tr>
-      <td>QA</td>
-      <td>Designers, engineers, and accessibility reviewers have checked the route.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'step', header: 'Step', width: '22%' },
+    { key: 'done', header: 'Done when' },
+  ]}
+  rows={[
+    { step: 'Inventory', done: 'You know which local components overlap with Phenix UI.' },
+    { step: 'Token mapping', done: 'Existing colors, spacing, and typography have token equivalents.' },
+    { step: 'First route', done: 'One production route uses the provider and selected components.' },
+    { step: 'QA', done: 'Designers, engineers, and accessibility reviewers have checked the route.' },
+  ]}
+/>

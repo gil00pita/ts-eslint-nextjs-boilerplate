@@ -1,5 +1,5 @@
-import { Box, Button, Menu, Portal } from "@chakra-ui/react"
-import { LuClipboardPaste, LuCopy, LuScissors } from "react-icons/lu"
+import { Box, Button, Menu, Portal } from '@chakra-ui/react'
+import { LuClipboardPaste, LuCopy, LuScissors } from 'react-icons/lu'
 
 export const MenuWithIconAndCommand = () => {
   return (

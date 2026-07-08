@@ -1,10 +1,10 @@
-import { ScrollArea } from "@chakra-ui/react"
-import LoremIpsum from "react-lorem-ipsum"
+import { ScrollArea } from '@chakra-ui/react'
+import LoremIpsum from 'react-lorem-ipsum'
 
 export const ScrollAreaWithThumbStyling = () => (
   <ScrollArea.Root height="8rem" maxW="2xl" variant="always">
     <ScrollArea.Viewport>
-      <ScrollArea.Content spaceY="4" pe="2">
+      <ScrollArea.Content pe="2" spaceY="4">
         <LoremIpsum p={2} />
       </ScrollArea.Content>
     </ScrollArea.Viewport>

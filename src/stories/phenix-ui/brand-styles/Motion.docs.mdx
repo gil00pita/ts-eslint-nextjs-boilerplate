@@ -1,86 +1,49 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Brand Styles/Motion" />
 
-# Motion
-
-Motion in Phenix UI helps people understand cause, location, and state. It should be quick, subtle, and interruptible.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Motion"
+  lead="Motion in Phenix UI helps people understand cause, location, and state. It should be quick, subtle, and interruptible."
+/>
 
 ## Timing
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Duration</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>fast</code>
-      </td>
-      <td>120ms</td>
-      <td>Hover, focus, pressed, small fades.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>moderate</code>
-      </td>
-      <td>180ms</td>
-      <td>Popovers, menus, inline expansion.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>slow</code>
-      </td>
-      <td>240ms</td>
-      <td>Dialogs, drawers, route-level transitions.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'token', header: 'Token', width: '18%', isCode: true },
+    { key: 'duration', header: 'Duration', width: '16%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'fast', duration: '120ms', use: 'Hover, focus, pressed, small fades.' },
+    { token: 'moderate', duration: '180ms', use: 'Popovers, menus, inline expansion.' },
+    { token: 'slow', duration: '240ms', use: 'Dialogs, drawers, route-level transitions.' },
+  ]}
+/>
 
 ## Easing
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>standard</code>
-      </td>
-      <td>Most UI transitions.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>enter</code>
-      </td>
-      <td>Elements entering the screen.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>exit</code>
-      </td>
-      <td>Elements leaving the screen.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>emphasized</code>
-      </td>
-      <td>Rare, larger movement that needs more weight.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'token', header: 'Token', width: '22%', isCode: true },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'standard', use: 'Most UI transitions.' },
+    { token: 'enter', use: 'Elements entering the screen.' },
+    { token: 'exit', use: 'Elements leaving the screen.' },
+    { token: 'emphasized', use: 'Rare, larger movement that needs more weight.' },
+  ]}
+/>
 
-## Rules
-
+<Callout title="Rules" tone="tip">
 - Motion should reveal relationship, not attract attention for its own sake.
 - Non-essential motion must respect reduced-motion preferences.
 - Loading motion should communicate activity without suggesting precise progress.
 - Avoid movement that shifts layout after people start reading.
+</Callout>

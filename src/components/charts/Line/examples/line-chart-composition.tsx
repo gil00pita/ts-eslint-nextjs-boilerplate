@@ -1,23 +1,23 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Card, ColorSwatch, HStack, Stat } from "@chakra-ui/react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Card, ColorSwatch, HStack, Stat } from '@chakra-ui/react'
+import { CartesianGrid, Line, LineChart, XAxis } from 'recharts'
 
 export const LineChartComposition = () => {
   const chart = useChart({
     data: [
-      { facebookAds: 20, organic: 20, googleAds: 45, month: "January" },
-      { facebookAds: 35, organic: 92, googleAds: 52, month: "February" },
-      { facebookAds: 48, organic: 78, googleAds: 20, month: "March" },
-      { facebookAds: 65, organic: 82, googleAds: 75, month: "May" },
-      { facebookAds: 72, organic: 95, googleAds: 40, month: "June" },
-      { facebookAds: 85, organic: 20, googleAds: 95, month: "August" },
+      { facebookAds: 20, googleAds: 45, month: 'January', organic: 20 },
+      { facebookAds: 35, googleAds: 52, month: 'February', organic: 92 },
+      { facebookAds: 48, googleAds: 20, month: 'March', organic: 78 },
+      { facebookAds: 65, googleAds: 75, month: 'May', organic: 82 },
+      { facebookAds: 72, googleAds: 40, month: 'June', organic: 95 },
+      { facebookAds: 85, googleAds: 95, month: 'August', organic: 20 },
     ],
     series: [
-      { name: "facebookAds", color: "blue.solid", label: "Facebook Ads" },
-      { name: "organic", color: "green.solid", label: "Organic" },
-      { name: "googleAds", color: "pink.solid", label: "Google Ads" },
+      { color: 'blue.solid', label: 'Facebook Ads', name: 'facebookAds' },
+      { color: 'green.solid', label: 'Organic', name: 'organic' },
+      { color: 'pink.solid', label: 'Google Ads', name: 'googleAds' },
     ],
   })
 
@@ -27,33 +27,30 @@ export const LineChartComposition = () => {
         <Card.Title>Customers by channel</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Chart.Root maxH="8rem" chart={chart}>
+        <Chart.Root chart={chart} maxH="8rem">
           <LineChart data={chart.data} responsive>
-            <CartesianGrid stroke={chart.color("border")} vertical={false} />
+            <CartesianGrid stroke={chart.color('border')} vertical={false} />
             <XAxis
               axisLine={false}
-              dataKey={chart.key("month")}
+              dataKey={chart.key('month')}
+              stroke={chart.color('border')}
               tickFormatter={(value) => value.slice(0, 3)}
-              ticks={[
-                chart.data[0].month,
-                chart.data[chart.data.length - 1].month,
-              ]}
-              stroke={chart.color("border")}
+              ticks={[chart.data[0].month, chart.data[chart.data.length - 1].month]}
             />
             {chart.series.map((item) => (
               <Line
-                key={item.name}
-                isAnimationActive={false}
                 dataKey={chart.key(item.name)}
+                dot={false}
+                isAnimationActive={false}
+                key={item.name}
                 stroke={chart.color(item.color)}
                 strokeWidth={2}
-                dot={false}
               />
             ))}
           </LineChart>
         </Chart.Root>
 
-        <HStack wrap="wrap" gap="2">
+        <HStack gap="2" wrap="wrap">
           {chart.series.map((item) => (
             <Stat.Root key={item.name} size="sm">
               <Stat.Label textStyle="xs">
@@ -61,7 +58,7 @@ export const LineChartComposition = () => {
                 {item.label}
               </Stat.Label>
               <Stat.ValueText fontWeight="medium">
-                {item.name ? chart.getTotal(item.name) : "-"}
+                {item.name ? chart.getTotal(item.name) : '-'}
               </Stat.ValueText>
             </Stat.Root>
           ))}

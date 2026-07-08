@@ -1,8 +1,8 @@
-import { Button, Popover, Portal } from "@chakra-ui/react"
+import { Button, Popover, Portal } from '@chakra-ui/react'
 
 export const PopoverWithPlacement = () => {
   return (
-    <Popover.Root positioning={{ placement: "bottom-end" }}>
+    <Popover.Root positioning={{ placement: 'bottom-end' }}>
       <Popover.Trigger asChild>
         <Button size="sm" variant="outline">
           Click me

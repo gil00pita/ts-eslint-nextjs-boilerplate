@@ -1,5 +1,5 @@
-import { InputGroup, NumberInput } from "@chakra-ui/react"
-import { LuDollarSign } from "react-icons/lu"
+import { InputGroup, NumberInput } from '@chakra-ui/react'
+import { LuDollarSign } from 'react-icons/lu'
 
 export const NumberInputWithElement = () => {
   return (

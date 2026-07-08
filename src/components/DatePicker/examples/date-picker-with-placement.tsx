@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithPlacement = () => {
   return (
-    <DatePicker.Root positioning={{ placement: "top-start" }} maxWidth="20rem">
+    <DatePicker.Root maxWidth="20rem" positioning={{ placement: 'top-start' }}>
       <DatePicker.Label>Date of birth</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

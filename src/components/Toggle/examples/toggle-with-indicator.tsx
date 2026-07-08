@@ -1,10 +1,10 @@
-import { Button, Toggle } from "@chakra-ui/react"
-import { LuVolume2, LuVolumeX } from "react-icons/lu"
+import { Button, Toggle } from '@chakra-ui/react'
+import { LuVolume2, LuVolumeX } from 'react-icons/lu'
 
 export const ToggleWithIndicator = () => {
   return (
     <Toggle.Root asChild>
-      <Button variant={{ base: "outline", _pressed: "solid" }}>
+      <Button variant={{ _pressed: 'solid', base: 'outline' }}>
         <Toggle.Indicator fallback={<LuVolume2 />}>
           <LuVolumeX />
         </Toggle.Indicator>

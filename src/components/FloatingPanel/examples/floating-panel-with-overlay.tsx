@@ -1,28 +1,25 @@
-"use client"
+'use client'
 
 import {
   Button,
+  createOverlay,
   Field,
   FloatingPanel,
   IconButton,
   Input,
   Portal,
   Stack,
-  createOverlay,
-} from "@chakra-ui/react"
-import { useState } from "react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
-interface FloatingPanelOverlayProps extends Omit<
-  FloatingPanel.RootProps,
-  "children"
-> {
+interface FloatingPanelOverlayProps extends Omit<FloatingPanel.RootProps, 'children'> {
   title: string
   content?: React.ReactNode
 }
 
 const floatingPanel = createOverlay<FloatingPanelOverlayProps>((props) => {
-  const { title, content, ...rest } = props
+  const { content, title, ...rest } = props
   return (
     <FloatingPanel.Root {...rest}>
       <Portal>
@@ -35,7 +32,7 @@ const floatingPanel = createOverlay<FloatingPanelOverlayProps>((props) => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>
@@ -51,28 +48,28 @@ const floatingPanel = createOverlay<FloatingPanelOverlayProps>((props) => {
 })
 
 const PanelForm = (props: { onClose: () => void }) => {
-  const [name, setName] = useState("")
+  const [name, setName] = useState('')
 
   return (
     <Stack
-      gap="4"
       as="form"
+      gap="4"
       onSubmit={(e) => {
         e.preventDefault()
-        alert(`Hello ${name || "there"}!`)
+        alert(`Hello ${name || 'there'}!`)
         props.onClose()
-        setName("")
+        setName('')
       }}
     >
       <Field.Root>
         <Field.Label>Name</Field.Label>
         <Input
-          value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter your name"
+          value={name}
         />
       </Field.Root>
-      <Button type="submit" size="sm" alignSelf="flex-start">
+      <Button alignSelf="flex-start" size="sm" type="submit">
         Submit
       </Button>
     </Stack>
@@ -83,14 +80,14 @@ export const FloatingPanelWithOverlay = () => {
   return (
     <>
       <Button
-        variant="outline"
-        size="sm"
         onClick={() => {
-          floatingPanel.open("panel", {
-            title: "Contact",
-            content: <PanelForm onClose={() => floatingPanel.close("panel")} />,
+          floatingPanel.open('panel', {
+            content: <PanelForm onClose={() => floatingPanel.close('panel')} />,
+            title: 'Contact',
           })
         }}
+        size="sm"
+        variant="outline"
       >
         Open Panel
       </Button>

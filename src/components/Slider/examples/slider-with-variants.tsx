@@ -1,11 +1,11 @@
-import { For, Slider, Stack } from "@chakra-ui/react"
+import { For, Slider, Stack } from '@chakra-ui/react'
 
 export const SliderWithVariants = () => {
   return (
-    <Stack width="200px" gap="4">
-      <For each={["outline", "solid"]}>
+    <Stack gap="4" width="200px">
+      <For each={['outline', 'solid']}>
         {(variant) => (
-          <Slider.Root defaultValue={[40]} variant={variant} key={variant}>
+          <Slider.Root defaultValue={[40]} key={variant} variant={variant}>
             <Slider.Label>Slider - {variant}</Slider.Label>
             <Slider.Control>
               <Slider.Track>

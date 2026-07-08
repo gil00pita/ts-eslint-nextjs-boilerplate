@@ -1,10 +1,10 @@
-import { Button, Menu } from "@chakra-ui/react"
+import { Button, Menu } from '@chakra-ui/react'
 
 export const MenuExplorerDemo = () => {
   return (
     <Menu.Root open>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Menu.Trigger>

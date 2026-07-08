@@ -1,11 +1,11 @@
-import { Button, Menu, Portal } from "@chakra-ui/react"
-import { LuChevronRight } from "react-icons/lu"
+import { Button, Menu, Portal } from '@chakra-ui/react'
+import { LuChevronRight } from 'react-icons/lu'
 
 export const MenuWithSubmenu = () => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Menu.Trigger>
@@ -14,7 +14,7 @@ export const MenuWithSubmenu = () => {
           <Menu.Content>
             <Menu.Item value="new-txt">New Text File</Menu.Item>
             <Menu.Item value="new-file">New File...</Menu.Item>
-            <Menu.Root positioning={{ placement: "right-start", gutter: 2 }}>
+            <Menu.Root positioning={{ gutter: 2, placement: 'right-start' }}>
               <Menu.TriggerItem>
                 Open Recent <LuChevronRight />
               </Menu.TriggerItem>

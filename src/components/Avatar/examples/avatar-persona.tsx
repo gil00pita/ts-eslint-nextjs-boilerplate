@@ -1,10 +1,10 @@
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react"
+import { Avatar, HStack, Stack, Text } from '@chakra-ui/react'
 
 export const AvatarPersona = () => {
   return (
     <Stack gap="8">
       {users.map((user) => (
-        <HStack key={user.email} gap="4">
+        <HStack gap="4" key={user.email}>
           <Avatar.Root>
             <Avatar.Fallback name={user.name} />
             <Avatar.Image src={user.avatar} />
@@ -23,15 +23,15 @@ export const AvatarPersona = () => {
 
 const users = [
   {
-    id: "1",
-    name: "John Mason",
-    email: "john.mason@example.com",
-    avatar: "https://i.pravatar.cc/300?u=iu",
+    avatar: 'https://i.pravatar.cc/300?u=iu',
+    email: 'john.mason@example.com',
+    id: '1',
+    name: 'John Mason',
   },
   {
-    id: "2",
-    name: "Melissa Jones",
-    email: "melissa.jones@example.com",
-    avatar: "https://i.pravatar.cc/300?u=po",
+    avatar: 'https://i.pravatar.cc/300?u=po',
+    email: 'melissa.jones@example.com',
+    id: '2',
+    name: 'Melissa Jones',
   },
 ]

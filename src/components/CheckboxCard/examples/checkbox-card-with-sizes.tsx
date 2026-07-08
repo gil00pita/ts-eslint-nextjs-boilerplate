@@ -1,11 +1,11 @@
-import { CheckboxCard, For, Stack } from "@chakra-ui/react"
+import { CheckboxCard, For, Stack } from '@chakra-ui/react'
 
 export const CheckboxCardWithSizes = () => {
   return (
     <Stack maxW="320px">
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
-          <CheckboxCard.Root size={size} key={size}>
+          <CheckboxCard.Root key={size} size={size}>
             <CheckboxCard.HiddenInput />
             <CheckboxCard.Control>
               <CheckboxCard.Content>

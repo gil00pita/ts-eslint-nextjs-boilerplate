@@ -1,5 +1,5 @@
-import { Checkmark } from "@chakra-ui/react"
+import { Checkmark } from '@chakra-ui/react'
 
 export const CheckmarkWithFilled = () => {
-  return <Checkmark variant="outline" filled />
+  return <Checkmark filled variant="outline" />
 }

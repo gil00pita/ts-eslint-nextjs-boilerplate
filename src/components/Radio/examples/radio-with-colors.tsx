@@ -4,9 +4,9 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const RadioWithColors = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack align="flex-start" gap="2">
       {colorPalettes.map((colorPalette) => (
-        <HStack key={colorPalette} gap="10" px="4">
+        <HStack gap="10" key={colorPalette} px="4">
           <Text minW="8ch">{colorPalette}</Text>
 
           <RadioGroup.Root colorPalette={colorPalette} defaultValue="react" spaceX="8">

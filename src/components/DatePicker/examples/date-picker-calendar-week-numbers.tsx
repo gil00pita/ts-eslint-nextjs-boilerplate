@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker } from "@chakra-ui/react"
+import { DatePicker } from '@chakra-ui/react'
 
 export const DatePickerCalendarWeekNumbers = () => {
   return (
-    <DatePicker.Root showWeekNumbers inline width="fit-content">
+    <DatePicker.Root inline showWeekNumbers width="fit-content">
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">
           <DatePicker.Header />

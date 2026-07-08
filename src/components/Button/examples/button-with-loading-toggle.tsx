@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Button, Checkbox, VStack } from "@chakra-ui/react"
-import { useState } from "react"
-import { MdAdsClick } from "react-icons/md"
+import { Button, Checkbox, VStack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { MdAdsClick } from 'react-icons/md'
 
 export const ButtonWithLoadingToggle = () => {
   const [loading, setLoading] = useState(false)
@@ -11,11 +11,7 @@ export const ButtonWithLoadingToggle = () => {
       <Button loading={loading} onClick={() => setLoading(!loading)}>
         <MdAdsClick /> Click me
       </Button>
-      <Checkbox.Root
-        size="sm"
-        checked={loading}
-        onCheckedChange={() => setLoading(!loading)}
-      >
+      <Checkbox.Root checked={loading} onCheckedChange={() => setLoading(!loading)} size="sm">
         <Checkbox.HiddenInput />
         <Checkbox.Control />
         <Checkbox.Label>Loading</Checkbox.Label>

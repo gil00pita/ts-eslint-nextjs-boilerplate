@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Marquee } from "@chakra-ui/react"
+import { Marquee } from '@chakra-ui/react'
 import {
   IoLogoFigma,
   IoLogoGitlab,
@@ -8,7 +8,7 @@ import {
   IoLogoLinkedin,
   IoLogoTwitter,
   IoLogoVimeo,
-} from "react-icons/io5"
+} from 'react-icons/io5'
 
 export const MarqueeAutoFill = () => (
   <Marquee.Root autoFill spacing="2rem">
@@ -16,13 +16,7 @@ export const MarqueeAutoFill = () => (
       <Marquee.Content>
         {items.map((item, i) => (
           <Marquee.Item key={i} px="2rem">
-            {item.icon && (
-              <item.icon
-                size="3rem"
-                aria-label={item.label}
-                color={item.color}
-              />
-            )}
+            {item.icon && <item.icon aria-label={item.label} color={item.color} size="3rem" />}
           </Marquee.Item>
         ))}
       </Marquee.Content>
@@ -31,10 +25,10 @@ export const MarqueeAutoFill = () => (
 )
 
 const items = [
-  { icon: IoLogoFigma, label: "Figma", color: "#F24E1E" },
-  { icon: IoLogoTwitter, label: "Twitter", color: "#1da1f2" },
-  { icon: IoLogoLinkedin, label: "LinkedIn", color: "#0077b5" },
-  { icon: IoLogoGitlab, label: "GitLab", color: "#fc6d26" },
-  { icon: IoLogoVimeo, label: "Vimeo", color: "#1ab7ea" },
-  { icon: IoLogoJavascript, label: "JavaScript", color: "#f7df1e" },
+  { color: '#F24E1E', icon: IoLogoFigma, label: 'Figma' },
+  { color: '#1da1f2', icon: IoLogoTwitter, label: 'Twitter' },
+  { color: '#0077b5', icon: IoLogoLinkedin, label: 'LinkedIn' },
+  { color: '#fc6d26', icon: IoLogoGitlab, label: 'GitLab' },
+  { color: '#1ab7ea', icon: IoLogoVimeo, label: 'Vimeo' },
+  { color: '#f7df1e', icon: IoLogoJavascript, label: 'JavaScript' },
 ]

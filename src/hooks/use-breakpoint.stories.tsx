@@ -1,18 +1,19 @@
-import type { Meta } from "@storybook/react-vite"
-import { Box, Flex, useBreakpointValue } from "@/ui"
+import type { Meta } from '@storybook/react-vite'
+
+import { Box, Flex, useBreakpointValue } from '@/ui'
 
 export default {
-	title: "Hooks / useBreakpointValue",
-	decorators: [
-		(Story) => (
-			<Box p='10'>
-				<Story />
-			</Box>
-		),
-	],
+  decorators: [
+    (Story) => (
+      <Box p="10">
+        <Story />
+      </Box>
+    ),
+  ],
+  title: 'Hooks / useBreakpointValue',
 } satisfies Meta
 
 export const Basic = () => {
-	const value = useBreakpointValue({ base: false, lg: true }, { ssr: false })
-	return <Flex>{value ? "true" : "false"}</Flex>
+  const value = useBreakpointValue({ base: false, lg: true }, { ssr: false })
+  return <Flex>{value ? 'true' : 'false'}</Flex>
 }

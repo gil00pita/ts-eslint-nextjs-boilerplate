@@ -1,5 +1,5 @@
-import { IconButton, Stack } from "@chakra-ui/react"
-import { RiPhoneLine, RiSearchLine } from "react-icons/ri"
+import { IconButton, Stack } from '@chakra-ui/react'
+import { RiPhoneLine, RiSearchLine } from 'react-icons/ri'
 
 export const ButtonIcons = () => (
   <Stack direction="row">
@@ -7,11 +7,11 @@ export const ButtonIcons = () => (
       <RiSearchLine />
     </IconButton>
 
-    <IconButton colorPalette="blue" aria-label="Search database">
+    <IconButton aria-label="Search database" colorPalette="blue">
       <RiSearchLine />
     </IconButton>
 
-    <IconButton colorPalette="teal" aria-label="Call Segun" size="lg">
+    <IconButton aria-label="Call Segun" colorPalette="teal" size="lg">
       <RiPhoneLine />
     </IconButton>
   </Stack>

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Avatar, Box, Card, HStack, Marquee, Stack } from "@chakra-ui/react"
-import { IoStar } from "react-icons/io5"
+import { Avatar, Box, Card, HStack, Marquee, Stack } from '@chakra-ui/react'
+import { IoStar } from 'react-icons/io5'
 
 export const MarqueeWithTestimonials = () => (
   <Marquee.Root pauseOnInteraction py="10">
@@ -21,16 +21,16 @@ export const MarqueeWithTestimonials = () => (
 
 const TestimonialCard = ({ item }: { item: Testimonial }) => {
   return (
-    <Card.Root maxW="sm" h="full">
+    <Card.Root h="full" maxW="sm">
       <Card.Body>
         <Stack gap="3">
           <HStack gap="1">
             {[...Array(5)].map((_, i) => (
-              <Box as={IoStar} key={i} color="orange.solid" />
+              <Box as={IoStar} color="orange.solid" key={i} />
             ))}
           </HStack>
 
-          <Card.Description color="fg.muted" textStyle="md" minH="16">
+          <Card.Description color="fg.muted" minH="16" textStyle="md">
             "{item.content}"
           </Card.Description>
 
@@ -40,7 +40,7 @@ const TestimonialCard = ({ item }: { item: Testimonial }) => {
               <Avatar.Fallback name={item.name} />
             </Avatar.Root>
             <Box textStyle="sm">
-              <Box fontWeight="medium" color="fg">
+              <Box color="fg" fontWeight="medium">
                 {item.name}
               </Box>
               <Box color="fg.muted">{item.role}</Box>
@@ -62,43 +62,39 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Sarah Chen",
-    role: "Product Designer",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
     content:
-      "This library saved me weeks of work. The components are accessible and easy to customize.",
+      'This library saved me weeks of work. The components are accessible and easy to customize.',
+    name: 'Sarah Chen',
+    rating: 5,
+    role: 'Product Designer',
   },
   {
-    name: "Michael Torres",
-    role: "Frontend Dev",
+    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+    content: 'The animations are buttery smooth. I love how easy it is to implement the marquee.',
+    name: 'Michael Torres',
     rating: 4,
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-    content:
-      "The animations are buttery smooth. I love how easy it is to implement the marquee.",
+    role: 'Frontend Dev',
   },
   {
-    name: "Emily Wang",
-    role: "CTO",
+    avatar: 'https://i.pravatar.cc/150?u=a04258114e29026302d',
+    content: 'Scalable, reliable, and beautiful. Highly recommended for any modern web project.',
+    name: 'Emily Wang',
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=a04258114e29026302d",
-    content:
-      "Scalable, reliable, and beautiful. Highly recommended for any modern web project.",
+    role: 'CTO',
   },
   {
-    name: "David Smith",
-    role: "Marketing Lead",
+    avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
+    content: 'Our conversion rates increased by 15% after switching to this UI system.',
+    name: 'David Smith',
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-    content:
-      "Our conversion rates increased by 15% after switching to this UI system.",
+    role: 'Marketing Lead',
   },
   {
-    name: "Jessica Lee",
-    role: "Indie Hacker",
+    avatar: 'https://i.pravatar.cc/150?u=a04258a2462d826712d',
+    content: 'Documentation is top-notch. I was able to build my MVP in a single weekend.',
+    name: 'Jessica Lee',
     rating: 4,
-    avatar: "https://i.pravatar.cc/150?u=a04258a2462d826712d",
-    content:
-      "Documentation is top-notch. I was able to build my MVP in a single weekend.",
+    role: 'Indie Hacker',
   },
 ]

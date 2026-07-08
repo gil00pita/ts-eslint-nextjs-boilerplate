@@ -1,43 +1,37 @@
-"use client"
+'use client'
 
-import {
-  CodeBlock,
-  IconButton,
-  Tabs,
-  createShikiAdapter,
-  useTabs,
-} from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, IconButton, Tabs, useTabs } from '@chakra-ui/react'
 
 export const CodeBlockWithTabs = () => {
   const tabs = useTabs({
-    defaultValue: "python",
+    defaultValue: 'python',
   })
 
-  const activeTab =
-    files.find((file) => file.language === tabs.value) || files[0]
+  const activeTab = files.find((file) => file.language === tabs.value) || files[0]
 
   const otherTabs = files.filter((file) => file.language !== tabs.value)
 
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
-      <Tabs.RootProvider value={tabs} size="sm" variant="line">
+      <Tabs.RootProvider size="sm" value={tabs} variant="line">
         <CodeBlock.Root code={activeTab.code} language={activeTab.language}>
           <CodeBlock.Header borderBottomWidth="1px">
-            <Tabs.List w="full" border="0" ms="-1">
+            <Tabs.List border="0" ms="-1" w="full">
               {files.map((file) => (
                 <Tabs.Trigger
                   colorPalette="teal"
                   key={file.language}
-                  value={file.language}
                   textStyle="xs"
+                  value={file.language}
                 >
                   {file.title}
                 </Tabs.Trigger>
               ))}
             </Tabs.List>
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
@@ -60,25 +54,25 @@ export const CodeBlockWithTabs = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["python", "typescript", "java"],
-      themes: ["github-dark"],
+      langs: ['python', 'typescript', 'java'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })
 
 const files = [
-  { title: "Python", language: "python", code: "print('Hello, World!')" },
+  { code: "print('Hello, World!')", language: 'python', title: 'Python' },
   {
-    title: "TypeScript",
-    language: "typescript",
     code: "console.log('Hello, World!')",
+    language: 'typescript',
+    title: 'TypeScript',
   },
   {
-    title: "Java",
-    language: "java",
     code: "System.out.println('Hello, World!');",
+    language: 'java',
+    title: 'Java',
   },
 ]

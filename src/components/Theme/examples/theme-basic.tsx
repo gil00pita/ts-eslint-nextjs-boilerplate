@@ -1,15 +1,15 @@
-import { Button, Stack, Theme } from "@chakra-ui/react"
+import { Button, Stack, Theme } from '@chakra-ui/react'
 
 export const ThemeBasic = () => {
   return (
     <Stack align="flex-start">
-      <Button variant="surface" colorPalette="teal">
+      <Button colorPalette="teal" variant="surface">
         Auto Button
       </Button>
-      <Theme p="4" appearance="dark" colorPalette="teal">
+      <Theme appearance="dark" colorPalette="teal" p="4">
         <Button variant="surface">Dark Button</Button>
       </Theme>
-      <Theme p="4" appearance="light" colorPalette="teal">
+      <Theme appearance="light" colorPalette="teal" p="4">
         <Button variant="surface">Light Button</Button>
       </Theme>
     </Stack>

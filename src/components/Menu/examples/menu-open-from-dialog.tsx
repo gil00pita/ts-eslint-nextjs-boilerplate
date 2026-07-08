@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Menu, Portal } from "@chakra-ui/react"
-import Lorem from "react-lorem-ipsum"
+import { Button, Dialog, Menu, Portal } from '@chakra-ui/react'
+import Lorem from 'react-lorem-ipsum'
 
 export const MenuOpenFromDialog = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Dialog.Trigger>
@@ -33,7 +33,7 @@ const DialogMenu = () => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Menu
         </Button>
       </Menu.Trigger>

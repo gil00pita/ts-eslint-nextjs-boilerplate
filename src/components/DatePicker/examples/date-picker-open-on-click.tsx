@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
+import { DatePicker, Portal } from '@chakra-ui/react'
 
 export const DatePickerOpenOnClick = () => {
   return (
-    <DatePicker.Root openOnClick maxWidth="20rem">
+    <DatePicker.Root maxWidth="20rem" openOnClick>
       <DatePicker.Label>Date</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

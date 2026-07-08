@@ -538,6 +538,7 @@ Reach for `useBreakpointValue` only when *behaviour* (not styling) changes per b
 - **Layout primitives:** `Stack`/`HStack`/`VStack` with `gap` for 1-D layout, `Grid`/`SimpleGrid` for 2-D, `Flex` when you need raw flexbox control. Don't nest Stacks three deep when one Grid would do.
 - **Spacing scale:** stick to theme spacing tokens (`p="4"`, `gap="6"`); no arbitrary `p="13px"`.
 - **File structure:** no component lives outside a folder — even a one-line component gets `components/<ComponentName>/`. Recipes, slot recipes, CSS modules, private sub-components, and tests are colocated inside that folder, not scattered into shared `theme/` or `__tests__` trees. Semantic tokens stay in `theme/semantic-tokens.ts`; the system is composed in `theme/index.ts`.
+- **Storybook-only components:** components used only by Storybook stories live under `components/storybook/`, not in the main component namespace. Promote them into `components/<ComponentName>/` only when they become reusable app or library components.
 
 ### Folder structure
 
@@ -552,6 +553,7 @@ src/
     ui/                       # Chakra CLI snippets (provider, color-mode, toaster, ...) — don't hand-roll these
       provider.tsx
       color-mode.tsx
+    storybook/                # components used only by Storybook stories
     <ComponentName>/          # PascalCase, one folder per component — no loose component files
       index.ts                # barrel: `export { <ComponentName> } from "./<ComponentName>"`
       <ComponentName>.tsx     # main implementation — filename matches the folder name

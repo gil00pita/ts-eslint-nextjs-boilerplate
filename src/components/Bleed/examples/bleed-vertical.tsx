@@ -4,7 +4,7 @@ import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const BleedVertical = () => {
   return (
-    <Box padding="10" rounded="sm" borderWidth="1px">
+    <Box borderWidth="1px" padding="10" rounded="sm">
       <Bleed block="10">
         <DecorativeBox height="20">Bleed</DecorativeBox>
       </Bleed>

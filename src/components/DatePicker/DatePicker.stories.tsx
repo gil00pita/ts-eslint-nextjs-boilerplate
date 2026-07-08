@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
-import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
+import { Box } from '@chakra-ui/react'
+
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 const meta = {
-  title: 'Date and Time / Date Picker',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ const meta = {
       </Box>
     ),
   ],
+  title: 'Date and Time / Date Picker',
 } satisfies Meta
 
 export default meta
@@ -62,9 +64,9 @@ export { DatePickerWithOutsideIcon as WithOutsideIcon } from './examples/date-pi
 export { DatePickerWithPlacement as WithPlacement } from './examples/date-picker-with-placement'
 export { DatePickerWithPresetsSidebar as WithPresetsSidebar } from './examples/date-picker-with-presets-sidebar'
 export { DatePickerWithSizes as WithSizes } from './examples/date-picker-with-sizes'
-export { DatePickerWithTimeGrid as WithTimeGrid } from './examples/date-picker-with-time-grid'
 export { DatePickerWithTime as WithTime } from './examples/date-picker-with-time'
+export { DatePickerWithTimeGrid as WithTimeGrid } from './examples/date-picker-with-time-grid'
 export { DatePickerWithTodayButton as WithTodayButton } from './examples/date-picker-with-today-button'
 export { DatePickerWithVariants as WithVariants } from './examples/date-picker-with-variants'
-export { DatePickerYearPickerRange as YearPickerRange } from './examples/date-picker-year-picker-range'
 export { DatePickerYearPicker as YearPicker } from './examples/date-picker-year-picker'
+export { DatePickerYearPickerRange as YearPickerRange } from './examples/date-picker-year-picker-range'

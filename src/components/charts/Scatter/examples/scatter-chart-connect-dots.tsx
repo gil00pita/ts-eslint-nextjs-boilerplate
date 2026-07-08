@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Scatter, ScatterChart, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Scatter, ScatterChart, XAxis, YAxis } from 'recharts'
 
 export const ScatterChartConnectDots = () => {
   const chart = useChart({
@@ -13,34 +13,23 @@ export const ScatterChartConnectDots = () => {
       { x: 150, y: 400 },
       { x: 110, y: 280 },
     ],
-    series: [{ label: "Group 1", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', label: 'Group 1' }],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <ScatterChart
-        margin={{ top: 20, right: 30, bottom: 5, left: 0 }}
-        responsive
-      >
-        <XAxis
-          type="number"
-          dataKey={chart.key("x")}
-          stroke={chart.color("border")}
-        />
-        <YAxis
-          type="number"
-          dataKey={chart.key("y")}
-          stroke={chart.color("border")}
-        />
+    <Chart.Root chart={chart} maxH="sm">
+      <ScatterChart margin={{ bottom: 5, left: 0, right: 30, top: 20 }} responsive>
+        <XAxis dataKey={chart.key('x')} stroke={chart.color('border')} type="number" />
+        <YAxis dataKey={chart.key('y')} stroke={chart.color('border')} type="number" />
 
         {chart.series.map((series, index) => (
           <Scatter
-            line={{ stroke: chart.color("border"), strokeWidth: 2 }}
-            name={series.label?.toString()}
-            key={index}
             data={chart.data}
             fill={chart.color(series.color)}
             isAnimationActive={false}
+            key={index}
+            line={{ stroke: chart.color('border'), strokeWidth: 2 }}
+            name={series.label?.toString()}
           />
         ))}
       </ScatterChart>

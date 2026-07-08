@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { For, Stack, TreeView, createTreeCollection } from "@chakra-ui/react"
-import { LuFile, LuFolder } from "react-icons/lu"
+import { createTreeCollection, For, Stack, TreeView } from '@chakra-ui/react'
+import { LuFile, LuFolder } from 'react-icons/lu'
 
 export const TreeViewWithVariants = () => {
   return (
     <Stack gap="8">
-      <For each={["subtle", "solid"]}>
+      <For each={['subtle', 'solid']}>
         {(variant) => (
           <TreeView.Root
-            key={variant}
             collection={collection}
+            colorPalette="teal"
+            defaultSelectedValue={['node_modules']}
+            key={variant}
             maxW="sm"
             size="sm"
             variant={variant}
-            colorPalette="teal"
-            defaultSelectedValue={["node_modules"]}
           >
             <TreeView.Label>Tree (variant={variant})</TreeView.Label>
             <TreeView.Tree>
@@ -49,40 +49,40 @@ interface Node {
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
       {
-        id: "node_modules",
-        name: "node_modules",
         children: [
-          { id: "node_modules/zag-js", name: "zag-js" },
-          { id: "node_modules/pandacss", name: "panda" },
+          { id: 'node_modules/zag-js', name: 'zag-js' },
+          { id: 'node_modules/pandacss', name: 'panda' },
           {
-            id: "node_modules/@types",
-            name: "@types",
             children: [
-              { id: "node_modules/@types/react", name: "react" },
-              { id: "node_modules/@types/react-dom", name: "react-dom" },
+              { id: 'node_modules/@types/react', name: 'react' },
+              { id: 'node_modules/@types/react-dom', name: 'react-dom' },
             ],
+            id: 'node_modules/@types',
+            name: '@types',
           },
         ],
+        id: 'node_modules',
+        name: 'node_modules',
       },
       {
-        id: "src",
-        name: "src",
         children: [
-          { id: "src/app.tsx", name: "app.tsx" },
-          { id: "src/index.ts", name: "index.ts" },
+          { id: 'src/app.tsx', name: 'app.tsx' },
+          { id: 'src/index.ts', name: 'index.ts' },
         ],
+        id: 'src',
+        name: 'src',
       },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { id: 'panda.config', name: 'panda.config.ts' },
+      { id: 'package.json', name: 'package.json' },
+      { id: 'renovate.json', name: 'renovate.json' },
+      { id: 'readme.md', name: 'README.md' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })

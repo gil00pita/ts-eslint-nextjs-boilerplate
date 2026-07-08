@@ -1,4 +1,4 @@
-import { Clipboard, IconButton, Input, InputGroup } from "@chakra-ui/react"
+import { Clipboard, IconButton, Input, InputGroup } from '@chakra-ui/react'
 
 export const ClipboardWithInput = () => {
   return (
@@ -16,7 +16,7 @@ export const ClipboardWithInput = () => {
 const ClipboardIconButton = () => {
   return (
     <Clipboard.Trigger asChild>
-      <IconButton variant="surface" size="xs" me="-2">
+      <IconButton me="-2" size="xs" variant="surface">
         <Clipboard.Indicator />
       </IconButton>
     </Clipboard.Trigger>

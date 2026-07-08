@@ -1,10 +1,10 @@
-import { Accordion, Avatar, Badge, HStack } from "@chakra-ui/react"
-import { LuTrophy } from "react-icons/lu"
-import { LoremIpsum } from "react-lorem-ipsum"
+import { Accordion, Avatar, Badge, HStack } from '@chakra-ui/react'
+import { LuTrophy } from 'react-icons/lu'
+import { LoremIpsum } from 'react-lorem-ipsum'
 
 export const AccordionWithAvatar = () => {
   return (
-    <Accordion.Root collapsible defaultValue={["b"]}>
+    <Accordion.Root collapsible defaultValue={['b']}>
       {items.map((item, index) => (
         <Accordion.Item key={index} value={item.name}>
           <Accordion.ItemTrigger>
@@ -13,7 +13,7 @@ export const AccordionWithAvatar = () => {
               <Avatar.Fallback name={item.name} />
             </Avatar.Root>
             <HStack flex="1">
-              {item.name}{" "}
+              {item.name}{' '}
               {item.topRated && (
                 <Badge colorPalette="green">
                   <LuTrophy />
@@ -34,21 +34,21 @@ export const AccordionWithAvatar = () => {
 
 const items = [
   {
-    name: "Alex",
     bio: <LoremIpsum />,
-    image: "https://i.pravatar.cc/150?u=a",
+    image: 'https://i.pravatar.cc/150?u=a',
+    name: 'Alex',
     topRated: false,
   },
   {
-    name: "Benji",
     bio: <LoremIpsum />,
-    image: "https://i.pravatar.cc/150?u=b",
+    image: 'https://i.pravatar.cc/150?u=b',
+    name: 'Benji',
     topRated: true,
   },
   {
-    name: "Charlie",
     bio: <LoremIpsum />,
-    image: "https://i.pravatar.cc/150?u=c",
+    image: 'https://i.pravatar.cc/150?u=c',
+    name: 'Charlie',
     topRated: false,
   },
 ]

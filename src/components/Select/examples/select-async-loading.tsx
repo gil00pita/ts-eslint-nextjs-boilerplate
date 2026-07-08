@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Portal, Select, Spinner, createListCollection } from "@chakra-ui/react"
-import { useMemo } from "react"
-import { useAsync } from "react-use"
+import { createListCollection, Portal, Select, Spinner } from '@chakra-ui/react'
+import { useMemo } from 'react'
+import { useAsync } from 'react-use'
 
 interface Pokemon {
   name: string
@@ -11,7 +11,7 @@ interface Pokemon {
 
 export const SelectAsyncLoading = () => {
   const state = useAsync(async (): Promise<Pokemon[]> => {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon")
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon')
     const data = await response.json()
     return data.results
   }, [])
@@ -33,9 +33,7 @@ export const SelectAsyncLoading = () => {
           <Select.ValueText placeholder="Select pokemon" />
         </Select.Trigger>
         <Select.IndicatorGroup>
-          {state.loading && (
-            <Spinner size="xs" borderWidth="1.5px" color="fg.muted" />
-          )}
+          {state.loading && <Spinner borderWidth="1.5px" color="fg.muted" size="xs" />}
           <Select.Indicator />
         </Select.IndicatorGroup>
       </Select.Control>

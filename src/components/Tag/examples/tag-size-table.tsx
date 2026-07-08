@@ -2,8 +2,8 @@
 
 import { For, Span, Tag, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const TagSizeTable = () => {
   const recipe = useSlotRecipe({ key: 'tag' })
@@ -20,14 +20,14 @@ export const TagSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <Tag.Root size={v} colorPalette={c}>
+                    <Tag.Root colorPalette={c} size={v}>
                       <Tag.Label>Gray</Tag.Label>
                       <Tag.EndElement>
                         <Tag.CloseTrigger />

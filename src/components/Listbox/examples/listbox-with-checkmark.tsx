@@ -1,27 +1,15 @@
-"use client"
+'use client'
 
-import {
-  Checkmark,
-  Listbox,
-  createListCollection,
-  useListboxItemContext,
-} from "@chakra-ui/react"
+import { Checkmark, createListCollection, Listbox, useListboxItemContext } from '@chakra-ui/react'
 
 const ListboxItemCheckmark = () => {
   const itemState = useListboxItemContext()
-  return (
-    <Checkmark
-      filled
-      size="sm"
-      checked={itemState.selected}
-      disabled={itemState.disabled}
-    />
-  )
+  return <Checkmark checked={itemState.selected} disabled={itemState.disabled} filled size="sm" />
 }
 
 export const ListboxWithCheckmark = () => {
   return (
-    <Listbox.Root collection={frameworks} selectionMode="multiple" maxW="320px">
+    <Listbox.Root collection={frameworks} maxW="320px" selectionMode="multiple">
       <Listbox.Label>Select frameworks (with checkmarks)</Listbox.Label>
       <Listbox.Content>
         {frameworks.items.map((framework) => (
@@ -37,11 +25,11 @@ export const ListboxWithCheckmark = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
-    { label: "Next.js", value: "nextjs" },
-    { label: "Nuxt.js", value: "nuxtjs" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
+    { label: 'Next.js', value: 'nextjs' },
+    { label: 'Nuxt.js', value: 'nuxtjs' },
   ],
 })

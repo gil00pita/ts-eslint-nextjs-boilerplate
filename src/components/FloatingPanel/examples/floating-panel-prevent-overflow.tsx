@@ -1,24 +1,18 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FloatingPanel,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+import { Button, FloatingPanel, IconButton, Portal, Text } from '@chakra-ui/react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 export const FloatingPanelPreventOverflow = () => {
   return (
     <FloatingPanel.Root
       allowOverflow={false}
+      defaultSize={{ height: 180, width: 300 }}
+      minSize={{ height: 180, width: 300 }}
       persistRect
-      defaultSize={{ width: 300, height: 180 }}
-      minSize={{ width: 300, height: 180 }}
     >
       <FloatingPanel.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Panel
         </Button>
       </FloatingPanel.Trigger>
@@ -32,16 +26,14 @@ export const FloatingPanelPreventOverflow = () => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>
               </FloatingPanel.Control>
             </FloatingPanel.Header>
             <FloatingPanel.Body>
-              <Text textStyle="sm">
-                This panel cannot be dragged beyond the viewport edges.
-              </Text>
+              <Text textStyle="sm">This panel cannot be dragged beyond the viewport edges.</Text>
             </FloatingPanel.Body>
             <FloatingPanel.ResizeTriggers />
           </FloatingPanel.Content>

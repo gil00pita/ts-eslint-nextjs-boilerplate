@@ -1,15 +1,10 @@
-import { Button, DownloadTrigger } from "@chakra-ui/react"
+import { Button, DownloadTrigger } from '@chakra-ui/react'
 
-const data = "The quick brown fox jumps over the lazy dog"
+const data = 'The quick brown fox jumps over the lazy dog'
 
 export const DownloadTriggerBasic = () => {
   return (
-    <DownloadTrigger
-      data={data}
-      fileName="sample.txt"
-      mimeType="text/plain"
-      asChild
-    >
+    <DownloadTrigger asChild data={data} fileName="sample.txt" mimeType="text/plain">
       <Button variant="outline">Download txt</Button>
     </DownloadTrigger>
   )

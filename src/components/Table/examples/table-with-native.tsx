@@ -1,8 +1,8 @@
-import { Table } from "@chakra-ui/react"
+import { Table } from '@chakra-ui/react'
 
 export const TableWithNative = () => {
   return (
-    <Table.Root size="sm" native>
+    <Table.Root native size="sm">
       <thead>
         <tr>
           <th>Product</th>
@@ -24,9 +24,9 @@ export const TableWithNative = () => {
 }
 
 const items = [
-  { id: 1, name: "Laptop", category: "Electronics", price: "$999.00" },
-  { id: 2, name: "Coffee Maker", category: "Home Appliances", price: "$49.99" },
-  { id: 3, name: "Desk Chair", category: "Furniture", price: "$150.00" },
-  { id: 4, name: "Smartphone", category: "Electronics", price: "$799.99" },
-  { id: 5, name: "Headphones", category: "Accessories", price: "$199.99" },
+  { category: 'Electronics', id: 1, name: 'Laptop', price: '$999.00' },
+  { category: 'Home Appliances', id: 2, name: 'Coffee Maker', price: '$49.99' },
+  { category: 'Furniture', id: 3, name: 'Desk Chair', price: '$150.00' },
+  { category: 'Electronics', id: 4, name: 'Smartphone', price: '$799.99' },
+  { category: 'Accessories', id: 5, name: 'Headphones', price: '$199.99' },
 ]

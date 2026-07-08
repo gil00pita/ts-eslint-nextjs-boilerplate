@@ -1,28 +1,19 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  Field,
-  Portal,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
+import { Combobox, Field, Portal, useFilter, useListCollection } from '@chakra-ui/react'
 
 export const ComboboxWithField = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: frameworks,
     filter: contains,
+    initialItems: frameworks,
   })
 
   return (
     <Field.Root width="320px">
       <Field.Label>Select framework</Field.Label>
-      <Combobox.Root
-        collection={collection}
-        onInputValueChange={(e) => filter(e.inputValue)}
-      >
+      <Combobox.Root collection={collection} onInputValueChange={(e) => filter(e.inputValue)}>
         <Combobox.Control>
           <Combobox.Input placeholder="Type to search" />
           <Combobox.IndicatorGroup>
@@ -51,15 +42,15 @@ export const ComboboxWithField = () => {
 }
 
 const frameworks = [
-  { label: "React", value: "react" },
-  { label: "Solid", value: "solid" },
-  { label: "Vue", value: "vue" },
-  { label: "Angular", value: "angular" },
-  { label: "Svelte", value: "svelte" },
-  { label: "Preact", value: "preact" },
-  { label: "Qwik", value: "qwik" },
-  { label: "Lit", value: "lit" },
-  { label: "Alpine.js", value: "alpinejs" },
-  { label: "Ember", value: "ember" },
-  { label: "Next.js", value: "nextjs" },
+  { label: 'React', value: 'react' },
+  { label: 'Solid', value: 'solid' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Svelte', value: 'svelte' },
+  { label: 'Preact', value: 'preact' },
+  { label: 'Qwik', value: 'qwik' },
+  { label: 'Lit', value: 'lit' },
+  { label: 'Alpine.js', value: 'alpinejs' },
+  { label: 'Ember', value: 'ember' },
+  { label: 'Next.js', value: 'nextjs' },
 ]

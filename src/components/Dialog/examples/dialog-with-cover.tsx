@@ -1,10 +1,10 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
 
 export const DialogWithCover = () => {
   return (
-    <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
+    <Dialog.Root motionPreset="slide-in-bottom" placement="center" size="cover">
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Dialog
         </Button>
       </Dialog.Trigger>
@@ -19,8 +19,8 @@ export const DialogWithCover = () => {
               </Dialog.CloseTrigger>
             </Dialog.Header>
             <Dialog.Body>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
             </Dialog.Body>
           </Dialog.Content>
         </Dialog.Positioner>

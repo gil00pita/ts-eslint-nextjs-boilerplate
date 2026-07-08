@@ -1,8 +1,8 @@
-import { HStack, Loader } from "@chakra-ui/react"
+import { HStack, Loader } from '@chakra-ui/react'
 
 export const LoaderBasic = () => {
   return (
-    <HStack textStyle="sm" fontWeight="medium">
+    <HStack fontWeight="medium" textStyle="sm">
       <Loader text="Loading...">Click me</Loader>
     </HStack>
   )

@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { ColorPicker, HStack, Portal, parseColor } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { ColorPicker, HStack, parseColor, Portal } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const ColorPickerWithSwatches = () => {
   return (
-    <ColorPicker.Root defaultValue={parseColor("#eb5e41")} maxW="200px">
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>Color</ColorPicker.Label>
       <ColorPicker.Control>

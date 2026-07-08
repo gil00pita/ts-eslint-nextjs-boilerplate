@@ -1,10 +1,10 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
 
 export const DialogWithFullscreen = () => {
   return (
-    <Dialog.Root size="full" motionPreset="slide-in-bottom">
+    <Dialog.Root motionPreset="slide-in-bottom" size="full">
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Dialog
         </Button>
       </Dialog.Trigger>
@@ -17,8 +17,8 @@ export const DialogWithFullscreen = () => {
             </Dialog.Header>
             <Dialog.Body>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
               </p>
             </Dialog.Body>
             <Dialog.Footer>

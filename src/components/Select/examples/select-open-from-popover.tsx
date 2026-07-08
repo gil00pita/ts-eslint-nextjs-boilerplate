@@ -1,18 +1,12 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Popover,
-  Portal,
-  Select,
-  createListCollection,
-} from "@chakra-ui/react"
+import { Button, createListCollection, Popover, Portal, Select } from '@chakra-ui/react'
 
 export const SelectOpenFromPopover = () => {
   return (
     <Popover.Root size="xs">
       <Popover.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Select in Popover
         </Button>
       </Popover.Trigger>
@@ -24,8 +18,8 @@ export const SelectOpenFromPopover = () => {
             <Popover.Body>
               <Select.Root
                 collection={frameworks}
+                positioning={{ placement: 'bottom', sameWidth: true }}
                 size="sm"
-                positioning={{ sameWidth: true, placement: "bottom" }}
               >
                 <Select.HiddenSelect />
                 <Select.Control>
@@ -57,9 +51,9 @@ export const SelectOpenFromPopover = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

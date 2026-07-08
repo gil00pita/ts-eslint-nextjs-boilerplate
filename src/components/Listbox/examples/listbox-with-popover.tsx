@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -6,36 +6,36 @@ import {
   Popover,
   Portal,
   useFilter,
-  useListCollection,
   useListbox,
-} from "@chakra-ui/react"
-import { useRef, useState } from "react"
-import { LuChevronDown } from "react-icons/lu"
+  useListCollection,
+} from '@chakra-ui/react'
+import { useRef, useState } from 'react'
+import { LuChevronDown } from 'react-icons/lu'
 
 export const ListboxWithPopover = () => {
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState('')
   const [open, setOpen] = useState(false)
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
   const triggerRef = useRef<HTMLButtonElement | null>(null)
 
   const { collection, filter } = useListCollection({
-    initialItems: [
-      { label: "React.js", value: "react" },
-      { label: "Vue.js", value: "vue" },
-      { label: "Angular", value: "angular" },
-      { label: "Svelte", value: "svelte" },
-      { label: "Next.js", value: "nextjs" },
-      { label: "Nuxt.js", value: "nuxtjs" },
-    ],
     filter: contains,
+    initialItems: [
+      { label: 'React.js', value: 'react' },
+      { label: 'Vue.js', value: 'vue' },
+      { label: 'Angular', value: 'angular' },
+      { label: 'Svelte', value: 'svelte' },
+      { label: 'Next.js', value: 'nextjs' },
+      { label: 'Nuxt.js', value: 'nuxtjs' },
+    ],
   })
 
   const listbox = useListbox({
     collection,
     onValueChange() {
       setOpen(false)
-      setInputValueFn("")
+      setInputValueFn('')
       triggerRef.current?.focus()
     },
   })
@@ -48,33 +48,28 @@ export const ListboxWithPopover = () => {
   const selectedItem = listbox.selectedItems[0]
 
   return (
-    <Popover.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+    <Popover.Root onOpenChange={(e) => setOpen(e.open)} open={open}>
       <Popover.Trigger asChild>
-        <Button size="sm" ref={triggerRef} variant="outline">
-          {selectedItem ? selectedItem.label : "Select"} <LuChevronDown />
+        <Button ref={triggerRef} size="sm" variant="outline">
+          {selectedItem ? selectedItem.label : 'Select'} <LuChevronDown />
         </Button>
       </Popover.Trigger>
 
       <Portal>
         <Popover.Positioner>
-          <Popover.Content _closed={{ animation: "none" }}>
+          <Popover.Content _closed={{ animation: 'none' }}>
             <Popover.Body p="0">
-              <Listbox.RootProvider value={listbox} gap="0" overflow="hidden">
+              <Listbox.RootProvider gap="0" overflow="hidden" value={listbox}>
                 <Listbox.Input
+                  bg="transparent"
                   minH="10"
+                  onChange={(e) => setInputValueFn(e.currentTarget.value)}
+                  outline="0"
                   px="3"
                   roundedTop="l2"
-                  bg="transparent"
-                  outline="0"
                   value={inputValue}
-                  onChange={(e) => setInputValueFn(e.currentTarget.value)}
                 />
-                <Listbox.Content
-                  borderWidth="0"
-                  borderTopWidth="1px"
-                  roundedTop="0"
-                  gap="0"
-                >
+                <Listbox.Content borderTopWidth="1px" borderWidth="0" gap="0" roundedTop="0">
                   {collection.items.map((framework) => (
                     <Listbox.Item item={framework} key={framework.value}>
                       <Listbox.ItemText>{framework.label}</Listbox.ItemText>

@@ -1,24 +1,21 @@
-import type {
-  HTMLChakraProps,
-  RecipeVariantProps,
-  UnstyledProp,
-} from "@chakra-ui/react"
-import { createRecipeContext, defineRecipe } from "@chakra-ui/react"
+import type { HTMLChakraProps, RecipeVariantProps, UnstyledProp } from '@chakra-ui/react'
+
+import { createRecipeContext, defineRecipe } from '@chakra-ui/react'
 
 const buttonRecipe = defineRecipe({
-  className: "button",
-  base: {
-    padding: "10px",
-    borderRadius: "4px",
-    backgroundColor: "red",
-    color: "white",
-  },
+  className: 'button',
   variants: {
     bold: {
       true: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
       },
     },
+  },
+  base: {
+    backgroundColor: 'red',
+    borderRadius: '4px',
+    color: 'white',
+    padding: '10px',
   },
 })
 
@@ -27,10 +24,9 @@ const { withContext } = createRecipeContext({
 })
 
 interface ButtonProps
-  extends HTMLChakraProps<"button", RecipeVariantProps<typeof buttonRecipe>>,
-    UnstyledProp {}
+  extends HTMLChakraProps<'button', RecipeVariantProps<typeof buttonRecipe>>, UnstyledProp {}
 
-const Button = withContext<HTMLButtonElement, ButtonProps>("button")
+const Button = withContext<HTMLButtonElement, ButtonProps>('button')
 
 export const SystemInlineRecipe = () => {
   return <Button bold>Welcome</Button>

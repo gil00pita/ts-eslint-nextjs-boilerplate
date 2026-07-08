@@ -4,12 +4,12 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const SpinnerWithColors = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack align="flex-start" gap="2">
       {colorPalettes.map((colorPalette) => (
-        <Stack align="center" key={colorPalette} direction="row" gap="10" px="4">
-          <Spinner size="sm" color="colorPalette.600" colorPalette={colorPalette} />
-          <Spinner size="md" color="colorPalette.600" colorPalette={colorPalette} />
-          <Spinner size="lg" color="colorPalette.600" colorPalette={colorPalette} />
+        <Stack align="center" direction="row" gap="10" key={colorPalette} px="4">
+          <Spinner color="colorPalette.600" colorPalette={colorPalette} size="sm" />
+          <Spinner color="colorPalette.600" colorPalette={colorPalette} size="md" />
+          <Spinner color="colorPalette.600" colorPalette={colorPalette} size="lg" />
         </Stack>
       ))}
     </Stack>

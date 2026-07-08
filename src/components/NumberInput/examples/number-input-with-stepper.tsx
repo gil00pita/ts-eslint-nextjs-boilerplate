@@ -1,18 +1,18 @@
-import { HStack, IconButton, NumberInput } from "@chakra-ui/react"
-import { LuMinus, LuPlus } from "react-icons/lu"
+import { HStack, IconButton, NumberInput } from '@chakra-ui/react'
+import { LuMinus, LuPlus } from 'react-icons/lu'
 
 export const NumberInputWithStepper = () => {
   return (
-    <NumberInput.Root defaultValue="3" unstyled spinOnPress={false}>
+    <NumberInput.Root defaultValue="3" spinOnPress={false} unstyled>
       <HStack gap="2">
         <NumberInput.DecrementTrigger asChild>
-          <IconButton variant="outline" size="sm">
+          <IconButton size="sm" variant="outline">
             <LuMinus />
           </IconButton>
         </NumberInput.DecrementTrigger>
-        <NumberInput.ValueText textAlign="center" fontSize="lg" minW="3ch" />
+        <NumberInput.ValueText fontSize="lg" minW="3ch" textAlign="center" />
         <NumberInput.IncrementTrigger asChild>
-          <IconButton variant="outline" size="sm">
+          <IconButton size="sm" variant="outline">
             <LuPlus />
           </IconButton>
         </NumberInput.IncrementTrigger>

@@ -1,4 +1,4 @@
-import { HStack, RadioCard } from "@chakra-ui/react"
+import { HStack, RadioCard } from '@chakra-ui/react'
 
 export const RadioCardWithAddon = () => {
   return (
@@ -11,9 +11,7 @@ export const RadioCardWithAddon = () => {
             <RadioCard.ItemControl>
               <RadioCard.ItemContent>
                 <RadioCard.ItemText>{item.title}</RadioCard.ItemText>
-                <RadioCard.ItemDescription>
-                  {item.description}
-                </RadioCard.ItemDescription>
+                <RadioCard.ItemDescription>{item.description}</RadioCard.ItemDescription>
               </RadioCard.ItemContent>
               <RadioCard.ItemIndicator />
             </RadioCard.ItemControl>
@@ -26,7 +24,7 @@ export const RadioCardWithAddon = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js", description: "Best for apps" },
-  { value: "vite", title: "Vite", description: "Best for SPAs" },
-  { value: "astro", title: "Astro", description: "Best for static sites" },
+  { description: 'Best for apps', title: 'Next.js', value: 'next' },
+  { description: 'Best for SPAs', title: 'Vite', value: 'vite' },
+  { description: 'Best for static sites', title: 'Astro', value: 'astro' },
 ]

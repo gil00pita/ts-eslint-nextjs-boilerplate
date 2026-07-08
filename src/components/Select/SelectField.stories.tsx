@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Collections / Select',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Collections / Select',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Select')
@@ -20,8 +22,10 @@ export { SelectBasic as Basic } from './examples/select-basic'
 export { SelectControlled as Controlled } from './examples/select-controlled'
 export { SelectOpenFromDialog as OpenFromDialog } from './examples/select-open-from-dialog'
 export { SelectOpenFromPopover as OpenFromPopover } from './examples/select-open-from-popover'
+export { SelectVirtualized as Virtualized } from './examples/select-virtualized'
 export { SelectWithAvatar as Avatar } from './examples/select-with-avatar'
 export { SelectWithClear as Clear } from './examples/select-with-clear'
+export { SelectWithColorPalette as ColorPalette } from './examples/select-with-color-palette'
 export { SelectWithCountry as Country } from './examples/select-with-country'
 export { SelectWithDisabled as Disabled } from './examples/select-with-disabled'
 export { SelectWithDisabledOption as DisabledOption } from './examples/select-with-disabled-option'
@@ -36,5 +40,3 @@ export { SelectWithOverflow as Overflow } from './examples/select-with-overflow'
 export { SelectWithPositioning as Positioning } from './examples/select-with-positioning'
 export { SelectWithSizes as Sizes } from './examples/select-with-sizes'
 export { SelectWithVariants as Variants } from './examples/select-with-variants'
-export { SelectWithColorPalette as ColorPalette } from './examples/select-with-color-palette'
-export { SelectVirtualized as Virtualized } from './examples/select-virtualized'

@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Field, TagsInput } from "@chakra-ui/react"
+import { Field, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithField = () => {
   return (
     <Field.Root>
-      <TagsInput.Root defaultValue={["React", "Chakra", "TypeScript"]}>
+      <TagsInput.Root defaultValue={['React', 'Chakra', 'TypeScript']}>
         <TagsInput.Label>Enter tags</TagsInput.Label>
         <TagsInput.Control>
           <TagsInput.Items />

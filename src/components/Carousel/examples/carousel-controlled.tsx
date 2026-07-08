@@ -1,10 +1,10 @@
 'use client'
 
 import { Carousel, IconButton } from '@chakra-ui/react'
+import { useState } from 'react'
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 import { DecorativeBox } from '@/utils/storybook/decorative-box'
-import { useState } from 'react'
 
 const items = Array.from({ length: 5 })
 
@@ -13,23 +13,23 @@ export const CarouselControlled = () => {
 
   return (
     <Carousel.Root
-      slideCount={items.length}
       maxW="md"
       mx="auto"
-      page={page}
       onPageChange={(e) => setPage(e.page)}
+      page={page}
+      slideCount={items.length}
     >
       <Carousel.ItemGroup>
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
+      <Carousel.Control gap="4" justifyContent="center">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronLeft />

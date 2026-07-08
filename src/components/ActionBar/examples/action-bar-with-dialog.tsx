@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { ActionBar, Button, Checkbox, Dialog, Portal } from "@chakra-ui/react"
-import { useState } from "react"
-import { LuSquarePlus, LuTrash2 } from "react-icons/lu"
+import { ActionBar, Button, Checkbox, Dialog, Portal } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuSquarePlus, LuTrash2 } from 'react-icons/lu'
 
 export const ActionBarWithDialog = () => {
   const [checked, setChecked] = useState(false)
@@ -17,20 +17,18 @@ export const ActionBarWithDialog = () => {
         <Portal>
           <ActionBar.Positioner>
             <ActionBar.Content>
-              <ActionBar.SelectionTrigger>
-                4 selected
-              </ActionBar.SelectionTrigger>
+              <ActionBar.SelectionTrigger>4 selected</ActionBar.SelectionTrigger>
 
               <ActionBar.Separator />
 
-              <Button variant="outline" size="sm">
+              <Button size="sm" variant="outline">
                 <LuSquarePlus />
                 Add to collection
               </Button>
 
               <Dialog.Root placement="center">
                 <Dialog.Trigger asChild>
-                  <Button variant="surface" colorPalette="red" size="sm">
+                  <Button colorPalette="red" size="sm" variant="surface">
                     <LuTrash2 />
                     Delete projects
                   </Button>

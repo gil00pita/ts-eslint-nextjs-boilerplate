@@ -1,36 +1,30 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Pie, PieChart, Sector, Tooltip } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Pie, PieChart, Sector, Tooltip } from 'recharts'
 
 export const DonutChartWithAnglePadding = () => {
   const chart = useChart({
     data: [
-      { name: "windows", value: 400, color: "blue.solid" },
-      { name: "mac", value: 300, color: "orange.solid" },
-      { name: "linux", value: 300, color: "pink.solid" },
+      { color: 'blue.solid', name: 'windows', value: 400 },
+      { color: 'orange.solid', name: 'mac', value: 300 },
+      { color: 'pink.solid', name: 'linux', value: 300 },
     ],
   })
 
   return (
     <Chart.Root boxSize="200px" chart={chart} mx="auto">
       <PieChart responsive>
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip hideLabel />}
-        />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip hideLabel />} cursor={false} />
         <Pie
-          innerRadius={80}
-          outerRadius={100}
-          isAnimationActive={false}
-          data={chart.data}
-          dataKey={chart.key("value")}
-          paddingAngle={8}
           cornerRadius={4}
-          shape={(props) => (
-            <Sector {...props} fill={chart.color(props.payload!.color)} />
-          )}
+          data={chart.data}
+          dataKey={chart.key('value')}
+          innerRadius={80}
+          isAnimationActive={false}
+          outerRadius={100}
+          paddingAngle={8}
+          shape={(props) => <Sector {...props} fill={chart.color(props.payload!.color)} />}
         />
       </PieChart>
     </Chart.Root>

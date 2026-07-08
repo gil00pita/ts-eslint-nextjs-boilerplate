@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
 
 export const SelectWithDisabledOption = () => {
   return (
@@ -33,11 +33,11 @@ export const SelectWithDisabledOption = () => {
 
 const animals = createListCollection({
   items: [
-    { label: "Red Panda", value: "red panda" },
-    { label: "Cat", value: "cat", disabled: true },
-    { label: "Dog", value: "dog" },
-    { label: "Aardvark", value: "aardvark", disabled: true },
-    { label: "Kangaroo", value: "kangaroo" },
-    { label: "Snake", value: "snake" },
+    { label: 'Red Panda', value: 'red panda' },
+    { disabled: true, label: 'Cat', value: 'cat' },
+    { label: 'Dog', value: 'dog' },
+    { disabled: true, label: 'Aardvark', value: 'aardvark' },
+    { label: 'Kangaroo', value: 'kangaroo' },
+    { label: 'Snake', value: 'snake' },
   ],
 })

@@ -1,15 +1,8 @@
-import {
-  Field,
-  Fieldset,
-  For,
-  Input,
-  NativeSelect,
-  Textarea,
-} from "@chakra-ui/react"
+import { Field, Fieldset, For, Input, NativeSelect, Textarea } from '@chakra-ui/react'
 
 export const FieldsetWithDisabled = () => {
   return (
-    <Fieldset.Root size="lg" disabled>
+    <Fieldset.Root disabled size="lg">
       <Fieldset.Legend>Shipping details</Fieldset.Legend>
       <Field.Root>
         <Field.Label>Street address</Field.Label>
@@ -19,7 +12,7 @@ export const FieldsetWithDisabled = () => {
         <Field.Label>Country</Field.Label>
         <NativeSelect.Root>
           <NativeSelect.Field name="country">
-            <For each={["United Kingdom", "Canada", "United States"]}>
+            <For each={['United Kingdom', 'Canada', 'United States']}>
               {(item) => (
                 <option key={item} value={item}>
                   {item}

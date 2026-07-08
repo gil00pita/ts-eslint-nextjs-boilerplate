@@ -2,16 +2,16 @@
 
 import {
   Button,
+  chakra,
   For,
   Heading,
   Popover,
   Portal,
   Textarea,
-  chakra,
   useSlotRecipe,
 } from '@chakra-ui/react'
-
 import { HiChat } from 'react-icons/hi'
+
 import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const PopoverSizeTable = () => {
@@ -28,7 +28,7 @@ export const PopoverSizeTable = () => {
           <For each={recipe.variantMap.size}>
             {(v) => (
               <chakra.td key={v} minW="400px">
-                <Popover.Root size={v} open>
+                <Popover.Root open size={v}>
                   <Popover.Trigger asChild>
                     <Button size={v} variant="solid">
                       <HiChat />
@@ -44,7 +44,7 @@ export const PopoverSizeTable = () => {
                           <Heading size="sm">Confirmation!</Heading>
                         </Popover.Header>
                         <Popover.Body>
-                          <Textarea size={v} placeholder="Type your comment here" />
+                          <Textarea placeholder="Type your comment here" size={v} />
                         </Popover.Body>
                         <Popover.Footer gap="2">
                           <Button size={v} variant="solid">

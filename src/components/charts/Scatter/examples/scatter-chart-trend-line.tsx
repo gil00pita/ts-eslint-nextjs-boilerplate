@@ -1,62 +1,55 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Fragment, useMemo } from "react"
-import { Scatter, ScatterChart, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Fragment, useMemo } from 'react'
+import { Scatter, ScatterChart, XAxis, YAxis } from 'recharts'
 
 export const ScatterChartTrendLine = () => {
   const chart = useChart({
     data: [
-      { temperature: 14.2, sales: 215 },
-      { temperature: 16.4, sales: 325 },
-      { temperature: 11.9, sales: 185 },
-      { temperature: 15.2, sales: 332 },
-      { temperature: 18.5, sales: 406 },
-      { temperature: 22.1, sales: 522 },
-      { temperature: 19.4, sales: 412 },
-      { temperature: 25.1, sales: 614 },
-      { temperature: 23.4, sales: 544 },
-      { temperature: 18.1, sales: 421 },
-      { temperature: 22.6, sales: 445 },
-      { temperature: 17.2, sales: 408 },
+      { sales: 215, temperature: 14.2 },
+      { sales: 325, temperature: 16.4 },
+      { sales: 185, temperature: 11.9 },
+      { sales: 332, temperature: 15.2 },
+      { sales: 406, temperature: 18.5 },
+      { sales: 522, temperature: 22.1 },
+      { sales: 412, temperature: 19.4 },
+      { sales: 614, temperature: 25.1 },
+      { sales: 544, temperature: 23.4 },
+      { sales: 421, temperature: 18.1 },
+      { sales: 445, temperature: 22.6 },
+      { sales: 408, temperature: 17.2 },
     ],
-    series: [{ name: "sales", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'sales' }],
   })
 
   const trendLine = useMemo(() => getTrendLine(chart.data), [chart.data])
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <ScatterChart
-        margin={{ top: 20, right: 30, bottom: 5, left: 0 }}
-        responsive
-      >
+    <Chart.Root chart={chart} maxH="sm">
+      <ScatterChart margin={{ bottom: 5, left: 0, right: 30, top: 20 }} responsive>
         <XAxis
+          dataKey={chart.key('temperature')}
+          domain={[10, 'dataMax + 3']}
+          stroke={chart.color('border')}
           type="number"
-          dataKey={chart.key("temperature")}
-          stroke={chart.color("border")}
-          domain={[10, "dataMax + 3"]}
         />
-        <YAxis
-          type="number"
-          dataKey={chart.key("sales")}
-          stroke={chart.color("border")}
-        />
+        <YAxis dataKey={chart.key('sales')} stroke={chart.color('border')} type="number" />
         <Scatter
-          isAnimationActive={false}
-          line={{ stroke: chart.color("red.solid") }}
           data={trendLine}
+          isAnimationActive={false}
+          line={{ stroke: chart.color('red.solid') }}
+          shape={() => <Fragment />}
           stroke="none"
           strokeWidth={2}
-          shape={() => <Fragment />}
         />
         {chart.series.map((series, index) => (
           <Scatter
-            name={series.label?.toString()}
-            key={index}
             data={chart.data}
             fill={chart.color(series.color)}
             isAnimationActive={false}
+            key={index}
+            name={series.label?.toString()}
           />
         ))}
       </ScatterChart>
@@ -71,8 +64,7 @@ interface Item {
 
 function getTrendLine(data: Item[]): [Item, Item] {
   // Calculate means
-  const meanX =
-    data.reduce((sum, item) => sum + item.temperature, 0) / data.length
+  const meanX = data.reduce((sum, item) => sum + item.temperature, 0) / data.length
   const meanY = data.reduce((sum, item) => sum + item.sales, 0) / data.length
 
   // Calculate slope using least squares method
@@ -93,7 +85,7 @@ function getTrendLine(data: Item[]): [Item, Item] {
 
   // Return two points that define the trend line
   return [
-    { temperature: minX, sales: slope * minX + intercept },
-    { temperature: maxX, sales: slope * maxX + intercept },
+    { sales: slope * minX + intercept, temperature: minX },
+    { sales: slope * maxX + intercept, temperature: maxX },
   ]
 }

@@ -1,17 +1,10 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Flex,
-  Image,
-  Listbox,
-  Text,
-  createListCollection,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import { Box, createListCollection, Flex, Image, Listbox, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const ListboxImageExplorer = () => {
-  const [selectedImage, setSelectedImage] = useState<string>("mountains")
+  const [selectedImage, setSelectedImage] = useState<string>('mountains')
 
   const handleSelectionChange = (details: any) => {
     if (details.value.length > 0) {
@@ -24,10 +17,10 @@ export const ListboxImageExplorer = () => {
   return (
     <Flex gap="6" maxW="800px">
       <Listbox.Root
-        maxW="2xs"
         collection={images}
-        value={[selectedImage]}
+        maxW="2xs"
         onValueChange={handleSelectionChange}
+        value={[selectedImage]}
         variant="solid"
       >
         <Listbox.Content border="0">
@@ -47,14 +40,14 @@ export const ListboxImageExplorer = () => {
               {currentImage.label}
             </Text>
             <Image
-              src={currentImage.url}
               alt={currentImage.label}
               borderRadius="md"
               maxH="400px"
-              width="full"
               objectFit="cover"
+              src={currentImage.url}
+              width="full"
             />
-            <Text fontSize="sm" color="fg.muted" mt="2">
+            <Text color="fg.muted" fontSize="sm" mt="2">
               {currentImage.description}
             </Text>
           </Box>
@@ -67,34 +60,34 @@ export const ListboxImageExplorer = () => {
 const images = createListCollection({
   items: [
     {
-      label: "Mountain Landscape",
-      value: "mountains",
-      description: "Scenic mountain view",
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      description: 'Scenic mountain view',
+      label: 'Mountain Landscape',
+      url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+      value: 'mountains',
     },
     {
-      label: "Ocean Waves",
-      value: "ocean",
-      description: "Peaceful ocean scene",
-      url: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=300&fit=crop",
+      description: 'Peaceful ocean scene',
+      label: 'Ocean Waves',
+      url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=300&fit=crop',
+      value: 'ocean',
     },
     {
-      label: "Forest Path",
-      value: "forest",
-      description: "Tranquil forest trail",
-      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop",
+      description: 'Tranquil forest trail',
+      label: 'Forest Path',
+      url: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop',
+      value: 'forest',
     },
     {
-      label: "City Skyline",
-      value: "city",
-      description: "Urban cityscape at night",
-      url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
+      description: 'Urban cityscape at night',
+      label: 'City Skyline',
+      url: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop',
+      value: 'city',
     },
     {
-      label: "Desert Dunes",
-      value: "desert",
-      description: "Golden sand dunes",
-      url: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=300&fit=crop",
+      description: 'Golden sand dunes',
+      label: 'Desert Dunes',
+      url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=300&fit=crop',
+      value: 'desert',
     },
   ],
 })

@@ -1,17 +1,9 @@
-import {
-  Avatar,
-  HStack,
-  HoverCard,
-  Icon,
-  Link,
-  Stack,
-  Text,
-} from "@chakra-ui/react"
-import { LuChartLine } from "react-icons/lu"
+import { Avatar, HoverCard, HStack, Icon, Link, Stack, Text } from '@chakra-ui/react'
+import { LuChartLine } from 'react-icons/lu'
 
 export const HoverCardExplorerDemo = () => {
   return (
-    <HoverCard.Root size="sm" open>
+    <HoverCard.Root open size="sm">
       <HoverCard.Trigger asChild>
         <Link href="#">@chakra_ui</Link>
       </HoverCard.Trigger>
@@ -19,19 +11,18 @@ export const HoverCardExplorerDemo = () => {
       <HoverCard.Positioner>
         <HoverCard.Content>
           <HoverCard.Arrow />
-          <Stack gap="4" direction="row">
+          <Stack direction="row" gap="4">
             <Avatar.Root>
               <Avatar.Image src="https://pbs.twimg.com/profile_images/1244925541448286208/rzylUjaf_400x400.jpg" />
               <Avatar.Fallback name="Chakra UI" />
             </Avatar.Root>
             <Stack gap="3">
               <Stack gap="1">
-                <Text textStyle="sm" fontWeight="semibold">
+                <Text fontWeight="semibold" textStyle="sm">
                   Chakra UI
                 </Text>
-                <Text textStyle="sm" color="fg.muted">
-                  The most powerful toolkit for building modern web
-                  applications.
+                <Text color="fg.muted" textStyle="sm">
+                  The most powerful toolkit for building modern web applications.
                 </Text>
               </Stack>
               <HStack color="fg.subtle">

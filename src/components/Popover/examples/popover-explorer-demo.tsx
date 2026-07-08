@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Popover, Text } from "@chakra-ui/react"
+import { Button, Flex, Input, Popover, Text } from '@chakra-ui/react'
 
 export const PopoverExplorerDemo = () => {
   return (
@@ -16,8 +16,7 @@ export const PopoverExplorerDemo = () => {
           <Popover.Header>
             <Popover.Title fontWeight="medium">Naruto Form</Popover.Title>
             <Popover.Description>
-              A Japanese manga series written and illustrated by Masashi
-              Kishimoto.
+              A Japanese manga series written and illustrated by Masashi Kishimoto.
             </Popover.Description>
           </Popover.Header>
 
@@ -27,13 +26,13 @@ export const PopoverExplorerDemo = () => {
           </Popover.Body>
 
           <Popover.Footer>
-            <Flex justify="flex-end" gap="2" w="full">
+            <Flex gap="2" justify="flex-end" w="full">
               <Popover.CloseTrigger asChild>
                 <Button size="sm" variant="outline">
                   Cancel
                 </Button>
               </Popover.CloseTrigger>
-              <Button size="sm" colorScheme="blue">
+              <Button colorScheme="blue" size="sm">
                 Save
               </Button>
             </Flex>

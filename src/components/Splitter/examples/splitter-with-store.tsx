@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { Center, Code, Splitter, Stack, useSplitter } from "@chakra-ui/react"
+import { Center, Code, Splitter, Stack, useSplitter } from '@chakra-ui/react'
 
 export const SplitterWithStore = () => {
   const splitter = useSplitter({
     defaultSize: [50, 50],
-    panels: [{ id: "a" }, { id: "b", minSize: 20 }],
+    panels: [{ id: 'a' }, { id: 'b', minSize: 20 }],
   })
 
   const sizes = splitter
     .getSizes()
     .map((size) => size.toFixed(1))
-    .join("%, ")
+    .join('%, ')
 
   return (
-    <Stack gap="4" align="start">
-      <Splitter.RootProvider value={splitter} borderWidth="1px" minH="60">
+    <Stack align="start" gap="4">
+      <Splitter.RootProvider borderWidth="1px" minH="60" value={splitter}>
         <Splitter.Panel id="a">
           <Center boxSize="full" textStyle="2xl">
             A

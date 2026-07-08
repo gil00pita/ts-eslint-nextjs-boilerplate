@@ -1,38 +1,32 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Pie, PieChart, Sector, Tooltip } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Pie, PieChart, Sector, Tooltip } from 'recharts'
 
 export const DonutChartWithDetachedSegment = () => {
   const chart = useChart({
     data: [
-      { name: "windows", value: 400, color: "blue.solid" },
-      { name: "mac", value: 300, color: "orange.solid" },
-      { name: "linux", value: 300, color: "pink.solid" },
-      { name: "other", value: 200, color: "green.solid" },
+      { color: 'blue.solid', name: 'windows', value: 400 },
+      { color: 'orange.solid', name: 'mac', value: 300 },
+      { color: 'pink.solid', name: 'linux', value: 300 },
+      { color: 'green.solid', name: 'other', value: 200 },
     ],
   })
 
   return (
     <Chart.Root boxSize="200px" chart={chart} mx="auto">
       <PieChart responsive>
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip hideLabel />}
-        />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip hideLabel />} cursor={false} />
         <Pie
-          innerRadius={60}
-          outerRadius={100}
-          isAnimationActive={false}
-          data={chart.data}
-          dataKey={chart.key("value")}
-          nameKey={chart.key("name")}
           activeShape={<Sector outerRadius={120} />}
+          data={chart.data}
+          dataKey={chart.key('value')}
+          innerRadius={60}
+          isAnimationActive={false}
+          nameKey={chart.key('name')}
+          outerRadius={100}
+          shape={(props) => <Sector {...props} fill={chart.color(props.payload!.color)} />}
           strokeWidth={5}
-          shape={(props) => (
-            <Sector {...props} fill={chart.color(props.payload!.color)} />
-          )}
         />
       </PieChart>
     </Chart.Root>

@@ -1,33 +1,33 @@
-"use client"
+'use client'
 
 import {
   ColorPicker,
   ColorPickerEyeDropper,
   For,
+  getColorChannels,
   HStack,
   IconButton,
+  parseColor,
   Square,
   VStack,
-  getColorChannels,
-  parseColor,
-} from "@chakra-ui/react"
-import { LuCheck, LuPlus } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { LuCheck, LuPlus } from 'react-icons/lu'
 
 const swatches = [
-  "#000000",
-  "#4A5568",
-  "#F56565",
-  "#ED64A6",
-  "#9F7AEA",
-  "#6B46C1",
-  "#4299E1",
-  "#0BC5EA",
-  "#00B5D8",
-  "#38B2AC",
-  "#48BB78",
-  "#68D391",
-  "#ECC94B",
-  "#DD6B20",
+  '#000000',
+  '#4A5568',
+  '#F56565',
+  '#ED64A6',
+  '#9F7AEA',
+  '#6B46C1',
+  '#4299E1',
+  '#0BC5EA',
+  '#00B5D8',
+  '#38B2AC',
+  '#48BB78',
+  '#68D391',
+  '#ECC94B',
+  '#DD6B20',
 ]
 
 const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
@@ -35,22 +35,16 @@ const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
 
   return (
     <ColorPicker.View format={props.format}>
-      <HStack wrap="wrap" gap="2" w="full">
+      <HStack gap="2" w="full" wrap="wrap">
         <For each={channels}>
           {(channel) => (
-            <VStack
-              key={channel}
-              gap="1"
-              flex="0 0 auto"
-              minW="60px"
-              align="stretch"
-            >
+            <VStack align="stretch" flex="0 0 auto" gap="1" key={channel} minW="60px">
               <ColorPicker.ChannelInput
                 channel={channel}
-                px="0"
                 height="7"
-                textStyle="xs"
+                px="0"
                 textAlign="center"
+                textStyle="xs"
               />
               <ColorPicker.ChannelText textAlign="center">
                 {channel.charAt(0).toUpperCase() + channel.slice(1)}
@@ -66,10 +60,10 @@ const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
 export const ColorPickerExplorerDemo = () => {
   return (
     <ColorPicker.Root
-      defaultValue={parseColor("#eb5e41")}
-      open
-      maxW="400px"
       alignItems="flex-start"
+      defaultValue={parseColor('#eb5e41')}
+      maxW="400px"
+      open
     >
       <ColorPicker.HiddenInput />
 
@@ -87,15 +81,15 @@ export const ColorPickerExplorerDemo = () => {
       <ColorPicker.Positioner>
         <ColorPicker.Content
           animation="none"
-          shadow="md"
-          padding="4"
-          borderRadius="md"
-          w="full"
-          maxW="400px"
           bg="bg.subtle"
+          borderRadius="md"
+          maxW="400px"
+          padding="4"
+          shadow="md"
+          w="full"
         >
-          <VStack gap="4" w="full" align="stretch">
-            <VStack gap="2" align="stretch">
+          <VStack align="stretch" gap="4" w="full">
+            <VStack align="stretch" gap="2">
               <ColorPicker.Area maxH="150px">
                 <ColorPicker.AreaBackground />
                 <ColorPicker.AreaThumb />
@@ -106,7 +100,7 @@ export const ColorPickerExplorerDemo = () => {
               <ColorPickerEyeDropper size="xs" />
 
               <ColorPicker.FormatTrigger asChild>
-                <IconButton size="xs" aria-label="Format" variant="outline">
+                <IconButton aria-label="Format" size="xs" variant="outline">
                   F
                 </IconButton>
               </ColorPicker.FormatTrigger>
@@ -114,7 +108,7 @@ export const ColorPickerExplorerDemo = () => {
               <ColorPicker.FormatSelect />
             </HStack>
 
-            <HStack gap="2" w="full" flexWrap="wrap">
+            <HStack flexWrap="wrap" gap="2" w="full">
               <ChannelInputs format="rgba" />
               <ChannelInputs format="hsla" />
               <ChannelInputs format="hsba" />
@@ -133,11 +127,11 @@ export const ColorPickerExplorerDemo = () => {
 
                 <ColorPicker.Trigger>
                   <Square
-                    size="7"
                     bgSize="cover"
-                    overflow="hidden"
                     border="4px solid"
                     borderImage="conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) 1"
+                    overflow="hidden"
+                    size="7"
                   >
                     <LuPlus />
                   </Square>

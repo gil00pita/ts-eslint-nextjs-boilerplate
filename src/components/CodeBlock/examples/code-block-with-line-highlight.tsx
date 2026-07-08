@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter } from '@chakra-ui/react'
 
 const file = {
   code: `
@@ -9,18 +10,14 @@ const file = {
   <h1>Hello, world!</h1>
 </div>
 `,
-  language: "html",
-  title: "index.html",
+  language: 'html',
+  title: 'index.html',
 }
 
 export const CodeBlockWithLineHighlight = () => {
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
-      <CodeBlock.Root
-        code={file.code}
-        language={file.language}
-        meta={{ highlightLines: [2, 1] }}
-      >
+      <CodeBlock.Root code={file.code} language={file.language} meta={{ highlightLines: [2, 1] }}>
         <CodeBlock.Content>
           <CodeBlock.Code>
             <CodeBlock.CodeText />
@@ -33,11 +30,11 @@ export const CodeBlockWithLineHighlight = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

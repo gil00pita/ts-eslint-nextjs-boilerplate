@@ -1,22 +1,14 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  DatePicker,
-  Field,
-  Input,
-  Portal,
-  Stack,
-  parseDate,
-} from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { LuCalendar } from "react-icons/lu"
-import { z } from "zod"
+import { Button, DatePicker, Field, Input, parseDate, Portal, Stack } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { LuCalendar } from 'react-icons/lu'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  firstName: z.string().min(1, { message: "First name is required" }),
-  dob: z.string().min(1, { message: "Date of birth is required" }),
+  dob: z.string().min(1, { message: 'Date of birth is required' }),
+  firstName: z.string().min(1, { message: 'First name is required' }),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -24,9 +16,9 @@ type FormValues = z.infer<typeof formSchema>
 export const DatePickerWithHookForm = () => {
   const {
     control,
-    register,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
+    register,
   } = useForm<FormValues>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -35,10 +27,10 @@ export const DatePickerWithHookForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4" align="flex-start" maxW="sm">
+      <Stack align="flex-start" gap="4" maxW="sm">
         <Field.Root invalid={!!errors.firstName}>
           <Field.Label>First name</Field.Label>
-          <Input {...register("firstName")} />
+          <Input {...register('firstName')} />
           <Field.ErrorText>{errors.firstName?.message}</Field.ErrorText>
         </Field.Root>
 
@@ -48,11 +40,9 @@ export const DatePickerWithHookForm = () => {
           render={({ field }) => (
             <Field.Root invalid={!!errors.dob}>
               <DatePicker.Root
-                value={field.value ? [parseDate(field.value)] : []}
-                onValueChange={(e) =>
-                  field.onChange(e.value[0]?.toString() ?? "")
-                }
                 invalid={!!errors.dob}
+                onValueChange={(e) => field.onChange(e.value[0]?.toString() ?? '')}
+                value={field.value ? [parseDate(field.value)] : []}
               >
                 <DatePicker.Label>Date of birth</DatePicker.Label>
                 <DatePicker.Control>

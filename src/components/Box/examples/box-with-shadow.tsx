@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/react'
 
 export const BoxWithShadow = () => {
   return (
-    <Box bg="bg" shadow="md" borderRadius="md">
+    <Box bg="bg" borderRadius="md" shadow="md">
       Box with shadow
     </Box>
   )

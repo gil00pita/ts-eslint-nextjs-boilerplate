@@ -1,36 +1,33 @@
-"use client"
+'use client'
+
+import type { HighlighterGeneric } from 'shiki'
 
 import {
   Badge,
   CodeBlock,
+  createListCollection,
+  createShikiAdapter,
   HStack,
   Icon,
   IconButton,
   Select,
   Span,
-  createListCollection,
-  createShikiAdapter,
   useSelect,
-} from "@chakra-ui/react"
-import { IoLogoJavascript, IoLogoPython } from "react-icons/io5"
-import type { HighlighterGeneric } from "shiki"
+} from '@chakra-ui/react'
+import { IoLogoJavascript, IoLogoPython } from 'react-icons/io5'
 
 export const CodeBlockWithLanguageSwitcher = () => {
   const select = useSelect({
-    positioning: { strategy: "fixed" },
-    defaultValue: [files[0].value],
     collection,
+    defaultValue: [files[0].value],
+    positioning: { strategy: 'fixed' },
   })
 
   const selectedFile = select.selectedItems[0]
 
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
-      <CodeBlock.Root
-        code={selectedFile.code}
-        language={selectedFile.language}
-        size="lg"
-      >
+      <CodeBlock.Root code={selectedFile.code} language={selectedFile.language} size="lg">
         <CodeBlock.Header>
           <HStack flex="1">
             <Badge colorPalette="teal" fontWeight="bold">
@@ -41,7 +38,7 @@ export const CodeBlockWithLanguageSwitcher = () => {
           <CodeBlock.Control>
             <LanguageSwitcher value={select} />
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
@@ -83,13 +80,13 @@ function LanguageSwitcher(props: Select.RootProviderProps) {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["python", "typescript"],
-      themes: ["github-dark"],
+      langs: ['python', 'typescript'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })
 
 interface CodeFile {
@@ -102,7 +99,6 @@ interface CodeFile {
 
 const files: CodeFile[] = [
   {
-    value: "python",
     code: `
 from github import Github
 
@@ -122,12 +118,12 @@ issues = repo.get_issues(state='open')
 for issue in issues:
     print(f"Issue #{issue.number}: {issue.title}")
 `,
-    language: "python",
-    title: "python.py",
-    icon: <Icon as={IoLogoPython} size="xs" color="orange.500" />,
+    icon: <Icon as={IoLogoPython} color="orange.500" size="xs" />,
+    language: 'python',
+    title: 'python.py',
+    value: 'python',
   },
   {
-    value: "typescript",
     code: `
 import { Octokit } from "@octokit/rest";
 
@@ -157,9 +153,10 @@ issues.forEach((issue) => {
   console.log(\`Issue #\${issue.number}: \${issue.title}\`);
 });
     `,
-    language: "typescript",
-    title: "typescript.ts",
-    icon: <Icon as={IoLogoJavascript} size="xs" color="blue.500" />,
+    icon: <Icon as={IoLogoJavascript} color="blue.500" size="xs" />,
+    language: 'typescript',
+    title: 'typescript.ts',
+    value: 'typescript',
   },
 ]
 

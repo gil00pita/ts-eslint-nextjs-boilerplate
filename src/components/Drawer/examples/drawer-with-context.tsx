@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { Button, CloseButton, Drawer, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Drawer, Portal } from '@chakra-ui/react'
 
 export const DrawerWithContext = () => {
   return (
     <Drawer.Root>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Drawer
         </Button>
       </Drawer.Trigger>
@@ -17,11 +17,10 @@ export const DrawerWithContext = () => {
             <Drawer.Context>
               {(store) => (
                 <Drawer.Body pt="6" spaceY="3">
-                  <p>Drawer is open: {store.open ? "true" : "false"}</p>
+                  <p>Drawer is open: {store.open ? 'true' : 'false'}</p>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
                   </p>
                   <button onClick={() => store.setOpen(false)}>Close</button>
                 </Drawer.Body>

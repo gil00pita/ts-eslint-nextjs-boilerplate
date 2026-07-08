@@ -2,8 +2,8 @@
 
 import { For, Kbd, Span, useRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const KbdSizeTable = () => {
   const recipe = useRecipe({ key: 'kbd' })
@@ -20,14 +20,14 @@ export const KbdSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <Kbd size={v} colorPalette={c}>
+                    <Kbd colorPalette={c} size={v}>
                       ⌘ C
                     </Kbd>
                   </td>

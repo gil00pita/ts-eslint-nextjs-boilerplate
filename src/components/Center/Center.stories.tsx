@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
+
 import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 
 export default {
-  title: 'Layout / Center',
   decorators: [
     (Story: any) => (
       <Box p="10">
@@ -10,6 +10,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Layout / Center',
 }
 
 export const Playground = createComponentPlayground('Center')

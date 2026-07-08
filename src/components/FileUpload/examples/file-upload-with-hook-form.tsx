@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, Field, FileUpload } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { HiUpload } from "react-icons/hi"
-import { z } from "zod"
+import { Button, Field, FileUpload } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { HiUpload } from 'react-icons/hi'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  images: z.array(z.instanceof(File)).min(1, "At least one image is required"),
+  images: z.array(z.instanceof(File)).min(1, 'At least one image is required'),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -15,13 +15,13 @@ type FormValues = z.infer<typeof formSchema>
 export const FileUploadWithHookForm = () => {
   const {
     control,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
-    resolver: standardSchemaResolver(formSchema),
     defaultValues: {
       images: [],
     },
+    resolver: standardSchemaResolver(formSchema),
   })
 
   const onSubmit = handleSubmit((data) => console.log(data))
@@ -42,7 +42,7 @@ export const FileUploadWithHookForm = () => {
             >
               <FileUpload.HiddenInput />
               <FileUpload.Trigger asChild onBlur={() => field.onBlur()}>
-                <Button variant="outline" size="sm">
+                <Button size="sm" variant="outline">
                   <HiUpload /> Upload file
                 </Button>
               </FileUpload.Trigger>
@@ -54,7 +54,7 @@ export const FileUploadWithHookForm = () => {
         )}
       />
 
-      <Button type="submit" size="sm" mt="4">
+      <Button mt="4" size="sm" type="submit">
         Submit
       </Button>
     </form>

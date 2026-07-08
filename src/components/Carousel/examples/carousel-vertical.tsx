@@ -8,20 +8,20 @@ const items = Array.from({ length: 5 })
 export const CarouselVertical = () => {
   return (
     <Carousel.Root
-      orientation="vertical"
-      slideCount={items.length}
-      mx="auto"
       height="320px"
       maxW="xl"
+      mx="auto"
+      orientation="vertical"
+      slideCount={items.length}
     >
       <Carousel.ItemGroup flex="1">
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
+          <Carousel.Item index={index} key={index}>
             <DecorativeBox fontSize="2.5rem">{index + 1}</DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
-      <Carousel.Control h="100%" justifyContent="space-between" gap="4">
+      <Carousel.Control gap="4" h="100%" justifyContent="space-between">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronUp />

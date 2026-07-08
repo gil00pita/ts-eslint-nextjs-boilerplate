@@ -1,21 +1,13 @@
-"use client"
+'use client'
 
-import {
-  DatePicker,
-  Portal,
-  Stack,
-  Text,
-  useDatePicker,
-} from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, Portal, Stack, Text, useDatePicker } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerRootProvider = () => {
   const datePicker = useDatePicker()
   return (
-    <Stack gap={4} align="flex-start" maxWidth="20rem">
-      <Text textStyle="sm">
-        Selected: {datePicker.valueAsString.join(", ") || "None"}
-      </Text>
+    <Stack align="flex-start" gap={4} maxWidth="20rem">
+      <Text textStyle="sm">Selected: {datePicker.valueAsString.join(', ') || 'None'}</Text>
 
       <DatePicker.RootProvider value={datePicker}>
         <DatePicker.Label>Select range</DatePicker.Label>

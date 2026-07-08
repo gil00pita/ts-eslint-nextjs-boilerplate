@@ -1,50 +1,34 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Guidelines/Patterns" />
 
-# Patterns
-
-Patterns describe reusable product flow shapes. Use them when a component alone is not enough to define the experience.
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Patterns"
+  lead="Patterns describe reusable product flow shapes. Use them when a component alone is not enough to define the experience."
+/>
 
 ## Core Patterns
 
-<table>
-  <thead>
-    <tr>
-      <th>Pattern</th>
-      <th>Use when</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Empty state</td>
-      <td>A user has no data, no results, or no permission to view content.</td>
-    </tr>
-    <tr>
-      <td>Error recovery</td>
-      <td>A task failed and the user needs a next step.</td>
-    </tr>
-    <tr>
-      <td>Progressive disclosure</td>
-      <td>Details are useful but not always needed.</td>
-    </tr>
-    <tr>
-      <td>Review and confirm</td>
-      <td>An action has meaningful consequences.</td>
-    </tr>
-    <tr>
-      <td>Filtering and search</td>
-      <td>Users need to narrow a large data set.</td>
-    </tr>
-    <tr>
-      <td>Bulk action</td>
-      <td>Users need to apply one action to multiple selected items.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'pattern', header: 'Pattern', width: '26%' },
+    { key: 'use', header: 'Use when' },
+  ]}
+  rows={[
+    { pattern: 'Empty state', use: 'A user has no data, no results, or no permission to view content.' },
+    { pattern: 'Error recovery', use: 'A task failed and the user needs a next step.' },
+    { pattern: 'Progressive disclosure', use: 'Details are useful but not always needed.' },
+    { pattern: 'Review and confirm', use: 'An action has meaningful consequences.' },
+    { pattern: 'Filtering and search', use: 'Users need to narrow a large data set.' },
+    { pattern: 'Bulk action', use: 'Users need to apply one action to multiple selected items.' },
+  ]}
+/>
 
-## Pattern Anatomy
-
+<Callout title="Pattern Anatomy" tone="tip">
 Each pattern should document:
 
 - When to use it.
@@ -53,6 +37,7 @@ Each pattern should document:
 - Required content.
 - Keyboard and focus behavior.
 - Empty, loading, success, and error states.
+</Callout>
 
 ## Product Fit
 

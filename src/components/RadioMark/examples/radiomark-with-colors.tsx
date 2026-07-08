@@ -6,7 +6,7 @@ export const RadiomarkWithColors = () => {
   return (
     <HStack gap={4}>
       <For each={colorPalettes}>
-        {(colorPalette) => <Radiomark key={colorPalette} colorPalette={colorPalette} checked />}
+        {(colorPalette) => <Radiomark checked colorPalette={colorPalette} key={colorPalette} />}
       </For>
     </HStack>
   )

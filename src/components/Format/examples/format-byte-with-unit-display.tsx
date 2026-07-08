@@ -1,16 +1,16 @@
-import { FormatByte, Stack, Text } from "@chakra-ui/react"
+import { FormatByte, Stack, Text } from '@chakra-ui/react'
 
 export const FormatByteWithUnitDisplay = () => {
   return (
     <Stack>
       <Text textStyle="lg">
-        <FormatByte value={50345.53} unitDisplay="narrow" />
+        <FormatByte unitDisplay="narrow" value={50345.53} />
       </Text>
       <Text textStyle="lg">
-        <FormatByte value={50345.53} unitDisplay="short" />
+        <FormatByte unitDisplay="short" value={50345.53} />
       </Text>
       <Text textStyle="lg">
-        <FormatByte value={50345.53} unitDisplay="long" />
+        <FormatByte unitDisplay="long" value={50345.53} />
       </Text>
     </Stack>
   )

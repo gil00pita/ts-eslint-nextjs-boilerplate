@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
-import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
+import { Box } from '@chakra-ui/react'
+
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Forms / Editable',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Forms / Editable',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Editable')

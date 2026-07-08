@@ -1,48 +1,62 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import { Box, Grid, Heading, Text } from '@chakra-ui/react'
+
+import { DocsHero, SpecTable } from './_kit'
 
 <Meta title="Phenix UI/Overview" />
 
-# Phenix UI
+<DocsHero
+  colorPalette="brand"
+  eyebrow="Design System"
+  title="Phenix UI"
+  lead="A fictional design system for resilient product teams building workflow-heavy digital services — a shared language for interface decisions, reusable React components, brand foundations, and accessibility standards."
+/>
 
-Phenix UI is a fictional design system for resilient product teams building workflow-heavy digital services. It gives teams a shared language for interface decisions, reusable React components, brand foundations, and accessibility standards.
-
-The system is designed for products that must feel calm under pressure: operations dashboards, service portals, support tooling, and user journeys where clarity matters more than decoration.
+Phenix UI is designed for products that must feel calm under pressure: operations dashboards, service portals, support tooling, and user journeys where clarity matters more than decoration.
 
 ## Principles
 
-<table>
-  <thead>
-    <tr>
-      <th>Principle</th>
-      <th>What it means</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Clear by default</td>
-      <td>Screens should explain state, next steps, and consequences without extra training.</td>
-    </tr>
-    <tr>
-      <td>Built for recovery</td>
-      <td>Empty, loading, error, and partial-success states are first-class design work.</td>
-    </tr>
-    <tr>
-      <td>Efficient at scale</td>
-      <td>Components support dense information, keyboard use, and repeated workflows.</td>
-    </tr>
-    <tr>
-      <td>Brand with restraint</td>
-      <td>The Phenix identity adds warmth and recognition without overpowering content.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'principle', header: 'Principle', width: '30%' },
+    { key: 'meaning', header: 'What it means' },
+  ]}
+  rows={[
+    { principle: 'Clear by default', meaning: 'Screens should explain state, next steps, and consequences without extra training.' },
+    { principle: 'Built for recovery', meaning: 'Empty, loading, error, and partial-success states are first-class design work.' },
+    { principle: 'Efficient at scale', meaning: 'Components support dense information, keyboard use, and repeated workflows.' },
+    { principle: 'Brand with restraint', meaning: 'The Phenix identity adds warmth and recognition without overpowering content.' },
+  ]}
+/>
 
 ## Documentation Map
 
-- **What's New** tracks recent system releases and notable decisions.
-- **About** explains the system, how to start, and how to install it.
-- **Brand Styles** documents foundations such as color, typography, spacing, motion, and themes.
-- **Guidelines** covers accessibility, content design, and product patterns.
+<Grid gap={4} my={6} templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}>
+  {[
+    { title: "What's New", body: 'Recent system releases and notable decisions.', colorPalette: 'purple' },
+    { title: 'About', body: 'What the system is, how to start, and how to install it.', colorPalette: 'brand' },
+    { title: 'Brand Styles', body: 'Foundations such as color, typography, spacing, motion, and themes.', colorPalette: 'teal' },
+    { title: 'Guidelines', body: 'Accessibility, content design, and product patterns.', colorPalette: 'orange' },
+  ].map((item) => (
+    <Box
+      key={item.title}
+      colorPalette={item.colorPalette}
+      borderColor="border.muted"
+      borderRadius="xl"
+      borderWidth="1px"
+      borderLeftWidth="4px"
+      borderLeftColor="colorPalette.solid"
+      p={4}
+    >
+      <Heading as="h3" size="sm" mb={1}>
+        {item.title}
+      </Heading>
+      <Text color="fg.muted" fontSize="sm">
+        {item.body}
+      </Text>
+    </Box>
+  ))}
+</Grid>
 
 ## Package Shape
 

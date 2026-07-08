@@ -1,4 +1,4 @@
-import { FileUpload, Input } from "@chakra-ui/react"
+import { FileUpload, Input } from '@chakra-ui/react'
 
 export const FileUploadWithInput = () => {
   return (

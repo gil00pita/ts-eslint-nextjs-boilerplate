@@ -1,19 +1,13 @@
-"use client"
+'use client'
 
-import {
-  For,
-  Portal,
-  Select,
-  Stack,
-  createListCollection,
-} from "@chakra-ui/react"
+import { createListCollection, For, Portal, Select, Stack } from '@chakra-ui/react'
 
 export const SelectWithSizes = () => {
   return (
     <Stack gap="5" width="320px">
-      <For each={["xs", "sm", "md", "lg"]}>
+      <For each={['xs', 'sm', 'md', 'lg']}>
         {(size) => (
-          <Select.Root key={size} size={size} collection={frameworks}>
+          <Select.Root collection={frameworks} key={size} size={size}>
             <Select.HiddenSelect />
             <Select.Label>size = {size}</Select.Label>
             <Select.Control>
@@ -45,9 +39,9 @@ export const SelectWithSizes = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

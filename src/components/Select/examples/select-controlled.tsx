@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
-import { useState } from "react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const SelectControlled = () => {
   const [value, setValue] = useState<string[]>([])
   return (
     <Select.Root
       collection={frameworks}
-      width="320px"
-      value={value}
       onValueChange={(e) => setValue(e.value)}
+      value={value}
+      width="320px"
     >
       <Select.HiddenSelect />
       <Select.Label>Select framework</Select.Label>
@@ -40,9 +40,9 @@ export const SelectControlled = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

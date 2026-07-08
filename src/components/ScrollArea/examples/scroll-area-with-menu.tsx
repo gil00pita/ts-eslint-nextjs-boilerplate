@@ -1,18 +1,18 @@
-import { Button, Menu, Portal, ScrollArea } from "@chakra-ui/react"
-import { useId } from "react"
+import { Button, Menu, Portal, ScrollArea } from '@chakra-ui/react'
+import { useId } from 'react'
 
 export const ScrollAreaWithMenu = () => {
   const contentId = useId()
   return (
     <Menu.Root ids={{ content: contentId }}>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Menu with Scroll
         </Button>
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
-          <MenuContent maxH="80" w="64" id={contentId}>
+          <MenuContent id={contentId} maxH="80" w="64">
             {menuItems.map((item) => (
               <Menu.Item key={item.value} value={item.value}>
                 {item.label}
@@ -26,9 +26,9 @@ export const ScrollAreaWithMenu = () => {
 }
 
 function MenuContent(props: Menu.ContentProps) {
-  const { id, children, ...rest } = props
+  const { children, id, ...rest } = props
   return (
-    <ScrollArea.Root overflow="visible" ids={{ viewport: id }}>
+    <ScrollArea.Root ids={{ viewport: id }} overflow="visible">
       <ScrollArea.Viewport asChild>
         <Menu.Content {...rest}>
           {children}
@@ -42,24 +42,24 @@ function MenuContent(props: Menu.ContentProps) {
 }
 
 const menuItems = [
-  { value: "profile", label: "Profile" },
-  { value: "settings", label: "Settings" },
-  { value: "notifications", label: "Notifications" },
-  { value: "messages", label: "Messages" },
-  { value: "documents", label: "Documents" },
-  { value: "files", label: "Files" },
-  { value: "images", label: "Images" },
-  { value: "videos", label: "Videos" },
-  { value: "music", label: "Music" },
-  { value: "downloads", label: "Downloads" },
-  { value: "share", label: "Share" },
-  { value: "copy", label: "Copy" },
-  { value: "edit", label: "Edit" },
-  { value: "favorites", label: "Favorites" },
-  { value: "liked", label: "Liked Items" },
-  { value: "bookmarks", label: "Bookmarks" },
-  { value: "flagged", label: "Flagged Items" },
-  { value: "help", label: "Help & Support" },
-  { value: "trash", label: "Trash" },
-  { value: "logout", label: "Logout" },
+  { label: 'Profile', value: 'profile' },
+  { label: 'Settings', value: 'settings' },
+  { label: 'Notifications', value: 'notifications' },
+  { label: 'Messages', value: 'messages' },
+  { label: 'Documents', value: 'documents' },
+  { label: 'Files', value: 'files' },
+  { label: 'Images', value: 'images' },
+  { label: 'Videos', value: 'videos' },
+  { label: 'Music', value: 'music' },
+  { label: 'Downloads', value: 'downloads' },
+  { label: 'Share', value: 'share' },
+  { label: 'Copy', value: 'copy' },
+  { label: 'Edit', value: 'edit' },
+  { label: 'Favorites', value: 'favorites' },
+  { label: 'Liked Items', value: 'liked' },
+  { label: 'Bookmarks', value: 'bookmarks' },
+  { label: 'Flagged Items', value: 'flagged' },
+  { label: 'Help & Support', value: 'help' },
+  { label: 'Trash', value: 'trash' },
+  { label: 'Logout', value: 'logout' },
 ]

@@ -1,23 +1,13 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FloatingPanel,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+import { Button, FloatingPanel, IconButton, Portal, Text } from '@chakra-ui/react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 export const FloatingPanelDisableResize = () => {
   return (
-    <FloatingPanel.Root
-      resizable={false}
-      persistRect
-      defaultSize={{ width: 320, height: 200 }}
-    >
+    <FloatingPanel.Root defaultSize={{ height: 200, width: 320 }} persistRect resizable={false}>
       <FloatingPanel.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Panel
         </Button>
       </FloatingPanel.Trigger>
@@ -31,7 +21,7 @@ export const FloatingPanelDisableResize = () => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>
@@ -39,8 +29,7 @@ export const FloatingPanelDisableResize = () => {
             </FloatingPanel.Header>
             <FloatingPanel.Body>
               <Text textStyle="sm">
-                This panel has a fixed size and cannot be resized. Dragging is
-                still enabled.
+                This panel has a fixed size and cannot be resized. Dragging is still enabled.
               </Text>
             </FloatingPanel.Body>
           </FloatingPanel.Content>

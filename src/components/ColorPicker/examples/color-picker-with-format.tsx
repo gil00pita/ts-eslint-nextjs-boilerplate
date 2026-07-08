@@ -1,14 +1,10 @@
-"use client"
+'use client'
 
-import { ColorPicker, HStack, Portal, parseColor } from "@chakra-ui/react"
+import { ColorPicker, HStack, parseColor, Portal } from '@chakra-ui/react'
 
 export const ColorPickerWithFormat = () => {
   return (
-    <ColorPicker.Root
-      defaultValue={parseColor("#eb5e41")}
-      maxW="200px"
-      format="hsla"
-    >
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} format="hsla" maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>Color</ColorPicker.Label>
       <ColorPicker.Control>

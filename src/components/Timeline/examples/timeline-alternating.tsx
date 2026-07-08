@@ -1,4 +1,4 @@
-import { Timeline } from "@chakra-ui/react"
+import { Timeline } from '@chakra-ui/react'
 
 export const TimelineAlternating = () => {
   return (
@@ -15,7 +15,7 @@ export const TimelineAlternating = () => {
       </Timeline.Item>
 
       <Timeline.Item>
-        <Timeline.Content flex="1" alignItems="flex-end">
+        <Timeline.Content alignItems="flex-end" flex="1">
           <Timeline.Title>Prepared Order</Timeline.Title>
         </Timeline.Content>
         <Timeline.Connector>

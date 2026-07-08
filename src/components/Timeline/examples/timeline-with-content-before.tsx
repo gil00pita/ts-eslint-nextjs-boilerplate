@@ -1,11 +1,11 @@
-import { For, Stack, Timeline } from "@chakra-ui/react"
+import { For, Stack, Timeline } from '@chakra-ui/react'
 
 export const TimelineWithContentBefore = () => {
   return (
     <Stack gap="8">
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
-          <Timeline.Root size={size} key={size}>
+          <Timeline.Root key={size} size={size}>
             <Timeline.Item>
               <Timeline.Content width="auto">
                 <Timeline.Title whiteSpace="nowrap">Nov 1994</Timeline.Title>

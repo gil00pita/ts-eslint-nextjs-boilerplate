@@ -1,32 +1,27 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  Portal,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import { Combobox, Portal, useFilter, useListCollection } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const ComboboxOpenControlled = () => {
   const [open, setOpen] = useState(false)
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: frameworks,
     filter: contains,
+    initialItems: frameworks,
   })
 
   return (
     <Combobox.Root
       collection={collection}
       onInputValueChange={(e) => filter(e.inputValue)}
-      width="320px"
-      open={open}
       onOpenChange={(e) => setOpen(e.open)}
+      open={open}
+      width="320px"
     >
-      <Combobox.Label>Combobox is {open ? "open" : "closed"}</Combobox.Label>
+      <Combobox.Label>Combobox is {open ? 'open' : 'closed'}</Combobox.Label>
 
       <Combobox.Control>
         <Combobox.Input placeholder="Type to search" />
@@ -54,15 +49,15 @@ export const ComboboxOpenControlled = () => {
 }
 
 const frameworks = [
-  { label: "React", value: "react" },
-  { label: "Solid", value: "solid" },
-  { label: "Vue", value: "vue" },
-  { label: "Angular", value: "angular" },
-  { label: "Svelte", value: "svelte" },
-  { label: "Preact", value: "preact" },
-  { label: "Qwik", value: "qwik" },
-  { label: "Lit", value: "lit" },
-  { label: "Alpine.js", value: "alpinejs" },
-  { label: "Ember", value: "ember" },
-  { label: "Next.js", value: "nextjs" },
+  { label: 'React', value: 'react' },
+  { label: 'Solid', value: 'solid' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Svelte', value: 'svelte' },
+  { label: 'Preact', value: 'preact' },
+  { label: 'Qwik', value: 'qwik' },
+  { label: 'Lit', value: 'lit' },
+  { label: 'Alpine.js', value: 'alpinejs' },
+  { label: 'Ember', value: 'ember' },
+  { label: 'Next.js', value: 'nextjs' },
 ]

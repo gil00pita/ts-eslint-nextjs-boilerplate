@@ -1,4 +1,4 @@
-import { Button, Input, Popover, Portal, Text, Theme } from "@chakra-ui/react"
+import { Button, Input, Popover, Portal, Text, Theme } from '@chakra-ui/react'
 
 export const ThemeWithPortalled = () => {
   return (
@@ -11,13 +11,12 @@ export const ThemeWithPortalled = () => {
       <Portal>
         <Popover.Positioner>
           <Popover.Content asChild>
-            <Theme hasBackground={false} appearance="dark" colorPalette="teal">
+            <Theme appearance="dark" colorPalette="teal" hasBackground={false}>
               <Popover.Arrow />
               <Popover.Body spaceY="4">
                 <Popover.Title fontWeight="medium">Naruto Form</Popover.Title>
                 <Text>
-                  Naruto is a Japanese manga series written and illustrated by
-                  Masashi Kishimoto.
+                  Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
                 </Text>
                 <Input placeholder="Search" />
                 <Button>Click me</Button>

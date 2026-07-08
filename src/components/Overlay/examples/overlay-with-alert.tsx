@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Portal } from "@chakra-ui/react"
-import { createOverlay } from "@chakra-ui/react"
-import { useRef } from "react"
+import { Button, Dialog, Portal } from '@chakra-ui/react'
+import { createOverlay } from '@chakra-ui/react'
+import { useRef } from 'react'
 
 interface AlertProps {
   title?: string
@@ -11,14 +11,10 @@ interface AlertProps {
 }
 
 const alert = createOverlay<AlertProps>((props) => {
-  const { onConfirm, content, title = "Are you sure?", ...rest } = props
+  const { content, onConfirm, title = 'Are you sure?', ...rest } = props
   const cancelRef = useRef<HTMLButtonElement | null>(null)
   return (
-    <Dialog.Root
-      {...rest}
-      role="alertdialog"
-      initialFocusEl={() => cancelRef.current}
-    >
+    <Dialog.Root {...rest} initialFocusEl={() => cancelRef.current} role="alertdialog">
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
@@ -47,13 +43,12 @@ export const OverlayWithAlert = () => {
     <>
       <Button
         onClick={async () => {
-          alert.open("a", {
+          alert.open('a', {
+            content: 'Remove this item will clear all the data and cannot be undone.',
             onConfirm() {
-              console.log("confirmed")
-              alert.close("a")
+              console.log('confirmed')
+              alert.close('a')
             },
-            content:
-              "Remove this item will clear all the data and cannot be undone.",
           })
         }}
       >

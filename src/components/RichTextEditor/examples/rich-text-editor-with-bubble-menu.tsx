@@ -1,48 +1,48 @@
-"use client"
+'use client'
 
-import { Control, RichTextEditor } from "@/ui/rich-text-editor"
+import { useEditor } from '@tiptap/react'
+import { BubbleMenu } from '@tiptap/react/menus'
+import StarterKit from '@tiptap/starter-kit'
 
-import { BubbleMenu } from "@tiptap/react/menus"
-import StarterKit from "@tiptap/starter-kit"
-import { useEditor } from "@tiptap/react"
+import { Control, RichTextEditor } from '@/ui/rich-text-editor'
 
 export const RichTextEditorWithBubbleMenu = () => {
-	const editor = useEditor({
-		extensions: [StarterKit],
-		content: sampleContent,
-		shouldRerenderOnTransaction: true,
-		immediatelyRender: false,
-	})
+  const editor = useEditor({
+    content: sampleContent,
+    extensions: [StarterKit],
+    immediatelyRender: false,
+    shouldRerenderOnTransaction: true,
+  })
 
-	if (!editor) return null
+  if (!editor) return null
 
-	return (
-		<RichTextEditor.Root editor={editor} borderWidth='1px' rounded='lg'>
-			{editor && (
-				<BubbleMenu editor={editor}>
-					<RichTextEditor.Toolbar variant='floating'>
-						<RichTextEditor.ControlGroup>
-							<Control.Bold />
-							<Control.Italic />
-							<Control.Underline />
-							<Control.Strikethrough />
-						</RichTextEditor.ControlGroup>
+  return (
+    <RichTextEditor.Root borderWidth="1px" editor={editor} rounded="lg">
+      {editor && (
+        <BubbleMenu editor={editor}>
+          <RichTextEditor.Toolbar variant="floating">
+            <RichTextEditor.ControlGroup>
+              <Control.Bold />
+              <Control.Italic />
+              <Control.Underline />
+              <Control.Strikethrough />
+            </RichTextEditor.ControlGroup>
 
-						<RichTextEditor.ControlGroup>
-							<Control.Hr />
-							<Control.Code />
-						</RichTextEditor.ControlGroup>
+            <RichTextEditor.ControlGroup>
+              <Control.Hr />
+              <Control.Code />
+            </RichTextEditor.ControlGroup>
 
-						<RichTextEditor.ControlGroup>
-							<Control.BulletList />
-							<Control.OrderedList />
-						</RichTextEditor.ControlGroup>
-					</RichTextEditor.Toolbar>
-				</BubbleMenu>
-			)}
-			<RichTextEditor.Content />
-		</RichTextEditor.Root>
-	)
+            <RichTextEditor.ControlGroup>
+              <Control.BulletList />
+              <Control.OrderedList />
+            </RichTextEditor.ControlGroup>
+          </RichTextEditor.Toolbar>
+        </BubbleMenu>
+      )}
+      <RichTextEditor.Content />
+    </RichTextEditor.Root>
+  )
 }
 
 const sampleContent = `

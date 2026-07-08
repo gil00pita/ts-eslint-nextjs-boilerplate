@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Overlays / Popover',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,15 +12,16 @@ export default {
       </Box>
     ),
   ],
+  title: 'Overlays / Popover',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Popover')
 
 export { PopoverBasic as Basic } from './examples/popover-basic'
 export { PopoverControlled as Controlled } from './examples/popover-controlled'
-export { PopoverOpenFromDialog as OpenFromDialog } from './examples/popover-open-from-dialog'
 export { PopoverLazyMounted as LazyMounted } from './examples/popover-lazy-mounted'
 export { PopoverNested as Nested } from './examples/popover-nested'
+export { PopoverOpenFromDialog as OpenFromDialog } from './examples/popover-open-from-dialog'
 export { PopoverSizeTable as Sizes } from './examples/popover-size-table'
 export { PopoverWithCustomBg as CustomBg } from './examples/popover-with-custom-bg'
 export { PopoverWithForm as Form } from './examples/popover-with-form'

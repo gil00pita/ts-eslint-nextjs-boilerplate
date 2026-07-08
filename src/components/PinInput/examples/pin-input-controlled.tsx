@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { PinInput } from "@chakra-ui/react"
-import { useState } from "react"
+import { PinInput } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const PinInputControlled = () => {
-  const [value, setValue] = useState(["", "", "", ""])
+  const [value, setValue] = useState(['', '', '', ''])
   return (
-    <PinInput.Root value={value} onValueChange={(e) => setValue(e.value)}>
+    <PinInput.Root onValueChange={(e) => setValue(e.value)} value={value}>
       <PinInput.HiddenInput />
       <PinInput.Control>
         <PinInput.Input index={0} />

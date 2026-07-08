@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, For, Stack, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, For, Stack } from '@chakra-ui/react'
 
 const file = {
   code: `
@@ -9,22 +10,17 @@ const file = {
   <h1>Hello, world!</h1>
 </div>
 `,
-  language: "html",
-  title: "index.html",
+  language: 'html',
+  title: 'index.html',
 }
 
 export const CodeBlockWithSizes = () => {
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
       <Stack gap="8">
-        <For each={["sm", "md", "lg"]}>
+        <For each={['sm', 'md', 'lg']}>
           {(size) => (
-            <CodeBlock.Root
-              key={size}
-              code={file.code}
-              language={file.language}
-              size={size}
-            >
+            <CodeBlock.Root code={file.code} key={size} language={file.language} size={size}>
               <CodeBlock.Header>
                 <CodeBlock.Title>(size={size})</CodeBlock.Title>
               </CodeBlock.Header>
@@ -43,11 +39,11 @@ export const CodeBlockWithSizes = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

@@ -1,19 +1,12 @@
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  Kbd,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
+import { Button, CloseButton, Drawer, Kbd, Portal, Text } from '@chakra-ui/react'
 
 export const DrawerWithConditionalVariants = () => {
   return (
     <>
       <Text mb="4">Open drawer and resize screen to mobile size</Text>
-      <Drawer.Root placement={{ mdDown: "bottom", md: "end" }}>
+      <Drawer.Root placement={{ mdDown: 'bottom', md: 'end' }}>
         <Drawer.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open Drawer
           </Button>
         </Drawer.Trigger>

@@ -1,13 +1,13 @@
-import { Box, Flex, Spacer } from "@chakra-ui/react"
+import { Box, Flex, Spacer } from '@chakra-ui/react'
 
 export const FlexWithSpacer = () => {
   return (
     <Flex>
-      <Box p="4" bg="red.400" color="white">
+      <Box bg="red.400" color="white" p="4">
         Box 1
       </Box>
       <Spacer />
-      <Box p="4" bg="green.400" color="white">
+      <Box bg="green.400" color="white" p="4">
         Box 2
       </Box>
     </Flex>

@@ -1,27 +1,22 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  Portal,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
-import { LuExternalLink } from "react-icons/lu"
+import { Combobox, Portal, useFilter, useListCollection } from '@chakra-ui/react'
+import { LuExternalLink } from 'react-icons/lu'
 
 export const ComboboxWithLinks = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: frameworks,
     filter: contains,
+    initialItems: frameworks,
   })
 
   return (
     <Combobox.Root
       collection={collection}
       onInputValueChange={(e) => filter(e.inputValue)}
-      width="320px"
       selectionBehavior="clear"
+      width="320px"
     >
       <Combobox.Label>Select framework</Combobox.Label>
       <Combobox.Control>
@@ -50,15 +45,15 @@ export const ComboboxWithLinks = () => {
 }
 
 const frameworks = [
-  { label: "React", value: "react", docs: "https://react.dev" },
-  { label: "Solid", value: "solid", docs: "https://solidjs.com" },
-  { label: "Vue", value: "vue", docs: "https://vuejs.org" },
-  { label: "Angular", value: "angular", docs: "https://angular.io" },
-  { label: "Svelte", value: "svelte", docs: "https://svelte.dev" },
-  { label: "Preact", value: "preact", docs: "https://preactjs.com" },
-  { label: "Qwik", value: "qwik", docs: "https://qwik.builder.io" },
-  { label: "Lit", value: "lit", docs: "https://lit.dev" },
-  { label: "Alpine.js", value: "alpinejs", docs: "https://alpinejs.dev" },
-  { label: "Ember", value: "ember", docs: "https://emberjs.com" },
-  { label: "Next.js", value: "nextjs", docs: "https://nextjs.org" },
+  { docs: 'https://react.dev', label: 'React', value: 'react' },
+  { docs: 'https://solidjs.com', label: 'Solid', value: 'solid' },
+  { docs: 'https://vuejs.org', label: 'Vue', value: 'vue' },
+  { docs: 'https://angular.io', label: 'Angular', value: 'angular' },
+  { docs: 'https://svelte.dev', label: 'Svelte', value: 'svelte' },
+  { docs: 'https://preactjs.com', label: 'Preact', value: 'preact' },
+  { docs: 'https://qwik.builder.io', label: 'Qwik', value: 'qwik' },
+  { docs: 'https://lit.dev', label: 'Lit', value: 'lit' },
+  { docs: 'https://alpinejs.dev', label: 'Alpine.js', value: 'alpinejs' },
+  { docs: 'https://emberjs.com', label: 'Ember', value: 'ember' },
+  { docs: 'https://nextjs.org', label: 'Next.js', value: 'nextjs' },
 ]

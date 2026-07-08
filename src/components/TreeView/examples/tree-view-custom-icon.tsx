@@ -1,16 +1,11 @@
-"use client"
+'use client'
 
-import { TreeView, createTreeCollection } from "@chakra-ui/react"
-import { RxFrame, RxImage, RxSquare, RxText } from "react-icons/rx"
+import { createTreeCollection, TreeView } from '@chakra-ui/react'
+import { RxFrame, RxImage, RxSquare, RxText } from 'react-icons/rx'
 
 export const TreeViewCustomIcon = () => {
   return (
-    <TreeView.Root
-      collection={collection}
-      maxW="sm"
-      size="sm"
-      defaultExpandedValue={["ROOT"]}
-    >
+    <TreeView.Root collection={collection} defaultExpandedValue={['ROOT']} maxW="sm" size="sm">
       <TreeView.Label srOnly>Tree</TreeView.Label>
       <TreeView.Tree>
         <TreeView.Node
@@ -18,9 +13,7 @@ export const TreeViewCustomIcon = () => {
             nodeState.isBranch ? (
               <TreeView.BranchControl>
                 <TreeViewNodeIcon type={node.type} />
-                <TreeView.BranchText fontWeight="medium">
-                  {node.name}
-                </TreeView.BranchText>
+                <TreeView.BranchText fontWeight="medium">{node.name}</TreeView.BranchText>
               </TreeView.BranchControl>
             ) : (
               <TreeView.Item>
@@ -35,15 +28,15 @@ export const TreeViewCustomIcon = () => {
   )
 }
 
-const TreeViewNodeIcon = (props: { type: Node["type"] }) => {
+const TreeViewNodeIcon = (props: { type: Node['type'] }) => {
   switch (props.type) {
-    case "text":
+    case 'text':
       return <RxText />
-    case "image":
+    case 'image':
       return <RxImage />
-    case "frame":
+    case 'frame':
       return <RxFrame />
-    case "rectangle":
+    case 'rectangle':
       return <RxSquare />
     default:
       return null
@@ -51,46 +44,46 @@ const TreeViewNodeIcon = (props: { type: Node["type"] }) => {
 }
 
 interface Node {
-  type: "text" | "image" | "frame" | "rectangle"
+  type: 'text' | 'image' | 'frame' | 'rectangle'
   id: string
   name: string
   children?: Node[]
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
-    type: "frame",
     children: [
       {
-        id: "page",
-        name: "Page",
-        type: "frame",
         children: [
           {
-            id: "header",
-            name: "Header",
-            type: "frame",
             children: [
-              { id: "logo", name: "Logo", type: "image" },
-              { id: "nav", name: "Navigation", type: "text" },
+              { id: 'logo', name: 'Logo', type: 'image' },
+              { id: 'nav', name: 'Navigation', type: 'text' },
             ],
+            id: 'header',
+            name: 'Header',
+            type: 'frame',
           },
         ],
+        id: 'page',
+        name: 'Page',
+        type: 'frame',
       },
-      { id: "footer", name: "Footer", type: "text" },
+      { id: 'footer', name: 'Footer', type: 'text' },
       {
-        id: "main",
-        name: "Main",
-        type: "frame",
         children: [
-          { id: "hero", name: "Hero Section", type: "text" },
-          { id: "features", name: "Features", type: "text" },
+          { id: 'hero', name: 'Hero Section', type: 'text' },
+          { id: 'features', name: 'Features', type: 'text' },
         ],
+        id: 'main',
+        name: 'Main',
+        type: 'frame',
       },
     ],
+    id: 'ROOT',
+    name: '',
+    type: 'frame',
   },
 })

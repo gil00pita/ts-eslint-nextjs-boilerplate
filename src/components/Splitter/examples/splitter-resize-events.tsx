@@ -1,44 +1,39 @@
-"use client"
+'use client'
 
-import { Center, HStack, Span, Splitter, Stack } from "@chakra-ui/react"
-import { useCallback, useEffect, useRef } from "react"
-import { useState } from "react"
-import { LuMouse, LuMoveHorizontal } from "react-icons/lu"
+import { Center, HStack, Span, Splitter, Stack } from '@chakra-ui/react'
+import { useCallback, useEffect, useRef } from 'react'
+import { useState } from 'react'
+import { LuMouse, LuMoveHorizontal } from 'react-icons/lu'
 
 type EventLog = [number, string, string]
 
 export const SplitterResizeEvents = () => {
   const [eventLog, setEventLog] = useState<EventLog[]>([])
 
-  const logEvent = useCallback(
-    (eventName: string, details?: { size?: number[] }) => {
-      const timestamp = Date.now()
-      const sizeInfo = details?.size
-        ? `[${details.size.map((s) => s.toFixed(1)).join(", ")}]`
-        : ""
-      setEventLog((prev) => [[timestamp, eventName, sizeInfo], ...prev])
-    },
-    [],
-  )
+  const logEvent = useCallback((eventName: string, details?: { size?: number[] }) => {
+    const timestamp = Date.now()
+    const sizeInfo = details?.size ? `[${details.size.map((s) => s.toFixed(1)).join(', ')}]` : ''
+    setEventLog((prev) => [[timestamp, eventName, sizeInfo], ...prev])
+  }, [])
 
   const throttledLogEvent = useThrottle(logEvent, 100)
 
   return (
-    <Stack gap="4" align="start">
-      <HStack textStyle="sm" gap={2}>
+    <Stack align="start" gap="4">
+      <HStack gap={2} textStyle="sm">
         <LuMouse />
         <LuMoveHorizontal />
         <Span>Drag the handle to resize panels</Span>
       </HStack>
 
       <Splitter.Root
-        panels={[{ id: "a" }, { id: "b" }]}
-        defaultSize={[50, 50]}
         borderWidth="1px"
+        defaultSize={[50, 50]}
         minH="60"
-        onResizeStart={() => logEvent("onResizeStart")}
-        onResize={(details) => throttledLogEvent("onResize", details)}
-        onResizeEnd={(details) => logEvent("onResizeEnd", details)}
+        onResize={(details) => throttledLogEvent('onResize', details)}
+        onResizeEnd={(details) => logEvent('onResizeEnd', details)}
+        onResizeStart={() => logEvent('onResizeStart')}
+        panels={[{ id: 'a' }, { id: 'b' }]}
       >
         <Splitter.Panel id="a">
           <Center boxSize="full" textStyle="2xl">
@@ -56,24 +51,24 @@ export const SplitterResizeEvents = () => {
       </Splitter.Root>
 
       <Stack
-        p="2"
-        gap="1"
-        width="full"
-        role="log"
         borderWidth="1px"
-        minH="100px"
+        gap="1"
         maxH="200px"
+        minH="100px"
         overflowY="auto"
+        p="2"
+        role="log"
+        width="full"
       >
         {eventLog.length === 0 ? (
-          <Span textStyle="sm" color="fg.muted">
+          <Span color="fg.muted" textStyle="sm">
             Resize events will appear here...
           </Span>
         ) : (
           eventLog.map(([time, eventName, sizeInfo], i) => {
             const date = new Date(time)
             return (
-              <HStack as="pre" fontFamily="mono" textStyle="sm" key={i}>
+              <HStack as="pre" fontFamily="mono" key={i} textStyle="sm">
                 <Span color="fg.muted">{date.toLocaleTimeString()}</Span>
                 <Span fontWeight="bold">{eventName}</Span>
                 {sizeInfo && <Span color="fg.muted">{sizeInfo}</Span>}
@@ -86,10 +81,7 @@ export const SplitterResizeEvents = () => {
   )
 }
 
-function useThrottle<T extends (...args: any[]) => void>(
-  fn: T,
-  delay: number,
-): T {
+function useThrottle<T extends (...args: any[]) => void>(fn: T, delay: number): T {
   const lastRunRef = useRef<number>(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -119,6 +111,6 @@ function useThrottle<T extends (...args: any[]) => void>(
         }, delay - timeSinceLastRun)
       }
     }) as T,
-    [fn, delay],
+    [fn, delay]
   )
 }

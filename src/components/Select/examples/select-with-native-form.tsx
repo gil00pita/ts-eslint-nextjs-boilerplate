@@ -1,24 +1,18 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Portal,
-  Select,
-  Stack,
-  createListCollection,
-} from "@chakra-ui/react"
+import { Button, createListCollection, Portal, Select, Stack } from '@chakra-ui/react'
 
 export const SelectWithNativeForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
-    console.log(formData.get("framework"))
+    console.log(formData.get('framework'))
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack gap="4" align="flex-start" maxW="sm">
-        <Select.Root collection={frameworks} size="sm" name="framework">
+      <Stack align="flex-start" gap="4" maxW="sm">
+        <Select.Root collection={frameworks} name="framework" size="sm">
           <Select.HiddenSelect />
           <Select.Label>Select framework</Select.Label>
           <Select.Control>
@@ -50,9 +44,9 @@ export const SelectWithNativeForm = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

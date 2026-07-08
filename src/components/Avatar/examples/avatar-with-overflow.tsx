@@ -1,11 +1,11 @@
-import { Avatar, Group, Menu, Portal } from "@chakra-ui/react"
+import { Avatar, Group, Menu, Portal } from '@chakra-ui/react'
 
 const names = [
-  "Naruto Uzumaki",
-  "Sakura Haruno",
-  "Kakashi Hatake",
-  "Hinata Hyuga",
-  "Shikamaru Nara",
+  'Naruto Uzumaki',
+  'Sakura Haruno',
+  'Kakashi Hatake',
+  'Hinata Hyuga',
+  'Shikamaru Nara',
 ]
 const maxAvatars = 3
 
@@ -14,13 +14,13 @@ export const AvatarWithOverflow = () => {
   return (
     <Group gap="0" spaceX="2">
       {items.map((item) => (
-        <Avatar.Root key={item} colorPalette={pickPalette(item)}>
+        <Avatar.Root colorPalette={pickPalette(item)} key={item}>
           <Avatar.Fallback name={item} />
         </Avatar.Root>
       ))}
       {overflow.length > 0 && (
-        <Menu.Root positioning={{ placement: "bottom" }}>
-          <Menu.Trigger rounded="full" focusRing="outside">
+        <Menu.Root positioning={{ placement: 'bottom' }}>
+          <Menu.Trigger focusRing="outside" rounded="full">
             <Avatar.Root variant="outline">
               <Avatar.Fallback>+{overflow.length}</Avatar.Fallback>
             </Avatar.Root>
@@ -29,8 +29,8 @@ export const AvatarWithOverflow = () => {
             <Menu.Positioner>
               <Menu.Content>
                 {overflow.map((item) => (
-                  <Menu.Item value={item} key={item}>
-                    <Avatar.Root size="xs" colorPalette={pickPalette(item)}>
+                  <Menu.Item key={item} value={item}>
+                    <Avatar.Root colorPalette={pickPalette(item)} size="xs">
                       <Avatar.Fallback name={item} />
                     </Avatar.Root>
                     {item}
@@ -45,7 +45,7 @@ export const AvatarWithOverflow = () => {
   )
 }
 
-const colorPalette = ["red", "blue", "green", "yellow", "purple", "orange"]
+const colorPalette = ['red', 'blue', 'green', 'yellow', 'purple', 'orange']
 
 const pickPalette = (name: string) => {
   const index = name.charCodeAt(0) % colorPalette.length

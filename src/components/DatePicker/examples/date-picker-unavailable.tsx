@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerUnavailable = () => {
   return (
@@ -39,6 +40,6 @@ export const DatePickerUnavailable = () => {
 }
 
 const isWeekend = (date: DateValue) => {
-  const dayOfWeek = date.toDate("UTC").getDay()
+  const dayOfWeek = date.toDate('UTC').getDay()
   return dayOfWeek === 0 || dayOfWeek === 6
 }

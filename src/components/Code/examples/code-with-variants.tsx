@@ -1,8 +1,8 @@
-import { Code, Stack } from "@chakra-ui/react"
+import { Code, Stack } from '@chakra-ui/react'
 
 export const CodeWithVariants = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack align="flex-start" gap="2">
       <Code variant="solid">console.log()</Code>
       <Code variant="outline">console.log()</Code>
       <Code variant="subtle">console.log()</Code>

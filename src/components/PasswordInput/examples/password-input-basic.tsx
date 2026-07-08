@@ -1,5 +1,5 @@
-import { PasswordInput } from "@/ui/password-input"
+import { PasswordInput } from '@/ui/password-input'
 
 export const PasswordInputBasic = () => {
-	return <PasswordInput />
+  return <PasswordInput />
 }

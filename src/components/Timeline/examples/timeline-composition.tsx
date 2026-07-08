@@ -1,18 +1,10 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  Icon,
-  Input,
-  Span,
-  Timeline,
-} from "@chakra-ui/react"
-import { LuPen, LuX } from "react-icons/lu"
-import LoremIpsum from "react-lorem-ipsum"
+import { Avatar, Button, Card, Icon, Input, Span, Timeline } from '@chakra-ui/react'
+import { LuPen, LuX } from 'react-icons/lu'
+import LoremIpsum from 'react-lorem-ipsum'
 
 export const TimelineComposition = () => {
   return (
-    <Timeline.Root size="lg" variant="subtle" maxW="md">
+    <Timeline.Root maxW="md" size="lg" variant="subtle">
       <Timeline.Item>
         <Timeline.Connector>
           <Timeline.Separator />
@@ -76,11 +68,11 @@ export const TimelineComposition = () => {
             <Span color="fg.muted">on Jan 12, 2024</Span>
           </Timeline.Title>
           <Card.Root size="sm">
-            <Card.Body textStyle="sm" lineHeight="tall">
-              <LoremIpsum p={1} avgWordsPerSentence={2} />
+            <Card.Body lineHeight="tall" textStyle="sm">
+              <LoremIpsum avgWordsPerSentence={2} p={1} />
             </Card.Body>
             <Card.Footer>
-              <Button size="xs" variant="surface" rounded="md">
+              <Button rounded="md" size="xs" variant="surface">
                 👏 2
               </Button>
             </Card.Footer>
@@ -99,7 +91,7 @@ export const TimelineComposition = () => {
           </Timeline.Indicator>
         </Timeline.Connector>
         <Timeline.Content gap="4" mt="-1" w="full">
-          <Input size="sm" placeholder="Add comment..." />
+          <Input placeholder="Add comment..." size="sm" />
         </Timeline.Content>
       </Timeline.Item>
     </Timeline.Root>

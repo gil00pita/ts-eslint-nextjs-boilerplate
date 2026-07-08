@@ -1,9 +1,9 @@
-import { For, Progress, Stack } from "@chakra-ui/react"
+import { For, Progress, Stack } from '@chakra-ui/react'
 
 export const ProgressWithSizes = () => {
   return (
     <Stack gap="4" maxW="240px">
-      <For each={["xs", "sm", "md", "lg"]}>
+      <For each={['xs', 'sm', 'md', 'lg']}>
         {(size) => (
           <Progress.Root key={size} size={size}>
             <Progress.Track>

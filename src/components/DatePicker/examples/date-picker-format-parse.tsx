@@ -1,17 +1,13 @@
-"use client"
-import { DatePicker, Portal } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import { CalendarDate } from "@internationalized/date"
-import { LuCalendar } from "react-icons/lu"
+'use client'
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { CalendarDate } from '@internationalized/date'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerFormatParse = () => {
   return (
-    <DatePicker.Root
-      format={format}
-      parse={parse}
-      placeholder="dd/mm/yy"
-      maxWidth="20rem"
-    >
+    <DatePicker.Root format={format} maxWidth="20rem" parse={parse} placeholder="dd/mm/yy">
       <DatePicker.Label>Label</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />
@@ -79,8 +75,8 @@ const parse = (value: string) => {
 }
 
 const format = (date: DateValue) => {
-  const day = date.day.toString().padStart(2, "0")
-  const month = date.month.toString().padStart(2, "0")
-  const year = (date.year % 100).toString().padStart(2, "0")
+  const day = date.day.toString().padStart(2, '0')
+  const month = date.month.toString().padStart(2, '0')
+  const year = (date.year % 100).toString().padStart(2, '0')
   return `${day}/${month}/${year}`
 }

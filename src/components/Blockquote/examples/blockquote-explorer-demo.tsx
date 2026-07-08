@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Blockquote } from "@chakra-ui/react"
-import { Box, Flex } from "@chakra-ui/react"
-import { RiQuoteText } from "react-icons/ri"
+import { Blockquote } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
+import { RiQuoteText } from 'react-icons/ri'
 
 export const BlockquoteExplorerDemo = () => {
   return (
@@ -15,12 +15,12 @@ export const BlockquoteExplorerDemo = () => {
 
           <Box flex="1">
             <Blockquote.Content>
-              If anyone thinks he is something when he is nothing, he deceives
-              himself. Each one should test his own actions. Then he can take
-              pride in himself, without comparing himself to anyone else.
+              If anyone thinks he is something when he is nothing, he deceives himself. Each one
+              should test his own actions. Then he can take pride in himself, without comparing
+              himself to anyone else.
             </Blockquote.Content>
 
-            <Flex mt="2" align="center" gap="2">
+            <Flex align="center" gap="2" mt="2">
               <Blockquote.Caption>— Marcus Aurelius</Blockquote.Caption>
             </Flex>
           </Box>

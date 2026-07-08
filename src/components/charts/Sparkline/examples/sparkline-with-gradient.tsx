@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Area, AreaChart } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Area, AreaChart } from 'recharts'
 
 export const SparklineWithGradient = () => {
   const chart = useChart({
@@ -15,19 +15,19 @@ export const SparklineWithGradient = () => {
       { value: 10 },
       { value: 18 },
     ],
-    series: [{ name: "value", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'value' }],
   })
 
   return (
-    <Chart.Root width="28" height="12" chart={chart}>
+    <Chart.Root chart={chart} height="12" width="28">
       <AreaChart accessibilityLayer data={chart.data} responsive>
         {chart.series.map((item) => (
           <defs key={item.name}>
             <Chart.Gradient
               id={`${item.name}-gradient`}
               stops={[
-                { offset: "0%", color: item.color, opacity: 1 },
-                { offset: "100%", color: item.color, opacity: 0.01 },
+                { color: item.color, offset: '0%', opacity: 1 },
+                { color: item.color, offset: '100%', opacity: 0.01 },
               ]}
             />
           </defs>
@@ -35,13 +35,13 @@ export const SparklineWithGradient = () => {
 
         {chart.series.map((item) => (
           <Area
-            key={item.name}
-            type="natural"
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             fill={`url(#${item.name}-gradient)`}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
+            type="natural"
           />
         ))}
       </AreaChart>

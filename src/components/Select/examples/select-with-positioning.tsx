@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
 
 export const SelectWithPositioning = () => {
   return (
     <Select.Root
       collection={frameworks}
+      positioning={{ flip: false, placement: 'top' }}
       size="sm"
       width="320px"
-      positioning={{ placement: "top", flip: false }}
     >
       <Select.HiddenSelect />
       <Select.Label>Select framework</Select.Label>
@@ -38,9 +38,9 @@ export const SelectWithPositioning = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

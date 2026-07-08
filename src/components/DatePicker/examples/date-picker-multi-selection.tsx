@@ -1,12 +1,13 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal, Tag, Wrap } from "@chakra-ui/react"
-import type { DateValue, WrapProps } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import type { DateValue, WrapProps } from '@chakra-ui/react'
+
+import { DatePicker, Portal, Tag, Wrap } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerMultiSelection = () => {
   return (
-    <DatePicker.Root selectionMode="multiple" maxWidth="sm">
+    <DatePicker.Root maxWidth="sm" selectionMode="multiple">
       <DatePicker.Label>Date of birth</DatePicker.Label>
 
       <DatePicker.Control>
@@ -44,18 +45,18 @@ export const DatePickerMultiSelection = () => {
 }
 
 const formatWithDay = (date: DateValue) => {
-  const jsDate = date.toDate("UTC")
-  return jsDate.toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
+  const jsDate = date.toDate('UTC')
+  return jsDate.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    weekday: 'short',
   })
 }
 
 const DatePickerValue = () => {
   return (
     <DatePicker.ValueText placeholder="Select dates...">
-      {({ value, index, remove }) => (
+      {({ index, remove, value }) => (
         <Tag.Root key={index} size="lg" variant="subtle">
           <Tag.Label>{formatWithDay(value)}</Tag.Label>
           <Tag.EndElement>
@@ -70,17 +71,17 @@ const DatePickerValue = () => {
 const DatePickerValueContainer = (props: WrapProps) => {
   return (
     <Wrap
-      gap="2"
-      borderWidth="1px"
-      minH="10"
-      display="flex"
       alignItems="center"
-      width="full"
       borderRadius="l2"
-      textStyle="sm"
-      py="1.5"
-      ps="2.5"
+      borderWidth="1px"
+      display="flex"
+      gap="2"
+      minH="10"
       pe="8"
+      ps="2.5"
+      py="1.5"
+      textStyle="sm"
+      width="full"
       {...props}
     />
   )

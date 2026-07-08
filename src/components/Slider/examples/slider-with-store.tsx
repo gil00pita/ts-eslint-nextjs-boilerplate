@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Code, Slider, Stack, useSlider } from "@chakra-ui/react"
+import { Code, Slider, Stack, useSlider } from '@chakra-ui/react'
 
 export const SliderWithStore = () => {
   const slider = useSlider({
     defaultValue: [40],
-    thumbAlignment: "center",
+    thumbAlignment: 'center',
   })
 
   return (

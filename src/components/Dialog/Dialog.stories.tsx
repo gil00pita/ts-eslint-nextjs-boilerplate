@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Overlays / Dialog',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,16 +12,17 @@ export default {
       </Box>
     ),
   ],
+  title: 'Overlays / Dialog',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Dialog')
 
 export { DialogBasic as Basic } from './examples/dialog-basic'
-export { DialogOpenFromMenu as OpenFromMenu } from './examples/dialog-open-from-menu'
-export { DialogOpenFromPopover as OpenFromPopover } from './examples/dialog-open-from-popover'
 export { DialogControlled as Controlled } from './examples/dialog-controlled'
 export { DialogNested as Nested } from './examples/dialog-nested'
 export { DialogNonModal as NonModal } from './examples/dialog-non-modal'
+export { DialogOpenFromMenu as OpenFromMenu } from './examples/dialog-open-from-menu'
+export { DialogOpenFromPopover as OpenFromPopover } from './examples/dialog-open-from-popover'
 export { DialogWithBackdropBlur as BackdropBlur } from './examples/dialog-with-backdrop-blur'
 export { DialogWithCloseOutside as CloseOutside } from './examples/dialog-with-close-outside'
 export { DialogWithContext as Context } from './examples/dialog-with-context'

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -9,32 +9,25 @@ import {
   Span,
   Stack,
   Text,
-} from "@chakra-ui/react"
-import {
-  LuGripHorizontal,
-  LuMouse,
-  LuMoveHorizontal,
-  LuX,
-} from "react-icons/lu"
+} from '@chakra-ui/react'
+import { LuGripHorizontal, LuMouse, LuMoveHorizontal, LuX } from 'react-icons/lu'
 
 export const FloatingPanelMinMax = () => {
   return (
-    <Stack gap="4" align="flex-start">
-      <HStack textStyle="sm" gap="2">
+    <Stack align="flex-start" gap="4">
+      <HStack gap="2" textStyle="sm">
         <LuMouse />
         <LuMoveHorizontal />
-        <Span>
-          Drag the resize handles — size is clamped between min and max.
-        </Span>
+        <Span>Drag the resize handles — size is clamped between min and max.</Span>
       </HStack>
 
       <FloatingPanel.Root
-        defaultSize={{ width: 320, height: 220 }}
-        minSize={{ width: 280, height: 160 }}
-        maxSize={{ width: 480, height: 320 }}
+        defaultSize={{ height: 220, width: 320 }}
+        maxSize={{ height: 320, width: 480 }}
+        minSize={{ height: 160, width: 280 }}
       >
         <FloatingPanel.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open Panel
           </Button>
         </FloatingPanel.Trigger>
@@ -48,7 +41,7 @@ export const FloatingPanelMinMax = () => {
                 </FloatingPanel.DragTrigger>
                 <FloatingPanel.Control>
                   <FloatingPanel.CloseTrigger asChild>
-                    <IconButton variant="ghost" size="2xs">
+                    <IconButton size="2xs" variant="ghost">
                       <LuX />
                     </IconButton>
                   </FloatingPanel.CloseTrigger>
@@ -56,8 +49,8 @@ export const FloatingPanelMinMax = () => {
               </FloatingPanel.Header>
               <FloatingPanel.Body>
                 <Text textStyle="sm">
-                  Resize the panel with the resize handles. Size is constrained
-                  between 280x160px (min) and 480x320px (max).
+                  Resize the panel with the resize handles. Size is constrained between 280x160px
+                  (min) and 480x320px (max).
                 </Text>
               </FloatingPanel.Body>
               <FloatingPanel.ResizeTriggers />

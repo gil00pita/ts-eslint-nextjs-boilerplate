@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button, Clipboard, Input, Stack, Text } from "@chakra-ui/react"
+import { Button, Clipboard, Input, Stack, Text } from '@chakra-ui/react'
 
 export const ClipboardExplorerDemo = () => {
   return (
@@ -8,7 +8,7 @@ export const ClipboardExplorerDemo = () => {
       <Clipboard.Root value="https://chakra-ui.com">
         <Clipboard.Label mb="2">Copy link</Clipboard.Label>
 
-        <Stack direction="row" gap="2" mt="2" align="center">
+        <Stack align="center" direction="row" gap="2" mt="2">
           <Clipboard.Input asChild>
             <Input readOnly />
           </Clipboard.Input>
@@ -23,7 +23,7 @@ export const ClipboardExplorerDemo = () => {
           </Clipboard.Control>
         </Stack>
 
-        <Clipboard.ValueText as={Text} fontSize="sm" color="gray.600" />
+        <Clipboard.ValueText as={Text} color="gray.600" fontSize="sm" />
       </Clipboard.Root>
     </Stack>
   )

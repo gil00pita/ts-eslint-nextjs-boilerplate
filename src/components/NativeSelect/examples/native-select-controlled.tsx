@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { NativeSelect } from "@chakra-ui/react"
-import { useState } from "react"
+import { NativeSelect } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const NativeSelectControlled = () => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState('')
   return (
     <NativeSelect.Root size="sm" width="240px">
       <NativeSelect.Field
+        onChange={(e) => setValue(e.currentTarget.value)}
         placeholder="Select option"
         value={value}
-        onChange={(e) => setValue(e.currentTarget.value)}
       >
         <option value="react">React</option>
         <option value="vue">Vue</option>

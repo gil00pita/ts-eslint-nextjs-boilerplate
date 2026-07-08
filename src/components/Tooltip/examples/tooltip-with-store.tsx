@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, HStack, Tooltip, useTooltip } from "@chakra-ui/react"
+import { Button, HStack, Tooltip, useTooltip } from '@chakra-ui/react'
 
 export const TooltipWithStore = () => {
   const tooltip = useTooltip()
   const toggleOpen = () => tooltip.setOpen(!tooltip.open)
   return (
     <HStack>
-      <Button size="sm" variant="subtle" onClick={toggleOpen}>
+      <Button onClick={toggleOpen} size="sm" variant="subtle">
         Toggle
       </Button>
       <Tooltip.RootProvider value={tooltip}>

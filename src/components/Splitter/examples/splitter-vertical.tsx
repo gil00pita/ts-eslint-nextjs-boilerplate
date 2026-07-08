@@ -1,12 +1,12 @@
-import { Center, Splitter } from "@chakra-ui/react"
+import { Center, Splitter } from '@chakra-ui/react'
 
 export const SplitterVertical = () => {
   return (
     <Splitter.Root
-      panels={[{ id: "a" }, { id: "b" }]}
-      orientation="vertical"
       borderWidth="1px"
       minH="60"
+      orientation="vertical"
+      panels={[{ id: 'a' }, { id: 'b' }]}
     >
       <Splitter.Panel id="a">
         <Center boxSize="full" textStyle="2xl">

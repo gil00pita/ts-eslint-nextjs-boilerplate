@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Portal, Stack } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { Button, DatePicker, Portal, Stack } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerForm = () => {
   return (
@@ -9,10 +9,10 @@ export const DatePickerForm = () => {
       onSubmit={(e) => {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
-        alert(JSON.stringify({ date: form.get("date") }))
+        alert(JSON.stringify({ date: form.get('date') }))
       }}
     >
-      <Stack gap="4" align="flex-start" maxW="sm">
+      <Stack align="flex-start" gap="4" maxW="sm">
         <DatePicker.Root name="date">
           <DatePicker.Label>Appointment date</DatePicker.Label>
           <DatePicker.Control>

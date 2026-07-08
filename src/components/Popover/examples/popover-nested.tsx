@@ -1,4 +1,4 @@
-import { Button, Popover, Portal, Text } from "@chakra-ui/react"
+import { Button, Popover, Portal, Text } from '@chakra-ui/react'
 
 export const PopoverNested = () => {
   return (
@@ -14,13 +14,12 @@ export const PopoverNested = () => {
             <Popover.Arrow />
             <Popover.Body>
               <Text mb="4">
-                Naruto is a Japanese manga series written and illustrated by
-                Masashi Kishimoto.
+                Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
               </Text>
 
               <Popover.Root>
                 <Popover.Trigger asChild>
-                  <Button variant="outline" size="xs">
+                  <Button size="xs" variant="outline">
                     Open Nested Popover
                   </Button>
                 </Popover.Trigger>

@@ -1,28 +1,21 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Field,
-  Portal,
-  Select,
-  Stack,
-  createListCollection,
-} from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, createListCollection, Field, Portal, Select, Stack } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  framework: z.string({ message: "Framework is required" }).array(),
+  framework: z.string({ message: 'Framework is required' }).array(),
 })
 
 type FormValues = z.infer<typeof formSchema>
 
 export const SelectWithHookForm = () => {
   const {
-    handleSubmit,
-    formState: { errors },
     control,
+    formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -31,7 +24,7 @@ export const SelectWithHookForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4" align="flex-start">
+      <Stack align="flex-start" gap="4">
         <Field.Root invalid={!!errors.framework} width="320px">
           <Field.Label>Framework</Field.Label>
           <Controller
@@ -39,11 +32,11 @@ export const SelectWithHookForm = () => {
             name="framework"
             render={({ field }) => (
               <Select.Root
-                name={field.name}
-                value={field.value}
-                onValueChange={({ value }) => field.onChange(value)}
-                onInteractOutside={() => field.onBlur()}
                 collection={frameworks}
+                name={field.name}
+                onInteractOutside={() => field.onBlur()}
+                onValueChange={({ value }) => field.onChange(value)}
+                value={field.value}
               >
                 <Select.HiddenSelect />
                 <Select.Control>
@@ -82,9 +75,9 @@ export const SelectWithHookForm = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

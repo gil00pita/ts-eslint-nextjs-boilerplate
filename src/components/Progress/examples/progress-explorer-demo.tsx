@@ -1,9 +1,9 @@
-import { Progress, Stack } from "@chakra-ui/react"
+import { Progress, Stack } from '@chakra-ui/react'
 
 export const ProgressExplorerDemo = () => {
   return (
-    <Stack gap="8" align="start">
-      <Progress.Root value={60} max={100} width="240px">
+    <Stack align="start" gap="8">
+      <Progress.Root max={100} value={60} width="240px">
         <Progress.Label>Loading…</Progress.Label>
         <Progress.Track>
           <Progress.Range />

@@ -1,51 +1,46 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts'
 
 export const LineChartStartEndTick = () => {
   const chart = useChart({
     data: [
-      { sale: 10, month: "January" },
-      { sale: 95, month: "February" },
-      { sale: 87, month: "March" },
-      { sale: 88, month: "May" },
-      { sale: 65, month: "June" },
-      { sale: 90, month: "August" },
+      { month: 'January', sale: 10 },
+      { month: 'February', sale: 95 },
+      { month: 'March', sale: 87 },
+      { month: 'May', sale: 88 },
+      { month: 'June', sale: 65 },
+      { month: 'August', sale: 90 },
     ],
-    series: [{ name: "sale", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'sale' }],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
+    <Chart.Root chart={chart} maxH="sm">
       <LineChart data={chart.data} responsive>
-        <CartesianGrid stroke={chart.color("border")} vertical={false} />
+        <CartesianGrid stroke={chart.color('border')} vertical={false} />
         <XAxis
           axisLine={false}
-          dataKey={chart.key("month")}
-          tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
-          ticks={[chart.data[0].month, chart.data[chart.data.length - 1].month]}
+          dataKey={chart.key('month')}
           label={{
-            value: "[January - August] Customers",
-            position: "bottom",
+            position: 'bottom',
+            value: '[January - August] Customers',
           }}
+          stroke={chart.color('border')}
+          tickFormatter={(value) => value.slice(0, 3)}
+          ticks={[chart.data[0].month, chart.data[chart.data.length - 1].month]}
         />
-        <YAxis
-          axisLine={false}
-          tickLine={false}
-          tickMargin={10}
-          stroke={chart.color("border")}
-        />
+        <YAxis axisLine={false} stroke={chart.color('border')} tickLine={false} tickMargin={10} />
         {chart.series.map((item) => (
           <Line
-            type="natural"
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
+            dot={false}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
-            dot={false}
+            type="natural"
           />
         ))}
       </LineChart>

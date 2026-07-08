@@ -1,9 +1,9 @@
-import { AbsoluteCenter, Accordion, Box, Button, Span } from "@chakra-ui/react"
-import LoremIpsum from "react-lorem-ipsum"
+import { AbsoluteCenter, Accordion, Box, Button, Span } from '@chakra-ui/react'
+import LoremIpsum from 'react-lorem-ipsum'
 
 export const AccordionWithActions = () => {
   return (
-    <Accordion.Root spaceY="4" variant="plain" collapsible defaultValue={["b"]}>
+    <Accordion.Root collapsible defaultValue={['b']} spaceY="4" variant="plain">
       {items.map((item, index) => (
         <Accordion.Item key={index} value={item.value}>
           <Box position="relative">
@@ -12,7 +12,7 @@ export const AccordionWithActions = () => {
               <Accordion.ItemIndicator />
             </Accordion.ItemTrigger>
             <AbsoluteCenter axis="vertical" insetEnd="0">
-              <Button variant="subtle" colorPalette="blue">
+              <Button colorPalette="blue" variant="subtle">
                 Action
               </Button>
             </AbsoluteCenter>
@@ -27,7 +27,7 @@ export const AccordionWithActions = () => {
 }
 
 const items = [
-  { value: "a", title: "First Item", text: <LoremIpsum /> },
-  { value: "b", title: "Second Item", text: <LoremIpsum /> },
-  { value: "c", title: "Third Item", text: <LoremIpsum /> },
+  { text: <LoremIpsum />, title: 'First Item', value: 'a' },
+  { text: <LoremIpsum />, title: 'Second Item', value: 'b' },
+  { text: <LoremIpsum />, title: 'Third Item', value: 'c' },
 ]

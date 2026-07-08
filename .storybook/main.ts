@@ -62,6 +62,7 @@ const config: StorybookConfig = {
         ...config.resolve,
         alias: {
           ...(config.resolve?.alias ?? {}),
+          '@': srcPath(),
           '@/components': srcPath('components'),
           '@/constant': srcPath('app/constant/index.ts'),
           '@/hoc': srcPath('app/hoc/index.ts'),
@@ -74,7 +75,6 @@ const config: StorybookConfig = {
           '@/ui': srcPath('components/ui'),
           '@/utils': srcPath('utils'),
           '@/utils/storybook': srcPath('utils/storybook'),
-          '@': srcPath(),
         },
       },
     }

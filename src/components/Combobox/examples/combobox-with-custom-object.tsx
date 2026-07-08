@@ -1,20 +1,15 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  Portal,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
+import { Combobox, Portal, useFilter, useListCollection } from '@chakra-ui/react'
 
 export const ComboboxWithCustomObject = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
+    filter: contains,
     initialItems: countries,
     itemToString: (item) => item.country,
     itemToValue: (item) => item.code,
-    filter: contains,
   })
 
   const handleInputChange = (details: Combobox.InputValueChangeDetails) => {
@@ -22,10 +17,7 @@ export const ComboboxWithCustomObject = () => {
   }
 
   return (
-    <Combobox.Root
-      collection={collection}
-      onInputValueChange={handleInputChange}
-    >
+    <Combobox.Root collection={collection} onInputValueChange={handleInputChange}>
       <Combobox.Label>Search Countries</Combobox.Label>
       <Combobox.Control>
         <Combobox.Input placeholder="e.g. United States" />
@@ -40,7 +32,7 @@ export const ComboboxWithCustomObject = () => {
             <Combobox.Empty>No items found</Combobox.Empty>
 
             {collection.items.map((item) => (
-              <Combobox.Item key={item.code} item={item}>
+              <Combobox.Item item={item} key={item.code}>
                 {item.country}
               </Combobox.Item>
             ))}
@@ -52,23 +44,23 @@ export const ComboboxWithCustomObject = () => {
 }
 
 const countries = [
-  { country: "United States", code: "US", flag: "🇺🇸" },
-  { country: "Canada", code: "CA", flag: "🇨🇦" },
-  { country: "Australia", code: "AU", flag: "🇦🇺" },
-  { country: "United Kingdom", code: "UK", flag: "🇬🇧" },
-  { country: "New Zealand", code: "NZ", flag: "🇳🇿" },
-  { country: "South Africa", code: "ZA", flag: "🇿🇦" },
-  { country: "India", code: "IN", flag: "🇮🇳" },
-  { country: "China", code: "CN", flag: "🇨🇳" },
-  { country: "Japan", code: "JP", flag: "🇯🇵" },
-  { country: "Korea", code: "KR", flag: "🇰🇷" },
-  { country: "Vietnam", code: "VN", flag: "🇻🇳" },
-  { country: "Thailand", code: "TH", flag: "🇹🇭" },
-  { country: "Malaysia", code: "MY", flag: "🇲🇾" },
-  { country: "Indonesia", code: "ID", flag: "🇮🇩" },
-  { country: "Philippines", code: "PH", flag: "🇵🇭" },
-  { country: "Singapore", code: "SG", flag: "🇸🇬" },
-  { country: "Hong Kong", code: "HK", flag: "🇭🇰" },
-  { country: "Macau", code: "MO", flag: "🇲🇴" },
-  { country: "Taiwan", code: "TW", flag: "🇹🇼" },
+  { code: 'US', country: 'United States', flag: '🇺🇸' },
+  { code: 'CA', country: 'Canada', flag: '🇨🇦' },
+  { code: 'AU', country: 'Australia', flag: '🇦🇺' },
+  { code: 'UK', country: 'United Kingdom', flag: '🇬🇧' },
+  { code: 'NZ', country: 'New Zealand', flag: '🇳🇿' },
+  { code: 'ZA', country: 'South Africa', flag: '🇿🇦' },
+  { code: 'IN', country: 'India', flag: '🇮🇳' },
+  { code: 'CN', country: 'China', flag: '🇨🇳' },
+  { code: 'JP', country: 'Japan', flag: '🇯🇵' },
+  { code: 'KR', country: 'Korea', flag: '🇰🇷' },
+  { code: 'VN', country: 'Vietnam', flag: '🇻🇳' },
+  { code: 'TH', country: 'Thailand', flag: '🇹🇭' },
+  { code: 'MY', country: 'Malaysia', flag: '🇲🇾' },
+  { code: 'ID', country: 'Indonesia', flag: '🇮🇩' },
+  { code: 'PH', country: 'Philippines', flag: '🇵🇭' },
+  { code: 'SG', country: 'Singapore', flag: '🇸🇬' },
+  { code: 'HK', country: 'Hong Kong', flag: '🇭🇰' },
+  { code: 'MO', country: 'Macau', flag: '🇲🇴' },
+  { code: 'TW', country: 'Taiwan', flag: '🇹🇼' },
 ]

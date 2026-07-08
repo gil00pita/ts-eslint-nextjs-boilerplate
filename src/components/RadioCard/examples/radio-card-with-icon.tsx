@@ -1,5 +1,5 @@
-import { HStack, Icon, RadioCard } from "@chakra-ui/react"
-import { LuArrowRight, LuCircleOff, LuLock } from "react-icons/lu"
+import { HStack, Icon, RadioCard } from '@chakra-ui/react'
+import { LuArrowRight, LuCircleOff, LuLock } from 'react-icons/lu'
 
 export const RadioCardWithIcon = () => {
   return (
@@ -11,13 +11,11 @@ export const RadioCardWithIcon = () => {
             <RadioCard.ItemHiddenInput />
             <RadioCard.ItemControl>
               <RadioCard.ItemContent>
-                <Icon size="xl" color="fg.muted" mb="2">
+                <Icon color="fg.muted" mb="2" size="xl">
                   {item.icon}
                 </Icon>
                 <RadioCard.ItemText>{item.title}</RadioCard.ItemText>
-                <RadioCard.ItemDescription>
-                  {item.description}
-                </RadioCard.ItemDescription>
+                <RadioCard.ItemDescription>{item.description}</RadioCard.ItemDescription>
               </RadioCard.ItemContent>
               <RadioCard.ItemIndicator />
             </RadioCard.ItemControl>
@@ -30,21 +28,21 @@ export const RadioCardWithIcon = () => {
 
 const items = [
   {
+    description: 'This user can access the system',
     icon: <LuArrowRight />,
-    value: "allow",
-    title: "Allow",
-    description: "This user can access the system",
+    title: 'Allow',
+    value: 'allow',
   },
   {
+    description: 'This user will be denied access to the system',
     icon: <LuCircleOff />,
-    value: "deny",
-    title: "Deny",
-    description: "This user will be denied access to the system",
+    title: 'Deny',
+    value: 'deny',
   },
   {
+    description: 'This user will be locked out of the system',
     icon: <LuLock />,
-    value: "lock",
-    title: "Lock",
-    description: "This user will be locked out of the system",
+    title: 'Lock',
+    value: 'lock',
   },
 ]

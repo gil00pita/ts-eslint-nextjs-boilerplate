@@ -1,5 +1,5 @@
-import { Image } from "@chakra-ui/react"
+import { Image } from '@chakra-ui/react'
 
 export const ImageBasic = () => (
-  <Image rounded="md" src="https://i.pravatar.cc/300?img=4" alt="John Doe" />
+  <Image alt="John Doe" rounded="md" src="https://i.pravatar.cc/300?img=4" />
 )

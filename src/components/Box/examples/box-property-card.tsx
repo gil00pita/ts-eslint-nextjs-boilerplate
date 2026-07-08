@@ -1,17 +1,17 @@
-import { Badge, Box, HStack, Icon, Image, Text } from "@chakra-ui/react"
-import { HiStar } from "react-icons/hi"
+import { Badge, Box, HStack, Icon, Image, Text } from '@chakra-ui/react'
+import { HiStar } from 'react-icons/hi'
 
 export const BoxPropertyCard = () => {
   return (
-    <Box maxW="sm" borderWidth="1px">
-      <Image src={data.imageUrl} alt={data.imageAlt} />
+    <Box borderWidth="1px" maxW="sm">
+      <Image alt={data.imageAlt} src={data.imageUrl} />
 
       <Box p="4" spaceY="2">
         <HStack>
           <Badge colorPalette="teal" variant="solid">
             Superhost
           </Badge>
-          <HStack gap="1" fontWeight="medium">
+          <HStack fontWeight="medium" gap="1">
             <Icon color="orange.400">
               <HiStar />
             </Icon>
@@ -20,7 +20,7 @@ export const BoxPropertyCard = () => {
             </Text>
           </HStack>
         </HStack>
-        <Text fontWeight="medium" color="fg">
+        <Text color="fg" fontWeight="medium">
           {data.title}
         </Text>
         <HStack color="fg.muted">
@@ -32,11 +32,11 @@ export const BoxPropertyCard = () => {
 }
 
 const data = {
-  imageUrl: "https://bit.ly/2Z4KKcF",
-  imageAlt: "Rear view of modern home with pool",
   beds: 3,
-  title: "Modern home in city center in the heart of historic Los Angeles",
-  formattedPrice: "$435",
-  reviewCount: 34,
+  formattedPrice: '$435',
+  imageAlt: 'Rear view of modern home with pool',
+  imageUrl: 'https://bit.ly/2Z4KKcF',
   rating: 4.5,
+  reviewCount: 34,
+  title: 'Modern home in city center in the heart of historic Los Angeles',
 }

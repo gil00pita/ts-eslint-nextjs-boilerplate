@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, IconButton, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, IconButton } from '@chakra-ui/react'
 
 export const CodeBlockWithMaxLines = () => {
   return (
@@ -11,12 +12,12 @@ export const CodeBlockWithMaxLines = () => {
           <CodeBlock.Title>{file.title}</CodeBlock.Title>
           <CodeBlock.Control>
             <CodeBlock.CollapseTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CollapseIndicator />
               </IconButton>
             </CodeBlock.CollapseTrigger>
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
@@ -40,13 +41,13 @@ export const CodeBlockWithMaxLines = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })
 
 const file = {
@@ -87,6 +88,6 @@ const Example = () => {
 
 export default Example;
 `,
-  language: "tsx",
-  title: "index.tsx",
+  language: 'tsx',
+  title: 'index.tsx',
 }

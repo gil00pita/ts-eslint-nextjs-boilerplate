@@ -1,20 +1,20 @@
-"use client"
+'use client'
 
-import { BarList, type BarListData, useChart } from "@chakra-ui/charts"
+import { BarList, type BarListData, useChart } from '@chakra-ui/charts'
 
 export const BarListAscending = () => {
   const chart = useChart<BarListData>({
-    sort: { by: "value", direction: "asc" },
     data: [
-      { name: "Google", value: 1200000 },
-      { name: "Direct", value: 100000 },
-      { name: "Bing", value: 200000 },
-      { name: "Yahoo", value: 20000 },
-      { name: "ChatGPT", value: 1345000 },
-      { name: "Github", value: 100000 },
-      { name: "Yandex", value: 100000 },
+      { name: 'Google', value: 1200000 },
+      { name: 'Direct', value: 100000 },
+      { name: 'Bing', value: 200000 },
+      { name: 'Yahoo', value: 20000 },
+      { name: 'ChatGPT', value: 1345000 },
+      { name: 'Github', value: 100000 },
+      { name: 'Yandex', value: 100000 },
     ],
-    series: [{ name: "name", color: "teal.subtle" }],
+    series: [{ color: 'teal.subtle', name: 'name' }],
+    sort: { by: 'value', direction: 'asc' },
   })
 
   return (

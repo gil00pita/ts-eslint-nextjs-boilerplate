@@ -1,43 +1,36 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Button,
-  FloatingPanel,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { useRef } from "react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+import { Box, Button, FloatingPanel, IconButton, Portal, Text } from '@chakra-ui/react'
+import { useRef } from 'react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 export const FloatingPanelBoundary = () => {
   const boundaryRef = useRef<HTMLDivElement>(null)
 
   return (
     <Box
-      ref={boundaryRef}
-      position="relative"
-      borderWidth="2px"
-      borderStyle="dashed"
       borderColor="border.emphasized"
       borderRadius="l2"
-      w="full"
+      borderStyle="dashed"
+      borderWidth="2px"
       h="400px"
       p="4"
+      position="relative"
+      ref={boundaryRef}
+      w="full"
     >
-      <Text textStyle="xs" color="fg.muted" mb="2">
+      <Text color="fg.muted" mb="2" textStyle="xs">
         Drag boundary
       </Text>
       <FloatingPanel.Root
-        persistRect
         allowOverflow={false}
+        defaultSize={{ height: 180, width: 280 }}
         getBoundaryEl={() => boundaryRef.current}
-        defaultSize={{ width: 280, height: 180 }}
-        minSize={{ width: 280, height: 180 }}
+        minSize={{ height: 180, width: 280 }}
+        persistRect
       >
         <FloatingPanel.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open Panel
           </Button>
         </FloatingPanel.Trigger>
@@ -51,7 +44,7 @@ export const FloatingPanelBoundary = () => {
                 </FloatingPanel.DragTrigger>
                 <FloatingPanel.Control>
                   <FloatingPanel.CloseTrigger asChild>
-                    <IconButton variant="ghost" size="2xs">
+                    <IconButton size="2xs" variant="ghost">
                       <LuX />
                     </IconButton>
                   </FloatingPanel.CloseTrigger>

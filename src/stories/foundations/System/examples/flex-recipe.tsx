@@ -1,34 +1,35 @@
 'use client'
 
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
 import { chakra } from '@chakra-ui/react'
 
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
+
 const Flex = chakra('div', {
+  variants: {
+    align: {
+      center: { alignItems: 'center' },
+      end: { alignItems: 'flex-end' },
+      start: { alignItems: 'flex-start' },
+    },
+    direction: {
+      column: { flexDirection: 'column' },
+      row: { flexDirection: 'row' },
+    },
+    justify: {
+      center: { justifyContent: 'center' },
+      end: { justifyContent: 'flex-end' },
+      start: { justifyContent: 'flex-start' },
+    },
+  },
   base: {
     display: 'flex',
     gap: '4',
-  },
-  variants: {
-    direction: {
-      row: { flexDirection: 'row' },
-      column: { flexDirection: 'column' },
-    },
-    align: {
-      start: { alignItems: 'flex-start' },
-      center: { alignItems: 'center' },
-      end: { alignItems: 'flex-end' },
-    },
-    justify: {
-      start: { justifyContent: 'flex-start' },
-      center: { justifyContent: 'center' },
-      end: { justifyContent: 'flex-end' },
-    },
   },
 })
 
 export const SystemFlexRecipe = () => {
   return (
-    <Flex direction="row" align="center" justify="center">
+    <Flex align="center" direction="row" justify="center">
       <DecorativeBox height="10">Item 1</DecorativeBox>
       <DecorativeBox height="20">Item 2</DecorativeBox>
     </Flex>

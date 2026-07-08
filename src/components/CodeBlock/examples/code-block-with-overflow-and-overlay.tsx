@@ -1,12 +1,8 @@
-"use client"
+'use client'
 
-import {
-  CodeBlock,
-  Float,
-  IconButton,
-  createShikiAdapter,
-} from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, Float, IconButton } from '@chakra-ui/react'
 
 const file = {
   code: `// Example with very long lines and maxLines to test overlay positioning
@@ -27,8 +23,8 @@ function ExampleComponent() {
 }
 
 export default ExampleComponent`,
-  language: "tsx",
-  title: "overflow-overlay-test.tsx",
+  language: 'tsx',
+  title: 'overflow-overlay-test.tsx',
 }
 
 export const CodeBlockWithOverflowAndOverlay = () => {
@@ -39,21 +35,21 @@ export const CodeBlockWithOverflowAndOverlay = () => {
           <CodeBlock.Title>{file.title}</CodeBlock.Title>
           <CodeBlock.Control>
             <CodeBlock.CollapseTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CollapseIndicator />
               </IconButton>
             </CodeBlock.CollapseTrigger>
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
           </CodeBlock.Control>
         </CodeBlock.Header>
         <CodeBlock.Content>
-          <Float placement="top-end" offset="5" zIndex="2">
+          <Float offset="5" placement="top-end" zIndex="2">
             <CodeBlock.CopyTrigger asChild>
-              <IconButton variant="ghost" size="2xs">
+              <IconButton size="2xs" variant="ghost">
                 <CodeBlock.CopyIndicator />
               </IconButton>
             </CodeBlock.CopyTrigger>
@@ -75,11 +71,11 @@ export const CodeBlockWithOverflowAndOverlay = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

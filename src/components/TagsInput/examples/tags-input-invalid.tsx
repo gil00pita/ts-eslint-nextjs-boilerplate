@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { Field, TagsInput } from "@chakra-ui/react"
+import { Field, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputInvalid = () => (
   <Field.Root invalid>
-    <TagsInput.Root defaultValue={["React", "Chakra"]}>
+    <TagsInput.Root defaultValue={['React', 'Chakra']}>
       <TagsInput.Label>Invalid Tags</TagsInput.Label>
       <TagsInput.Control>
         <TagsInput.Items />

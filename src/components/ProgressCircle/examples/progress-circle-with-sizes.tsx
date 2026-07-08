@@ -1,9 +1,9 @@
-import { For, HStack, ProgressCircle } from "@chakra-ui/react"
+import { For, HStack, ProgressCircle } from '@chakra-ui/react'
 
 export const ProgressCircleWithSizes = () => {
   return (
     <HStack gap="10">
-      <For each={["xs", "sm", "md", "lg", "xl"]}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl']}>
         {(size) => (
           <ProgressCircle.Root key={size} size={size} value={30}>
             <ProgressCircle.Circle>

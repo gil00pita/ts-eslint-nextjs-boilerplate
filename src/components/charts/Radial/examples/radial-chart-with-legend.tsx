@@ -1,39 +1,29 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Legend, RadialBar, RadialBarChart, Sector, Tooltip } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Legend, RadialBar, RadialBarChart, Sector, Tooltip } from 'recharts'
 
 export const RadialChartWithLegend = () => {
   const chart = useChart({
     data: [
-      { value: 165, month: "January", color: "teal.solid" },
-      { value: 190, month: "February", color: "purple.solid" },
-      { value: 195, month: "March", color: "blue.solid" },
-      { value: 182, month: "May", color: "teal.solid" },
+      { color: 'teal.solid', month: 'January', value: 165 },
+      { color: 'purple.solid', month: 'February', value: 190 },
+      { color: 'blue.solid', month: 'March', value: 195 },
+      { color: 'teal.solid', month: 'May', value: 182 },
     ],
   })
 
   return (
-    <Chart.Root maxW="sm" chart={chart} mx="auto">
-      <RadialBarChart
-        data={chart.data}
-        barSize={20}
-        startAngle={90}
-        endAngle={-270}
-        responsive
-      >
-        <Tooltip cursor={false} content={<Chart.Tooltip nameKey="month" />} />
+    <Chart.Root chart={chart} maxW="sm" mx="auto">
+      <RadialBarChart barSize={20} data={chart.data} endAngle={-270} responsive startAngle={90}>
+        <Tooltip content={<Chart.Tooltip nameKey="month" />} cursor={false} />
         <Legend content={<Chart.Legend nameKey="month" />} />
         <RadialBar
-          isAnimationActive={false}
-          dataKey={chart.key("value")}
           background
+          dataKey={chart.key('value')}
+          isAnimationActive={false}
           shape={(props: any) => (
-            <Sector
-              {...props}
-              fill={chart.color(props.payload!.color)}
-              stroke="none"
-            />
+            <Sector {...props} fill={chart.color(props.payload!.color)} stroke="none" />
           )}
         />
       </RadialBarChart>

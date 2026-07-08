@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { DatePicker, InputGroup, Portal } from "@chakra-ui/react"
-import { LuCalendar, LuChevronsUpDown } from "react-icons/lu"
+import { DatePicker, InputGroup, Portal } from '@chakra-ui/react'
+import { LuCalendar, LuChevronsUpDown } from 'react-icons/lu'
 
 export const DatePickerWithInputGroup = () => {
   return (
@@ -9,12 +9,12 @@ export const DatePickerWithInputGroup = () => {
       <DatePicker.Label>Date</DatePicker.Label>
       <InputGroup
         as={DatePicker.Control}
-        startElement={<LuCalendar />}
         endElement={
           <DatePicker.Trigger>
             <LuChevronsUpDown />
           </DatePicker.Trigger>
         }
+        startElement={<LuCalendar />}
       >
         <DatePicker.Input />
       </InputGroup>

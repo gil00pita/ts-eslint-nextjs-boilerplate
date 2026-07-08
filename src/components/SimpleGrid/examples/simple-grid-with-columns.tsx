@@ -1,5 +1,6 @@
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
 import { SimpleGrid } from '@chakra-ui/react'
+
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const SimpleGridWithColumns = () => (
   <SimpleGrid columns={[2, null, 3]} gap="40px">

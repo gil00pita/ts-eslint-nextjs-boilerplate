@@ -1,22 +1,17 @@
-"use client"
+'use client'
 
-import { Box, Center, For, SimpleGrid, VStack } from "@chakra-ui/react"
-import { TokenDoc } from "./token-doc"
+import { Box, Center, For, SimpleGrid, VStack } from '@chakra-ui/react'
+
+import { TokenDoc } from './token-doc'
 
 export const ShadowTokenDoc = () => {
   return (
-    <TokenDoc title="theme.semanticTokens.shadows" my="8">
-      <SimpleGrid minChildWidth="240px" gap="4">
-        <For each={["xs", "sm", "md", "lg", "xl", "2xl", "inner", "inset"]}>
+    <TokenDoc my="8" title="theme.semanticTokens.shadows">
+      <SimpleGrid gap="4" minChildWidth="240px">
+        <For each={['xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner', 'inset']}>
           {(shadow) => (
-            <VStack key={shadow} flex="1">
-              <Center
-                shadow={shadow}
-                width="full"
-                height="20"
-                color="fg.muted"
-                borderRadius="md"
-              />
+            <VStack flex="1" key={shadow}>
+              <Center borderRadius="md" color="fg.muted" height="20" shadow={shadow} width="full" />
               <Box>{shadow}</Box>
             </VStack>
           )}

@@ -1,37 +1,29 @@
-"use client"
+'use client'
 
 import {
   Button,
   ButtonGroup,
+  createTreeCollection,
   HStack,
   TreeView,
-  createTreeCollection,
   useTreeViewContext,
-} from "@chakra-ui/react"
-import { isEqual } from "es-toolkit"
-import { useMemo } from "react"
-import { LuFile, LuFolder } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { isEqual } from 'es-toolkit'
+import { useMemo } from 'react'
+import { LuFile, LuFolder } from 'react-icons/lu'
 
 const ExpandCollapseAll = () => {
   const tree = useTreeViewContext()
   const isAllExpanded = useMemo(
     () => isEqual(tree.expandedValue, tree.collection.getBranchValues()),
-    [tree.expandedValue, tree.collection],
+    [tree.expandedValue, tree.collection]
   )
   return (
     <ButtonGroup size="2xs" variant="outline">
-      <Button
-        aria-label="Expand all"
-        onClick={() => tree.expand()}
-        hidden={isAllExpanded}
-      >
+      <Button aria-label="Expand all" hidden={isAllExpanded} onClick={() => tree.expand()}>
         Expand all
       </Button>
-      <Button
-        aria-label="Collapse all"
-        onClick={() => tree.collapse()}
-        hidden={!isAllExpanded}
-      >
+      <Button aria-label="Collapse all" hidden={!isAllExpanded} onClick={() => tree.collapse()}>
         Collapse all
       </Button>
     </ButtonGroup>
@@ -74,40 +66,40 @@ interface Node {
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
       {
-        id: "node_modules",
-        name: "node_modules",
         children: [
-          { id: "node_modules/zag-js", name: "zag-js" },
-          { id: "node_modules/pandacss", name: "panda" },
+          { id: 'node_modules/zag-js', name: 'zag-js' },
+          { id: 'node_modules/pandacss', name: 'panda' },
           {
-            id: "node_modules/@types",
-            name: "@types",
             children: [
-              { id: "node_modules/@types/react", name: "react" },
-              { id: "node_modules/@types/react-dom", name: "react-dom" },
+              { id: 'node_modules/@types/react', name: 'react' },
+              { id: 'node_modules/@types/react-dom', name: 'react-dom' },
             ],
+            id: 'node_modules/@types',
+            name: '@types',
           },
         ],
+        id: 'node_modules',
+        name: 'node_modules',
       },
       {
-        id: "src",
-        name: "src",
         children: [
-          { id: "src/app.tsx", name: "app.tsx" },
-          { id: "src/index.ts", name: "index.ts" },
+          { id: 'src/app.tsx', name: 'app.tsx' },
+          { id: 'src/index.ts', name: 'index.ts' },
         ],
+        id: 'src',
+        name: 'src',
       },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { id: 'panda.config', name: 'panda.config.ts' },
+      { id: 'package.json', name: 'package.json' },
+      { id: 'renovate.json', name: 'renovate.json' },
+      { id: 'readme.md', name: 'README.md' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })

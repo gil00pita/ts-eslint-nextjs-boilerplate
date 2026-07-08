@@ -1,10 +1,11 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
-import { Toaster } from '@/ui/toaster'
+
 import { Box } from '@chakra-ui/react'
 
+import { Toaster } from '@/ui/toaster'
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Feedback / Toast',
   decorators: [
     (Story: any) => (
       <Box p="10">
@@ -13,6 +14,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Feedback / Toast',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Toast')

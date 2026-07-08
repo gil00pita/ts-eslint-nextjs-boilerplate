@@ -1,14 +1,14 @@
-import { Button, ButtonGroup, For, Stack, Steps } from "@chakra-ui/react"
+import { Button, ButtonGroup, For, Stack, Steps } from '@chakra-ui/react'
 
 export const StepsWithVariants = () => {
   return (
     <Stack gap="16">
-      <For each={["subtle", "solid"]}>
+      <For each={['subtle', 'solid']}>
         {(variant) => (
-          <Steps.Root key={variant} variant={variant} count={steps.length}>
+          <Steps.Root count={steps.length} key={variant} variant={variant}>
             <Steps.List>
               {steps.map((step, index) => (
-                <Steps.Item key={index} index={index} title={step.title}>
+                <Steps.Item index={index} key={index} title={step.title}>
                   <Steps.Indicator />
                   <Steps.Title>{step.title}</Steps.Title>
                   <Steps.Separator />
@@ -17,13 +17,11 @@ export const StepsWithVariants = () => {
             </Steps.List>
 
             {steps.map((step, index) => (
-              <Steps.Content key={index} index={index}>
+              <Steps.Content index={index} key={index}>
                 {step.description}
               </Steps.Content>
             ))}
-            <Steps.CompletedContent>
-              All steps are complete!
-            </Steps.CompletedContent>
+            <Steps.CompletedContent>All steps are complete!</Steps.CompletedContent>
 
             <ButtonGroup size="sm" variant="outline">
               <Steps.PrevTrigger asChild>
@@ -42,15 +40,15 @@ export const StepsWithVariants = () => {
 
 const steps = [
   {
-    title: "Step 1",
-    description: "Step 1 description",
+    description: 'Step 1 description',
+    title: 'Step 1',
   },
   {
-    title: "Step 2",
-    description: "Step 2 description",
+    description: 'Step 2 description',
+    title: 'Step 2',
   },
   {
-    title: "Step 3",
-    description: "Step 3 description",
+    description: 'Step 3 description',
+    title: 'Step 3',
   },
 ]

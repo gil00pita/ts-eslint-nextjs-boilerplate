@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { Button, Menu, Portal, useCheckboxGroup } from "@chakra-ui/react"
-import { HiCog } from "react-icons/hi"
+import { Button, Menu, Portal, useCheckboxGroup } from '@chakra-ui/react'
+import { HiCog } from 'react-icons/hi'
 
 export const MenuWithCheckboxItems = () => {
-  const group = useCheckboxGroup({ defaultValue: ["autosave"] })
+  const group = useCheckboxGroup({ defaultValue: ['autosave'] })
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           <HiCog /> Features
         </Button>
       </Menu.Trigger>
@@ -19,10 +19,10 @@ export const MenuWithCheckboxItems = () => {
               <Menu.ItemGroupLabel>Features</Menu.ItemGroupLabel>
               {items.map(({ title, value }) => (
                 <Menu.CheckboxItem
-                  key={value}
-                  value={value}
                   checked={group.isChecked(value)}
+                  key={value}
                   onCheckedChange={() => group.toggleValue(value)}
+                  value={value}
                 >
                   {title}
                   <Menu.ItemIndicator />
@@ -37,7 +37,7 @@ export const MenuWithCheckboxItems = () => {
 }
 
 const items = [
-  { title: "Autosave", value: "autosave" },
-  { title: "Detect Language", value: "detect-language" },
-  { title: "Spellcheck", value: "spellcheck" },
+  { title: 'Autosave', value: 'autosave' },
+  { title: 'Detect Language', value: 'detect-language' },
+  { title: 'Spellcheck', value: 'spellcheck' },
 ]

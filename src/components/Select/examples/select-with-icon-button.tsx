@@ -1,31 +1,26 @@
-"use client"
+'use client'
 
 import {
+  createListCollection,
   HStack,
   IconButton,
   Portal,
   Select,
-  createListCollection,
   useSelectContext,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 import {
   RiAngularjsLine,
   RiForbidLine,
   RiReactjsLine,
   RiSvelteLine,
   RiVuejsLine,
-} from "react-icons/ri"
+} from 'react-icons/ri'
 
 const SelectTrigger = () => {
   const select = useSelectContext()
   const items = select.selectedItems as Framework[]
   return (
-    <IconButton
-      px="2"
-      variant="outline"
-      size="sm"
-      {...select.getTriggerProps()}
-    >
+    <IconButton px="2" size="sm" variant="outline" {...select.getTriggerProps()}>
       {select.hasSelectedItems ? items[0].icon : <RiForbidLine />}
     </IconButton>
   )
@@ -34,11 +29,11 @@ const SelectTrigger = () => {
 export const SelectWithIconButton = () => {
   return (
     <Select.Root
-      positioning={{ sameWidth: false }}
       collection={frameworks}
+      defaultValue={['react']}
+      positioning={{ sameWidth: false }}
       size="sm"
       width="320px"
-      defaultValue={["react"]}
     >
       <Select.HiddenSelect />
       <Select.Control>
@@ -65,10 +60,10 @@ export const SelectWithIconButton = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react", icon: <RiReactjsLine /> },
-    { label: "Vue.js", value: "vue", icon: <RiVuejsLine /> },
-    { label: "Angular", value: "angular", icon: <RiAngularjsLine /> },
-    { label: "Svelte", value: "svelte", icon: <RiSvelteLine /> },
+    { icon: <RiReactjsLine />, label: 'React.js', value: 'react' },
+    { icon: <RiVuejsLine />, label: 'Vue.js', value: 'vue' },
+    { icon: <RiAngularjsLine />, label: 'Angular', value: 'angular' },
+    { icon: <RiSvelteLine />, label: 'Svelte', value: 'svelte' },
   ],
 })
 

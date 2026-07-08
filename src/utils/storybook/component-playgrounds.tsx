@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import type { StoryObj } from '@storybook/react-vite'
@@ -7,6 +9,7 @@ import type { ArgTypes } from 'storybook/internal/types'
 import * as Chakra from '@chakra-ui/react'
 import { useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import React from 'react'
 import { HiArrowRight } from 'react-icons/hi'
 import {
   LuBell,
@@ -63,8 +66,8 @@ import {
   variantArg,
 } from './argTypes'
 
-const C = Chakra as any // eslint-disable-line @typescript-eslint/no-explicit-any
-const AnyPasswordInput = PasswordInput as any // eslint-disable-line @typescript-eslint/no-explicit-any
+const C = Chakra as any
+const AnyPasswordInput = PasswordInput as any
 
 type PlaygroundArgs = {
   children?: string

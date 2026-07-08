@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import { Button, Field, RatingGroup, Stack } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Field, RatingGroup, Stack } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  rating: z.number({ message: "Rating is required" }).min(1).max(5),
+  rating: z.number({ message: 'Rating is required' }).min(1).max(5),
 })
 
 type FormValues = z.infer<typeof formSchema>
 
 export const RatingWithHookForm = () => {
   const {
-    handleSubmit,
-    formState: { errors },
     control,
+    formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -24,7 +24,7 @@ export const RatingWithHookForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4" align="flex-start">
+      <Stack align="flex-start" gap="4">
         <Field.Root invalid={!!errors.rating}>
           <Field.Label>Rating</Field.Label>
           <Controller
@@ -34,8 +34,8 @@ export const RatingWithHookForm = () => {
               <RatingGroup.Root
                 count={5}
                 name={field.name}
-                value={field.value}
                 onValueChange={({ value }) => field.onChange(value)}
+                value={field.value}
               >
                 <RatingGroup.HiddenInput />
                 <RatingGroup.Control />

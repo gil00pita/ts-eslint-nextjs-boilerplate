@@ -1,102 +1,41 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, ColorSwatchGrid, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Brand Styles/Color" />
 
-# Color
-
-Phenix UI uses color to clarify state, hierarchy, and brand expression. Product surfaces stay mostly neutral so status and action colors remain meaningful.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Color"
+  lead="Phenix UI uses color to clarify state, hierarchy, and brand expression. Product surfaces stay mostly neutral so status and action colors remain meaningful."
+/>
 
 ## Core Palettes
 
-<table>
-  <thead>
-    <tr>
-      <th>Palette</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ember</td>
-      <td>Primary actions, focus accents, and brand moments.</td>
-    </tr>
-    <tr>
-      <td>Ash</td>
-      <td>App backgrounds, text, borders, and neutral surfaces.</td>
-    </tr>
-    <tr>
-      <td>Sky</td>
-      <td>Information and assistive guidance.</td>
-    </tr>
-    <tr>
-      <td>Moss</td>
-      <td>Success, completion, and healthy system states.</td>
-    </tr>
-    <tr>
-      <td>Berry</td>
-      <td>Errors, destructive actions, and urgent validation.</td>
-    </tr>
-  </tbody>
-</table>
+<ColorSwatchGrid />
 
 ## Semantic Tokens
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>bg.canvas</code>
-      </td>
-      <td>Page background.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>bg.panel</code>
-      </td>
-      <td>Raised application panels and cards.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>fg</code>
-      </td>
-      <td>Primary text.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>fg.muted</code>
-      </td>
-      <td>Secondary text and supporting labels.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>border.muted</code>
-      </td>
-      <td>Default separators and low-emphasis borders.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>colorPalette.solid</code>
-      </td>
-      <td>Solid surface for the active palette.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>colorPalette.contrast</code>
-      </td>
-      <td>Text placed on the active palette's solid color.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'token', header: 'Token', width: '28%', isCode: true },
+    { key: 'purpose', header: 'Purpose' },
+  ]}
+  rows={[
+    { token: 'bg.canvas', purpose: 'Page background.' },
+    { token: 'bg.panel', purpose: 'Raised application panels and cards.' },
+    { token: 'fg', purpose: 'Primary text.' },
+    { token: 'fg.muted', purpose: 'Secondary text and supporting labels.' },
+    { token: 'border.muted', purpose: 'Default separators and low-emphasis borders.' },
+    { token: 'colorPalette.solid', purpose: "Solid surface for the active palette." },
+    { token: 'colorPalette.contrast', purpose: "Text placed on the active palette's solid color." },
+  ]}
+/>
 
-## Usage Rules
-
+<Callout title="Usage Rules" tone="tip">
 - Use semantic tokens before raw palette steps.
 - Reserve Ember for primary actions and branded highlights.
 - Pair every status color with text or an icon; never rely on color alone.
 - Check contrast in light, dark, and high-contrast themes.
+</Callout>

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Listbox, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Listbox } from '@chakra-ui/react'
 
 export const ListboxGrouped = () => {
   return (
@@ -24,17 +24,17 @@ export const ListboxGrouped = () => {
 }
 
 const collection = createListCollection({
-  items: [
-    { label: "Naruto", value: "naruto", category: "Anime" },
-    { label: "One Piece", value: "one-piece", category: "Anime" },
-    { label: "Dragon Ball", value: "dragon-ball", category: "Anime" },
-    {
-      label: "The Shawshank Redemption",
-      value: "the-shawshank-redemption",
-      category: "Movies",
-    },
-    { label: "The Godfather", value: "the-godfather", category: "Movies" },
-    { label: "The Dark Knight", value: "the-dark-knight", category: "Movies" },
-  ],
   groupBy: (item) => item.category,
+  items: [
+    { category: 'Anime', label: 'Naruto', value: 'naruto' },
+    { category: 'Anime', label: 'One Piece', value: 'one-piece' },
+    { category: 'Anime', label: 'Dragon Ball', value: 'dragon-ball' },
+    {
+      category: 'Movies',
+      label: 'The Shawshank Redemption',
+      value: 'the-shawshank-redemption',
+    },
+    { category: 'Movies', label: 'The Godfather', value: 'the-godfather' },
+    { category: 'Movies', label: 'The Dark Knight', value: 'the-dark-knight' },
+  ],
 })

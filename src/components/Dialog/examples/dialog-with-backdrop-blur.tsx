@@ -1,4 +1,4 @@
-import { Button, Dialog, Portal } from "@chakra-ui/react"
+import { Button, Dialog, Portal } from '@chakra-ui/react'
 
 export const DialogWithBackdropBlur = () => {
   return (
@@ -7,19 +7,15 @@ export const DialogWithBackdropBlur = () => {
         <Button variant="outline">Open Dialog (backdrop blur)</Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop
-          backdropFilter="auto"
-          backdropBlur="md"
-          bg="blackAlpha.600"
-        />
+        <Dialog.Backdrop backdropBlur="md" backdropFilter="auto" bg="blackAlpha.600" />
         <Dialog.Positioner>
           <Dialog.Content>
             <Dialog.Body pt="4" spaceY="4">
               <Dialog.Title>Backdrop blur example</Dialog.Title>
               <Dialog.Description>
-                This dialog uses backdropFilter="auto" and backdropBlur so the
-                content behind is blurred. The backdrop vars use valid no-op
-                fallbacks so the property stays valid when only some are set.
+                This dialog uses backdropFilter="auto" and backdropBlur so the content behind is
+                blurred. The backdrop vars use valid no-op fallbacks so the property stays valid
+                when only some are set.
               </Dialog.Description>
             </Dialog.Body>
             <Dialog.CloseTrigger />

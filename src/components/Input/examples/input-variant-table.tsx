@@ -13,24 +13,24 @@ export const InputVariantTable = () => {
           {(v) => (
             <tr key={v}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {v}
                 </Span>
               </td>
               <td>
-                <Input variant={v} placeholder="Placeholder" />
+                <Input placeholder="Placeholder" variant={v} />
               </td>
             </tr>
           )}
         </For>
         <tr>
           <td>
-            <Span fontSize="sm" color="fg.muted" minW="8ch">
+            <Span color="fg.muted" fontSize="sm" minW="8ch">
               unstyled
             </Span>
           </td>
           <td>
-            <Input unstyled placeholder="Placeholder" />
+            <Input placeholder="Placeholder" unstyled />
           </td>
         </tr>
       </tbody>

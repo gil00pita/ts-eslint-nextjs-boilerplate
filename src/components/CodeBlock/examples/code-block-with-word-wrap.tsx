@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, IconButton, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, IconButton } from '@chakra-ui/react'
 
 const file = {
   code: `
@@ -13,23 +14,18 @@ function sayHello() {
 
 sayHello()
 `,
-  language: "tsx",
-  title: "index.tsx",
+  language: 'tsx',
+  title: 'index.tsx',
 }
 
 export const CodeBlockWithWordWrap = () => {
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
-      <CodeBlock.Root
-        maxW="md"
-        code={file.code}
-        language={file.language}
-        meta={{ wordWrap: true }}
-      >
+      <CodeBlock.Root code={file.code} language={file.language} maxW="md" meta={{ wordWrap: true }}>
         <CodeBlock.Header>
           <CodeBlock.Title>{file.title}</CodeBlock.Title>
           <CodeBlock.CopyTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
+            <IconButton size="2xs" variant="ghost">
               <CodeBlock.CopyIndicator />
             </IconButton>
           </CodeBlock.CopyTrigger>
@@ -46,11 +42,11 @@ export const CodeBlockWithWordWrap = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

@@ -1,15 +1,13 @@
-"use client"
+'use client'
 
-import { For, Spinner, useRecipe } from "@chakra-ui/react"
+import { For, Spinner, useRecipe } from '@chakra-ui/react'
 
 export const SpinnerSizeTable = () => {
-  const recipe = useRecipe({ key: "spinner" })
+  const recipe = useRecipe({ key: 'spinner' })
   return (
     <div>
       <For each={recipe.variantMap.size}>
-        {(size) => (
-          <Spinner key={size} margin={3} color="green.500" size={size} />
-        )}
+        {(size) => <Spinner color="green.500" key={size} margin={3} size={size} />}
       </For>
     </div>
   )

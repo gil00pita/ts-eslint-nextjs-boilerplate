@@ -1,27 +1,19 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Center,
-  HStack,
-  Splitter,
-  Stack,
-  useSplitter,
-} from "@chakra-ui/react"
-import { Fragment, useRef, useState } from "react"
+import { Button, Center, HStack, Splitter, Stack, useSplitter } from '@chakra-ui/react'
+import { Fragment, useRef, useState } from 'react'
 
 const initialPanels: Splitter.PanelData[] = [
-  { id: "left", order: 0 },
-  { id: "center", order: 1 },
-  { id: "right", order: 2 },
+  { id: 'left', order: 0 },
+  { id: 'center', order: 1 },
+  { id: 'right', order: 2 },
 ]
 
 const getLayoutKey = (panels: Array<{ id: string }>): string => {
-  return panels.map((p) => p.id).join(":")
+  return panels.map((p) => p.id).join(':')
 }
 
-const distributeSizes = (count: number): number[] =>
-  Array(count).fill(100 / count)
+const distributeSizes = (count: number): number[] => Array(count).fill(100 / count)
 
 export const SplitterConditionalRendering = () => {
   const [panels, setPanels] = useState(initialPanels)
@@ -34,13 +26,13 @@ export const SplitterConditionalRendering = () => {
   })
 
   const splitter = useSplitter({
-    panels: panels.map((p) => ({ id: p.id, minSize: 20 })),
-    size: sizes,
-    orientation: "horizontal",
-    onResize: ({ size, layout }) => {
+    onResize: ({ layout, size }) => {
       setSizes(size)
       layoutCache.current[layout] = size
     },
+    orientation: 'horizontal',
+    panels: panels.map((p) => ({ id: p.id, minSize: 20 })),
+    size: sizes,
   })
 
   const items = splitter.getItems()
@@ -61,9 +53,7 @@ export const SplitterConditionalRendering = () => {
     const panel = initialPanels.find((panel) => panel.id === id)
     if (!panel) return
 
-    const nextPanels = [...panels, panel].sort(
-      (a, b) => (a.order ?? 0) - (b.order ?? 0),
-    )
+    const nextPanels = [...panels, panel].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
     const nextLayout = getLayoutKey(nextPanels)
     const cachedSizes = layoutCache.current[nextLayout]
 
@@ -86,29 +76,25 @@ export const SplitterConditionalRendering = () => {
   return (
     <Stack gap="4">
       <HStack gap="2" justify="space-between">
-        <Button size="sm" variant="outline" onClick={() => togglePanel("left")}>
-          {isPanelVisible("left") ? "Hide Left" : "Show Left"}
+        <Button onClick={() => togglePanel('left')} size="sm" variant="outline">
+          {isPanelVisible('left') ? 'Hide Left' : 'Show Left'}
         </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={() => togglePanel("right")}
-        >
-          {isPanelVisible("right") ? "Hide Right" : "Show Right"}
+        <Button onClick={() => togglePanel('right')} size="sm" variant="outline">
+          {isPanelVisible('right') ? 'Hide Right' : 'Show Right'}
         </Button>
       </HStack>
 
-      <Splitter.RootProvider value={splitter} borderWidth="1px" minH="60">
+      <Splitter.RootProvider borderWidth="1px" minH="60" value={splitter}>
         {items.map((item) => (
           <Fragment key={item.id}>
-            {item.type === "panel" && (
+            {item.type === 'panel' && (
               <Splitter.Panel id={item.id}>
                 <Center boxSize="full" textStyle="lg">
                   {item.id}
                 </Center>
               </Splitter.Panel>
             )}
-            {item.type === "handle" && <Splitter.ResizeTrigger id={item.id} />}
+            {item.type === 'handle' && <Splitter.ResizeTrigger id={item.id} />}
           </Fragment>
         ))}
       </Splitter.RootProvider>

@@ -1,24 +1,24 @@
-"use client"
+'use client'
 
-import { For, Span, Stack, TagsInput } from "@chakra-ui/react"
+import { For, Span, Stack, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithVariants = () => {
   return (
     <Stack>
-      <For each={["outline", "subtle", "flushed"]}>
+      <For each={['outline', 'subtle', 'flushed']}>
         {(variant) => (
           <TagsInput.Root
+            defaultValue={['React', 'Chakra', 'TypeScript']}
             key={variant}
-            variant={variant}
             readOnly
-            defaultValue={["React", "Chakra", "TypeScript"]}
+            variant={variant}
           >
             <TagsInput.Label>Tags (variant={variant})</TagsInput.Label>
             <TagsInput.Control>
               <TagsInput.Items />
               <TagsInput.Input placeholder="Add tag..." />
             </TagsInput.Control>
-            <Span textStyle="xs" color="fg.muted" ms="auto">
+            <Span color="fg.muted" ms="auto" textStyle="xs">
               Press Enter or Return to add tag
             </Span>
           </TagsInput.Root>

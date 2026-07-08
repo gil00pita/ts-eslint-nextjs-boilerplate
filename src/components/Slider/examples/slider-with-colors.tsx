@@ -1,18 +1,13 @@
-import { For, Slider, Stack } from "@chakra-ui/react"
+import { For, Slider, Stack } from '@chakra-ui/react'
 
-const colors = ["gray", "blue", "red", "green", "pink"]
+const colors = ['gray', 'blue', 'red', 'green', 'pink']
 
 export const SliderWithColors = () => {
   return (
-    <Stack gap="4" align="flex-start">
+    <Stack align="flex-start" gap="4">
       <For each={colors}>
         {(color) => (
-          <Slider.Root
-            key={color}
-            width="200px"
-            colorPalette={color}
-            defaultValue={[40]}
-          >
+          <Slider.Root colorPalette={color} defaultValue={[40]} key={color} width="200px">
             <Slider.Control>
               <Slider.Track>
                 <Slider.Range />

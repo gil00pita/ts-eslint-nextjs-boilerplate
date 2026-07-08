@@ -9,7 +9,7 @@ import {
   Portal,
   Textarea,
   VStack,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 export const DialogWithDatalist = () => {
   return (
@@ -51,7 +51,7 @@ export const DialogWithDatalist = () => {
                   </DataList.Item>
                 </DataList.Root>
 
-                <Textarea placeholder="Add a note" mt="8" />
+                <Textarea mt="8" placeholder="Add a note" />
               </Dialog.Body>
               <Dialog.CloseTrigger asChild>
                 <CloseButton size="sm" />

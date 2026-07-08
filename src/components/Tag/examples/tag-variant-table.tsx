@@ -3,8 +3,8 @@
 import { Avatar, For, Span, Stack, Tag, useSlotRecipe } from '@chakra-ui/react'
 import { HiCheck, HiOutlineBriefcase } from 'react-icons/hi'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const TagVariantTable = () => {
   const recipe = useSlotRecipe({ key: 'tag' })
@@ -21,7 +21,7 @@ export const TagVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
@@ -29,32 +29,32 @@ export const TagVariantTable = () => {
                 {(v) => (
                   <td key={v}>
                     <Stack align="flex-start">
-                      <Tag.Root variant={v} colorPalette={c}>
+                      <Tag.Root colorPalette={c} variant={v}>
                         <Tag.Label>Gray</Tag.Label>
                       </Tag.Root>
 
-                      <Tag.Root variant={v} colorPalette={c}>
+                      <Tag.Root colorPalette={c} variant={v}>
                         <Tag.Label>Gray</Tag.Label>
                         <Tag.EndElement>
                           <Tag.CloseTrigger />
                         </Tag.EndElement>
                       </Tag.Root>
 
-                      <Tag.Root variant={v} colorPalette={c}>
+                      <Tag.Root colorPalette={c} variant={v}>
                         <Tag.StartElement>
                           <HiCheck />
                         </Tag.StartElement>
                         <Tag.Label>Gray</Tag.Label>
                       </Tag.Root>
 
-                      <Tag.Root variant={v} colorPalette={c}>
+                      <Tag.Root colorPalette={c} variant={v}>
                         <Tag.StartElement>
                           <HiOutlineBriefcase />
                         </Tag.StartElement>
                         <Tag.Label>Projects</Tag.Label>
                       </Tag.Root>
 
-                      <Tag.Root variant={v} colorPalette={c} borderRadius="full">
+                      <Tag.Root borderRadius="full" colorPalette={c} variant={v}>
                         <Tag.StartElement>
                           <Avatar.Root size="full">
                             <Avatar.Image src="https://i.pravatar.cc/150?img=6" />

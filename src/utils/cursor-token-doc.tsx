@@ -3,6 +3,7 @@ import { Button, HStack } from '@chakra-ui/react'
 import { Checkbox } from '@/ui/checkbox'
 import { Slider } from '@/ui/slider'
 import { Switch } from '@/ui/switch'
+
 import { TokenDoc } from './token-doc'
 
 export const CursorTokenDoc = () => {

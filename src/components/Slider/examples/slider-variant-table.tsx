@@ -2,8 +2,8 @@
 
 import { For, Slider, Span, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const SliderVariantTable = () => {
   const recipe = useSlotRecipe({ key: 'slider' })
@@ -20,7 +20,7 @@ export const SliderVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
@@ -28,11 +28,11 @@ export const SliderVariantTable = () => {
                 {(v) => (
                   <td key={v}>
                     <Slider.Root
-                      defaultValue={[40]}
                       colorPalette={c}
-                      variant={v}
-                      minW="200px"
+                      defaultValue={[40]}
                       mb="2"
+                      minW="200px"
+                      variant={v}
                     >
                       <Slider.Control>
                         <Slider.Track>
@@ -43,11 +43,11 @@ export const SliderVariantTable = () => {
                     </Slider.Root>
 
                     <Slider.Root
-                      defaultValue={[40]}
                       colorPalette={c}
-                      variant={v}
-                      minW="200px"
+                      defaultValue={[40]}
                       disabled
+                      minW="200px"
+                      variant={v}
                     >
                       <Slider.Control>
                         <Slider.Track>

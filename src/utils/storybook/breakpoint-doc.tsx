@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { Box, HStack, Stack, Text, defaultSystem } from "@chakra-ui/react"
-import { TokenDoc } from "./token-doc"
+import { Box, defaultSystem, HStack, Stack, Text } from '@chakra-ui/react'
+
+import { TokenDoc } from './token-doc'
 
 const { _config: config } = defaultSystem
 
@@ -12,7 +13,7 @@ const allBreakpoints = Object.entries(breakpoints)
 
 export const BreakpointDoc = () => {
   return (
-    <TokenDoc title="theme.breakpoints" mt="8">
+    <TokenDoc mt="8" title="theme.breakpoints">
       <Stack gap="8">
         {allBreakpoints.map((key, index) => {
           const width = (index + 1) * 2
@@ -20,20 +21,20 @@ export const BreakpointDoc = () => {
             <HStack key={key}>
               <Box minWidth="200px">
                 <Box
-                  rounded="sm"
-                  height="12"
+                  borderBottomWidth="12px"
                   borderInlineWidth="4px"
                   borderTopWidth="4px"
-                  borderBottomWidth="12px"
+                  height="12"
+                  rounded="sm"
                   width={`${width}rem`}
                 />
               </Box>
               <Box minWidth="80px">
-                <Text py="2" fontWeight="medium">
+                <Text fontWeight="medium" py="2">
                   {key}
                 </Text>
               </Box>
-              <Text py="2" opacity="0.6">
+              <Text opacity="0.6" py="2">
                 {`@media screen (min-width >= ${breakpoints[key]})`}
               </Text>
             </HStack>

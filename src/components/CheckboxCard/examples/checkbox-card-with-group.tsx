@@ -1,9 +1,9 @@
-import { CheckboxCard, CheckboxGroup, Flex, Text } from "@chakra-ui/react"
+import { CheckboxCard, CheckboxGroup, Flex, Text } from '@chakra-ui/react'
 
 export const CheckboxCardWithGroup = () => {
   return (
-    <CheckboxGroup defaultValue={["next"]}>
-      <Text textStyle="sm" fontWeight="medium">
+    <CheckboxGroup defaultValue={['next']}>
+      <Text fontWeight="medium" textStyle="sm">
         Select framework(s)
       </Text>
       <Flex gap="2">
@@ -13,9 +13,7 @@ export const CheckboxCardWithGroup = () => {
             <CheckboxCard.Control>
               <CheckboxCard.Content>
                 <CheckboxCard.Label>{item.title}</CheckboxCard.Label>
-                <CheckboxCard.Description>
-                  {item.description}
-                </CheckboxCard.Description>
+                <CheckboxCard.Description>{item.description}</CheckboxCard.Description>
               </CheckboxCard.Content>
               <CheckboxCard.Indicator />
             </CheckboxCard.Control>
@@ -27,7 +25,7 @@ export const CheckboxCardWithGroup = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js", description: "Best for apps" },
-  { value: "vite", title: "Vite", description: "Best for SPAs" },
-  { value: "astro", title: "Astro", description: "Best for static sites" },
+  { description: 'Best for apps', title: 'Next.js', value: 'next' },
+  { description: 'Best for SPAs', title: 'Vite', value: 'vite' },
+  { description: 'Best for static sites', title: 'Astro', value: 'astro' },
 ]

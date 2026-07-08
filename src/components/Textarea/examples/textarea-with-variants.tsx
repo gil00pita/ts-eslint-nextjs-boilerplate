@@ -1,11 +1,11 @@
-import { Stack, Textarea } from "@chakra-ui/react"
+import { Stack, Textarea } from '@chakra-ui/react'
 
 export const TextareaWithVariants = () => {
   return (
     <Stack gap="4">
-      <Textarea variant="outline" placeholder="outline" />
-      <Textarea variant="subtle" placeholder="subtle" />
-      <Textarea variant="flushed" placeholder="flushed" />
+      <Textarea placeholder="outline" variant="outline" />
+      <Textarea placeholder="subtle" variant="subtle" />
+      <Textarea placeholder="flushed" variant="flushed" />
     </Stack>
   )
 }

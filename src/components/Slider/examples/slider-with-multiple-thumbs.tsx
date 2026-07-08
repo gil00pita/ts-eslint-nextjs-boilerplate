@@ -1,8 +1,8 @@
-import { Slider } from "@chakra-ui/react"
+import { Slider } from '@chakra-ui/react'
 
 export const SliderWithMultipleThumbs = () => {
   return (
-    <Slider.Root width="200px" defaultValue={[30, 60]}>
+    <Slider.Root defaultValue={[30, 60]} width="200px">
       <Slider.Control>
         <Slider.Track>
           <Slider.Range />

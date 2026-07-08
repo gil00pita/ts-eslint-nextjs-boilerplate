@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import { Badge, DatePicker, For, Stack } from "@chakra-ui/react"
+import { Badge, DatePicker, For, Stack } from '@chakra-ui/react'
 
 export const DatePickerCalendarWithSizes = () => {
   return (
-    <Stack gap={8} direction="row" flexWrap="wrap">
-      <For each={["xs", "sm", "md", "lg", "xl"]}>
+    <Stack direction="row" flexWrap="wrap" gap={8}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl']}>
         {(size) => (
-          <Stack key={size} gap={2} align="flex-start">
+          <Stack align="flex-start" gap={2} key={size}>
             <Badge variant="outline" width="fit-content">
               {size}
             </Badge>
-            <DatePicker.Root inline width="fit-content" size={size}>
+            <DatePicker.Root inline size={size} width="fit-content">
               <DatePicker.Content unstyled>
                 <DatePicker.View view="day">
                   <DatePicker.Header />

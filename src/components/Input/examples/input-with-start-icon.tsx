@@ -1,5 +1,5 @@
-import { Input, InputGroup } from "@chakra-ui/react"
-import { LuUser } from "react-icons/lu"
+import { Input, InputGroup } from '@chakra-ui/react'
+import { LuUser } from 'react-icons/lu'
 
 export const InputWithStartIcon = () => {
   return (

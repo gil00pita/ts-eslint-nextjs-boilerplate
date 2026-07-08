@@ -1,16 +1,12 @@
-import { Accordion, Box, useAccordionItemContext } from "@chakra-ui/react"
-import { LuMinus, LuPlus } from "react-icons/lu"
+import { Accordion, Box, useAccordionItemContext } from '@chakra-ui/react'
+import { LuMinus, LuPlus } from 'react-icons/lu'
 
 export const AccordionWithContext = () => {
   return (
-    <Accordion.Root collapsible defaultValue={["b"]}>
+    <Accordion.Root collapsible defaultValue={['b']}>
       {items.map((item) => (
         <Accordion.Item key={item.value} value={item.value}>
-          {item.useContext ? (
-            <ItemWithContext item={item} />
-          ) : (
-            <ItemBasic item={item} />
-          )}
+          {item.useContext ? <ItemWithContext item={item} /> : <ItemBasic item={item} />}
         </Accordion.Item>
       ))}
     </Accordion.Root>
@@ -49,21 +45,21 @@ function ItemWithContext({ item }: { item: (typeof items)[0] }) {
 
 const items = [
   {
-    value: "a",
-    title: "First Item (Standard)",
-    text: "This item uses the standard ItemIndicator component.",
+    text: 'This item uses the standard ItemIndicator component.',
+    title: 'First Item (Standard)',
     useContext: false,
+    value: 'a',
   },
   {
-    value: "b",
-    title: "Second Item (Custom Icons)",
-    text: "This item uses useAccordionItemContext to show custom +/- icons based on open state.",
+    text: 'This item uses useAccordionItemContext to show custom +/- icons based on open state.',
+    title: 'Second Item (Custom Icons)',
     useContext: true,
+    value: 'b',
   },
   {
-    value: "c",
-    title: "Third Item (Standard)",
-    text: "This item uses the standard ItemIndicator component.",
+    text: 'This item uses the standard ItemIndicator component.',
+    title: 'Third Item (Standard)',
     useContext: false,
+    value: 'c',
   },
 ]

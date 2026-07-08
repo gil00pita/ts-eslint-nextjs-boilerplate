@@ -1,10 +1,10 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
 
 export const DialogWithRole = () => {
   return (
     <Dialog.Root role="alertdialog">
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Dialog
         </Button>
       </Dialog.Trigger>
@@ -17,8 +17,8 @@ export const DialogWithRole = () => {
             </Dialog.Header>
             <Dialog.Body>
               <p>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our systems.
+                This action cannot be undone. This will permanently delete your account and remove
+                your data from our systems.
               </p>
             </Dialog.Body>
             <Dialog.Footer>

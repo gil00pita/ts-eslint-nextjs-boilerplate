@@ -1,19 +1,13 @@
-"use client"
+'use client'
 
-import { Button, FloatingPanel, IconButton, Portal } from "@chakra-ui/react"
-import {
-  LuGripHorizontal,
-  LuMaximize2,
-  LuMinus,
-  LuSquare,
-  LuX,
-} from "react-icons/lu"
+import { Button, FloatingPanel, IconButton, Portal } from '@chakra-ui/react'
+import { LuGripHorizontal, LuMaximize2, LuMinus, LuSquare, LuX } from 'react-icons/lu'
 
 export const FloatingPanelBasic = () => {
   return (
     <FloatingPanel.Root>
       <FloatingPanel.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Panel
         </Button>
       </FloatingPanel.Trigger>
@@ -26,23 +20,23 @@ export const FloatingPanelBasic = () => {
                 <FloatingPanel.Title>Floating Panel</FloatingPanel.Title>
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
-                <FloatingPanel.StageTrigger stage="minimized" asChild>
-                  <IconButton variant="ghost" size="2xs">
+                <FloatingPanel.StageTrigger asChild stage="minimized">
+                  <IconButton size="2xs" variant="ghost">
                     <LuMinus />
                   </IconButton>
                 </FloatingPanel.StageTrigger>
-                <FloatingPanel.StageTrigger stage="maximized" asChild>
-                  <IconButton variant="ghost" size="2xs">
+                <FloatingPanel.StageTrigger asChild stage="maximized">
+                  <IconButton size="2xs" variant="ghost">
                     <LuSquare />
                   </IconButton>
                 </FloatingPanel.StageTrigger>
-                <FloatingPanel.StageTrigger stage="default" asChild>
-                  <IconButton variant="ghost" size="2xs">
+                <FloatingPanel.StageTrigger asChild stage="default">
+                  <IconButton size="2xs" variant="ghost">
                     <LuMaximize2 />
                   </IconButton>
                 </FloatingPanel.StageTrigger>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Listbox, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Listbox } from '@chakra-ui/react'
 
 export const ListboxBasic = () => {
   return (
@@ -20,9 +20,9 @@ export const ListboxBasic = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

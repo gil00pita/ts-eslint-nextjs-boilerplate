@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Tabs } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { Tabs } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 
 export const TabsLazyMounted = () => {
   return (
-    <Tabs.Root lazyMount unmountOnExit defaultValue="tab-1">
+    <Tabs.Root defaultValue="tab-1" lazyMount unmountOnExit>
       <Tabs.List>
         <Tabs.Trigger value="tab-1">Tab 1</Tabs.Trigger>
         <Tabs.Trigger value="tab-2">Tab 2</Tabs.Trigger>
@@ -36,9 +36,5 @@ const TickValue = () => {
     }
   }, [])
 
-  return (
-    <span style={{ fontWeight: "bold", color: "tomato", padding: 4 }}>
-      {value}
-    </span>
-  )
+  return <span style={{ color: 'tomato', fontWeight: 'bold', padding: 4 }}>{value}</span>
 }

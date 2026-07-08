@@ -1,13 +1,7 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Code,
-  FileUpload,
-  Stack,
-  useFileUpload,
-} from "@chakra-ui/react"
-import { HiUpload } from "react-icons/hi"
+import { Button, Code, FileUpload, Stack, useFileUpload } from '@chakra-ui/react'
+import { HiUpload } from 'react-icons/hi'
 
 export const FileUploadWithStore = () => {
   const fileUpload = useFileUpload({
@@ -20,12 +14,12 @@ export const FileUploadWithStore = () => {
 
   return (
     <Stack align="flex-start">
-      <Code colorPalette="green">accepted: {accepted.join(", ")}</Code>
-      <Code colorPalette="red">rejected: {rejected.join(", ")}</Code>
+      <Code colorPalette="green">accepted: {accepted.join(', ')}</Code>
+      <Code colorPalette="red">rejected: {rejected.join(', ')}</Code>
       <FileUpload.RootProvider value={fileUpload}>
         <FileUpload.HiddenInput />
         <FileUpload.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             <HiUpload /> Upload file
           </Button>
         </FileUpload.Trigger>

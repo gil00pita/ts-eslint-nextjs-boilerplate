@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Line, LineChart, ReferenceLine } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Line, LineChart, ReferenceLine } from 'recharts'
 
 export const SparklineWithReference = () => {
   const chart = useChart({
@@ -15,41 +15,41 @@ export const SparklineWithReference = () => {
       { value: 10 },
       { value: 18 },
     ],
-    series: [{ name: "value", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'value' }],
   })
 
   return (
-    <Chart.Root maxW="200px" chart={chart}>
+    <Chart.Root chart={chart} maxW="200px">
       <LineChart data={chart.data} responsive>
         {chart.series.map((item) => (
           <Line
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             dot={false}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
           />
         ))}
         <ReferenceLine
-          y={chart.getMin("value")}
-          stroke={chart.color("border.emphasized")}
-          strokeDasharray="4 4"
           label={{
-            value: chart.getMin("value"),
-            position: "left",
-            fill: chart.color("fg.muted"),
+            fill: chart.color('fg.muted'),
+            position: 'left',
+            value: chart.getMin('value'),
           }}
+          stroke={chart.color('border.emphasized')}
+          strokeDasharray="4 4"
+          y={chart.getMin('value')}
         />
         <ReferenceLine
-          y={chart.getMax("value")}
-          stroke={chart.color("border.emphasized")}
-          strokeDasharray="4 4"
           label={{
-            value: chart.getMax("value"),
-            position: "right",
-            fill: chart.color("fg.muted"),
+            fill: chart.color('fg.muted'),
+            position: 'right',
+            value: chart.getMax('value'),
           }}
+          stroke={chart.color('border.emphasized')}
+          strokeDasharray="4 4"
+          y={chart.getMax('value')}
         />
       </LineChart>
     </Chart.Root>

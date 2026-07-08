@@ -1,48 +1,49 @@
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
+
+import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 
 export interface StoryFrameProps {
   /** Story title shown above the example surface. */
-  title: string;
+  title: string
   /** Short docs-oriented description for the example. */
-  description?: string;
+  description?: string
   /** Width applied to the example surface. */
-  width?: string | number;
+  width?: string | number
   /** Maximum width applied to the example surface. */
-  maxW?: string | number;
+  maxW?: string | number
   /** Story content. */
-  children: ReactNode;
+  children: ReactNode
 }
 
 export function StoryFrame({
-  title,
-  description,
-  width = "100%",
-  maxW = "760px",
   children,
+  description,
+  maxW = '760px',
+  title,
+  width = '100%',
 }: StoryFrameProps) {
   return (
-    <Stack gap="4" align="stretch" width={width} maxW={maxW}>
+    <Stack align="stretch" gap="4" maxW={maxW} width={width}>
       <Box>
-        <Heading as="h2" size="lg" color="text.default">
+        <Heading as="h2" color="text.default" size="lg">
           {title}
         </Heading>
         {description ? (
-          <Text mt="2" color="text.muted">
+          <Text color="text.muted" mt="2">
             {description}
           </Text>
         ) : null}
       </Box>
       <Box
-        borderWidth="1px"
-        borderColor="border.default"
         bg="bg.surface"
+        borderColor="border.default"
         borderRadius="md"
-        p="5"
+        borderWidth="1px"
         boxShadow="sm"
+        p="5"
       >
         {children}
       </Box>
     </Stack>
-  );
+  )
 }

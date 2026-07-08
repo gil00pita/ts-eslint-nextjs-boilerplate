@@ -1,57 +1,49 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import { Heading, HStack, Text } from '@chakra-ui/react'
+
+import { DocsHero, SpecTable, StatusBadge } from './_kit'
 
 <Meta title="Phenix UI/What's New" />
 
-# What's New
+<DocsHero
+  colorPalette="purple"
+  eyebrow="Changelog"
+  title="What's New"
+  lead="A fictional changelog showing how Phenix UI communicates recent system work to product teams."
+/>
 
-This fictional changelog shows how Phenix UI communicates recent system work to product teams.
+<HStack gap={3} mb={1} mt={8}>
+  <Heading as="h2" size="lg">0.9.0 — Component Readiness</Heading>
+  <StatusBadge tone="success">Latest</StatusBadge>
+</HStack>
 
-## 0.9.0 - Component Readiness
+<Text color="fg.muted" fontSize="sm" mb={4}>Released July 2026</Text>
 
-Released July 2026.
+<SpecTable
+  columns={[
+    { key: 'area', header: 'Area', width: '22%' },
+    { key: 'change', header: 'Change' },
+  ]}
+  rows={[
+    { area: 'Components', change: <>Added <code>DataCard</code>, <code>StatusBadge</code>, <code>EmptyState</code>, <code>PageHeader</code>, and <code>FilterBar</code>.</> },
+    { area: 'Forms', change: 'Standardized field help text, invalid states, and required markers.' },
+    { area: 'Documentation', change: 'Added usage guidance for dashboard, service portal, and triage workflows.' },
+    { area: 'Accessibility', change: 'Added focus-ring guidance and keyboard interaction checklists.' },
+  ]}
+/>
 
-<table>
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Change</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Components</td>
-      <td>
-        Added <code>DataCard</code>, <code>StatusBadge</code>, <code>EmptyState</code>,{' '}
-        <code>PageHeader</code>, and <code>FilterBar</code>.
-      </td>
-    </tr>
-    <tr>
-      <td>Forms</td>
-      <td>Standardized field help text, invalid states, and required markers.</td>
-    </tr>
-    <tr>
-      <td>Documentation</td>
-      <td>Added usage guidance for dashboard, service portal, and triage workflows.</td>
-    </tr>
-    <tr>
-      <td>Accessibility</td>
-      <td>Added focus-ring guidance and keyboard interaction checklists.</td>
-    </tr>
-  </tbody>
-</table>
+<Heading as="h2" mb={1} mt={8} size="lg">0.8.0 — Brand Foundations</Heading>
 
-## 0.8.0 - Brand Foundations
-
-Released June 2026.
+<Text color="fg.muted" fontSize="sm" mb={4}>Released June 2026</Text>
 
 - Added the ember, ash, sky, moss, and berry color palettes.
 - Published typography roles for product pages, forms, tables, and editorial guidance.
 - Added radius and shadow tokens for dense application surfaces.
 - Introduced light, dark, and high-contrast themes.
 
-## 0.7.0 - First Internal Pilot
+<Heading as="h2" mb={1} mt={8} size="lg">0.7.0 — First Internal Pilot</Heading>
 
-Released May 2026.
+<Text color="fg.muted" fontSize="sm" mb={4}>Released May 2026</Text>
 
 - Started pilot adoption with support tooling and account management teams.
 - Added initial component inventory and contribution workflow.
@@ -61,29 +53,15 @@ Released May 2026.
 
 Each release should include:
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Guidance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Version</td>
-      <td>Use semantic versioning for package releases.</td>
-    </tr>
-    <tr>
-      <td>Date</td>
-      <td>Use the calendar date the package became available.</td>
-    </tr>
-    <tr>
-      <td>Highlights</td>
-      <td>Summarize the most important product impact first.</td>
-    </tr>
-    <tr>
-      <td>Migration notes</td>
-      <td>Call out breaking changes, renamed props, and removed tokens.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'field', header: 'Field', width: '25%' },
+    { key: 'guidance', header: 'Guidance' },
+  ]}
+  rows={[
+    { field: 'Version', guidance: 'Use semantic versioning for package releases.' },
+    { field: 'Date', guidance: 'Use the calendar date the package became available.' },
+    { field: 'Highlights', guidance: 'Summarize the most important product impact first.' },
+    { field: 'Migration notes', guidance: 'Call out breaking changes, renamed props, and removed tokens.' },
+  ]}
+/>

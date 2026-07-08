@@ -13,14 +13,14 @@ export const TextareaSizeTable = () => {
           {(v) => (
             <tr key={v}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {v}
                 </Span>
               </td>
               <td>
                 <Stack minW="320px">
-                  <Textarea size={v} placeholder="Placeholder" />
-                  <Textarea variant="subtle" size={v} placeholder="Placeholder" />
+                  <Textarea placeholder="Placeholder" size={v} />
+                  <Textarea placeholder="Placeholder" size={v} variant="subtle" />
                 </Stack>
               </td>
             </tr>

@@ -1,11 +1,12 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Box, Flex, FormatNumber, HStack, Text } from "@chakra-ui/react"
-import { useState } from "react"
-import { LuDownload } from "react-icons/lu"
-import { Area, AreaChart, Tooltip } from "recharts"
-import type { CategoricalChartFunc } from "recharts/types/chart/types"
+import type { CategoricalChartFunc } from 'recharts/types/chart/types'
+
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Box, Flex, FormatNumber, HStack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuDownload } from 'react-icons/lu'
+import { Area, AreaChart, Tooltip } from 'recharts'
 
 export const SparklineWithInteraction = () => {
   const chart = useChart({
@@ -19,7 +20,7 @@ export const SparklineWithInteraction = () => {
       { value: 310000 },
       { value: 345000 },
     ],
-    series: [{ name: "value", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'value' }],
   })
 
   const lastIndex = chart.data.length - 1
@@ -39,32 +40,32 @@ export const SparklineWithInteraction = () => {
   return (
     <Flex align="flex-end" maxW="sm">
       <Box flex="1" fontWeight="medium">
-        <HStack textStyle="sm" color="fg.muted">
+        <HStack color="fg.muted" textStyle="sm">
           <LuDownload /> Weekly Downloads
         </HStack>
-        <Text textStyle="xl" mt="2">
+        <Text mt="2" textStyle="xl">
           <FormatNumber value={value} />
         </Text>
       </Box>
-      <Chart.Root width="full" height="12" flex="1" chart={chart}>
+      <Chart.Root chart={chart} flex="1" height="12" width="full">
         <AreaChart
           data={chart.data}
-          onMouseMove={onMouseMove}
           onMouseLeave={onMouseLeave}
+          onMouseMove={onMouseMove}
           responsive
         >
           <Tooltip
-            cursor={{ stroke: chart.color("teal.solid"), strokeWidth: 2 }}
             content={() => null}
+            cursor={{ stroke: chart.color('teal.solid'), strokeWidth: 2 }}
           />
           {chart.series.map((item) => (
             <Area
-              activeDot={{ stroke: chart.color("bg") }}
-              key={item.name}
-              isAnimationActive={false}
+              activeDot={{ stroke: chart.color('bg') }}
               dataKey={chart.key(item.name)}
               fill={chart.color(item.color)}
               fillOpacity={0.2}
+              isAnimationActive={false}
+              key={item.name}
               stroke={chart.color(item.color)}
               strokeWidth={2}
             />

@@ -1,23 +1,23 @@
-import { Box, Center, HStack, Splitter } from "@chakra-ui/react"
-import { LuMouse, LuMoveHorizontal } from "react-icons/lu"
+import { Box, Center, HStack, Splitter } from '@chakra-ui/react'
+import { LuMouse, LuMoveHorizontal } from 'react-icons/lu'
 
 export const SplitterCollapsible = () => {
   return (
     <Box>
-      <HStack textStyle="sm" mb={4}>
+      <HStack mb={4} textStyle="sm">
         <LuMouse />
         <LuMoveHorizontal />
         Drag the resizer to collapse or expand Panel A
       </HStack>
 
       <Splitter.Root
-        defaultSize={[40, 60]}
-        panels={[
-          { id: "a", collapsible: true, collapsedSize: 5, minSize: 25 },
-          { id: "b", minSize: 50 },
-        ]}
         borderWidth="1px"
+        defaultSize={[40, 60]}
         minH="60"
+        panels={[
+          { collapsedSize: 5, collapsible: true, id: 'a', minSize: 25 },
+          { id: 'b', minSize: 50 },
+        ]}
       >
         <Splitter.Panel id="a">
           <Center boxSize="full" textStyle="2xl">

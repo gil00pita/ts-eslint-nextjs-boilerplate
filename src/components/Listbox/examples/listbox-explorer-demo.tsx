@@ -1,44 +1,34 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Input,
-  Listbox,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
-import { LuAtom, LuGlobe, LuPalette, LuZap } from "react-icons/lu"
+import { Box, Input, Listbox, useFilter, useListCollection } from '@chakra-ui/react'
+import { LuAtom, LuGlobe, LuPalette, LuZap } from 'react-icons/lu'
 
 export const ListboxExplorerDemo = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems,
     filter: contains,
     groupBy: (item) => item.category,
+    initialItems,
   })
 
   return (
-    <Listbox.Root
-      maxW="320px"
-      collection={collection}
-      defaultValue={[collection.items[0].value]}
-    >
+    <Listbox.Root collection={collection} defaultValue={[collection.items[0].value]} maxW="320px">
       <Listbox.Label>Select item</Listbox.Label>
 
       <Listbox.Input
         as={Input}
-        placeholder="Type to filter..."
         onChange={(e) => filter(e.target.value)}
+        placeholder="Type to filter..."
       />
 
-      <Listbox.Content maxH="240px" divideY="1px">
+      <Listbox.Content divideY="1px" maxH="240px">
         {collection.group().map(([category, items]) => (
           <Listbox.ItemGroup key={category}>
             <Listbox.ItemGroupLabel>{category}</Listbox.ItemGroupLabel>
             {items.map((item) => (
               <Listbox.Item item={item} key={item.value}>
-                <Box display="flex" alignItems="center" gap="3" flex="1">
+                <Box alignItems="center" display="flex" flex="1" gap="3">
                   {item.icon && (
                     <Box color="fg.muted" flexShrink="0">
                       {item.icon}
@@ -59,31 +49,31 @@ export const ListboxExplorerDemo = () => {
 
 const initialItems = [
   {
-    label: "React.js",
-    value: "react",
+    category: 'JavaScript',
     icon: <LuAtom size={16} />,
-    category: "JavaScript",
+    label: 'React.js',
+    value: 'react',
   },
   {
-    label: "Vue.js",
-    value: "vue",
+    category: 'JavaScript',
     icon: <LuPalette size={16} />,
-    category: "JavaScript",
+    label: 'Vue.js',
+    value: 'vue',
   },
   {
-    label: "Angular",
-    value: "angular",
+    category: 'JavaScript',
     icon: <LuGlobe size={16} />,
-    category: "JavaScript",
+    label: 'Angular',
+    value: 'angular',
   },
   {
-    label: "Svelte",
-    value: "svelte",
+    category: 'JavaScript',
     icon: <LuZap size={16} />,
-    category: "JavaScript",
+    label: 'Svelte',
+    value: 'svelte',
   },
-  { label: "Naruto", value: "naruto", category: "Anime" },
-  { label: "One Piece", value: "one-piece", category: "Anime" },
-  { label: "The Godfather", value: "godfather", category: "Movies" },
-  { label: "The Dark Knight", value: "dark-knight", category: "Movies" },
+  { category: 'Anime', label: 'Naruto', value: 'naruto' },
+  { category: 'Anime', label: 'One Piece', value: 'one-piece' },
+  { category: 'Movies', label: 'The Godfather', value: 'godfather' },
+  { category: 'Movies', label: 'The Dark Knight', value: 'dark-knight' },
 ]

@@ -1,19 +1,15 @@
-import {
-  Breadcrumb as ChakraBreadcrumb,
-  Show,
-  type SystemStyleObject,
-} from "@chakra-ui/react"
-import * as React from "react"
+import { Breadcrumb as ChakraBreadcrumb, Show, type SystemStyleObject } from '@chakra-ui/react'
+import * as React from 'react'
 
 export interface BreadcrumbProps extends ChakraBreadcrumb.RootProps {
   separator?: React.ReactNode
-  separatorGap?: SystemStyleObject["gap"]
+  separatorGap?: SystemStyleObject['gap']
   items: Array<{ title: React.ReactNode; url?: string }>
 }
 
 export const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
   function BreadcrumbRoot(props, ref) {
-    const { separator, separatorGap, items, ...rest } = props
+    const { items, separator, separatorGap, ...rest } = props
 
     return (
       <ChakraBreadcrumb.Root ref={ref} {...rest}>
@@ -23,22 +19,14 @@ export const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
             return (
               <React.Fragment key={index}>
                 <ChakraBreadcrumb.Item>
-                  <ChakraBreadcrumb.Link href={item.url}>
-                    {item.title}
-                  </ChakraBreadcrumb.Link>
+                  <ChakraBreadcrumb.Link href={item.url}>{item.title}</ChakraBreadcrumb.Link>
                 </ChakraBreadcrumb.Item>
                 <Show
+                  fallback={<ChakraBreadcrumb.Separator>{separator}</ChakraBreadcrumb.Separator>}
                   when={last}
-                  fallback={
-                    <ChakraBreadcrumb.Separator>
-                      {separator}
-                    </ChakraBreadcrumb.Separator>
-                  }
                 >
                   <ChakraBreadcrumb.Item>
-                    <ChakraBreadcrumb.CurrentLink>
-                      {item.title}
-                    </ChakraBreadcrumb.CurrentLink>
+                    <ChakraBreadcrumb.CurrentLink>{item.title}</ChakraBreadcrumb.CurrentLink>
                   </ChakraBreadcrumb.Item>
                 </Show>
               </React.Fragment>
@@ -47,5 +35,5 @@ export const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
         </ChakraBreadcrumb.List>
       </ChakraBreadcrumb.Root>
     )
-  },
+  }
 )

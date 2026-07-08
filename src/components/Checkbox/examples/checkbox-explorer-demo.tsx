@@ -1,8 +1,8 @@
-import { Checkbox } from "@chakra-ui/react"
+import { Checkbox } from '@chakra-ui/react'
 
 export const CheckboxExplorerDemo = () => {
   return (
-    <Checkbox.Group defaultValue={["terms"]} gap="4" flexDirection="column">
+    <Checkbox.Group defaultValue={['terms']} flexDirection="column" gap="4">
       <Checkbox.Root value="terms">
         <Checkbox.HiddenInput />
         <Checkbox.Control>

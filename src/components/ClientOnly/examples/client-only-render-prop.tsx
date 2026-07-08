@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { ClientOnly, Code, Skeleton, Stack, Text } from "@chakra-ui/react"
+import { ClientOnly, Code, Skeleton, Stack, Text } from '@chakra-ui/react'
 
 export const ClientOnlyRenderProp = () => {
   return (
-    <ClientOnly fallback={<Skeleton height="12" width="full" maxW="sm" />}>
+    <ClientOnly fallback={<Skeleton height="12" maxW="sm" width="full" />}>
       {() => (
         <Stack align="flex-start" gap="1" textStyle="sm">
           <Text>

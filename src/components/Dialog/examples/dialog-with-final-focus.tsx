@@ -1,15 +1,8 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Button,
-  CloseButton,
-  Dialog,
-  Portal,
-  Stack,
-} from "@chakra-ui/react"
-import { useRef } from "react"
-import Lorem from "react-lorem-ipsum"
+import { Box, Button, CloseButton, Dialog, Portal, Stack } from '@chakra-ui/react'
+import { useRef } from 'react'
+import Lorem from 'react-lorem-ipsum'
 
 export const DialogWithFinalFocus = () => {
   const finalRef = useRef<HTMLDivElement | null>(null)
@@ -37,13 +30,13 @@ export const DialogWithFinalFocus = () => {
         </Portal>
       </Dialog.Root>
       <Box
-        padding="4"
-        borderWidth="2px"
+        _focus={{ outline: '2px solid red' }}
+        aria-label="Focus moved to this box"
         borderStyle="dashed"
+        borderWidth="2px"
+        padding="4"
         ref={finalRef}
         tabIndex={-1}
-        aria-label="Focus moved to this box"
-        _focus={{ outline: "2px solid red" }}
       >
         Some other content that will receive focus on close.
       </Box>

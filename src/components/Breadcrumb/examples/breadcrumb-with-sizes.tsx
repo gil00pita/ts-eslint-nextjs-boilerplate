@@ -1,9 +1,9 @@
-import { Breadcrumb, For, Stack } from "@chakra-ui/react"
+import { Breadcrumb, For, Stack } from '@chakra-ui/react'
 
 export const BreadcrumbWithSizes = () => {
   return (
     <Stack>
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
           <Breadcrumb.Root key={size} size={size}>
             <Breadcrumb.List>

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { DatePicker, HStack, Portal, Spacer } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, HStack, Portal, Spacer } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithHeaderLayout = () => {
   return (

@@ -1,9 +1,9 @@
-import { For, NativeSelect, Stack } from "@chakra-ui/react"
+import { For, NativeSelect, Stack } from '@chakra-ui/react'
 
 export const NativeSelectWithSizes = () => {
   return (
     <Stack gap="4" width="240px">
-      <For each={["xs", "sm", "md", "lg", "xl"]}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl']}>
         {(size) => (
           <NativeSelect.Root key={size} size={size}>
             <NativeSelect.Field placeholder="Select option">

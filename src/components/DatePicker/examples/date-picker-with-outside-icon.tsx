@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { DatePicker, IconButton, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, IconButton, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithOutsideIcon = () => {
   return (

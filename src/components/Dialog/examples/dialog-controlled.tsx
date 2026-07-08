@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
-import { useState } from "react"
-import Lorem from "react-lorem-ipsum"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
+import { useState } from 'react'
+import Lorem from 'react-lorem-ipsum'
 
 export const DialogControlled = () => {
   const [open, setOpen] = useState(false)
   return (
-    <Dialog.Root lazyMount open={open} onOpenChange={(e) => setOpen(e.open)}>
+    <Dialog.Root lazyMount onOpenChange={(e) => setOpen(e.open)} open={open}>
       <Dialog.Trigger asChild>
         <Button variant="outline">Open</Button>
       </Dialog.Trigger>

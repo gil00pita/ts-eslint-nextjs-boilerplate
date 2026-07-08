@@ -1,41 +1,35 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart } from 'recharts'
 
 export const RadarChartWithCircleGrid = () => {
   const chart = useChart({
     data: [
-      { windows: 120, month: "January" },
-      { windows: 120, month: "February" },
-      { windows: 80, month: "March" },
-      { windows: 140, month: "May" },
-      { windows: 60, month: "June" },
+      { month: 'January', windows: 120 },
+      { month: 'February', windows: 120 },
+      { month: 'March', windows: 80 },
+      { month: 'May', windows: 140 },
+      { month: 'June', windows: 60 },
     ],
-    series: [{ name: "windows", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'windows' }],
   })
 
   return (
-    <Chart.Root maxW="sm" chart={chart} mx="auto">
+    <Chart.Root chart={chart} maxW="sm" mx="auto">
       <RadarChart data={chart.data} responsive>
-        <PolarGrid stroke={chart.color("border")} gridType="circle" />
-        <PolarAngleAxis dataKey={chart.key("month")} />
+        <PolarGrid gridType="circle" stroke={chart.color('border')} />
+        <PolarAngleAxis dataKey={chart.key('month')} />
         <PolarRadiusAxis />
         {chart.series.map((item) => (
           <Radar
+            dataKey={chart.key(item.name)}
+            fill={chart.color(item.color)}
+            fillOpacity={0.2}
             isAnimationActive={false}
             key={item.name}
             name={item.name}
-            dataKey={chart.key(item.name)}
             stroke={chart.color(item.color)}
-            fill={chart.color(item.color)}
-            fillOpacity={0.2}
           />
         ))}
       </RadarChart>

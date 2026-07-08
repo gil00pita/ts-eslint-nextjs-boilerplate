@@ -1,5 +1,5 @@
-import { IconButton } from "@chakra-ui/react"
-import { LuVoicemail } from "react-icons/lu"
+import { IconButton } from '@chakra-ui/react'
+import { LuVoicemail } from 'react-icons/lu'
 
 export const IconButtonRounded = () => {
   return (

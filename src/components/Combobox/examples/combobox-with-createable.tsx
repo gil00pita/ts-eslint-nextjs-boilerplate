@@ -1,33 +1,33 @@
-"use client"
+'use client'
 
 import {
   Combobox,
+  createListCollection,
   HStack,
   Portal,
   Span,
-  createListCollection,
   useCombobox,
   useFilter,
-} from "@chakra-ui/react"
-import { useMemo, useRef, useState } from "react"
-import { flushSync } from "react-dom"
+} from '@chakra-ui/react'
+import { useMemo, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 export const ComboboxWithCreateable = () => {
   const combobox = useCreatableCombobox({
+    createOptionMode: 'prepend',
     initialItems: [
-      { label: "React", value: "react" },
-      { label: "Solid", value: "solid" },
-      { label: "Vue", value: "vue" },
-      { label: "Svelte", value: "svelte" },
+      { label: 'React', value: 'react' },
+      { label: 'Solid', value: 'solid' },
+      { label: 'Vue', value: 'vue' },
+      { label: 'Svelte', value: 'svelte' },
     ],
     onCreateItem: (item) => {
-      console.log("Created new item:", item)
+      console.log('Created new item:', item)
     },
-    createOptionMode: "prepend",
   })
 
   return (
-    <Combobox.RootProvider value={combobox} maxW="320px">
+    <Combobox.RootProvider maxW="320px" value={combobox}>
       <Combobox.Label>Choose Framework</Combobox.Label>
       <Combobox.Control>
         <Combobox.Input placeholder="Search or create..." />
@@ -41,13 +41,11 @@ export const ComboboxWithCreateable = () => {
         <Combobox.Positioner>
           <Combobox.Content>
             {combobox.collection.items.map((item) => (
-              <Combobox.Item key={item.value} item={item}>
+              <Combobox.Item item={item} key={item.value}>
                 {isNewItemValue(item.value) ? (
-                  <Combobox.ItemText>
-                    {`+ Create "${item.label}"`}
-                  </Combobox.ItemText>
+                  <Combobox.ItemText>{`+ Create "${item.label}"`}</Combobox.ItemText>
                 ) : (
-                  <HStack justify="space-between" flex="1">
+                  <HStack flex="1" justify="space-between">
                     <Combobox.ItemText flex="0">{item.label}</Combobox.ItemText>
                     {item.isNew && <Span textStyle="xs">NEW</Span>}
                   </HStack>
@@ -68,9 +66,9 @@ interface Item {
   isNew?: boolean
 }
 
-type CreateOptionMode = "append" | "prepend"
+type CreateOptionMode = 'append' | 'prepend'
 
-const NEW_ITEM_VALUE = "[[new]]"
+const NEW_ITEM_VALUE = '[[new]]'
 
 const createNewItem = (value: string): Item => ({
   label: value,
@@ -83,13 +81,13 @@ const replaceNewItemValue = (values: string[], value: string) =>
   values.map((v) => (v === NEW_ITEM_VALUE ? value : v))
 
 const getNewItemData = (inputValue: string): Item => ({
+  isNew: true,
   label: inputValue,
   value: inputValue,
-  isNew: true,
 })
 
 const updateItems = (v: Item[], i: Item, mode: CreateOptionMode) => {
-  return mode === "prepend" ? [i, ...v] : [...v, i]
+  return mode === 'prepend' ? [i, ...v] : [...v, i]
 }
 
 interface UseCreatableComboboxProps {
@@ -99,12 +97,12 @@ interface UseCreatableComboboxProps {
 }
 
 function useCreatableCombobox(props: UseCreatableComboboxProps) {
-  const { initialItems, onCreateItem, createOptionMode } = props
+  const { createOptionMode, initialItems, onCreateItem } = props
 
   const [items, setItems] = useState<Item[]>(initialItems)
   const itemsRef = useRef<Item[]>(initialItems)
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const filterFn = (item: Item, query: string) =>
     !isNewItemValue(item.value) && contains(item.label, query)
@@ -118,14 +116,12 @@ function useCreatableCombobox(props: UseCreatableComboboxProps) {
         itemToString: (item) => item.label,
         itemToValue: (item) => item.value,
       }),
-    [items],
+    [items]
   )
 
   const isValidNewItem = (inputValue: string) => {
     const exactOptionMatch =
-      items.filter(
-        (item) => item.label.toLowerCase() === inputValue.toLowerCase(),
-      ).length > 0
+      items.filter((item) => item.label.toLowerCase() === inputValue.toLowerCase()).length > 0
     return !exactOptionMatch && inputValue.trim().length > 0
   }
 
@@ -147,9 +143,7 @@ function useCreatableCombobox(props: UseCreatableComboboxProps) {
 
   const selectNewItem = (inputValue: string) => {
     const newItem = getNewItemData(inputValue)
-    const filtered = itemsRef.current.filter(
-      (item) => !isNewItemValue(item.value),
-    )
+    const filtered = itemsRef.current.filter((item) => !isNewItemValue(item.value))
 
     itemsRef.current = updateItems(filtered, newItem, createOptionMode)
     setItems(itemsRef.current)
@@ -157,26 +151,25 @@ function useCreatableCombobox(props: UseCreatableComboboxProps) {
   }
 
   const combobox = useCombobox({
-    collection,
     allowCustomValue: true,
+    collection,
     onInputValueChange: (details: Combobox.InputValueChangeDetails) => {
       const { inputValue, reason } = details
-      if (reason === "input-change" || reason === "item-select") {
+      if (reason === 'input-change' || reason === 'item-select') {
         flushSync(() => filter(inputValue))
       }
     },
     onOpenChange(details) {
-      const { reason, open } = details
-      if (reason === "trigger-click") {
+      const { open, reason } = details
+      if (reason === 'trigger-click') {
         setItems(itemsRef.current)
       }
 
       if (!open && selectedValue.length > 0) {
-        const inputValue = collection.stringify(selectedValue[0]) || ""
+        const inputValue = collection.stringify(selectedValue[0]) || ''
         combobox.setInputValue(inputValue)
       }
     },
-    value: selectedValue,
     onValueChange(details) {
       const { value } = details
       const inputValue = combobox.inputValue
@@ -185,6 +178,7 @@ function useCreatableCombobox(props: UseCreatableComboboxProps) {
         selectNewItem(inputValue)
       }
     },
+    value: selectedValue,
   })
 
   return combobox

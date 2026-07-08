@@ -4,8 +4,8 @@ import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const GridSpanningColumns = () => {
   return (
-    <Grid h="200px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}>
-      <GridItem rowSpan={2} colSpan={1}>
+    <Grid gap={4} h="200px" templateColumns="repeat(5, 1fr)" templateRows="repeat(2, 1fr)">
+      <GridItem colSpan={1} rowSpan={2}>
         <DecorativeBox>rowSpan=2</DecorativeBox>
       </GridItem>
       <GridItem colSpan={2}>

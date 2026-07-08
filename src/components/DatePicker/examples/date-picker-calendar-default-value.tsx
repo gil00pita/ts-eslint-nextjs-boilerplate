@@ -1,14 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker, parseDate } from "@chakra-ui/react"
+import { DatePicker, parseDate } from '@chakra-ui/react'
 
 export const DatePickerCalendarDefaultValue = () => {
   return (
-    <DatePicker.Root
-      defaultValue={[parseDate("2025-03-15")]}
-      inline
-      width="fit-content"
-    >
+    <DatePicker.Root defaultValue={[parseDate('2025-03-15')]} inline width="fit-content">
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">
           <DatePicker.Header />

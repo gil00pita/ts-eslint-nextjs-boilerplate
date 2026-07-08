@@ -1,19 +1,13 @@
-"use client"
+'use client'
 
-import {
-  For,
-  Portal,
-  Select,
-  Stack,
-  createListCollection,
-} from "@chakra-ui/react"
+import { createListCollection, For, Portal, Select, Stack } from '@chakra-ui/react'
 
 export const SelectWithVariants = () => {
   return (
     <Stack gap="5" width="320px">
-      <For each={["outline", "subtle"]}>
+      <For each={['outline', 'subtle']}>
         {(variant) => (
-          <Select.Root key={variant} variant={variant} collection={frameworks}>
+          <Select.Root collection={frameworks} key={variant} variant={variant}>
             <Select.HiddenSelect />
             <Select.Label>Select framework - {variant}</Select.Label>
             <Select.Control>
@@ -45,9 +39,9 @@ export const SelectWithVariants = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

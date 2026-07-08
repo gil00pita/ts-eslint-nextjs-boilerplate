@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Portal, createOverlay } from "@chakra-ui/react"
+import { Button, createOverlay, Dialog, Portal } from '@chakra-ui/react'
 
 interface DialogProps {
   title: string
@@ -9,7 +9,7 @@ interface DialogProps {
 }
 
 const dialog = createOverlay<DialogProps>((props) => {
-  const { title, description, content, ...rest } = props
+  const { content, description, title, ...rest } = props
   return (
     <Dialog.Root {...rest}>
       <Portal>
@@ -22,9 +22,7 @@ const dialog = createOverlay<DialogProps>((props) => {
               </Dialog.Header>
             )}
             <Dialog.Body spaceY="4">
-              {description && (
-                <Dialog.Description>{description}</Dialog.Description>
-              )}
+              {description && <Dialog.Description>{description}</Dialog.Description>}
               {content}
             </Dialog.Body>
           </Dialog.Content>
@@ -39,9 +37,9 @@ export const OverlayBasic = () => {
     <>
       <Button
         onClick={() => {
-          dialog.open("a", {
-            title: "Dialog Title",
-            description: "Dialog Description",
+          dialog.open('a', {
+            description: 'Dialog Description',
+            title: 'Dialog Title',
           })
         }}
       >

@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import { Button, Fieldset, HStack, RadioGroup } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Fieldset, HStack, RadioGroup } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const items = [
-  { value: "1", label: "Option 1" },
-  { value: "2", label: "Option 2" },
-  { value: "3", label: "Option 3" },
+  { label: 'Option 1', value: '1' },
+  { label: 'Option 2', value: '2' },
+  { label: 'Option 3', value: '3' },
 ]
 
 const formSchema = z.object({
-  value: z.string({ message: "Value is required" }),
+  value: z.string({ message: 'Value is required' }),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -20,8 +20,8 @@ type FormValues = z.infer<typeof formSchema>
 export const RadioWithHookForm = () => {
   const {
     control,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -33,15 +33,15 @@ export const RadioWithHookForm = () => {
       <Fieldset.Root invalid={!!errors.value}>
         <Fieldset.Legend>Select value</Fieldset.Legend>
         <Controller
-          name="value"
           control={control}
+          name="value"
           render={({ field }) => (
             <RadioGroup.Root
               name={field.name}
-              value={field.value}
               onValueChange={({ value }) => {
                 field.onChange(value)
               }}
+              value={field.value}
             >
               <HStack gap="6">
                 {items.map((item) => (
@@ -56,11 +56,9 @@ export const RadioWithHookForm = () => {
           )}
         />
 
-        {errors.value && (
-          <Fieldset.ErrorText>{errors.value?.message}</Fieldset.ErrorText>
-        )}
+        {errors.value && <Fieldset.ErrorText>{errors.value?.message}</Fieldset.ErrorText>}
 
-        <Button size="sm" type="submit" alignSelf="flex-start">
+        <Button alignSelf="flex-start" size="sm" type="submit">
           Submit
         </Button>
       </Fieldset.Root>

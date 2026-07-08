@@ -1,4 +1,4 @@
-import { Badge, Button, Group, Stack } from "@chakra-ui/react"
+import { Badge, Button, Group, Stack } from '@chakra-ui/react'
 
 export const GroupWithAttached = () => {
   return (
@@ -9,10 +9,10 @@ export const GroupWithAttached = () => {
       </Group>
 
       <Group attached>
-        <Badge variant="solid" colorPalette="purple">
+        <Badge colorPalette="purple" variant="solid">
           Commit status
         </Badge>
-        <Badge variant="solid" colorPalette="green">
+        <Badge colorPalette="green" variant="solid">
           90+
         </Badge>
       </Group>

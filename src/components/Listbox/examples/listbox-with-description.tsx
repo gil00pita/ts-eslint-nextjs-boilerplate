@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Box, Listbox, Text, createListCollection } from "@chakra-ui/react"
+import { Box, createListCollection, Listbox, Text } from '@chakra-ui/react'
 
 export const ListboxWithDescription = () => {
   return (
@@ -11,7 +11,7 @@ export const ListboxWithDescription = () => {
           <Listbox.Item item={framework} key={framework.value}>
             <Box flex="1">
               <Listbox.ItemText>{framework.label}</Listbox.ItemText>
-              <Text fontSize="xs" color="fg.muted" mt="1">
+              <Text color="fg.muted" fontSize="xs" mt="1">
                 {framework.description}
               </Text>
             </Box>
@@ -26,29 +26,29 @@ export const ListboxWithDescription = () => {
 const frameworks = createListCollection({
   items: [
     {
-      label: "React.js",
-      value: "react",
-      description: "A JavaScript library for building user interfaces",
+      description: 'A JavaScript library for building user interfaces',
+      label: 'React.js',
+      value: 'react',
     },
     {
-      label: "Vue.js",
-      value: "vue",
-      description: "The progressive JavaScript framework",
+      description: 'The progressive JavaScript framework',
+      label: 'Vue.js',
+      value: 'vue',
     },
     {
-      label: "Angular",
-      value: "angular",
-      description: "Platform for building mobile and desktop web applications",
+      description: 'Platform for building mobile and desktop web applications',
+      label: 'Angular',
+      value: 'angular',
     },
     {
-      label: "Svelte",
-      value: "svelte",
-      description: "Cybernetically enhanced web apps",
+      description: 'Cybernetically enhanced web apps',
+      label: 'Svelte',
+      value: 'svelte',
     },
     {
-      label: "Next.js",
-      value: "nextjs",
-      description: "The React framework for production",
+      description: 'The React framework for production',
+      label: 'Next.js',
+      value: 'nextjs',
     },
   ],
 })

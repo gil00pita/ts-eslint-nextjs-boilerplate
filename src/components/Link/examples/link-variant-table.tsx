@@ -2,8 +2,8 @@
 
 import { For, Link, Span, useRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const LinkVariantTable = () => {
   const recipe = useRecipe({ key: 'link' })
@@ -20,14 +20,14 @@ export const LinkVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.variant}>
                 {(v) => (
                   <td key={v}>
-                    <Link variant={v} colorPalette={c}>
+                    <Link colorPalette={c} variant={v}>
                       Open in new tab
                     </Link>
                   </td>

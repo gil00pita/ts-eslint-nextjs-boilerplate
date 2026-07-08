@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { Center, Splitter } from "@chakra-ui/react"
+import { Center, Splitter } from '@chakra-ui/react'
 
 export const SplitterResetOnDoubleClick = () => {
   return (
     <Splitter.Root
-      defaultSize={[50, 50]}
-      panels={[{ id: "a" }, { id: "b" }]}
       borderWidth="1px"
+      defaultSize={[50, 50]}
       minH="60"
+      panels={[{ id: 'a' }, { id: 'b' }]}
     >
       <Splitter.Panel id="a">
         <Center boxSize="full" textStyle="2xl">

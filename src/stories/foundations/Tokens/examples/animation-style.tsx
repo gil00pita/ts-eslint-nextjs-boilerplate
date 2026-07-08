@@ -1,27 +1,20 @@
-"use client"
+'use client'
 
-import { Button, Center, For, HStack, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, Center, For, HStack, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const TokensAnimationStyle = () => {
   const [animation, setAnimation] = useState<string | undefined>(undefined)
   return (
-    <Stack gap="8" mb="8" align="flex-start">
+    <Stack align="flex-start" gap="8" mb="8">
       <HStack wrap="wrap">
-        <For
-          each={[
-            "slide-fade-in",
-            "slide-fade-out",
-            "scale-fade-in",
-            "scale-fade-out",
-          ]}
-        >
+        <For each={['slide-fade-in', 'slide-fade-out', 'scale-fade-in', 'scale-fade-out']}>
           {(animation) => (
             <Button
-              size="sm"
-              variant="outline"
               key={animation}
               onClick={() => setAnimation(animation)}
+              size="sm"
+              variant="outline"
             >
               {animation}
             </Button>
@@ -30,15 +23,15 @@ export const TokensAnimationStyle = () => {
       </HStack>
 
       <Center
-        width="240px"
-        height="240px"
         animationDuration="slowest"
         animationStyle={animation}
-        onAnimationEnd={() => setAnimation(undefined)}
         bg="bg"
-        data-placement="bottom"
         borderWidth="1px"
+        data-placement="bottom"
+        height="240px"
+        onAnimationEnd={() => setAnimation(undefined)}
         p="4"
+        width="240px"
       >
         Animation
       </Center>

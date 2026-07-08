@@ -1,8 +1,8 @@
-import { Slider } from "@chakra-ui/react"
+import { Slider } from '@chakra-ui/react'
 
 export const SliderWithLabel = () => {
   return (
-    <Slider.Root width="200px" defaultValue={[40]}>
+    <Slider.Root defaultValue={[40]} width="200px">
       <Slider.Label>Quantity</Slider.Label>
       <Slider.Control>
         <Slider.Track>

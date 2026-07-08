@@ -1,8 +1,8 @@
-import { Icon } from "@chakra-ui/react"
-import { HiHeart } from "react-icons/hi"
+import { Icon } from '@chakra-ui/react'
+import { HiHeart } from 'react-icons/hi'
 
 export const IconBasic = () => (
-  <Icon size="lg" color="pink.700">
+  <Icon color="pink.700" size="lg">
     <HiHeart />
   </Icon>
 )

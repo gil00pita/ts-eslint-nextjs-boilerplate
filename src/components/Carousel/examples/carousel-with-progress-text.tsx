@@ -10,8 +10,8 @@ export const CarouselWithProgressText = () => {
     <Carousel.Root slideCount={items.length} slidesPerPage={1.6} spacing="32px">
       <Carousel.ItemGroup scrollMarginInline="12">
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>

@@ -1,13 +1,6 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  CloseButton,
-  Dialog,
-  Portal,
-  Select,
-  createListCollection,
-} from "@chakra-ui/react"
+import { Button, CloseButton, createListCollection, Dialog, Portal, Select } from '@chakra-ui/react'
 
 export const SelectOpenFromDialog = () => {
   return (
@@ -38,10 +31,10 @@ export const SelectOpenFromDialog = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })
 

@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { TagsInput } from "@chakra-ui/react"
+import { TagsInput } from '@chakra-ui/react'
 
 export const TagsInputDisabled = () => (
-  <TagsInput.Root disabled defaultValue={["React", "Chakra"]}>
+  <TagsInput.Root defaultValue={['React', 'Chakra']} disabled>
     <TagsInput.Label>Disabled Tags</TagsInput.Label>
 
     <TagsInput.Control>

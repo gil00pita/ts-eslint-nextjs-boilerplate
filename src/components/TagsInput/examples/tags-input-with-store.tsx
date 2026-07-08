@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, Stack, TagsInput } from "@chakra-ui/react"
-import { useTagsInput } from "@chakra-ui/react"
+import { Button, Stack, TagsInput } from '@chakra-ui/react'
+import { useTagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithStore = () => {
   const tags = useTagsInput()
@@ -16,7 +16,7 @@ export const TagsInputWithStore = () => {
         </TagsInput.Control>
       </TagsInput.RootProvider>
 
-      <Button variant="outline" size="sm" onClick={() => tags.clearValue()}>
+      <Button onClick={() => tags.clearValue()} size="sm" variant="outline">
         Clear All
       </Button>
     </Stack>

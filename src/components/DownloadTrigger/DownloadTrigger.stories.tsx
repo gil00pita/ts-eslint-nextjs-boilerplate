@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Buttons / Download Trigger',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,11 +12,12 @@ export default {
       </Box>
     ),
   ],
+  title: 'Buttons / Download Trigger',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('DownloadTrigger')
 
 export { DownloadTriggerBasic as Basic } from './examples/download-trigger-basic'
-export { DownloadTriggerWithFileSize as FileSize } from './examples/download-trigger-with-file-size'
 export { DownloadTriggerSvg as Svg } from './examples/download-trigger-svg'
+export { DownloadTriggerWithFileSize as FileSize } from './examples/download-trigger-with-file-size'
 export { DownloadTriggerWithPromise as Promise } from './examples/download-trigger-with-promise'

@@ -1,10 +1,10 @@
-import { AbsoluteCenter, Box } from "@chakra-ui/react"
+import { AbsoluteCenter, Box } from '@chakra-ui/react'
 
 export const AbsoluteCenterBasic = () => {
   return (
-    <Box position="relative" h="100px" bg="bg.muted" borderRadius="md">
+    <Box bg="bg.muted" borderRadius="md" h="100px" position="relative">
       <AbsoluteCenter>
-        <Box bg="bg.emphasized" px="4" py="2" borderRadius="md" color="fg">
+        <Box bg="bg.emphasized" borderRadius="md" color="fg" px="4" py="2">
           Centered Content
         </Box>
       </AbsoluteCenter>

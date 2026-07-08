@@ -1,18 +1,11 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  ButtonGroup,
-  Code,
-  Stack,
-  Steps,
-  useSteps,
-} from "@chakra-ui/react"
+import { Button, ButtonGroup, Code, Stack, Steps, useSteps } from '@chakra-ui/react'
 
 export const StepsWithStore = () => {
   const steps = useSteps({
-    defaultStep: 1,
     count: items.length,
+    defaultStep: 1,
   })
 
   return (
@@ -21,7 +14,7 @@ export const StepsWithStore = () => {
       <Steps.RootProvider value={steps}>
         <Steps.List>
           {items.map((step, index) => (
-            <Steps.Item key={index} index={index} title={step.title}>
+            <Steps.Item index={index} key={index} title={step.title}>
               <Steps.Indicator />
               <Steps.Title>{step.title}</Steps.Title>
               <Steps.Separator />
@@ -29,7 +22,7 @@ export const StepsWithStore = () => {
           ))}
         </Steps.List>
         {items.map((step, index) => (
-          <Steps.Content key={index} index={index}>
+          <Steps.Content index={index} key={index}>
             {step.description}
           </Steps.Content>
         ))}
@@ -50,15 +43,15 @@ export const StepsWithStore = () => {
 
 const items = [
   {
-    title: "Step 1",
-    description: "Step 1 description",
+    description: 'Step 1 description',
+    title: 'Step 1',
   },
   {
-    title: "Step 2",
-    description: "Step 2 description",
+    description: 'Step 2 description',
+    title: 'Step 2',
   },
   {
-    title: "Step 3",
-    description: "Step 3 description",
+    description: 'Step 3 description',
+    title: 'Step 3',
   },
 ]

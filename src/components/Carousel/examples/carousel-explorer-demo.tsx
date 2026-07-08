@@ -7,19 +7,19 @@ const items = Array.from({ length: 5 })
 
 export const CarouselExplorerDemo = () => {
   return (
-    <Carousel.Root slideCount={items.length} spacing="20px" flexGrow="1">
+    <Carousel.Root flexGrow="1" slideCount={items.length} spacing="20px">
       <Carousel.ItemGroup p="2">
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
-        <Carousel.ProgressText textStyle="sm" minW="8" />
+      <Carousel.Control gap="4" justifyContent="center">
+        <Carousel.ProgressText minW="8" textStyle="sm" />
 
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
@@ -28,7 +28,7 @@ export const CarouselExplorerDemo = () => {
         </Carousel.PrevTrigger>
 
         <Carousel.AutoplayTrigger asChild>
-          <IconButton size="sm" variant="ghost" aria-label="Toggle autoplay">
+          <IconButton aria-label="Toggle autoplay" size="sm" variant="ghost">
             <Carousel.AutoplayIndicator paused={<LuPause />} play={<LuPlay />} />
           </IconButton>
         </Carousel.AutoplayTrigger>

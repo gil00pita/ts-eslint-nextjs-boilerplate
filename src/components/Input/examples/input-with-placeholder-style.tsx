@@ -1,11 +1,5 @@
-import { Input } from "@chakra-ui/react"
+import { Input } from '@chakra-ui/react'
 
 export const InputWithPlaceholderStyle = () => {
-  return (
-    <Input
-      color="teal"
-      placeholder="custom placeholder"
-      _placeholder={{ color: "inherit" }}
-    />
-  )
+  return <Input _placeholder={{ color: 'inherit' }} color="teal" placeholder="custom placeholder" />
 }

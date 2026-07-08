@@ -1,9 +1,9 @@
-import { List } from "@chakra-ui/react"
-import { LuCircleCheck, LuCircleDashed } from "react-icons/lu"
+import { List } from '@chakra-ui/react'
+import { LuCircleCheck, LuCircleDashed } from 'react-icons/lu'
 
 export const ListWithIcon = () => {
   return (
-    <List.Root gap="2" variant="plain" align="center">
+    <List.Root align="center" gap="2" variant="plain">
       <List.Item>
         <List.Indicator asChild color="green.500">
           <LuCircleCheck />

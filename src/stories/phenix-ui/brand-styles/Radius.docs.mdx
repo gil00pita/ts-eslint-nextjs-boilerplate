@@ -1,70 +1,46 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import { Box } from '@chakra-ui/react'
+
+import { Callout, DocsHero, SpecTable } from '../_kit'
 
 <Meta title="Phenix UI/Brand Styles/Radius" />
 
-# Radius
-
-Radius gives Phenix UI a softened product feel without making operational screens look casual.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Radius"
+  lead="Radius gives Phenix UI a softened product feel without making operational screens look casual."
+/>
 
 ## Scale
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Value</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>none</code>
-      </td>
-      <td>0px</td>
-      <td>Tables, dividers, and flush app shell regions.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>xs</code>
-      </td>
-      <td>2px</td>
-      <td>Tiny badges and status marks.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>sm</code>
-      </td>
-      <td>4px</td>
-      <td>Inputs, compact buttons, and table controls.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>md</code>
-      </td>
-      <td>6px</td>
-      <td>Default cards and form groups.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>lg</code>
-      </td>
-      <td>8px</td>
-      <td>Prominent panels and empty states.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>full</code>
-      </td>
-      <td>9999px</td>
-      <td>Pills, avatars, and circular controls.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    {
+      key: 'preview',
+      header: 'Preview',
+      width: '10%',
+      render: (_value, row) => (
+        <Box bg="colorPalette.solid" borderRadius={String(row.value)} boxSize="8" colorPalette="teal" />
+      ),
+    },
+    { key: 'token', header: 'Token', width: '14%', isCode: true },
+    { key: 'value', header: 'Value', width: '14%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'none', value: '0px', use: 'Tables, dividers, and flush app shell regions.' },
+    { token: 'xs', value: '2px', use: 'Tiny badges and status marks.' },
+    { token: 'sm', value: '4px', use: 'Inputs, compact buttons, and table controls.' },
+    { token: 'md', value: '6px', use: 'Default cards and form groups.' },
+    { token: 'lg', value: '8px', use: 'Prominent panels and empty states.' },
+    { token: 'full', value: '9999px', use: 'Pills, avatars, and circular controls.' },
+  ]}
+/>
 
-## Rules
-
+<Callout title="Rules" tone="tip">
 - Use smaller radius values in dense workflows.
 - Use `full` only when the shape itself communicates a pill or circle.
 - Do not mix many radius values inside one component.
 - Keep focus rings aligned with the component radius.
+</Callout>

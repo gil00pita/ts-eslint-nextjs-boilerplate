@@ -4,26 +4,26 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const ProgressCircleWithColors = () => {
   return (
-    <Stack gap="4" align="flex-start">
+    <Stack align="flex-start" gap="4">
       {colorPalettes.map((colorPalette) => (
-        <HStack key={colorPalette} gap="10" px="4">
+        <HStack gap="10" key={colorPalette} px="4">
           <Text minW="8ch">{colorPalette}</Text>
 
-          <ProgressCircle.Root size="sm" value={30} colorPalette={colorPalette}>
+          <ProgressCircle.Root colorPalette={colorPalette} size="sm" value={30}>
             <ProgressCircle.Circle>
               <ProgressCircle.Track />
               <ProgressCircle.Range strokeLinecap="round" />
             </ProgressCircle.Circle>
           </ProgressCircle.Root>
 
-          <ProgressCircle.Root size="md" value={30} colorPalette={colorPalette}>
+          <ProgressCircle.Root colorPalette={colorPalette} size="md" value={30}>
             <ProgressCircle.Circle>
               <ProgressCircle.Track />
               <ProgressCircle.Range strokeLinecap="round" />
             </ProgressCircle.Circle>
           </ProgressCircle.Root>
 
-          <ProgressCircle.Root size="lg" value={30} colorPalette={colorPalette}>
+          <ProgressCircle.Root colorPalette={colorPalette} size="lg" value={30}>
             <ProgressCircle.Circle>
               <ProgressCircle.Track />
               <ProgressCircle.Range strokeLinecap="round" />

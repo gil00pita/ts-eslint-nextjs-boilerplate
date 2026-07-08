@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, Show, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, Show, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const ShowBasic = () => {
   const [count, setCount] = useState(0)
   return (
     <Stack align="flex-start">
-      <Button variant="outline" onClick={() => setCount(count + 1)}>
+      <Button onClick={() => setCount(count + 1)} variant="outline">
         Value: {count}
       </Button>
       <Show when={count > 3}>

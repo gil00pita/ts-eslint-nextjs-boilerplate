@@ -1,9 +1,9 @@
-import { For, ScrollArea, Stack, Text } from "@chakra-ui/react"
-import Lorem from "react-lorem-ipsum"
+import { For, ScrollArea, Stack, Text } from '@chakra-ui/react'
+import Lorem from 'react-lorem-ipsum'
 
 export const ScrollAreaWithVariants = () => (
   <Stack gap="8" maxW="lg">
-    <For each={["hover", "always"]}>
+    <For each={['hover', 'always']}>
       {(variant) => (
         <Stack gap="2" key={variant}>
           <Text fontWeight="medium">variant="{variant}"</Text>

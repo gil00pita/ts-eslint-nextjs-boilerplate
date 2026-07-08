@@ -1,9 +1,9 @@
-import { For, NativeSelect, Stack } from "@chakra-ui/react"
+import { For, NativeSelect, Stack } from '@chakra-ui/react'
 
 export const NativeSelectWithVariants = () => {
   return (
     <Stack gap="4" width="240px">
-      <For each={["outline", "subtle", "plain"]}>
+      <For each={['outline', 'subtle', 'plain']}>
         {(variant) => (
           <NativeSelect.Root key={variant} variant={variant}>
             <NativeSelect.Field placeholder={`variant (${variant})`}>

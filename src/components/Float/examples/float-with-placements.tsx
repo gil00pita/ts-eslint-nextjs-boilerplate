@@ -1,13 +1,13 @@
-import { Box, Circle, Float, HStack, Stack } from "@chakra-ui/react"
+import { Box, Circle, Float, HStack, Stack } from '@chakra-ui/react'
 
 export const FloatWithPlacements = () => (
   <HStack gap="14" wrap="wrap">
     {placements.map((placement) => (
-      <Stack key={placement} gap="3">
+      <Stack gap="3" key={placement}>
         <p>{placement}</p>
-        <Box position="relative" width="80px" height="80px" bg="bg.emphasized">
+        <Box bg="bg.emphasized" height="80px" position="relative" width="80px">
           <Float placement={placement}>
-            <Circle size="5" bg="red" color="white">
+            <Circle bg="red" color="white" size="5">
               3
             </Circle>
           </Float>
@@ -18,13 +18,13 @@ export const FloatWithPlacements = () => (
 )
 
 const placements = [
-  "bottom-end",
-  "bottom-start",
-  "top-end",
-  "top-start",
-  "bottom-center",
-  "top-center",
-  "middle-center",
-  "middle-end",
-  "middle-start",
+  'bottom-end',
+  'bottom-start',
+  'top-end',
+  'top-start',
+  'bottom-center',
+  'top-center',
+  'middle-center',
+  'middle-end',
+  'middle-start',
 ] as const

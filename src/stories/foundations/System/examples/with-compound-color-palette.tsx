@@ -1,36 +1,36 @@
-"use client"
+'use client'
 
-import { chakra } from "@chakra-ui/react"
+import { chakra } from '@chakra-ui/react'
 
-const Badge = chakra("div", {
-  base: {
-    px: "4",
-    py: "2",
-  },
-  variants: {
-    variant: {
-      solid: {},
-      subtle: {},
-      outline: {},
-    },
-  },
+const Badge = chakra('div', {
   compoundVariants: [
-    { variant: "solid", colorPalette: "gray", css: { bg: "gray.700" } },
-    { variant: "subtle", colorPalette: "gray", css: { bg: "gray.300" } },
+    { colorPalette: 'gray', css: { bg: 'gray.700' }, variant: 'solid' },
+    { colorPalette: 'gray', css: { bg: 'gray.300' }, variant: 'subtle' },
     {
-      variant: "outline",
-      colorPalette: "gray",
-      css: { borderColor: "gray.700", color: "gray.700" },
+      colorPalette: 'gray',
+      css: { borderColor: 'gray.700', color: 'gray.700' },
+      variant: 'outline',
     },
   ],
   defaultVariants: {
-    variant: "subtle",
+    variant: 'subtle',
+  },
+  variants: {
+    variant: {
+      outline: {},
+      solid: {},
+      subtle: {},
+    },
+  },
+  base: {
+    px: '4',
+    py: '2',
   },
 })
 
 export const WithCompoundColorPalette = () => {
   return (
-    <Badge variant="solid" colorPalette="gray">
+    <Badge colorPalette="gray" variant="solid">
       Hello
     </Badge>
   )

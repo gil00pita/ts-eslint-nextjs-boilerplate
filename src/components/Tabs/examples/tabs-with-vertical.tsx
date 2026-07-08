@@ -1,17 +1,17 @@
-import { For, SimpleGrid, Tabs } from "@chakra-ui/react"
-import { LuFolder, LuSquareCheck, LuUser } from "react-icons/lu"
+import { For, SimpleGrid, Tabs } from '@chakra-ui/react'
+import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 
 export const TabsWithVertical = () => {
   return (
     <SimpleGrid columns={2} gap="14" width="full">
-      <For each={["line", "enclosed", "outline", "plain"]}>
+      <For each={['line', 'enclosed', 'outline', 'plain']}>
         {(variant) => (
           <Tabs.Root
-            key={variant}
+            colorPalette="teal"
             defaultValue="members"
+            key={variant}
             orientation="vertical"
             variant={variant}
-            colorPalette="teal"
           >
             <Tabs.List>
               <Tabs.Trigger value="members">
@@ -27,13 +27,9 @@ export const TabsWithVertical = () => {
                 Settings
               </Tabs.Trigger>
             </Tabs.List>
-            <Tabs.Content value="members">
-              Manage your team members
-            </Tabs.Content>
+            <Tabs.Content value="members">Manage your team members</Tabs.Content>
             <Tabs.Content value="projects">Manage your projects</Tabs.Content>
-            <Tabs.Content value="tasks">
-              Manage your tasks for freelancers
-            </Tabs.Content>
+            <Tabs.Content value="tasks">Manage your tasks for freelancers</Tabs.Content>
           </Tabs.Root>
         )}
       </For>

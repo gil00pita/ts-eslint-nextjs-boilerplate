@@ -1,15 +1,14 @@
-import { Box, Center, Heading, Spinner, Text } from "@chakra-ui/react"
+import { Box, Center, Heading, Spinner, Text } from '@chakra-ui/react'
 
 export const SpinnerWithOverlay = () => {
   return (
-    <Box position="relative" aria-busy="true" userSelect="none">
+    <Box aria-busy="true" position="relative" userSelect="none">
       <Heading>Some heading text</Heading>
       <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac
-        consectetur libero, id ultricies urna. Sed ac consectetur libero, id
-        fames ac ante ipsum primis in faucibus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac consectetur libero, id
+        ultricies urna. Sed ac consectetur libero, id fames ac ante ipsum primis in faucibus.
       </Text>
-      <Box pos="absolute" inset="0" bg="bg/80">
+      <Box bg="bg/80" inset="0" pos="absolute">
         <Center h="full">
           <Spinner color="teal.500" />
         </Center>

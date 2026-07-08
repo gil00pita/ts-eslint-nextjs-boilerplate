@@ -1,13 +1,13 @@
-import { Box, Checkbox, Stack } from "@chakra-ui/react"
+import { Box, Checkbox, Stack } from '@chakra-ui/react'
 
 export const CheckboxWithDescription = () => {
   return (
-    <Checkbox.Root gap="4" alignItems="flex-start">
+    <Checkbox.Root alignItems="flex-start" gap="4">
       <Checkbox.HiddenInput />
       <Checkbox.Control />
       <Stack gap="1">
         <Checkbox.Label>I agree to the terms and conditions</Checkbox.Label>
-        <Box textStyle="sm" color="fg.muted">
+        <Box color="fg.muted" textStyle="sm">
           By clicking this, you agree to our Terms and Privacy Policy.
         </Box>
       </Stack>

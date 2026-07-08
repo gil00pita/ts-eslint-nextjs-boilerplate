@@ -1,11 +1,11 @@
-import { Button, ButtonGroup, Steps } from "@chakra-ui/react"
+import { Button, ButtonGroup, Steps } from '@chakra-ui/react'
 
 export const StepsBasic = () => {
   return (
-    <Steps.Root defaultStep={1} count={steps.length}>
+    <Steps.Root count={steps.length} defaultStep={1}>
       <Steps.List>
         {steps.map((step, index) => (
-          <Steps.Item key={index} index={index} title={step.title}>
+          <Steps.Item index={index} key={index} title={step.title}>
             <Steps.Indicator />
             <Steps.Title>{step.title}</Steps.Title>
             <Steps.Separator />
@@ -14,7 +14,7 @@ export const StepsBasic = () => {
       </Steps.List>
 
       {steps.map((step, index) => (
-        <Steps.Content key={index} index={index}>
+        <Steps.Content index={index} key={index}>
           {step.description}
         </Steps.Content>
       ))}
@@ -34,15 +34,15 @@ export const StepsBasic = () => {
 
 const steps = [
   {
-    title: "Step 1",
-    description: "Step 1 description",
+    description: 'Step 1 description',
+    title: 'Step 1',
   },
   {
-    title: "Step 2",
-    description: "Step 2 description",
+    description: 'Step 2 description',
+    title: 'Step 2',
   },
   {
-    title: "Step 3",
-    description: "Step 3 description",
+    description: 'Step 3 description',
+    title: 'Step 3',
   },
 ]

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Portal } from "@chakra-ui/react"
-import { useRef } from "react"
+import { Portal } from '@chakra-ui/react'
+import { useRef } from 'react'
 
 export const PortalWithContainer = () => {
   const ref = useRef<HTMLDivElement | null>(null)

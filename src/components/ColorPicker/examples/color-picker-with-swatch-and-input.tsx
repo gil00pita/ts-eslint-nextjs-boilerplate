@@ -1,15 +1,11 @@
-"use client"
+'use client'
 
-import { ColorPicker, Portal, parseColor } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { ColorPicker, parseColor, Portal } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const ColorPickerWithSwatchAndInput = () => {
   return (
-    <ColorPicker.Root
-      size="xs"
-      defaultValue={parseColor("#eb5e41")}
-      maxW="200px"
-    >
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} maxW="200px" size="xs">
       <ColorPicker.HiddenInput />
       <ColorPicker.Control>
         <ColorPicker.Trigger />
@@ -36,4 +32,4 @@ export const ColorPickerWithSwatchAndInput = () => {
   )
 }
 
-const swatches = ["red", "blue", "green"]
+const swatches = ['red', 'blue', 'green']

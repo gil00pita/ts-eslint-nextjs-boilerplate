@@ -1,24 +1,25 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { CodeTabs, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/About/Install" />
 
-# Install
-
-Phenix UI is fictional, but the installation model mirrors a Chakra UI v3 package.
+<DocsHero
+  colorPalette="brand"
+  eyebrow="About"
+  title="Install"
+  lead="Phenix UI is fictional, but the installation model mirrors a Chakra UI v3 package."
+/>
 
 ## Package Manager
 
-```bash
-npm install phenix-ui @chakra-ui/react @emotion/react next-themes
-```
-
-```bash
-yarn add phenix-ui @chakra-ui/react @emotion/react next-themes
-```
-
-```bash
-pnpm add phenix-ui @chakra-ui/react @emotion/react next-themes
-```
+<CodeTabs
+  tabs={[
+    { value: 'npm', label: 'npm', code: 'npm install phenix-ui @chakra-ui/react @emotion/react next-themes' },
+    { value: 'yarn', label: 'yarn', code: 'yarn add phenix-ui @chakra-ui/react @emotion/react next-themes' },
+    { value: 'pnpm', label: 'pnpm', code: 'pnpm add phenix-ui @chakra-ui/react @emotion/react next-themes' },
+  ]}
+/>
 
 ## Provider
 
@@ -52,31 +53,14 @@ export function ExampleForm() {
 
 ## Peer Dependency Notes
 
-<table>
-  <thead>
-    <tr>
-      <th>Dependency</th>
-      <th>Why it is needed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>@chakra-ui/react</code>
-      </td>
-      <td>Provides the component runtime and style system.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>@emotion/react</code>
-      </td>
-      <td>Required by Chakra UI v3.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>next-themes</code>
-      </td>
-      <td>Powers color mode in Next.js applications.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'dependency', header: 'Dependency', width: '28%', isCode: true },
+    { key: 'why', header: 'Why it is needed' },
+  ]}
+  rows={[
+    { dependency: '@chakra-ui/react', why: 'Provides the component runtime and style system.' },
+    { dependency: '@emotion/react', why: 'Required by Chakra UI v3.' },
+    { dependency: 'next-themes', why: 'Powers color mode in Next.js applications.' },
+  ]}
+/>

@@ -1,5 +1,3 @@
-import { Spinner } from "@chakra-ui/react"
+import { Spinner } from '@chakra-ui/react'
 
-export const SpinnerWithCustomSpeed = () => (
-  <Spinner color="blue.500" animationDuration="0.8s" />
-)
+export const SpinnerWithCustomSpeed = () => <Spinner animationDuration="0.8s" color="blue.500" />

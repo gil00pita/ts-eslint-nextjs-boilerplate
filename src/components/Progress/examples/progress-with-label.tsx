@@ -1,4 +1,4 @@
-import { HStack, Progress } from "@chakra-ui/react"
+import { HStack, Progress } from '@chakra-ui/react'
 
 export const ProgressWithLabel = () => {
   return (

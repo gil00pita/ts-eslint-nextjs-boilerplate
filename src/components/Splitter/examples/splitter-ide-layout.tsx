@@ -1,68 +1,51 @@
-"use client"
+'use client'
 
-import {
-  CodeBlock,
-  HStack,
-  Span,
-  Splitter,
-  Stack,
-  createShikiAdapter,
-} from "@chakra-ui/react"
-import React, { useState } from "react"
-import { LuFile, LuFolder } from "react-icons/lu"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, HStack, Span, Splitter, Stack } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { LuFile, LuFolder } from 'react-icons/lu'
 
 type FileNode = {
   name: string
-  type: "file" | "folder"
+  type: 'file' | 'folder'
   id?: string
   children?: FileNode[]
 }
 
 const fileTree: FileNode[] = [
   {
-    name: "src",
-    type: "folder",
     children: [
-      { name: "App.tsx", type: "file", id: "app" },
-      { name: "index.tsx", type: "file", id: "index" },
+      { id: 'app', name: 'App.tsx', type: 'file' },
+      { id: 'index', name: 'index.tsx', type: 'file' },
     ],
+    name: 'src',
+    type: 'folder',
   },
-  { name: "package.json", type: "file", id: "package" },
+  { id: 'package', name: 'package.json', type: 'file' },
 ]
 
 export const SplitterIdeLayout = () => {
-  const [activeFileId, setActiveFileId] = useState<string>("app")
+  const [activeFileId, setActiveFileId] = useState<string>('app')
   const activeFile = fileContents[activeFileId] || fileContents.app
 
   return (
     <CodeBlockAdapter>
       <Splitter.Root
-        defaultSize={[20, 80]}
-        panels={[
-          { id: "explorer", collapsible: true, collapsedSize: 0, minSize: 10 },
-          { id: "editor-terminal", minSize: 50 },
-        ]}
         borderWidth="1px"
-        minH="600px"
         className="dark"
         colorPalette="gray"
+        defaultSize={[20, 80]}
+        minH="600px"
+        panels={[
+          { collapsedSize: 0, collapsible: true, id: 'explorer', minSize: 10 },
+          { id: 'editor-terminal', minSize: 50 },
+        ]}
       >
         {/* File Explorer */}
-        <Splitter.Panel id="explorer" bg="bg" color="fg">
-          <Stack
-            gap="1"
-            p="2"
-            h="full"
-            width="full"
-            overflowY="auto"
-            overflowX="hidden"
-          >
-            <FileTree
-              nodes={fileTree}
-              activeFileId={activeFileId}
-              onFileClick={setActiveFileId}
-            />
+        <Splitter.Panel bg="bg" color="fg" id="explorer">
+          <Stack gap="1" h="full" overflowX="hidden" overflowY="auto" p="2" width="full">
+            <FileTree activeFileId={activeFileId} nodes={fileTree} onFileClick={setActiveFileId} />
           </Stack>
         </Splitter.Panel>
 
@@ -72,25 +55,21 @@ export const SplitterIdeLayout = () => {
         <Splitter.Panel id="editor-terminal">
           <Splitter.Root
             defaultSize={[70, 30]}
+            h="full"
+            orientation="vertical"
             panels={[
-              { id: "editor", minSize: 30 },
+              { id: 'editor', minSize: 30 },
               {
-                id: "terminal",
-                collapsible: true,
                 collapsedSize: 5,
+                collapsible: true,
+                id: 'terminal',
                 minSize: 15,
               },
             ]}
-            orientation="vertical"
-            h="full"
           >
             {/* Editor */}
             <Splitter.Panel id="editor">
-              <Editor
-                activeFileId={activeFileId}
-                activeFile={activeFile}
-                fileTree={fileTree}
-              />
+              <Editor activeFile={activeFile} activeFileId={activeFileId} fileTree={fileTree} />
             </Splitter.Panel>
 
             <Splitter.ResizeTrigger id="editor:terminal" />
@@ -114,26 +93,17 @@ type FileTreeProps = {
   onFileClick: (fileId: string) => void
 }
 
-const FileTree = ({ nodes, activeFileId, onFileClick }: FileTreeProps) => {
+const FileTree = ({ activeFileId, nodes, onFileClick }: FileTreeProps) => {
   const renderFileTree = (fileNodes: FileNode[], level = 0) => {
     return fileNodes.map((node) => {
-      if (node.type === "folder") {
+      if (node.type === 'folder') {
         return (
-          <Stack
-            key={node.name}
-            gap="0.5"
-            ps={level > 0 ? "4" : "0"}
-            width="full"
-          >
-            <HStack gap="2" px="2" py="1" textStyle="sm" flexShrink="0">
+          <Stack gap="0.5" key={node.name} ps={level > 0 ? '4' : '0'} width="full">
+            <HStack flexShrink="0" gap="2" px="2" py="1" textStyle="sm">
               <LuFolder style={{ flexShrink: 0 }} />
               <Span truncate>{node.name}</Span>
             </HStack>
-            {node.children && (
-              <Stack gap="0.5">
-                {renderFileTree(node.children, level + 1)}
-              </Stack>
-            )}
+            {node.children && <Stack gap="0.5">{renderFileTree(node.children, level + 1)}</Stack>}
           </Stack>
         )
       }
@@ -141,19 +111,19 @@ const FileTree = ({ nodes, activeFileId, onFileClick }: FileTreeProps) => {
       const isActive = node.id === activeFileId
       return (
         <HStack
-          width="full"
-          key={node.id}
+          _current={{ bg: 'bg.emphasized', color: 'yellow.solid' }}
+          cursor="pointer"
+          data-current={isActive || undefined}
+          flexShrink="0"
           gap="2"
+          key={node.id}
+          onClick={() => node.id && onFileClick(node.id)}
           pe="2"
           ps={level * 4 + 2}
           py="1"
           rounded="l2"
           textStyle="sm"
-          cursor="pointer"
-          data-current={isActive || undefined}
-          flexShrink="0"
-          _current={{ bg: "bg.emphasized", color: "yellow.solid" }}
-          onClick={() => node.id && onFileClick(node.id)}
+          width="full"
         >
           <LuFile style={{ flexShrink: 0 }} />
           <Span truncate>{node.name}</Span>
@@ -173,19 +143,17 @@ const FileTree = ({ nodes, activeFileId, onFileClick }: FileTreeProps) => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "ts", "js", "json", "bash"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'ts', 'js', 'json', 'bash'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })
 
 const CodeBlockAdapter = (props: React.PropsWithChildren) => (
-  <CodeBlock.AdapterProvider value={shikiAdapter}>
-    {props.children}
-  </CodeBlock.AdapterProvider>
+  <CodeBlock.AdapterProvider value={shikiAdapter}>{props.children}</CodeBlock.AdapterProvider>
 )
 
 type EditorProps = {
@@ -194,19 +162,17 @@ type EditorProps = {
   fileTree: FileNode[]
 }
 
-const Editor = ({ activeFileId, activeFile, fileTree }: EditorProps) => {
+const Editor = ({ activeFile, activeFileId, fileTree }: EditorProps) => {
   const fileName =
     fileTree
-      .flatMap((node) =>
-        node.type === "folder" ? node.children || [] : [node],
-      )
-      .find((node) => node.id === activeFileId)?.name || "App.tsx"
+      .flatMap((node) => (node.type === 'folder' ? node.children || [] : [node]))
+      .find((node) => node.id === activeFileId)?.name || 'App.tsx'
 
   return (
     <CodeBlock.Root
       code={activeFile.code}
-      language={activeFile.language}
       h="full"
+      language={activeFile.language}
       rounded="none"
       size="sm"
     >
@@ -230,13 +196,7 @@ type TerminalProps = {
 
 const Terminal = ({ output }: TerminalProps) => {
   return (
-    <CodeBlock.Root
-      code={output}
-      language="bash"
-      h="full"
-      rounded="none"
-      size="sm"
-    >
+    <CodeBlock.Root code={output} h="full" language="bash" rounded="none" size="sm">
       <CodeBlock.Header>
         <CodeBlock.Title>Terminal</CodeBlock.Title>
       </CodeBlock.Header>
@@ -267,7 +227,7 @@ const fileContents: Record<string, { code: string; language: string }> = {
       </div>
     )
   }`,
-    language: "tsx",
+    language: 'tsx',
   },
   index: {
     code: `import React from "react"
@@ -279,7 +239,7 @@ const fileContents: Record<string, { code: string; language: string }> = {
       <App />
     </React.StrictMode>
   )`,
-    language: "tsx",
+    language: 'tsx',
   },
   package: {
     code: `{
@@ -294,7 +254,7 @@ const fileContents: Record<string, { code: string; language: string }> = {
       "react-dom": "^18.2.0"
     }
   }`,
-    language: "json",
+    language: 'json',
   },
 }
 

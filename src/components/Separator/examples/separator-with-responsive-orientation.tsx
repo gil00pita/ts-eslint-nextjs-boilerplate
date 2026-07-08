@@ -4,7 +4,7 @@ import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const SeparatorWithResponsiveOrientation = () => {
   return (
-    <Stack direction={{ base: 'row', md: 'column' }} align="stretch">
+    <Stack align="stretch" direction={{ base: 'row', md: 'column' }}>
       <DecorativeBox>First</DecorativeBox>
       <Separator orientation={{ base: 'vertical', sm: 'horizontal' }} />
       <DecorativeBox>Second</DecorativeBox>

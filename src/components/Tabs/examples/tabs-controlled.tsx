@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Tabs } from "@chakra-ui/react"
-import { useState } from "react"
+import { Tabs } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const TabsControlled = () => {
-  const [value, setValue] = useState<string | null>("first")
+  const [value, setValue] = useState<string | null>('first')
 
   return (
-    <Tabs.Root value={value} onValueChange={(e) => setValue(e.value)}>
+    <Tabs.Root onValueChange={(e) => setValue(e.value)} value={value}>
       <Tabs.List>
         <Tabs.Trigger value="first">First tab</Tabs.Trigger>
         <Tabs.Trigger value="second">Second tab</Tabs.Trigger>

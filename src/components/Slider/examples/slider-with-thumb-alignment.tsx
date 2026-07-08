@@ -1,12 +1,12 @@
-import { Slider, Stack } from "@chakra-ui/react"
+import { Slider, Stack } from '@chakra-ui/react'
 
 export const SliderWithThumbAlignment = () => {
   return (
-    <Stack maxW="200px" gap="4">
+    <Stack gap="4" maxW="200px">
       <Slider.Root
-        thumbAlignment="contain"
-        thumbSize={{ width: 16, height: 16 }}
         defaultValue={[40]}
+        thumbAlignment="contain"
+        thumbSize={{ height: 16, width: 16 }}
       >
         <Slider.Label>Slider (contain)</Slider.Label>
         <Slider.Control>
@@ -17,7 +17,7 @@ export const SliderWithThumbAlignment = () => {
         </Slider.Control>
       </Slider.Root>
 
-      <Slider.Root thumbAlignment="center" defaultValue={[40]}>
+      <Slider.Root defaultValue={[40]} thumbAlignment="center">
         <Slider.Label>Slider (center)</Slider.Label>
         <Slider.Control>
           <Slider.Track>

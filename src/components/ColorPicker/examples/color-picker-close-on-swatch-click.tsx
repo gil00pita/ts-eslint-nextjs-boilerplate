@@ -1,14 +1,10 @@
-"use client"
+'use client'
 
-import { ColorPicker, HStack, Portal, parseColor } from "@chakra-ui/react"
+import { ColorPicker, HStack, parseColor, Portal } from '@chakra-ui/react'
 
 export const ColorPickerCloseOnSwatchClick = () => {
   return (
-    <ColorPicker.Root
-      closeOnSelect
-      defaultValue={parseColor("#eb5e41")}
-      maxW="200px"
-    >
+    <ColorPicker.Root closeOnSelect defaultValue={parseColor('#eb5e41')} maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>Color</ColorPicker.Label>
       <ColorPicker.Control>
@@ -35,4 +31,4 @@ export const ColorPickerCloseOnSwatchClick = () => {
   )
 }
 
-const swatches = ["#ff0000", "#0000ff", "#00ff00"]
+const swatches = ['#ff0000', '#0000ff', '#00ff00']

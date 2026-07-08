@@ -1,8 +1,8 @@
-import { NumberInput } from "@chakra-ui/react"
+import { NumberInput } from '@chakra-ui/react'
 
 export const NumberInputWithMinMax = () => {
   return (
-    <NumberInput.Root width="200px" defaultValue="10" min={5} max={50}>
+    <NumberInput.Root defaultValue="10" max={50} min={5} width="200px">
       <NumberInput.Control />
       <NumberInput.Input />
     </NumberInput.Root>

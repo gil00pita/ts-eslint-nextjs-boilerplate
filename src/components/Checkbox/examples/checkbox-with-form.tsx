@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button, Checkbox, Field, Input, Stack } from "@chakra-ui/react"
+import { Button, Checkbox, Field, Input, Stack } from '@chakra-ui/react'
 
 export const CheckboxWithForm = () => {
   return (
@@ -10,7 +10,7 @@ export const CheckboxWithForm = () => {
         console.log(e.currentTarget.elements)
       }}
     >
-      <Stack maxW="sm" gap="4" align="flex-start">
+      <Stack align="flex-start" gap="4" maxW="sm">
         <Field.Root>
           <Field.Label>Username</Field.Label>
           <Input placeholder="username" />
@@ -26,7 +26,7 @@ export const CheckboxWithForm = () => {
           <Checkbox.Label>Remember me</Checkbox.Label>
         </Checkbox.Root>
 
-        <Button type="submit" variant="solid" mt="3">
+        <Button mt="3" type="submit" variant="solid">
           Submit
         </Button>
       </Stack>

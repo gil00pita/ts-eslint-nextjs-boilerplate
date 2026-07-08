@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { Span, TagsInput } from "@chakra-ui/react"
+import { Span, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputEditable = () => (
-  <TagsInput.Root editable defaultValue={["React", "Chakra"]}>
+  <TagsInput.Root defaultValue={['React', 'Chakra']} editable>
     <TagsInput.Label>Edit Tags Inline</TagsInput.Label>
     <TagsInput.Control>
       <TagsInput.Items />
@@ -14,7 +14,7 @@ export const TagsInputEditable = () => (
 
     <TagsInput.HiddenInput />
 
-    <Span textStyle="xs" color="fg.muted" ms="auto">
+    <Span color="fg.muted" ms="auto" textStyle="xs">
       Use the arrow keys to navigate and press Enter to edit
     </Span>
   </TagsInput.Root>

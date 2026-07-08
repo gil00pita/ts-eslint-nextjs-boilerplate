@@ -1,15 +1,8 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  CloseButton,
-  Dialog,
-  Menu,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { useState } from "react"
-import { LuChevronDown } from "react-icons/lu"
+import { Button, CloseButton, Dialog, Menu, Portal, Text } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuChevronDown } from 'react-icons/lu'
 
 export const DialogOpenFromMenu = () => {
   const [open, setOpen] = useState(false)
@@ -27,7 +20,7 @@ export const DialogOpenFromMenu = () => {
               <Menu.Item value="edit">Edit</Menu.Item>
               <Menu.Item value="duplicate">Duplicate</Menu.Item>
               <Menu.Separator />
-              <Menu.Item value="delete" onClick={() => setOpen(true)}>
+              <Menu.Item onClick={() => setOpen(true)} value="delete">
                 Delete...
               </Menu.Item>
             </Menu.Content>
@@ -35,12 +28,7 @@ export const DialogOpenFromMenu = () => {
         </Portal>
       </Menu.Root>
 
-      <Dialog.Root
-        role="alertdialog"
-        open={open}
-        size="sm"
-        onOpenChange={(e) => setOpen(e.open)}
-      >
+      <Dialog.Root onOpenChange={(e) => setOpen(e.open)} open={open} role="alertdialog" size="sm">
         <Portal>
           <Dialog.Backdrop />
           <Dialog.Positioner>
@@ -53,12 +41,11 @@ export const DialogOpenFromMenu = () => {
               </Dialog.Header>
               <Dialog.Body>
                 <Text>
-                  Are you sure you want to delete this item? This action cannot
-                  be undone.
+                  Are you sure you want to delete this item? This action cannot be undone.
                 </Text>
               </Dialog.Body>
               <Dialog.Footer>
-                <Button variant="outline" onClick={() => setOpen(false)}>
+                <Button onClick={() => setOpen(false)} variant="outline">
                   Cancel
                 </Button>
                 <Button colorPalette="red">Delete</Button>

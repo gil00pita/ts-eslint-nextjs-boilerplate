@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import { Button, Code, Menu, Portal, Stack, useMenu } from "@chakra-ui/react"
+import { Button, Code, Menu, Portal, Stack, useMenu } from '@chakra-ui/react'
 
 export const MenuWithStore = () => {
   const menu = useMenu()
   return (
-    <Stack gap="4" align="flex-start">
+    <Stack align="flex-start" gap="4">
       <Code>open: {String(menu.api.open)}</Code>
       <Menu.RootProvider value={menu}>
         <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open
           </Button>
         </Menu.Trigger>

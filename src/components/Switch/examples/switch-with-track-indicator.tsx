@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Icon, Switch } from "@chakra-ui/react"
-import { FaMoon, FaSun } from "react-icons/fa"
+import { Icon, Switch } from '@chakra-ui/react'
+import { FaMoon, FaSun } from 'react-icons/fa'
 
 export const SwitchWithTrackIndicator = () => {
   return (

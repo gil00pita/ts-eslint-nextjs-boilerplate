@@ -1,14 +1,14 @@
-import { Button, ButtonGroup, Steps } from "@chakra-ui/react"
-import { LuCalendar, LuCheck, LuUser, LuWallet } from "react-icons/lu"
+import { Button, ButtonGroup, Steps } from '@chakra-ui/react'
+import { LuCalendar, LuCheck, LuUser, LuWallet } from 'react-icons/lu'
 
 export const StepsWithIcon = () => {
   return (
-    <Steps.Root defaultStep={1} count={steps.length} size="sm">
+    <Steps.Root count={steps.length} defaultStep={1} size="sm">
       <Steps.List>
         {steps.map((step, index) => (
-          <Steps.Item key={index} index={index}>
+          <Steps.Item index={index} key={index}>
             <Steps.Indicator>
-              <Steps.Status incomplete={step.icon} complete={<LuCheck />} />
+              <Steps.Status complete={<LuCheck />} incomplete={step.icon} />
             </Steps.Indicator>
             <Steps.Separator />
           </Steps.Item>
@@ -16,7 +16,7 @@ export const StepsWithIcon = () => {
       </Steps.List>
 
       {steps.map((step, index) => (
-        <Steps.Content key={index} index={index}>
+        <Steps.Content index={index} key={index}>
           {step.description}
         </Steps.Content>
       ))}
@@ -36,15 +36,15 @@ export const StepsWithIcon = () => {
 
 const steps = [
   {
+    description: 'Contact Details',
     icon: <LuUser />,
-    description: "Contact Details",
   },
   {
+    description: 'Payment',
     icon: <LuWallet />,
-    description: "Payment",
   },
   {
+    description: 'Book an Appointment',
     icon: <LuCalendar />,
-    description: "Book an Appointment",
   },
 ]

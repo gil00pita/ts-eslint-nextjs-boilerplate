@@ -1,99 +1,52 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Brand Styles/Grid" />
 
-# Grid
-
-The Phenix UI grid keeps dense product screens readable across breakpoints. Use it for page structure, not for every small alignment decision.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Grid"
+  lead="The Phenix UI grid keeps dense product screens readable across breakpoints. Use it for page structure, not for every small alignment decision."
+/>
 
 ## Breakpoints
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Min width</th>
-      <th>Typical layout</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>base</code>
-      </td>
-      <td>0px</td>
-      <td>Single column.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>sm</code>
-      </td>
-      <td>480px</td>
-      <td>Single column with more comfortable spacing.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>md</code>
-      </td>
-      <td>768px</td>
-      <td>Two-column forms and split content.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>lg</code>
-      </td>
-      <td>1024px</td>
-      <td>App shell with supporting panels.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>xl</code>
-      </td>
-      <td>1280px</td>
-      <td>Data views with filters and summary areas.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>2xl</code>
-      </td>
-      <td>1536px</td>
-      <td>Wide dashboards and monitoring views.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'name', header: 'Name', width: '16%', isCode: true },
+    { key: 'minWidth', header: 'Min width', width: '18%' },
+    { key: 'layout', header: 'Typical layout' },
+  ]}
+  rows={[
+    { name: 'base', minWidth: '0px', layout: 'Single column.' },
+    { name: 'sm', minWidth: '480px', layout: 'Single column with more comfortable spacing.' },
+    { name: 'md', minWidth: '768px', layout: 'Two-column forms and split content.' },
+    { name: 'lg', minWidth: '1024px', layout: 'App shell with supporting panels.' },
+    { name: 'xl', minWidth: '1280px', layout: 'Data views with filters and summary areas.' },
+    { name: '2xl', minWidth: '1536px', layout: 'Wide dashboards and monitoring views.' },
+  ]}
+/>
 
 ## Page Layout
 
-<table>
-  <thead>
-    <tr>
-      <th>Region</th>
-      <th>Guidance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Shell</td>
-      <td>Persistent navigation and product context.</td>
-    </tr>
-    <tr>
-      <td>Header</td>
-      <td>Page title, status, and primary actions.</td>
-    </tr>
-    <tr>
-      <td>Main</td>
-      <td>The workflow or data table people came to use.</td>
-    </tr>
-    <tr>
-      <td>Aside</td>
-      <td>Filters, details, or supporting context.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'region', header: 'Region', width: '20%' },
+    { key: 'guidance', header: 'Guidance' },
+  ]}
+  rows={[
+    { region: 'Shell', guidance: 'Persistent navigation and product context.' },
+    { region: 'Header', guidance: 'Page title, status, and primary actions.' },
+    { region: 'Main', guidance: 'The workflow or data table people came to use.' },
+    { region: 'Aside', guidance: 'Filters, details, or supporting context.' },
+  ]}
+/>
 
-## Rules
-
+<Callout title="Rules" tone="tip">
 - Start mobile layouts with one column.
 - Use two columns only when the relationship between regions is clear.
 - Keep line lengths readable in content-heavy pages.
 - Align major page regions to shared grid columns.
+</Callout>

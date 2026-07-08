@@ -1,47 +1,41 @@
-"use client"
+'use client'
 
-import { DatePicker, Flex, HStack, Spacer, Span, Stack } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import {
-  DateFormatter,
-  getLocalTimeZone,
-  isSameDay,
-  isToday,
-  today,
-} from "@internationalized/date"
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, Flex, HStack, Spacer, Span, Stack } from '@chakra-ui/react'
+import { DateFormatter, getLocalTimeZone, isSameDay, isToday, today } from '@internationalized/date'
 
 export const DatePickerWithPresetsSidebar = () => {
   return (
-    <DatePicker.Root inline fixedWeeks width="fit-content" borderWidth="1px">
-      <Flex flexDirection={{ base: "column", sm: "row" }}>
+    <DatePicker.Root borderWidth="1px" fixedWeeks inline width="fit-content">
+      <Flex flexDirection={{ base: 'column', sm: 'row' }}>
         <Stack
+          borderBottomWidth={{ base: '1px', sm: '0' }}
+          borderEndWidth={{ base: '0', sm: '1px' }}
           gap="0"
-          minW={{ base: "full", sm: "2xs" }}
-          borderBottomWidth={{ base: "1px", sm: "0" }}
-          borderEndWidth={{ base: "0", sm: "1px" }}
+          minW={{ base: 'full', sm: '2xs' }}
           py="2"
         >
           {presets.map((preset) => (
             <DatePicker.Context key={preset.label}>
               {(ctx) => (
                 <DatePicker.PresetTrigger
-                  value={[preset.value]}
-                  height="10"
-                  display="flex"
-                  justifyContent="space-between"
+                  _selected={{
+                    layerStyle: 'fill.subtle',
+                  }}
                   alignItems="center"
-                  px="4"
-                  textStyle="sm"
-                  gap="1"
                   data-selected={
-                    ctx.value.length > 0 &&
-                    preset.value.compare(ctx.value[0]) === 0
-                      ? ""
+                    ctx.value.length > 0 && preset.value.compare(ctx.value[0]) === 0
+                      ? ''
                       : undefined
                   }
-                  _selected={{
-                    layerStyle: "fill.subtle",
-                  }}
+                  display="flex"
+                  gap="1"
+                  height="10"
+                  justifyContent="space-between"
+                  px="4"
+                  textStyle="sm"
+                  value={[preset.value]}
                 >
                   <Span>{preset.label}</Span>
                   <Span color="fg.muted" textStyle="sm">
@@ -53,9 +47,9 @@ export const DatePickerWithPresetsSidebar = () => {
           ))}
         </Stack>
 
-        <DatePicker.View view="day" p="3">
-          <HStack justify="space-between" gap="0">
-            <DatePicker.RangeText ps="4" fontWeight="medium" />
+        <DatePicker.View p="3" view="day">
+          <HStack gap="0" justify="space-between">
+            <DatePicker.RangeText fontWeight="medium" ps="4" />
             <Spacer />
             <DatePicker.PrevTrigger />
             <DatePicker.NextTrigger />
@@ -71,17 +65,17 @@ const tz = getLocalTimeZone()
 const now = today(tz)
 
 const presets = [
-  { label: "Today", value: now },
-  { label: "Tomorrow", value: now.add({ days: 1 }) },
-  { label: "Next week", value: now.add({ weeks: 1 }) },
-  { label: "2 weeks", value: now.add({ weeks: 2 }) },
-  { label: "4 weeks", value: now.add({ weeks: 4 }) },
+  { label: 'Today', value: now },
+  { label: 'Tomorrow', value: now.add({ days: 1 }) },
+  { label: 'Next week', value: now.add({ weeks: 1 }) },
+  { label: '2 weeks', value: now.add({ weeks: 2 }) },
+  { label: '4 weeks', value: now.add({ weeks: 4 }) },
 ]
 
-const weekdayFormatter = new DateFormatter("en-US", { weekday: "short" })
-const shortDateFormatter = new DateFormatter("en-US", {
-  day: "numeric",
-  month: "short",
+const weekdayFormatter = new DateFormatter('en-US', { weekday: 'short' })
+const shortDateFormatter = new DateFormatter('en-US', {
+  day: 'numeric',
+  month: 'short',
 })
 
 const tomorrow = now.add({ days: 1 })

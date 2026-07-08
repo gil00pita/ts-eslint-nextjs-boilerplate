@@ -1,19 +1,19 @@
-import { Button, Center, HStack, Steps } from "@chakra-ui/react"
+import { Button, Center, HStack, Steps } from '@chakra-ui/react'
 
 export const StepsWithLines = () => {
   return (
-    <Steps.Root defaultStep={1} count={steps.length}>
+    <Steps.Root count={steps.length} defaultStep={1}>
       <Steps.List gap="4">
         {steps.map((item, index) => (
           <Steps.Item
+            alignItems="flex-start"
             flex="1!"
             flexDir="column"
-            alignItems="flex-start"
+            gap="2"
             index={index}
             key={index}
-            gap="2"
           >
-            <Steps.Separator h="3px" flex="unset" display="initial!" mx="0!" />
+            <Steps.Separator display="initial!" flex="unset" h="3px" mx="0!" />
             <Steps.Trigger>
               <Steps.Title>{item.title}</Steps.Title>
             </Steps.Trigger>
@@ -23,14 +23,14 @@ export const StepsWithLines = () => {
 
       {steps.map((item, index) => (
         <Steps.Content index={index} key={index}>
-          <Center minHeight="20" borderWidth="1px">
+          <Center borderWidth="1px" minHeight="20">
             {item.title} - {item.description}
           </Center>
         </Steps.Content>
       ))}
 
       <Steps.Content index={steps.length}>
-        <Center minHeight="20" borderWidth="1px">
+        <Center borderWidth="1px" minHeight="20">
           Complete - Thank you!
         </Center>
       </Steps.Content>
@@ -53,7 +53,7 @@ export const StepsWithLines = () => {
 }
 
 const steps = [
-  { title: "Step One", description: "Contact Info" },
-  { title: "Step Two", description: "Date & Time" },
-  { title: "Step Three", description: "Select Rooms" },
+  { description: 'Contact Info', title: 'Step One' },
+  { description: 'Date & Time', title: 'Step Two' },
+  { description: 'Select Rooms', title: 'Step Three' },
 ]

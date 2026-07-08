@@ -1,11 +1,11 @@
-import { Avatar, For, HStack, Tag } from "@chakra-ui/react"
+import { Avatar, For, HStack, Tag } from '@chakra-ui/react'
 
 export const TagWithAvatar = () => {
   return (
     <HStack>
-      <For each={["sm", "md", "lg", "xl"]}>
+      <For each={['sm', 'md', 'lg', 'xl']}>
         {(size) => (
-          <Tag.Root key={size} size={size} rounded="full">
+          <Tag.Root key={size} rounded="full" size={size}>
             <Tag.StartElement>
               <Avatar.Root size="full">
                 <Avatar.Image src="https://i.pravatar.cc/300?u=1" />

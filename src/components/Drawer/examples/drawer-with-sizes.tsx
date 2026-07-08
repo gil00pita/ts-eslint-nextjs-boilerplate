@@ -1,21 +1,13 @@
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  For,
-  HStack,
-  Kbd,
-  Portal,
-} from "@chakra-ui/react"
+import { Button, CloseButton, Drawer, For, HStack, Kbd, Portal } from '@chakra-ui/react'
 
 export const DrawerWithSizes = () => {
   return (
     <HStack wrap="wrap">
-      <For each={["xs", "sm", "md", "lg", "xl", "full"]}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl', 'full']}>
         {(size) => (
           <Drawer.Root key={size} size={size}>
             <Drawer.Trigger asChild>
-              <Button variant="outline" size="sm">
+              <Button size="sm" variant="outline">
                 Open ({size})
               </Button>
             </Drawer.Trigger>

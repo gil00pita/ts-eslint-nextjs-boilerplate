@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { DatePicker, For, Portal, Stack } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, For, Portal, Stack } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithSizes = () => {
   return (
     <Stack gap={4} maxWidth="20rem">
-      <For each={["xs", "sm", "md", "lg", "xl"]}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl']}>
         {(size) => (
           <DatePicker.Root key={size} size={size}>
             <DatePicker.Label>Select date - {size}</DatePicker.Label>

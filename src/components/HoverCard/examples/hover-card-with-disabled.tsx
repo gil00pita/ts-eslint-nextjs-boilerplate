@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { HoverCard, Link, Portal, Stack, Text } from "@chakra-ui/react"
+import { HoverCard, Link, Portal, Stack, Text } from '@chakra-ui/react'
 
 export const HoverCardWithDisabled = () => {
   return (
-    <HoverCard.Root size="sm" disabled>
+    <HoverCard.Root disabled size="sm">
       <HoverCard.Trigger asChild>
         <Link href="#">@chakra_ui</Link>
       </HoverCard.Trigger>
@@ -13,10 +13,10 @@ export const HoverCardWithDisabled = () => {
           <HoverCard.Content>
             <HoverCard.Arrow />
             <Stack gap="1">
-              <Text textStyle="sm" fontWeight="semibold">
+              <Text fontWeight="semibold" textStyle="sm">
                 Chakra UI
               </Text>
-              <Text textStyle="sm" color="fg.muted">
+              <Text color="fg.muted" textStyle="sm">
                 The most powerful toolkit for building modern web applications.
               </Text>
             </Stack>

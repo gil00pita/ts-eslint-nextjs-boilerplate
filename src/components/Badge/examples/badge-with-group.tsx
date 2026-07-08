@@ -1,12 +1,12 @@
-import { Badge, Group } from "@chakra-ui/react"
+import { Badge, Group } from '@chakra-ui/react'
 
 export const BadgeWithGroup = () => {
   return (
     <Group attached>
-      <Badge variant="solid" colorPalette="blue">
+      <Badge colorPalette="blue" variant="solid">
         Commit status
       </Badge>
-      <Badge variant="solid" colorPalette="green">
+      <Badge colorPalette="green" variant="solid">
         90+
       </Badge>
     </Group>

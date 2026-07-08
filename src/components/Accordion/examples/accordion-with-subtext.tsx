@@ -1,10 +1,10 @@
-import { Accordion, Stack, Text } from "@chakra-ui/react"
-import { LoremIpsum } from "react-lorem-ipsum"
+import { Accordion, Stack, Text } from '@chakra-ui/react'
+import { LoremIpsum } from 'react-lorem-ipsum'
 
 const items = [
-  { value: "a", title: "First Item", text: <LoremIpsum p={1} /> },
-  { value: "b", title: "Second Item", text: <LoremIpsum p={1} /> },
-  { value: "c", title: "Third Item", text: <LoremIpsum p={1} /> },
+  { text: <LoremIpsum p={1} />, title: 'First Item', value: 'a' },
+  { text: <LoremIpsum p={1} />, title: 'Second Item', value: 'b' },
+  { text: <LoremIpsum p={1} />, title: 'Third Item', value: 'c' },
 ]
 
 export const AccordionWithSubtext = () => {
@@ -15,7 +15,7 @@ export const AccordionWithSubtext = () => {
           <Accordion.ItemTrigger>
             <Stack gap="1">
               <Text>{item.title}</Text>
-              <Text fontSize="sm" color="fg.muted">
+              <Text color="fg.muted" fontSize="sm">
                 Click to expand
               </Text>
             </Stack>

@@ -1,24 +1,20 @@
-"use client"
+'use client'
 
-import { CodeBlock, Float, IconButton, Span } from "@chakra-ui/react"
+import { CodeBlock, Float, IconButton, Span } from '@chakra-ui/react'
 
 const file = {
-  code: "npm install @chakra-ui/react",
-  language: "bash",
-  title: "npm install @chakra-ui/react",
+  code: 'npm install @chakra-ui/react',
+  language: 'bash',
+  title: 'npm install @chakra-ui/react',
 }
 
 export const CodeBlockPlainText = () => {
   return (
-    <CodeBlock.Root
-      code={file.code}
-      language={file.language}
-      display="inline-flex"
-    >
+    <CodeBlock.Root code={file.code} display="inline-flex" language={file.language}>
       <CodeBlock.Content>
-        <Float placement="middle-end" offsetX="6" zIndex="1">
+        <Float offsetX="6" placement="middle-end" zIndex="1">
           <CodeBlock.CopyTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
+            <IconButton size="2xs" variant="ghost">
               <CodeBlock.CopyIndicator />
             </IconButton>
           </CodeBlock.CopyTrigger>

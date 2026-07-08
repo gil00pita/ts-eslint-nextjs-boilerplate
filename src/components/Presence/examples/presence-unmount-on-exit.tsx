@@ -1,16 +1,9 @@
-"use client"
+'use client'
 
-import {
-  Alert,
-  Button,
-  Center,
-  Presence,
-  Stack,
-  useDisclosure,
-} from "@chakra-ui/react"
+import { Alert, Button, Center, Presence, Stack, useDisclosure } from '@chakra-ui/react'
 
 export const PresenceUnmountOnExit = () => {
-  const { open, onToggle } = useDisclosure()
+  const { onToggle, open } = useDisclosure()
   return (
     <Stack gap="4">
       <Alert.Root>
@@ -23,12 +16,12 @@ export const PresenceUnmountOnExit = () => {
         Click Me
       </Button>
       <Presence
-        unmountOnExit
-        present={open}
-        animationName={{ _open: "fade-in", _closed: "fade-out" }}
         animationDuration="moderate"
+        animationName={{ _closed: 'fade-out', _open: 'fade-in' }}
+        present={open}
+        unmountOnExit
       >
-        <Center p="10" layerStyle="fill.muted">
+        <Center layerStyle="fill.muted" p="10">
           Fade
         </Center>
       </Presence>

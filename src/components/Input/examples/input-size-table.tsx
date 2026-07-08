@@ -13,14 +13,14 @@ export const InputSizeTable = () => {
           {(v) => (
             <tr key={v}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {v}
                 </Span>
               </td>
               <td>
                 <Stack>
-                  <Input size={v} placeholder="Placeholder" />
-                  <Input variant="subtle" size={v} placeholder="Placeholder" />
+                  <Input placeholder="Placeholder" size={v} />
+                  <Input placeholder="Placeholder" size={v} variant="subtle" />
                 </Stack>
               </td>
             </tr>

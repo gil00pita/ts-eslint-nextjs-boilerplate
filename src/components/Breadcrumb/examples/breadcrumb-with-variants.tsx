@@ -1,9 +1,9 @@
-import { Breadcrumb, For, Stack } from "@chakra-ui/react"
+import { Breadcrumb, For, Stack } from '@chakra-ui/react'
 
 export const BreadcrumbWithVariants = () => {
   return (
     <Stack>
-      <For each={["plain", "underline"]}>
+      <For each={['plain', 'underline']}>
         {(variant) => (
           <Breadcrumb.Root key={variant} variant={variant}>
             <Breadcrumb.List>

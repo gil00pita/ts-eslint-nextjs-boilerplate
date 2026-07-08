@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { Button, Field, NumberInput } from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Field, NumberInput } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { Controller, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
-  number: z.string({ message: "Number is required" }),
+  number: z.string({ message: 'Number is required' }),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -14,8 +14,8 @@ type FormValues = z.infer<typeof formSchema>
 export const NumberInputWithHookForm = () => {
   const {
     control,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
   } = useForm<FormValues>({
     resolver: standardSchemaResolver(formSchema),
   })
@@ -27,16 +27,16 @@ export const NumberInputWithHookForm = () => {
       <Field.Root invalid={!!errors.number}>
         <Field.Label>Number</Field.Label>
         <Controller
-          name="number"
           control={control}
+          name="number"
           render={({ field }) => (
             <NumberInput.Root
               disabled={field.disabled}
               name={field.name}
-              value={field.value}
               onValueChange={({ value }) => {
                 field.onChange(value)
               }}
+              value={field.value}
             >
               <NumberInput.Control />
               <NumberInput.Input onBlur={field.onBlur} />
@@ -45,7 +45,7 @@ export const NumberInputWithHookForm = () => {
         />
         <Field.ErrorText>{errors.number?.message}</Field.ErrorText>
       </Field.Root>
-      <Button size="sm" type="submit" mt="4">
+      <Button mt="4" size="sm" type="submit">
         Submit
       </Button>
     </form>

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, Listbox, createListCollection } from "@chakra-ui/react"
-import { LuAtom, LuGlobe, LuPalette, LuZap } from "react-icons/lu"
+import { Box, createListCollection, Listbox } from '@chakra-ui/react'
+import { LuAtom, LuGlobe, LuPalette, LuZap } from 'react-icons/lu'
 
 export const ListboxWithIcon = () => {
   return (
@@ -10,7 +10,7 @@ export const ListboxWithIcon = () => {
       <Listbox.Content>
         {frameworks.items.map((framework) => (
           <Listbox.Item item={framework} key={framework.value}>
-            <Box display="flex" alignItems="center" gap="3" flex="1">
+            <Box alignItems="center" display="flex" flex="1" gap="3">
               <Box color="fg.muted" flexShrink="0">
                 {framework.icon}
               </Box>
@@ -26,9 +26,9 @@ export const ListboxWithIcon = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react", icon: <LuAtom size={16} /> },
-    { label: "Vue.js", value: "vue", icon: <LuPalette size={16} /> },
-    { label: "Angular", value: "angular", icon: <LuGlobe size={16} /> },
-    { label: "Svelte", value: "svelte", icon: <LuZap size={16} /> },
+    { icon: <LuAtom size={16} />, label: 'React.js', value: 'react' },
+    { icon: <LuPalette size={16} />, label: 'Vue.js', value: 'vue' },
+    { icon: <LuGlobe size={16} />, label: 'Angular', value: 'angular' },
+    { icon: <LuZap size={16} />, label: 'Svelte', value: 'svelte' },
   ],
 })

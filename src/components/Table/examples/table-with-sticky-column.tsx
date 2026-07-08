@@ -1,46 +1,46 @@
-import { Table } from "@chakra-ui/react"
+import { Table } from '@chakra-ui/react'
 
 export const TableWithStickyColumn = () => {
   return (
-    <Table.ScrollArea borderWidth="1px" rounded="md" maxW="2xl">
+    <Table.ScrollArea borderWidth="1px" maxW="2xl" rounded="md">
       <Table.Root
-        size="sm"
         css={{
-          "& [data-sticky]": {
-            position: "sticky",
-            zIndex: 1,
-            bg: "bg",
-
+          '& [data-sticky]': {
             _after: {
+              bottom: '-1px',
               content: '""',
-              position: "absolute",
-              pointerEvents: "none",
-              top: "0",
-              bottom: "-1px",
-              width: "32px",
+              pointerEvents: 'none',
+              position: 'absolute',
+              top: '0',
+              width: '32px',
+            },
+            bg: 'bg',
+            position: 'sticky',
+
+            zIndex: 1,
+          },
+
+          '& [data-sticky=end]': {
+            _after: {
+              insetInlineEnd: '0',
+              shadow: 'inset 8px 0px 8px -8px rgba(0, 0, 0, 0.16)',
+              translate: '100% 0',
             },
           },
 
-          "& [data-sticky=end]": {
+          '& [data-sticky=start]': {
             _after: {
-              insetInlineEnd: "0",
-              translate: "100% 0",
-              shadow: "inset 8px 0px 8px -8px rgba(0, 0, 0, 0.16)",
-            },
-          },
-
-          "& [data-sticky=start]": {
-            _after: {
-              insetInlineStart: "0",
-              translate: "-100% 0",
-              shadow: "inset -8px 0px 8px -8px rgba(0, 0, 0, 0.16)",
+              insetInlineStart: '0',
+              shadow: 'inset -8px 0px 8px -8px rgba(0, 0, 0, 0.16)',
+              translate: '-100% 0',
             },
           },
         }}
+        size="sm"
       >
         <Table.Header>
           <Table.Row>
-            <Table.ColumnHeader data-sticky="end" minW="160px" left="0">
+            <Table.ColumnHeader data-sticky="end" left="0" minW="160px">
               Product
             </Table.ColumnHeader>
             <Table.ColumnHeader minW="400px">Category</Table.ColumnHeader>
@@ -67,9 +67,9 @@ export const TableWithStickyColumn = () => {
 }
 
 const items = [
-  { id: 1, name: "Laptop", category: "Electronics", price: 999.99 },
-  { id: 2, name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
-  { id: 3, name: "Desk Chair", category: "Furniture", price: 150.0 },
-  { id: 4, name: "Smartphone", category: "Electronics", price: 799.99 },
-  { id: 5, name: "Headphones", category: "Accessories", price: 199.99 },
+  { category: 'Electronics', id: 1, name: 'Laptop', price: 999.99 },
+  { category: 'Home Appliances', id: 2, name: 'Coffee Maker', price: 49.99 },
+  { category: 'Furniture', id: 3, name: 'Desk Chair', price: 150.0 },
+  { category: 'Electronics', id: 4, name: 'Smartphone', price: 799.99 },
+  { category: 'Accessories', id: 5, name: 'Headphones', price: 199.99 },
 ]

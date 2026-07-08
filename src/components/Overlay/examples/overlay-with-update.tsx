@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, Button, Dialog, Portal } from "@chakra-ui/react"
-import { createOverlay } from "@chakra-ui/react"
+import { Box, Button, Dialog, Portal } from '@chakra-ui/react'
+import { createOverlay } from '@chakra-ui/react'
 
 interface DialogProps {
   title: string
@@ -10,7 +10,7 @@ interface DialogProps {
 }
 
 const dialog = createOverlay<DialogProps>((props) => {
-  const { title, description, content, ...rest } = props
+  const { content, description, title, ...rest } = props
   return (
     <Dialog.Root {...rest}>
       <Portal>
@@ -23,9 +23,7 @@ const dialog = createOverlay<DialogProps>((props) => {
               </Dialog.Header>
             )}
             <Dialog.Body spaceY="4">
-              {description && (
-                <Dialog.Description>{description}</Dialog.Description>
-              )}
+              {description && <Dialog.Description>{description}</Dialog.Description>}
               {content}
             </Dialog.Body>
           </Dialog.Content>
@@ -40,21 +38,19 @@ export const OverlayWithUpdate = () => {
     <>
       <Button
         onClick={async () => {
-          dialog.open("a", {
-            title: "Initial Modal Title",
-            content: (
-              <Box textStyle="sm">This text will update in 2 seconds.</Box>
-            ),
+          dialog.open('a', {
+            content: <Box textStyle="sm">This text will update in 2 seconds.</Box>,
+            title: 'Initial Modal Title',
           })
 
           setTimeout(() => {
-            dialog.update("a", {
-              title: "Updated Modal Title",
+            dialog.update('a', {
               content: (
-                <Box textStyle="sm" color="fg.muted">
+                <Box color="fg.muted" textStyle="sm">
                   This is the updated content of the modal.
                 </Box>
               ),
+              title: 'Updated Modal Title',
             })
           }, 2000)
         }}

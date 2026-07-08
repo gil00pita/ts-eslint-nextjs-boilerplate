@@ -1,12 +1,12 @@
-import { Avatar, Badge, For, Span, Stack, Timeline } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { Avatar, Badge, For, Span, Stack, Timeline } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const TimelineWithVariants = () => {
   return (
     <Stack gap="16">
-      <For each={["subtle", "solid", "outline", "plain"]}>
+      <For each={['subtle', 'solid', 'outline', 'plain']}>
         {(variant) => (
-          <Timeline.Root variant={variant} key={variant}>
+          <Timeline.Root key={variant} variant={variant}>
             <Timeline.Item>
               <Timeline.Connector>
                 <Timeline.Separator />
@@ -35,7 +35,7 @@ export const TimelineWithVariants = () => {
               <Timeline.Content>
                 <Timeline.Title>
                   <Span fontWeight="medium">sage</Span>
-                  changed status from <Badge>In progress</Badge> to{" "}
+                  changed status from <Badge>In progress</Badge> to{' '}
                   <Badge colorPalette="teal">Completed</Badge>
                 </Timeline.Title>
               </Timeline.Content>

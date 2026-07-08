@@ -1,5 +1,5 @@
-import { HStack, RadioCard } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { HStack, RadioCard } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const RadioCardWithCustomIndicator = () => {
   return (
@@ -11,11 +11,7 @@ export const RadioCardWithCustomIndicator = () => {
             <RadioCard.ItemHiddenInput />
             <RadioCard.ItemControl>
               <RadioCard.ItemText>{item.title}</RadioCard.ItemText>
-              <RadioCard.ItemIndicator
-                color="fg"
-                borderWidth="0"
-                checked={<LuCheck />}
-              />
+              <RadioCard.ItemIndicator borderWidth="0" checked={<LuCheck />} color="fg" />
             </RadioCard.ItemControl>
           </RadioCard.Item>
         ))}
@@ -25,7 +21,7 @@ export const RadioCardWithCustomIndicator = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js", description: "Best for apps" },
-  { value: "vite", title: "Vite", description: "Best for SPAs" },
-  { value: "astro", title: "Astro", description: "Best for static sites" },
+  { description: 'Best for apps', title: 'Next.js', value: 'next' },
+  { description: 'Best for SPAs', title: 'Vite', value: 'vite' },
+  { description: 'Best for static sites', title: 'Astro', value: 'astro' },
 ]

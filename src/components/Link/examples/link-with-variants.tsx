@@ -1,12 +1,12 @@
-import { Link, Stack } from "@chakra-ui/react"
+import { Link, Stack } from '@chakra-ui/react'
 
 export const LinkWithVariants = () => {
   return (
     <Stack>
-      <Link variant="underline" href="#">
+      <Link href="#" variant="underline">
         Link (Underline)
       </Link>
-      <Link variant="plain" href="#">
+      <Link href="#" variant="plain">
         Link (Plain)
       </Link>
     </Stack>

@@ -1,21 +1,22 @@
-"use client"
+'use client'
 
-import { CodeBlock, IconButton, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, IconButton } from '@chakra-ui/react'
 
 export const CodeBlockWithLineNumbersWordWrap = () => {
   return (
     <CodeBlock.AdapterProvider value={shikiAdapter}>
       <CodeBlock.Root
-        maxW="md"
         code={file.code}
         language={file.language}
+        maxW="md"
         meta={{ showLineNumbers: true, wordWrap: true }}
       >
         <CodeBlock.Header>
           <CodeBlock.Title>{file.title}</CodeBlock.Title>
           <CodeBlock.CopyTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
+            <IconButton size="2xs" variant="ghost">
               <CodeBlock.CopyIndicator />
             </IconButton>
           </CodeBlock.CopyTrigger>
@@ -32,13 +33,13 @@ export const CodeBlockWithLineNumbersWordWrap = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["javascript", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['javascript', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })
 
 const file = {
@@ -81,6 +82,6 @@ const file = {
   drwxrwxr-x   2 ali  ali  4.0K May 16  2023  .simplelocalize
   -rw-rw-r--   1 ali  ali  5.7K May 21  2023  .v8flags.9.4.146.26-node.26.86318e52f5ed4801abe1d13d509443de.json
   drwxrwxrwx 105 ali  ali  4.0K Sep  5 10:27 `,
-  language: "bash",
-  title: "terminal-output.txt",
+  language: 'bash',
+  title: 'terminal-output.txt',
 }

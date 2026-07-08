@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Combobox,
@@ -7,14 +7,14 @@ import {
   useComboboxContext,
   useFilter,
   useListCollection,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 export const ComboboxWithHighlight = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: frameworks,
     filter: contains,
+    initialItems: frameworks,
   })
 
   return (
@@ -54,7 +54,7 @@ function ComboboxItem(props: { item: { label: string; value: string } }) {
         <Highlight
           ignoreCase
           query={combobox.inputValue}
-          styles={{ bg: "yellow.emphasized", fontWeight: "medium" }}
+          styles={{ bg: 'yellow.emphasized', fontWeight: 'medium' }}
         >
           {item.label}
         </Highlight>
@@ -64,15 +64,15 @@ function ComboboxItem(props: { item: { label: string; value: string } }) {
 }
 
 const frameworks = [
-  { label: "React", value: "react" },
-  { label: "Solid", value: "solid" },
-  { label: "Vue", value: "vue" },
-  { label: "Angular", value: "angular" },
-  { label: "Svelte", value: "svelte" },
-  { label: "Preact", value: "preact" },
-  { label: "Qwik", value: "qwik" },
-  { label: "Lit", value: "lit" },
-  { label: "Alpine.js", value: "alpinejs" },
-  { label: "Ember", value: "ember" },
-  { label: "Next.js", value: "nextjs" },
+  { label: 'React', value: 'react' },
+  { label: 'Solid', value: 'solid' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Svelte', value: 'svelte' },
+  { label: 'Preact', value: 'preact' },
+  { label: 'Qwik', value: 'qwik' },
+  { label: 'Lit', value: 'lit' },
+  { label: 'Alpine.js', value: 'alpinejs' },
+  { label: 'Ember', value: 'ember' },
+  { label: 'Next.js', value: 'nextjs' },
 ]

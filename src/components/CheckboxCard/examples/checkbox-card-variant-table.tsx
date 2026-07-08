@@ -2,8 +2,8 @@
 
 import { CheckboxCard, For, Span, Stack, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const CheckboxCardVariantTable = () => {
   const recipe = useSlotRecipe({ key: 'checkboxCard' })
@@ -20,7 +20,7 @@ export const CheckboxCardVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
@@ -28,9 +28,9 @@ export const CheckboxCardVariantTable = () => {
                 {(v) => (
                   <td key={v}>
                     <Stack gap="4">
-                      <DemoCheckboxCard variant={v} colorPalette={c} />
-                      <DemoCheckboxCard variant={v} colorPalette={c} defaultChecked />
-                      <DemoCheckboxCard variant={v} colorPalette={c} defaultChecked disabled />
+                      <DemoCheckboxCard colorPalette={c} variant={v} />
+                      <DemoCheckboxCard colorPalette={c} defaultChecked variant={v} />
+                      <DemoCheckboxCard colorPalette={c} defaultChecked disabled variant={v} />
                     </Stack>
                   </td>
                 )}

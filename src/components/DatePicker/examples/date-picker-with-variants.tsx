@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { DatePicker, For, Portal, Stack } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, For, Portal, Stack } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithVariants = () => {
   return (
     <Stack gap={4} maxWidth="20rem">
-      <For each={["outline", "subtle", "flushed"]}>
+      <For each={['outline', 'subtle', 'flushed']}>
         {(variant) => (
           <DatePicker.Root key={variant} variant={variant}>
             <DatePicker.Label>Select date - {variant}</DatePicker.Label>

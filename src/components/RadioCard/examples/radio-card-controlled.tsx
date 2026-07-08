@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { HStack, RadioCard } from "@chakra-ui/react"
-import { useState } from "react"
+import { HStack, RadioCard } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const RadioCardControlled = () => {
-  const [value, setValue] = useState<string | null>("next")
+  const [value, setValue] = useState<string | null>('next')
 
   return (
-    <RadioCard.Root value={value} onValueChange={(e) => setValue(e.value)}>
+    <RadioCard.Root onValueChange={(e) => setValue(e.value)} value={value}>
       <RadioCard.Label>Select framework</RadioCard.Label>
       <HStack align="stretch">
         {items.map((item) => (
@@ -25,7 +25,7 @@ export const RadioCardControlled = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js" },
-  { value: "vite", title: "Vite" },
-  { value: "astro", title: "Astro" },
+  { title: 'Next.js', value: 'next' },
+  { title: 'Vite', value: 'vite' },
+  { title: 'Astro', value: 'astro' },
 ]

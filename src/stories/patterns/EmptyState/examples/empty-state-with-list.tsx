@@ -1,5 +1,5 @@
-import { EmptyState, List, VStack } from "@chakra-ui/react"
-import { HiColorSwatch } from "react-icons/hi"
+import { EmptyState, List, VStack } from '@chakra-ui/react'
+import { HiColorSwatch } from 'react-icons/hi'
 
 export const EmptyStateWithList = () => {
   return (
@@ -10,9 +10,7 @@ export const EmptyStateWithList = () => {
         </EmptyState.Indicator>
         <VStack textAlign="center">
           <EmptyState.Title>No results found</EmptyState.Title>
-          <EmptyState.Description>
-            Try adjusting your search
-          </EmptyState.Description>
+          <EmptyState.Description>Try adjusting your search</EmptyState.Description>
         </VStack>
         <List.Root variant="marker">
           <List.Item>Try removing filters</List.Item>

@@ -1,9 +1,9 @@
-import { For, PinInput, Stack } from "@chakra-ui/react"
+import { For, PinInput, Stack } from '@chakra-ui/react'
 
 export const PinInputWithSizes = () => {
   return (
     <Stack gap="4">
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
           <PinInput.Root key={size} size={size}>
             <PinInput.HiddenInput />

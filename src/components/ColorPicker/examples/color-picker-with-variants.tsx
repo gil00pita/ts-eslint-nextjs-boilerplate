@@ -1,22 +1,15 @@
-"use client"
+'use client'
 
-import {
-  ColorPicker,
-  For,
-  HStack,
-  Portal,
-  Stack,
-  parseColor,
-} from "@chakra-ui/react"
+import { ColorPicker, For, HStack, parseColor, Portal, Stack } from '@chakra-ui/react'
 
 export const ColorPickerWithVariants = () => {
   return (
     <Stack gap="8">
-      <For each={["outline", "subtle"]}>
+      <For each={['outline', 'subtle']}>
         {(variant) => (
           <ColorPicker.Root
+            defaultValue={parseColor('#eb5e41')}
             key={variant}
-            defaultValue={parseColor("#eb5e41")}
             maxW="200px"
             variant={variant}
           >

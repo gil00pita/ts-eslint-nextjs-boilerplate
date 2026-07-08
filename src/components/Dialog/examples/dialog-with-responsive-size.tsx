@@ -1,10 +1,10 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
 
 export const DialogWithResponsiveSize = () => {
   return (
-    <Dialog.Root size={{ mdDown: "full", md: "lg" }}>
+    <Dialog.Root size={{ mdDown: 'full', md: 'lg' }}>
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Dialog
         </Button>
       </Dialog.Trigger>
@@ -17,8 +17,8 @@ export const DialogWithResponsiveSize = () => {
             </Dialog.Header>
             <Dialog.Body>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
               </p>
             </Dialog.Body>
             <Dialog.Footer>

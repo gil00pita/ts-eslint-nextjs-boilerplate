@@ -1,11 +1,12 @@
-import Markdown from "react-markdown"
-import { Prose } from "@/ui/prose"
+import Markdown from 'react-markdown'
+
+import { Prose } from '@/ui/prose'
 
 export const ProseWithReactMarkdown = () => {
-	return (
-		<Prose mx='auto'>
-			<Markdown>
-				{`
+  return (
+    <Prose mx="auto">
+      <Markdown>
+        {`
   ## Heading
   
   Based on your Chakra package. So [click here](http://chakra-ui.com) to confirm your plan.
@@ -17,7 +18,7 @@ export const ProseWithReactMarkdown = () => {
   
   [title](http://chakra-ui.com)
     `}
-			</Markdown>
-		</Prose>
-	)
+      </Markdown>
+    </Prose>
+  )
 }

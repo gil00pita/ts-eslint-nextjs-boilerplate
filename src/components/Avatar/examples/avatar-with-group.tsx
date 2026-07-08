@@ -1,8 +1,8 @@
-import { Avatar, AvatarGroup } from "@chakra-ui/react"
+import { Avatar, AvatarGroup } from '@chakra-ui/react'
 
 export const AvatarWithGroup = () => {
   return (
-    <AvatarGroup gap="0" spaceX="-3" size="lg">
+    <AvatarGroup gap="0" size="lg" spaceX="-3">
       <Avatar.Root>
         <Avatar.Fallback name="Uchiha Sasuke" />
         <Avatar.Image src="https://cdn.myanimelist.net/r/84x124/images/characters/9/131317.webp?s=d4b03c7291407bde303bc0758047f6bd" />

@@ -1,16 +1,16 @@
-import { Link, Tabs } from "@chakra-ui/react"
+import { Link, Tabs } from '@chakra-ui/react'
 
 export const TabsWithLinks = () => {
   return (
     <Tabs.Root defaultValue="members">
       <Tabs.List>
-        <Tabs.Trigger value="members" asChild>
-          <Link unstyled href="#members">
+        <Tabs.Trigger asChild value="members">
+          <Link href="#members" unstyled>
             Members
           </Link>
         </Tabs.Trigger>
-        <Tabs.Trigger value="projects" asChild>
-          <Link unstyled href="#projects">
+        <Tabs.Trigger asChild value="projects">
+          <Link href="#projects" unstyled>
             Projects
           </Link>
         </Tabs.Trigger>

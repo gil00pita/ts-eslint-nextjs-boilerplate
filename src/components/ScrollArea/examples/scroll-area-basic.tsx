@@ -1,5 +1,5 @@
-import { ScrollArea } from "@chakra-ui/react"
-import LoremIpsum from "react-lorem-ipsum"
+import { ScrollArea } from '@chakra-ui/react'
+import LoremIpsum from 'react-lorem-ipsum'
 
 export const ScrollAreaBasic = () => (
   <ScrollArea.Root height="8.5rem" maxW="lg">

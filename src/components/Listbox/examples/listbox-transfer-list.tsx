@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
 import {
   Center,
   type CollectionOptions,
+  createListCollection,
   Flex,
   IconButton,
   Listbox,
   VStack,
-  createListCollection,
-} from "@chakra-ui/react"
-import { useRef, useState } from "react"
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { useRef, useState } from 'react'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 interface ListboxRenderProps<T> extends Listbox.RootProps<T> {
   contentRef: React.RefObject<HTMLDivElement | null>
@@ -26,14 +26,14 @@ function ListboxRender<T>(props: ListboxRenderProps<T>) {
             const itemValue = collection.getItemValue(item)
             const itemLabel = collection.stringifyItem(item)
             return (
-              <Listbox.Item item={item} key={itemValue} flex="0">
+              <Listbox.Item flex="0" item={item} key={itemValue}>
                 <Listbox.ItemText>{itemLabel}</Listbox.ItemText>
                 <Listbox.ItemIndicator />
               </Listbox.Item>
             )
           })
         ) : (
-          <Center boxSize="full" p="4" color="fg.muted" textStyle="sm">
+          <Center boxSize="full" color="fg.muted" p="4" textStyle="sm">
             No items available
           </Center>
         )}
@@ -46,40 +46,40 @@ export const ListboxTransferList = () => {
   const state = useTransferListState<Item>({ items: animeCharacters })
 
   return (
-    <Flex gap="4" maxW="600px" align="stretch">
+    <Flex align="stretch" gap="4" maxW="600px">
       <ListboxRender
-        contentRef={state.sourceContentRef}
         collection={state.source}
-        value={state.selectedSource.map((item) => item.value)}
+        contentRef={state.sourceContentRef}
         onValueChange={(e) => state.setSelectedSource(e.items)}
+        value={state.selectedSource.map((item) => item.value)}
       />
-      <VStack justify="center" gap="2" py="8">
+      <VStack gap="2" justify="center" py="8">
         <IconButton
-          size="xs"
-          variant="subtle"
           disabled={state.selectedSource.length === 0}
           onClick={() => {
             state.moveToTarget(state.selectedSource)
           }}
+          size="xs"
+          variant="subtle"
         >
           <LuChevronRight />
         </IconButton>
         <IconButton
-          size="xs"
-          variant="subtle"
           disabled={state.selectedTarget.length === 0}
           onClick={() => {
             state.moveToSource(state.selectedTarget)
           }}
+          size="xs"
+          variant="subtle"
         >
           <LuChevronLeft />
         </IconButton>
       </VStack>
       <ListboxRender
-        contentRef={state.targetContentRef}
         collection={state.target}
-        value={state.selectedTarget.map((item) => item.value)}
+        contentRef={state.targetContentRef}
         onValueChange={(e) => state.setSelectedTarget(e.items)}
+        value={state.selectedTarget.map((item) => item.value)}
       />
     </Flex>
   )
@@ -90,9 +90,7 @@ function useTransferListState<T>(options: CollectionOptions<T>) {
   const targetContentRef = useRef<HTMLDivElement | null>(null)
 
   const [source, setSource] = useState(createListCollection<T>(options))
-  const [target, setTarget] = useState(
-    createListCollection<T>({ ...options, items: [] }),
-  )
+  const [target, setTarget] = useState(createListCollection<T>({ ...options, items: [] }))
   const [selectedSource, setSelectedSource] = useState<T[]>([])
   const [selectedTarget, setSelectedTarget] = useState<T[]>([])
 
@@ -101,7 +99,7 @@ function useTransferListState<T>(options: CollectionOptions<T>) {
     requestAnimationFrame(() => {
       const itemValue = target.getItemValue(item)
       const itemElement = container.querySelector(`[data-value="${itemValue}"]`)
-      itemElement?.scrollIntoView({ block: "nearest" })
+      itemElement?.scrollIntoView({ block: 'nearest' })
     })
   }
 
@@ -120,15 +118,15 @@ function useTransferListState<T>(options: CollectionOptions<T>) {
   }
 
   return {
-    source,
-    target,
+    moveToSource,
+    moveToTarget,
     selectedSource,
     selectedTarget,
     setSelectedSource,
     setSelectedTarget,
-    moveToTarget,
-    moveToSource,
+    source,
     sourceContentRef,
+    target,
     targetContentRef,
   }
 }
@@ -139,19 +137,19 @@ interface Item {
 }
 
 const animeCharacters = [
-  { label: "Naruto", value: "naruto" },
-  { label: "Sasuke", value: "sasuke" },
-  { label: "Sakura", value: "sakura" },
-  { label: "Kakashi", value: "kakashi" },
-  { label: "Shisui", value: "shisui" },
-  { label: "Itachi", value: "itachi" },
-  { label: "Gaara", value: "gaara" },
-  { label: "Rock Lee", value: "rock-lee" },
-  { label: "Neji", value: "neji" },
-  { label: "Tenten", value: "tenten" },
-  { label: "Hinata", value: "hinata" },
-  { label: "Kiba", value: "kiba" },
-  { label: "Shino", value: "shino" },
-  { label: "Choji", value: "choji" },
-  { label: "Ino", value: "ino" },
+  { label: 'Naruto', value: 'naruto' },
+  { label: 'Sasuke', value: 'sasuke' },
+  { label: 'Sakura', value: 'sakura' },
+  { label: 'Kakashi', value: 'kakashi' },
+  { label: 'Shisui', value: 'shisui' },
+  { label: 'Itachi', value: 'itachi' },
+  { label: 'Gaara', value: 'gaara' },
+  { label: 'Rock Lee', value: 'rock-lee' },
+  { label: 'Neji', value: 'neji' },
+  { label: 'Tenten', value: 'tenten' },
+  { label: 'Hinata', value: 'hinata' },
+  { label: 'Kiba', value: 'kiba' },
+  { label: 'Shino', value: 'shino' },
+  { label: 'Choji', value: 'choji' },
+  { label: 'Ino', value: 'ino' },
 ]

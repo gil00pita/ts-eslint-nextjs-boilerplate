@@ -1,25 +1,14 @@
-"use client"
+'use client'
 
-import {
-  ColorPicker,
-  For,
-  HStack,
-  Portal,
-  Stack,
-  parseColor,
-} from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { ColorPicker, For, HStack, parseColor, Portal, Stack } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const ColorPickerWithSizes = () => {
   return (
     <Stack gap="8" maxW="sm">
-      <For each={["2xs", "xs", "sm", "md", "lg", "xl", "2xl"]}>
+      <For each={['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl']}>
         {(size) => (
-          <ColorPicker.Root
-            key={size}
-            defaultValue={parseColor("#eb5e41")}
-            size={size}
-          >
+          <ColorPicker.Root defaultValue={parseColor('#eb5e41')} key={size} size={size}>
             <ColorPicker.HiddenInput />
             <ColorPicker.Label>Color ({size})</ColorPicker.Label>
             <ColorPicker.Control>
@@ -37,7 +26,7 @@ export const ColorPickerWithSizes = () => {
                   <ColorPicker.SwatchGroup>
                     {swatches.map((item) => (
                       <ColorPicker.SwatchTrigger key={item} value={item}>
-                        <ColorPicker.Swatch value={item} boxSize="4.5">
+                        <ColorPicker.Swatch boxSize="4.5" value={item}>
                           <ColorPicker.SwatchIndicator>
                             <LuCheck />
                           </ColorPicker.SwatchIndicator>
@@ -55,4 +44,4 @@ export const ColorPickerWithSizes = () => {
   )
 }
 
-const swatches = ["red", "blue", "green"]
+const swatches = ['red', 'blue', 'green']

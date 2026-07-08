@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, Skeleton, Stack, Text } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, Skeleton, Stack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const SkeletonWithLoaded = () => {
   const [loading, setLoading] = useState(true)
@@ -11,7 +11,7 @@ export const SkeletonWithLoaded = () => {
       <Skeleton height="6" loading={loading}>
         <Text>Chakra UI is cool</Text>
       </Skeleton>
-      <Button size="sm" onClick={() => setLoading((c) => !c)}>
+      <Button onClick={() => setLoading((c) => !c)} size="sm">
         Toggle
       </Button>
     </Stack>

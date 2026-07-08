@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Line, LineChart } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Line, LineChart } from 'recharts'
 
 export const SparklineLineChart = () => {
   const chart = useChart({
@@ -15,20 +15,20 @@ export const SparklineLineChart = () => {
       { value: 10 },
       { value: 18 },
     ],
-    series: [{ name: "value", color: "teal.solid" }],
+    series: [{ color: 'teal.solid', name: 'value' }],
   })
 
   return (
-    <Chart.Root width="28" height="12" chart={chart}>
+    <Chart.Root chart={chart} height="12" width="28">
       <LineChart data={chart.data} responsive>
         {chart.series.map((item) => (
           <Line
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
+            dot={false}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
-            dot={false}
           />
         ))}
       </LineChart>

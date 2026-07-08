@@ -1,106 +1,53 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Brand Styles/Typography" />
 
-# Typography
-
-Phenix UI typography is designed for scanning, decision-making, and sustained reading. It uses a restrained scale with clear hierarchy.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Typography"
+  lead="Phenix UI typography is designed for scanning, decision-making, and sustained reading. It uses a restrained scale with clear hierarchy."
+/>
 
 ## Type Roles
 
-<table>
-  <thead>
-    <tr>
-      <th>Role</th>
-      <th>Token</th>
-      <th>Use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Display</td>
-      <td>
-        <code>display.lg</code>
-      </td>
-      <td>Rare product moments and overview pages.</td>
-    </tr>
-    <tr>
-      <td>Page title</td>
-      <td>
-        <code>heading.xl</code>
-      </td>
-      <td>Main page heading.</td>
-    </tr>
-    <tr>
-      <td>Section title</td>
-      <td>
-        <code>heading.md</code>
-      </td>
-      <td>Major regions within a workflow.</td>
-    </tr>
-    <tr>
-      <td>Body</td>
-      <td>
-        <code>body.md</code>
-      </td>
-      <td>Default reading text.</td>
-    </tr>
-    <tr>
-      <td>Compact</td>
-      <td>
-        <code>body.sm</code>
-      </td>
-      <td>Tables, dense forms, and metadata.</td>
-    </tr>
-    <tr>
-      <td>Label</td>
-      <td>
-        <code>label.sm</code>
-      </td>
-      <td>Form labels and field-level UI.</td>
-    </tr>
-    <tr>
-      <td>Code</td>
-      <td>
-        <code>code.sm</code>
-      </td>
-      <td>Technical values, ids, and snippets.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'role', header: 'Role', width: '18%' },
+    { key: 'token', header: 'Token', width: '18%', isCode: true },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { role: 'Display', token: 'display.lg', use: 'Rare product moments and overview pages.' },
+    { role: 'Page title', token: 'heading.xl', use: 'Main page heading.' },
+    { role: 'Section title', token: 'heading.md', use: 'Major regions within a workflow.' },
+    { role: 'Body', token: 'body.md', use: 'Default reading text.' },
+    { role: 'Compact', token: 'body.sm', use: 'Tables, dense forms, and metadata.' },
+    { role: 'Label', token: 'label.sm', use: 'Form labels and field-level UI.' },
+    { role: 'Code', token: 'code.sm', use: 'Technical values, ids, and snippets.' },
+  ]}
+/>
 
-## Writing With Type
-
+<Callout title="Writing With Type" tone="tip">
 - Use one page title per page.
 - Keep button labels short and verb-led.
 - Use compact text only when density helps the task.
 - Do not rely on size alone for hierarchy; pair type with structure and spacing.
+</Callout>
 
 ## Line Length
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Recommended width</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Long-form guidance</td>
-      <td>60 to 80 characters per line.</td>
-    </tr>
-    <tr>
-      <td>Forms</td>
-      <td>Align labels and inputs to the surrounding grid.</td>
-    </tr>
-    <tr>
-      <td>Tables</td>
-      <td>Prefer compact text with clear headers.</td>
-    </tr>
-    <tr>
-      <td>Alerts</td>
-      <td>Keep to one main message and one next step.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'content', header: 'Content', width: '26%' },
+    { key: 'width', header: 'Recommended width' },
+  ]}
+  rows={[
+    { content: 'Long-form guidance', width: '60 to 80 characters per line.' },
+    { content: 'Forms', width: 'Align labels and inputs to the surrounding grid.' },
+    { content: 'Tables', width: 'Prefer compact text with clear headers.' },
+    { content: 'Alerts', width: 'Keep to one main message and one next step.' },
+  ]}
+/>

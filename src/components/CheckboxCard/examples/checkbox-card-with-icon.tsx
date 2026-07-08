@@ -1,16 +1,10 @@
-import {
-  CheckboxCard,
-  CheckboxGroup,
-  Float,
-  Icon,
-  SimpleGrid,
-} from "@chakra-ui/react"
-import { HiGlobeAlt, HiLockClosed, HiShieldCheck, HiUser } from "react-icons/hi"
+import { CheckboxCard, CheckboxGroup, Float, Icon, SimpleGrid } from '@chakra-ui/react'
+import { HiGlobeAlt, HiLockClosed, HiShieldCheck, HiUser } from 'react-icons/hi'
 
 export const CheckboxCardWithIcon = () => {
   return (
-    <CheckboxGroup defaultValue={["Guest"]}>
-      <SimpleGrid minChildWidth="200px" gap="2">
+    <CheckboxGroup defaultValue={['Guest']}>
+      <SimpleGrid gap="2" minChildWidth="200px">
         {items.map((item) => (
           <CheckboxCard.Root align="center" key={item.label}>
             <CheckboxCard.HiddenInput />
@@ -20,11 +14,9 @@ export const CheckboxCardWithIcon = () => {
                   {item.icon}
                 </Icon>
                 <CheckboxCard.Label>{item.label}</CheckboxCard.Label>
-                <CheckboxCard.Description>
-                  {item.description}
-                </CheckboxCard.Description>
+                <CheckboxCard.Description>{item.description}</CheckboxCard.Description>
               </CheckboxCard.Content>
-              <Float placement="top-end" offset="6">
+              <Float offset="6" placement="top-end">
                 <CheckboxCard.Indicator />
               </Float>
             </CheckboxCard.Control>
@@ -36,12 +28,12 @@ export const CheckboxCardWithIcon = () => {
 }
 
 const items = [
-  { icon: <HiShieldCheck />, label: "Admin", description: "Give full access" },
-  { icon: <HiUser />, label: "User", description: "Give limited access" },
+  { description: 'Give full access', icon: <HiShieldCheck />, label: 'Admin' },
+  { description: 'Give limited access', icon: <HiUser />, label: 'User' },
   {
+    description: 'Give read-only access',
     icon: <HiGlobeAlt />,
-    label: "Guest",
-    description: "Give read-only access",
+    label: 'Guest',
   },
-  { icon: <HiLockClosed />, label: "Blocked", description: "No access" },
+  { description: 'No access', icon: <HiLockClosed />, label: 'Blocked' },
 ]

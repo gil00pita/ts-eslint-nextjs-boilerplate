@@ -1,10 +1,10 @@
-import { Avatar, Badge, For, Span, Stack, Timeline } from "@chakra-ui/react"
-import { LuCheck } from "react-icons/lu"
+import { Avatar, Badge, For, Span, Stack, Timeline } from '@chakra-ui/react'
+import { LuCheck } from 'react-icons/lu'
 
 export const TimelineWithSizes = () => {
   return (
     <Stack gap="8">
-      <For each={["sm", "md", "lg", "xl"]}>
+      <For each={['sm', 'md', 'lg', 'xl']}>
         {(size) => (
           <Timeline.Root key={size} size={size}>
             <Timeline.Item>
@@ -33,11 +33,9 @@ export const TimelineWithSizes = () => {
                 </Timeline.Indicator>
               </Timeline.Connector>
               <Timeline.Content textStyle="xs">
-                <Timeline.Title mt={size === "sm" ? "-2px" : undefined}>
+                <Timeline.Title mt={size === 'sm' ? '-2px' : undefined}>
                   <Span fontWeight="medium">sage</Span>
-                  changed status from <Badge size="sm">
-                    In progress
-                  </Badge> to{" "}
+                  changed status from <Badge size="sm">In progress</Badge> to{' '}
                   <Badge colorPalette="teal" size="sm">
                     Completed
                   </Badge>

@@ -1,5 +1,5 @@
-import { Checkbox } from "@chakra-ui/react"
-import { HiOutlinePlus } from "react-icons/hi"
+import { Checkbox } from '@chakra-ui/react'
+import { HiOutlinePlus } from 'react-icons/hi'
 
 export const CheckboxWithCustomIcon = () => {
   return (

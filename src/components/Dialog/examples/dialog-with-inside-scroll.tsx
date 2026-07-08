@@ -1,5 +1,5 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
-import Lorem from "react-lorem-ipsum"
+import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react'
+import Lorem from 'react-lorem-ipsum'
 
 export const DialogWithInsideScroll = () => {
   return (

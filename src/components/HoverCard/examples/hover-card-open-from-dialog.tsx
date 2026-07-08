@@ -1,15 +1,6 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  CloseButton,
-  Dialog,
-  HoverCard,
-  Link,
-  Portal,
-  Stack,
-  Text,
-} from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, HoverCard, Link, Portal, Stack, Text } from '@chakra-ui/react'
 
 export const HoverCardOpenFromDialog = () => {
   return (
@@ -48,10 +39,10 @@ const DialogHoverCard = () => {
         <HoverCard.Content>
           <HoverCard.Arrow />
           <Stack gap="1">
-            <Text textStyle="sm" fontWeight="semibold">
+            <Text fontWeight="semibold" textStyle="sm">
               Chakra UI
             </Text>
-            <Text textStyle="sm" color="fg.muted">
+            <Text color="fg.muted" textStyle="sm">
               The most powerful toolkit for building modern web applications.
             </Text>
           </Stack>

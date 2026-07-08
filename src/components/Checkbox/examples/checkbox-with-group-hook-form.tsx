@@ -1,44 +1,38 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Checkbox,
-  CheckboxGroup,
-  Code,
-  Fieldset,
-} from "@chakra-ui/react"
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
-import { useController, useForm } from "react-hook-form"
-import { z } from "zod"
+import { Button, Checkbox, CheckboxGroup, Code, Fieldset } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { useController, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const formSchema = z.object({
   framework: z.array(z.string()).min(1, {
-    message: "You must select at least one framework.",
+    message: 'You must select at least one framework.',
   }),
 })
 
 type FormData = z.infer<typeof formSchema>
 
 const items = [
-  { label: "React", value: "react" },
-  { label: "Svelte", value: "svelte" },
-  { label: "Vue", value: "vue" },
-  { label: "Angular", value: "angular" },
+  { label: 'React', value: 'react' },
+  { label: 'Svelte', value: 'svelte' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
 ]
 
 export const CheckboxWithGroupHookForm = () => {
   const {
-    handleSubmit,
     control,
     formState: { errors },
+    handleSubmit,
   } = useForm<FormData>({
     resolver: standardSchemaResolver(formSchema),
   })
 
   const framework = useController({
     control,
-    name: "framework",
     defaultValue: [],
+    name: 'framework',
   })
 
   const invalid = !!errors.framework
@@ -49,9 +43,9 @@ export const CheckboxWithGroupHookForm = () => {
         <Fieldset.Legend>Select your framework</Fieldset.Legend>
         <CheckboxGroup
           invalid={invalid}
-          value={framework.field.value}
-          onValueChange={framework.field.onChange}
           name={framework.field.name}
+          onValueChange={framework.field.onChange}
+          value={framework.field.value}
         >
           <Fieldset.Content>
             {items.map((item) => (
@@ -64,11 +58,9 @@ export const CheckboxWithGroupHookForm = () => {
           </Fieldset.Content>
         </CheckboxGroup>
 
-        {errors.framework && (
-          <Fieldset.ErrorText>{errors.framework.message}</Fieldset.ErrorText>
-        )}
+        {errors.framework && <Fieldset.ErrorText>{errors.framework.message}</Fieldset.ErrorText>}
 
-        <Button size="sm" type="submit" alignSelf="flex-start">
+        <Button alignSelf="flex-start" size="sm" type="submit">
           Submit
         </Button>
 

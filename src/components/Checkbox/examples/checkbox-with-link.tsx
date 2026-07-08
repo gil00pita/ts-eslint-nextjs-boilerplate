@@ -1,4 +1,4 @@
-import { Checkbox, Link } from "@chakra-ui/react"
+import { Checkbox, Link } from '@chakra-ui/react'
 
 export const CheckboxWithLink = () => {
   return (
@@ -6,7 +6,7 @@ export const CheckboxWithLink = () => {
       <Checkbox.HiddenInput />
       <Checkbox.Control />
       <Checkbox.Label>
-        I agree to the{" "}
+        I agree to the{' '}
         <Link colorPalette="teal" href="https://google.com">
           terms and conditions
         </Link>

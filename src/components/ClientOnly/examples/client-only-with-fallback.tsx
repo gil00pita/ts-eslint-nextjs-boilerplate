@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { ClientOnly, Skeleton, Stack, Text } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { ClientOnly, Skeleton, Stack, Text } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 
 function Clock() {
   const [time, setTime] = useState(() => new Date().toLocaleTimeString())

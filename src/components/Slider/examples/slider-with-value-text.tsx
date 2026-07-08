@@ -1,8 +1,8 @@
-import { HStack, Slider } from "@chakra-ui/react"
+import { HStack, Slider } from '@chakra-ui/react'
 
 export const SliderWithValueText = () => {
   return (
-    <Slider.Root maxW="sm" size="sm" defaultValue={[40]}>
+    <Slider.Root defaultValue={[40]} maxW="sm" size="sm">
       <HStack justify="space-between">
         <Slider.Label>Volume</Slider.Label>
         <Slider.ValueText />

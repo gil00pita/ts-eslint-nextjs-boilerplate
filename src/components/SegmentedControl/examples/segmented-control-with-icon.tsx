@@ -1,5 +1,5 @@
-import { HStack, SegmentGroup } from "@chakra-ui/react"
-import { LuGrid2X2, LuList, LuTable } from "react-icons/lu"
+import { HStack, SegmentGroup } from '@chakra-ui/react'
+import { LuGrid2X2, LuList, LuTable } from 'react-icons/lu'
 
 export const SegmentedControlWithIcon = () => {
   return (
@@ -8,31 +8,31 @@ export const SegmentedControlWithIcon = () => {
       <SegmentGroup.Items
         items={[
           {
-            value: "table",
             label: (
               <HStack>
                 <LuTable />
                 Table
               </HStack>
             ),
+            value: 'table',
           },
           {
-            value: "board",
             label: (
               <HStack>
                 <LuGrid2X2 />
                 Board
               </HStack>
             ),
+            value: 'board',
           },
           {
-            value: "list",
             label: (
               <HStack>
                 <LuList />
                 List
               </HStack>
             ),
+            value: 'list',
           },
         ]}
       />

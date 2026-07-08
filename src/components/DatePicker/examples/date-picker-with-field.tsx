@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Field, Portal, Stack } from "@chakra-ui/react"
-import { useState } from "react"
-import { LuCalendar } from "react-icons/lu"
+import { Button, DatePicker, Field, Portal, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithField = () => {
   const [invalid, setInvalid] = useState(false)
   const toggleInvalid = () => setInvalid((prev) => !prev)
 
   return (
-    <Stack gap="6" align="flex-start" maxWidth="20rem">
-      <Button onClick={toggleInvalid} variant="outline" size="sm">
+    <Stack align="flex-start" gap="6" maxWidth="20rem">
+      <Button onClick={toggleInvalid} size="sm" variant="outline">
         Toggle Invalid
       </Button>
       <Field.Root invalid={invalid}>
@@ -18,8 +18,8 @@ export const DatePickerWithField = () => {
         <Field.Context>
           {(ctx) => (
             <DatePicker.Root
+              ids={{ input: () => ctx.ids.control, label: () => ctx.ids.label }}
               invalid={ctx.invalid}
-              ids={{ label: () => ctx.ids.label, input: () => ctx.ids.control }}
             >
               <DatePicker.Control>
                 <DatePicker.Input />

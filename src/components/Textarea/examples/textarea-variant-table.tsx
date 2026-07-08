@@ -13,24 +13,24 @@ export const TextareaVariantTable = () => {
           {(v) => (
             <tr key={v}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {v}
                 </Span>
               </td>
               <td>
-                <Textarea variant={v} placeholder="Placeholder" />
+                <Textarea placeholder="Placeholder" variant={v} />
               </td>
             </tr>
           )}
         </For>
         <tr>
           <td>
-            <Span fontSize="sm" color="fg.muted" minW="8ch">
+            <Span color="fg.muted" fontSize="sm" minW="8ch">
               unstyled
             </Span>
           </td>
           <td>
-            <Textarea unstyled minW="320px" placeholder="Placeholder" />
+            <Textarea minW="320px" placeholder="Placeholder" unstyled />
           </td>
         </tr>
       </tbody>

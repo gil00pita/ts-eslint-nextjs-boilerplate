@@ -1,32 +1,24 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  Portal,
-  Stack,
-  type StackProps,
-  Text,
-} from "@chakra-ui/react"
-import { forwardRef, useRef } from "react"
+import { Button, CloseButton, Drawer, Portal, Stack, type StackProps, Text } from '@chakra-ui/react'
+import { forwardRef, useRef } from 'react'
 
 const DrawerContainer = forwardRef<HTMLDivElement, StackProps>(
   function DrawerContainer(props, ref) {
     return (
       <Stack
-        pos="relative"
-        overflow="hidden"
         align="flex-start"
-        p="8"
-        minH="400px"
         layerStyle="fill.subtle"
+        minH="400px"
         outline="2px solid gray"
+        overflow="hidden"
+        p="8"
+        pos="relative"
         ref={ref}
         {...props}
       />
     )
-  },
+  }
 )
 
 export const DrawerWithCustomContainer = () => {
@@ -36,14 +28,14 @@ export const DrawerWithCustomContainer = () => {
       <DrawerContainer ref={portalRef}>
         <Text>Render drawer here</Text>
         <Drawer.Trigger asChild>
-          <Button variant="outline" size="sm" bg="bg">
+          <Button bg="bg" size="sm" variant="outline">
             Open Drawer
           </Button>
         </Drawer.Trigger>
       </DrawerContainer>
       <Portal container={portalRef}>
-        <Drawer.Backdrop pos="absolute" boxSize="full" />
-        <Drawer.Positioner pos="absolute" boxSize="full">
+        <Drawer.Backdrop boxSize="full" pos="absolute" />
+        <Drawer.Positioner boxSize="full" pos="absolute">
           <Drawer.Content>
             <Drawer.Header>
               <Drawer.Title>Drawer Title</Drawer.Title>
@@ -53,8 +45,8 @@ export const DrawerWithCustomContainer = () => {
             </Drawer.Header>
             <Drawer.Body>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
               </p>
             </Drawer.Body>
             <Drawer.Footer>

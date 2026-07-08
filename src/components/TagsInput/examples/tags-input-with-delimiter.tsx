@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { TagsInput } from "@chakra-ui/react"
+import { TagsInput } from '@chakra-ui/react'
 
 const SPLIT_REGEX = /[;,]/
 

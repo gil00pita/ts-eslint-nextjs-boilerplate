@@ -1,14 +1,14 @@
-import { Box, Tabs } from "@chakra-ui/react"
+import { Box, Tabs } from '@chakra-ui/react'
 
 const items = [
   {
-    title: "1",
-    content: "Dolore ex esse laboris elit magna esse sunt",
+    content: 'Dolore ex esse laboris elit magna esse sunt',
+    title: '1',
   },
   {
-    title: "2",
     content:
-      "Pariatur in veniam Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat ex.",
+      'Pariatur in veniam Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat ex.',
+    title: '2',
   },
 ]
 
@@ -22,21 +22,21 @@ export const TabsWithAnimation = () => {
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      <Box pos="relative" minH="200px" width="full">
+      <Box minH="200px" pos="relative" width="full">
         {items.map((item, index) => (
           <Tabs.Content
-            key={index}
-            value={item.title}
-            position="absolute"
-            inset="0"
-            _open={{
-              animationName: "fade-in, scale-in",
-              animationDuration: "300ms",
-            }}
             _closed={{
-              animationName: "fade-out, scale-out",
-              animationDuration: "120ms",
+              animationDuration: '120ms',
+              animationName: 'fade-out, scale-out',
             }}
+            _open={{
+              animationDuration: '300ms',
+              animationName: 'fade-in, scale-in',
+            }}
+            inset="0"
+            key={index}
+            position="absolute"
+            value={item.title}
           >
             {item.content}
           </Tabs.Content>

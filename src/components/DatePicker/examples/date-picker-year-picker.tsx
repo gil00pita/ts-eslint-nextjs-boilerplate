@@ -1,18 +1,19 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal, parseDate } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, parseDate, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerYearPicker = () => {
   return (
     <DatePicker.Root
-      format={format}
-      parse={parse}
       defaultView="year"
-      minView="year"
-      placeholder="yyyy"
+      format={format}
       maxWidth="20rem"
+      minView="year"
+      parse={parse}
+      placeholder="yyyy"
     >
       <DatePicker.Label>Select year</DatePicker.Label>
       <DatePicker.Control>
@@ -40,7 +41,7 @@ export const DatePickerYearPicker = () => {
 const format = (date: DateValue) => date.year.toString()
 
 const parse = (string: string | undefined) => {
-  if (string === "" || !string) return
+  if (string === '' || !string) return
   const year = Number(string)
   if (year < 100) {
     const currentYear = new Date().getFullYear()

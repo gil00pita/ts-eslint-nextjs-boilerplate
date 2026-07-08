@@ -1,36 +1,30 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Pie, PieChart, Sector, Tooltip } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Pie, PieChart, Sector, Tooltip } from 'recharts'
 
 export const PieChartWithStartAngle = () => {
   const chart = useChart({
     data: [
-      { name: "typescript", value: 400, color: "blue.solid" },
-      { name: "javascript", value: 120, color: "orange.solid" },
-      { name: "python", value: 300, color: "pink.solid" },
-      { name: "rust", value: 278, color: "purple.solid" },
+      { color: 'blue.solid', name: 'typescript', value: 400 },
+      { color: 'orange.solid', name: 'javascript', value: 120 },
+      { color: 'pink.solid', name: 'python', value: 300 },
+      { color: 'purple.solid', name: 'rust', value: 278 },
     ],
   })
 
   return (
-    <Chart.Root boxSize="320px" mx="auto" chart={chart}>
+    <Chart.Root boxSize="320px" chart={chart} mx="auto">
       <PieChart responsive>
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip hideLabel />}
-        />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip hideLabel />} cursor={false} />
         <Pie
-          isAnimationActive={false}
           data={chart.data}
-          dataKey={chart.key("value")}
-          nameKey="name"
-          startAngle={180}
+          dataKey={chart.key('value')}
           endAngle={0}
-          shape={(props) => (
-            <Sector {...props} fill={chart.color(props.payload!.color)} />
-          )}
+          isAnimationActive={false}
+          nameKey="name"
+          shape={(props) => <Sector {...props} fill={chart.color(props.payload!.color)} />}
+          startAngle={180}
         />
       </PieChart>
     </Chart.Root>

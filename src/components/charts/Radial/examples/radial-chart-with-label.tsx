@@ -1,43 +1,39 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { RadialBar, RadialBarChart, Sector } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { RadialBar, RadialBarChart, Sector } from 'recharts'
 
 export const RadialChartWithLabel = () => {
   const chart = useChart({
     data: [
-      { value: 165, month: "January", color: "teal.solid" },
-      { value: 190, month: "February", color: "purple.solid" },
-      { value: 195, month: "March", color: "blue.solid" },
-      { value: 182, month: "May", color: "teal.solid" },
+      { color: 'teal.solid', month: 'January', value: 165 },
+      { color: 'purple.solid', month: 'February', value: 190 },
+      { color: 'blue.solid', month: 'March', value: 195 },
+      { color: 'teal.solid', month: 'May', value: 182 },
     ],
   })
 
   return (
-    <Chart.Root maxW="sm" chart={chart} mx="auto">
+    <Chart.Root chart={chart} maxW="sm" mx="auto">
       <RadialBarChart
         data={chart.data}
+        endAngle={-270}
         innerRadius={30}
         outerRadius={100}
-        startAngle={90}
-        endAngle={-270}
         responsive
+        startAngle={90}
       >
         <RadialBar
-          isAnimationActive={false}
-          dataKey={chart.key("value")}
           background
+          dataKey={chart.key('value')}
+          isAnimationActive={false}
           label={{
-            position: "insideStart",
-            fill: "white",
-            fontSize: "12px",
+            fill: 'white',
+            fontSize: '12px',
+            position: 'insideStart',
           }}
           shape={(props: any) => (
-            <Sector
-              {...props}
-              fill={chart.color(props.payload!.color)}
-              stroke="none"
-            />
+            <Sector {...props} fill={chart.color(props.payload!.color)} stroke="none" />
           )}
         />
       </RadialBarChart>

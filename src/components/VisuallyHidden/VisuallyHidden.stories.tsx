@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
-import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
+import { Box } from '@chakra-ui/react'
+
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 const meta = {
-  title: 'Utilities / Visually Hidden',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ const meta = {
       </Box>
     ),
   ],
+  title: 'Utilities / Visually Hidden',
 } satisfies Meta
 
 export default meta

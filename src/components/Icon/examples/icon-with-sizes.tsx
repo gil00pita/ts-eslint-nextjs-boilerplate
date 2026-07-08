@@ -1,13 +1,13 @@
-import { For, HStack, Icon, Text, VStack } from "@chakra-ui/react"
-import { LuPackage } from "react-icons/lu"
+import { For, HStack, Icon, Text, VStack } from '@chakra-ui/react'
+import { LuPackage } from 'react-icons/lu'
 
 export const IconWithSizes = () => {
   return (
     <HStack gap="8">
-      <For each={["xs", "sm", "md", "lg", "xl", "2xl"]}>
+      <For each={['xs', 'sm', 'md', 'lg', 'xl', '2xl']}>
         {(size) => (
           <VStack key={size}>
-            <Icon size={size} color="fg.muted">
+            <Icon color="fg.muted" size={size}>
               <LuPackage />
             </Icon>
             <Text textStyle="sm">{size}</Text>

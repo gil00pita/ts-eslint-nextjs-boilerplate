@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import { Input, QrCode, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Input, QrCode, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const QrCodeWithInput = () => {
-  const [value, setValue] = useState("https://www.google.com")
+  const [value, setValue] = useState('https://www.google.com')
   return (
-    <Stack maxW="240px" gap="4">
+    <Stack gap="4" maxW="240px">
       <QrCode.Root value={value}>
         <QrCode.Frame>
           <QrCode.Pattern />
         </QrCode.Frame>
       </QrCode.Root>
-      <Input value={value} onChange={(e) => setValue(e.target.value)} />
+      <Input onChange={(e) => setValue(e.target.value)} value={value} />
     </Stack>
   )
 }

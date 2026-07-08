@@ -1,11 +1,11 @@
-import { RatingGroup } from "@chakra-ui/react"
+import { RatingGroup } from '@chakra-ui/react'
 
 const emojiMap: Record<string, string> = {
-  1: "😡",
-  2: "😠",
-  3: "😐",
-  4: "😊",
-  5: "😍",
+  1: '😡',
+  2: '😠',
+  3: '😐',
+  4: '😊',
+  5: '😍',
 }
 
 export const RatingEmoji = () => {
@@ -14,12 +14,12 @@ export const RatingEmoji = () => {
       <RatingGroup.Control>
         {Array.from({ length: 5 }).map((_, index) => (
           <RatingGroup.Item
-            key={index}
+            _hover={{ scale: '1.1' }}
+            filter={{ _checked: 'revert', base: 'grayscale(1)' }}
             index={index + 1}
+            key={index}
             minW="9"
-            filter={{ base: "grayscale(1)", _checked: "revert" }}
             transition="scale 0.1s"
-            _hover={{ scale: "1.1" }}
           >
             {emojiMap[index + 1]}
           </RatingGroup.Item>

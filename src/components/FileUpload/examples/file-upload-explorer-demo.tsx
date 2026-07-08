@@ -1,42 +1,35 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FileUpload,
-  Float,
-  HStack,
-  Text,
-  VStack,
-} from "@chakra-ui/react"
-import { LuUpload, LuX } from "react-icons/lu"
+import { Button, FileUpload, Float, HStack, Text, VStack } from '@chakra-ui/react'
+import { LuUpload, LuX } from 'react-icons/lu'
 
 const createFile = (name: string, color: string) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
     <rect width="100" height="100" fill="${color}" />
     <text x="50%" y="50%" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">
-      ${name.split(".")[0].slice(0, 6)}
+      ${name.split('.')[0].slice(0, 6)}
     </text>
   </svg>`
-  const blob = new Blob([svg], { type: "image/svg+xml" })
-  return new File([blob], name, { type: "image/svg+xml" })
+  const blob = new Blob([svg], { type: 'image/svg+xml' })
+  return new File([blob], name, { type: 'image/svg+xml' })
 }
 
 export const FileUploadExplorerDemo = () => {
   return (
-    <VStack p="8" maxW="600px" mx="auto" gap="8" align="stretch">
-      <VStack gap="1" align="start">
+    <VStack align="stretch" gap="8" maxW="600px" mx="auto" p="8">
+      <VStack align="start" gap="1">
         <Text fontSize="xl" fontWeight="bold">
           Let’s Add Some Naruto Images
         </Text>
-        <Text fontSize="sm" color="gray.600">
+        <Text color="gray.600" fontSize="sm">
           You can upload up to 3 images by dragging them here or browsing.
         </Text>
       </VStack>
 
       <FileUpload.Root
         accept="image/*"
+        defaultAcceptedFiles={[createFile('uzumaki_naruto.svg', '#f97316')]}
         maxFiles={3}
-        defaultAcceptedFiles={[createFile("uzumaki_naruto.svg", "#f97316")]}
       >
         <FileUpload.Label fontWeight="semibold" mb="2">
           Upload Your Favorite Naruto Characters
@@ -47,67 +40,49 @@ export const FileUploadExplorerDemo = () => {
         <FileUpload.Dropzone w="full">
           <FileUpload.DropzoneContent w="full">
             <VStack
+              borderRadius="md"
+              borderStyle="dashed"
+              borderWidth="2px"
               gap="4"
               p="8"
-              borderWidth="2px"
-              borderStyle="dashed"
-              borderRadius="md"
               transition="all 0.2s"
               w="full"
             >
               <LuUpload size={36} />
-              <Text fontSize="sm" color="gray.600" textAlign="center">
+              <Text color="gray.600" fontSize="sm" textAlign="center">
                 Drag & drop files here
               </Text>
-              <Text fontSize="sm" color="gray.500" textAlign="center">
+              <Text color="gray.500" fontSize="sm" textAlign="center">
                 or click below to browse files
               </Text>
 
               <FileUpload.Trigger asChild>
-                <Button size="sm" colorScheme="blue">
+                <Button colorScheme="blue" size="sm">
                   Browse Files
                 </Button>
               </FileUpload.Trigger>
-              <FileUpload.FileText fontSize="xs" color="gray.500" />
+              <FileUpload.FileText color="gray.500" fontSize="xs" />
             </VStack>
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>
 
         <FileUpload.Context>
           {({ acceptedFiles }) => (
-            <VStack
-              mt="6"
-              gap="3"
-              align="stretch"
-              w="full"
-              hidden={acceptedFiles.length === 0}
-            >
+            <VStack align="stretch" gap="3" hidden={acceptedFiles.length === 0} mt="6" w="full">
               <Text fontSize="md" fontWeight="semibold">
                 Uploaded Files
               </Text>
               <FileUpload.ItemGroup gap="3">
                 {acceptedFiles.map((file, i) => (
-                  <FileUpload.Item key={i} file={file} w="full">
-                    <HStack
-                      gap="3"
-                      p="3"
-                      borderWidth="1px"
-                      borderRadius="md"
-                      w="full"
-                    >
+                  <FileUpload.Item file={file} key={i} w="full">
+                    <HStack borderRadius="md" borderWidth="1px" gap="3" p="3" w="full">
                       <FileUpload.ItemPreview>
-                        <FileUpload.ItemPreviewImage
-                          boxSize="16"
-                          borderRadius="md"
-                        />
+                        <FileUpload.ItemPreviewImage borderRadius="md" boxSize="16" />
                       </FileUpload.ItemPreview>
 
                       <FileUpload.ItemContent flex="1">
                         <FileUpload.ItemName fontWeight="medium" />
-                        <FileUpload.ItemSizeText
-                          fontSize="xs"
-                          color="gray.500"
-                        />
+                        <FileUpload.ItemSizeText color="gray.500" fontSize="xs" />
                       </FileUpload.ItemContent>
 
                       <Float placement="top-end">

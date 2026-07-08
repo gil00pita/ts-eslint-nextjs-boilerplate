@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Button, Stack, Tooltip } from "@chakra-ui/react"
+import { Button, Stack, Tooltip } from '@chakra-ui/react'
 
 export const TooltipExplorerDemo = () => {
   return (
     <Stack align="center" gap="10" py="16">
       <Tooltip.Root open>
         <Tooltip.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Hover me
           </Button>
         </Tooltip.Trigger>

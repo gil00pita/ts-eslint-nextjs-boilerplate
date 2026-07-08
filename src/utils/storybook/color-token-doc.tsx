@@ -1,34 +1,24 @@
-"use client"
+'use client'
 
 import {
   Center,
+  defaultSystem,
   SimpleGrid,
   type SimpleGridProps,
   Stack,
   Text,
   type TokenInterface,
   VStack,
-  defaultSystem,
-} from "@chakra-ui/react"
-import { TokenDoc } from "./token-doc"
+} from '@chakra-ui/react'
+
+import { TokenDoc } from './token-doc'
 
 const { tokens } = defaultSystem
 
-const colors = tokens.categoryMap.get("colors")!
+const colors = tokens.categoryMap.get('colors')!
 const allColors = Array.from(colors.values())
 
-const keys = [
-  "gray",
-  "red",
-  "pink",
-  "purple",
-  "cyan",
-  "blue",
-  "teal",
-  "green",
-  "yellow",
-  "orange",
-]
+const keys = ['gray', 'red', 'pink', 'purple', 'cyan', 'blue', 'teal', 'green', 'yellow', 'orange']
 
 export const ColorTokenDoc = () => {
   return (
@@ -37,9 +27,7 @@ export const ColorTokenDoc = () => {
         <TokenDoc key={key} title={key}>
           <ColorGrid
             tokens={allColors.filter(
-              (token) =>
-                token.name.startsWith(`colors.${key}`) &&
-                !token.extensions.conditions,
+              (token) => token.name.startsWith(`colors.${key}`) && !token.extensions.conditions
             )}
           />
         </TokenDoc>
@@ -52,28 +40,20 @@ export const ColorSemanticTokenDoc = () => {
   return (
     <Stack gap="8" my="8">
       <TokenDoc title="background">
-        <ColorGrid
-          tokens={allColors.filter((token) =>
-            token.name.startsWith("colors.bg"),
-          )}
-        />
+        <ColorGrid tokens={allColors.filter((token) => token.name.startsWith('colors.bg'))} />
       </TokenDoc>
 
       <TokenDoc title="border">
         <ColorGrid
+          tokens={allColors.filter((token) => token.name.startsWith('colors.border'))}
           variant="border"
-          tokens={allColors.filter((token) =>
-            token.name.startsWith("colors.border"),
-          )}
         />
       </TokenDoc>
 
       <TokenDoc title="text">
         <ColorGrid
+          tokens={allColors.filter((token) => token.name.startsWith('colors.fg'))}
           variant="text"
-          tokens={allColors.filter((token) =>
-            token.name.startsWith("colors.fg"),
-          )}
         />
       </TokenDoc>
 
@@ -81,9 +61,7 @@ export const ColorSemanticTokenDoc = () => {
         <TokenDoc key={key} title={key}>
           <ColorGrid
             tokens={allColors.filter(
-              (token) =>
-                token.name.startsWith(`colors.${key}`) &&
-                token.extensions.conditions,
+              (token) => token.name.startsWith(`colors.${key}`) && token.extensions.conditions
             )}
           />
         </TokenDoc>
@@ -93,7 +71,7 @@ export const ColorSemanticTokenDoc = () => {
 }
 
 interface VariantProps {
-  variant?: "border" | "background" | "text"
+  variant?: 'border' | 'background' | 'text'
 }
 
 interface ColorGridItemProps extends VariantProps {
@@ -101,38 +79,37 @@ interface ColorGridItemProps extends VariantProps {
 }
 
 const ColorGridItem = (props: ColorGridItemProps) => {
-  const { token, variant = "background" } = props
+  const { token, variant = 'background' } = props
   const value = token.extensions.cssVar!.ref
   const conditions = token.extensions.conditions
   return (
     <VStack flex="1">
       <Center
-        borderWidth="1px"
         bg={(() => {
-          if (variant === "text" && token.name.includes("inverted"))
-            return "bg.inverted"
-          return variant === "background" ? value : undefined
+          if (variant === 'text' && token.name.includes('inverted')) return 'bg.inverted'
+          return variant === 'background' ? value : undefined
         })()}
-        w="full"
+        borderColor={variant === 'border' ? value : undefined}
+        borderWidth="1px"
+        color={variant === 'text' ? value : undefined}
         h="20"
         rounded="lg"
-        color={variant === "text" ? value : undefined}
-        borderColor={variant === "border" ? value : undefined}
+        w="full"
       >
-        {variant === "text" && <Text fontSize="lg">Ag</Text>}
+        {variant === 'text' && <Text fontSize="lg">Ag</Text>}
       </Center>
-      <Text textStyle="xs">{token.name.replace("colors.", "")}</Text>
+      <Text textStyle="xs">{token.name.replace('colors.', '')}</Text>
       {conditions && (
         <Stack mt="1">
           {Object.entries(conditions).map(([key, value]) => (
-            <Text key={key} fontSize="xs" mt="-1" color="fg.muted">
-              {key.replace("_", "")}: {value.replace("colors.", "")}
+            <Text color="fg.muted" fontSize="xs" key={key} mt="-1">
+              {key.replace('_', '')}: {value.replace('colors.', '')}
             </Text>
           ))}
         </Stack>
       )}
       {!conditions && (
-        <Text fontSize="xs" mt="-1" color="fg.muted">
+        <Text color="fg.muted" fontSize="xs" mt="-1">
           {token.originalValue}
         </Text>
       )}
@@ -145,9 +122,9 @@ interface ColorGridProps extends VariantProps, SimpleGridProps {
 }
 
 export const ColorGrid = (props: ColorGridProps) => {
-  const { tokens, variant = "background", ...rest } = props
+  const { tokens, variant = 'background', ...rest } = props
   return (
-    <SimpleGrid minChildWidth="120px" gap="4" {...rest}>
+    <SimpleGrid gap="4" minChildWidth="120px" {...rest}>
       {tokens.map((token) => (
         <ColorGridItem key={token.name} token={token} variant={variant} />
       ))}

@@ -1,5 +1,6 @@
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
 import { Flex } from '@chakra-ui/react'
+
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const FlexWithOrder = () => {
   return (

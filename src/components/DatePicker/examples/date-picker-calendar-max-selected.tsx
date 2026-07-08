@@ -1,15 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker } from "@chakra-ui/react"
+import { DatePicker } from '@chakra-ui/react'
 
 export const DatePickerCalendarMaxSelected = () => {
   return (
-    <DatePicker.Root
-      selectionMode="multiple"
-      maxSelectedDates={3}
-      inline
-      width="fit-content"
-    >
+    <DatePicker.Root inline maxSelectedDates={3} selectionMode="multiple" width="fit-content">
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">
           <DatePicker.Header />

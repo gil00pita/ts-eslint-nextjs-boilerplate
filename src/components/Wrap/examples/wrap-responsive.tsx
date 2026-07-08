@@ -1,5 +1,6 @@
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
 import { Wrap } from '@chakra-ui/react'
+
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const WrapResponsive = () => (
   <Wrap gap={['12px', '24px']} justify={['center', 'flex-start']}>

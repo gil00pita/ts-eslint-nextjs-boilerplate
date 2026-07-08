@@ -1,15 +1,11 @@
-import { Checkbox, For, Stack } from "@chakra-ui/react"
+import { Checkbox, For, Stack } from '@chakra-ui/react'
 
 export const CheckboxWithIndeterminate = () => {
   return (
     <Stack>
-      <For each={["subtle", "outline"]}>
+      <For each={['subtle', 'outline']}>
         {(variant) => (
-          <Checkbox.Root
-            defaultChecked="indeterminate"
-            variant={variant}
-            key={variant}
-          >
+          <Checkbox.Root defaultChecked="indeterminate" key={variant} variant={variant}>
             <Checkbox.HiddenInput />
             <Checkbox.Control />
             <Checkbox.Label>{variant}</Checkbox.Label>

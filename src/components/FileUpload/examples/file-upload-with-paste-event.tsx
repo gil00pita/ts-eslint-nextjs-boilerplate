@@ -1,13 +1,7 @@
-"use client"
+'use client'
 
-import {
-  FileUpload,
-  Float,
-  Input,
-  type InputProps,
-  useFileUploadContext,
-} from "@chakra-ui/react"
-import { HiX } from "react-icons/hi"
+import { FileUpload, Float, Input, type InputProps, useFileUploadContext } from '@chakra-ui/react'
+import { HiX } from 'react-icons/hi'
 
 const FilePasteInput = (props: InputProps) => {
   const fileUpload = useFileUploadContext()
@@ -26,28 +20,13 @@ const FileImageList = () => {
   return (
     <FileUpload.ItemGroup display="flex" flexWrap="wrap" gap="3">
       {fileUpload.acceptedFiles.map((file) => (
-        <FileUpload.Item
-          p="2"
-          width="auto"
-          key={file.name}
-          file={file}
-          pos="relative"
-        >
+        <FileUpload.Item file={file} key={file.name} p="2" pos="relative" width="auto">
           <Float placement="top-start">
-            <FileUpload.ItemDeleteTrigger
-              p="0.5"
-              rounded="l1"
-              bg="bg"
-              borderWidth="1px"
-            >
+            <FileUpload.ItemDeleteTrigger bg="bg" borderWidth="1px" p="0.5" rounded="l1">
               <HiX />
             </FileUpload.ItemDeleteTrigger>
           </Float>
-          <FileUpload.ItemPreviewImage
-            boxSize="12"
-            rounded="l1"
-            objectFit="cover"
-          />
+          <FileUpload.ItemPreviewImage boxSize="12" objectFit="cover" rounded="l1" />
         </FileUpload.Item>
       ))}
     </FileUpload.ItemGroup>
@@ -56,7 +35,7 @@ const FileImageList = () => {
 
 export const FileUploadWithPasteEvent = () => {
   return (
-    <FileUpload.Root maxFiles={3} accept="image/*">
+    <FileUpload.Root accept="image/*" maxFiles={3}>
       <FileUpload.HiddenInput />
       <FileImageList />
       <FilePasteInput placeholder="Paste image here..." />

@@ -1,57 +1,57 @@
-"use client"
+'use client'
 
-import { Control, RichTextEditor } from "@/ui/rich-text-editor"
-import { all, createLowlight } from "lowlight"
+import { HStack } from '@chakra-ui/react'
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+import { useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import css from 'highlight.js/lib/languages/css'
+import js from 'highlight.js/lib/languages/javascript'
+import ts from 'highlight.js/lib/languages/typescript'
+import html from 'highlight.js/lib/languages/xml'
+import { all, createLowlight } from 'lowlight'
 
-import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight"
-import { HStack } from "@chakra-ui/react"
-import StarterKit from "@tiptap/starter-kit"
-import css from "highlight.js/lib/languages/css"
-import html from "highlight.js/lib/languages/xml"
-import js from "highlight.js/lib/languages/javascript"
-import ts from "highlight.js/lib/languages/typescript"
-import { useEditor } from "@tiptap/react"
+import { Control, RichTextEditor } from '@/ui/rich-text-editor'
 
 const lowlight = createLowlight(all)
-lowlight.register("html", html)
-lowlight.register("css", css)
-lowlight.register("js", js)
-lowlight.register("ts", ts)
+lowlight.register('html', html)
+lowlight.register('css', css)
+lowlight.register('js', js)
+lowlight.register('ts', ts)
 
 export const RichTextEditorWithCode = () => {
-	const editor = useEditor({
-		extensions: [StarterKit, CodeBlockLowlight.configure({ lowlight })],
-		content: `<p>That’s a boring paragraph followed by a fenced code block:</p>
+  const editor = useEditor({
+    content: `<p>That’s a boring paragraph followed by a fenced code block:</p>
 <pre><code class="language-javascript">${code}</code></pre>
 <p>Press Command/Ctrl + Enter to leave the fenced code block and continue typing in boring paragraphs.</p>`,
-		shouldRerenderOnTransaction: true,
-		immediatelyRender: false,
-	})
+    extensions: [StarterKit, CodeBlockLowlight.configure({ lowlight })],
+    immediatelyRender: false,
+    shouldRerenderOnTransaction: true,
+  })
 
-	if (!editor) return null
+  if (!editor) return null
 
-	return (
-		<RichTextEditor.Root editor={editor} border='1px solid' borderColor='border' rounded='md'>
-			<HStack gap='2' p='2' borderBottom='1px solid' borderColor='border'>
-				<RichTextEditor.ControlGroup>
-					<Control.Bold />
-					<Control.Italic />
-					<Control.Code />
-				</RichTextEditor.ControlGroup>
-			</HStack>
-			<RichTextEditor.Content />
-		</RichTextEditor.Root>
-	)
+  return (
+    <RichTextEditor.Root border="1px solid" borderColor="border" editor={editor} rounded="md">
+      <HStack borderBottom="1px solid" borderColor="border" gap="2" p="2">
+        <RichTextEditor.ControlGroup>
+          <Control.Bold />
+          <Control.Italic />
+          <Control.Code />
+        </RichTextEditor.ControlGroup>
+      </HStack>
+      <RichTextEditor.Content />
+    </RichTextEditor.Root>
+  )
 }
 
 // Escape HTML so it can be safely injected
 function escapeHtml(unsafe: string) {
-	return unsafe
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#039;")
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
 }
 
 const code = escapeHtml(`

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Box, Circle, HStack, LocaleProvider, Marquee } from "@chakra-ui/react"
+import { Box, Circle, HStack, LocaleProvider, Marquee } from '@chakra-ui/react'
 
 export const MarqueeRtl = () => (
   <LocaleProvider locale="ar-AE">
@@ -9,9 +9,9 @@ export const MarqueeRtl = () => (
         <Marquee.Content>
           {items.map((item, i) => (
             <Marquee.Item key={i} ps="8">
-              <HStack gap="8" textStyle="xl" fontWeight="medium">
+              <HStack fontWeight="medium" gap="8" textStyle="xl">
                 <Box>{item}</Box>
-                <Circle size="1.5" bg="fg.muted" />
+                <Circle bg="fg.muted" size="1.5" />
               </HStack>
             </Marquee.Item>
           ))}
@@ -22,10 +22,10 @@ export const MarqueeRtl = () => (
 )
 
 const items = [
-  "مرحبا بكم",
-  "تصميم جميل",
-  "سهل الاستخدام",
-  "مكونات قابلة للوصول",
-  "أداء عالي",
-  "تجربة مستخدم رائعة",
+  'مرحبا بكم',
+  'تصميم جميل',
+  'سهل الاستخدام',
+  'مكونات قابلة للوصول',
+  'أداء عالي',
+  'تجربة مستخدم رائعة',
 ]

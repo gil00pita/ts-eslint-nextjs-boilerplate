@@ -1,29 +1,16 @@
-import {
-  HStack,
-  Heading,
-  Progress,
-  Span,
-  Square,
-  Stack,
-} from "@chakra-ui/react"
-import { HiFolder, HiLockClosed, HiPencil } from "react-icons/hi"
+import { Heading, HStack, Progress, Span, Square, Stack } from '@chakra-ui/react'
+import { HiFolder, HiLockClosed, HiPencil } from 'react-icons/hi'
 
 export const ProgressComposition = () => {
   return (
     <Stack gap="8" maxW="300px">
       <Heading size="sm">Features</Heading>
       <FeatureUsage
-        data={{ max: 100, value: 65, label: "Private Users" }}
+        data={{ label: 'Private Users', max: 100, value: 65 }}
         icon={<HiLockClosed />}
       />
-      <FeatureUsage
-        data={{ max: 100, value: 50, label: "Editors" }}
-        icon={<HiPencil />}
-      />
-      <FeatureUsage
-        data={{ max: 5, value: 1, label: "Projects" }}
-        icon={<HiFolder />}
-      />
+      <FeatureUsage data={{ label: 'Editors', max: 100, value: 50 }} icon={<HiPencil />} />
+      <FeatureUsage data={{ label: 'Projects', max: 5, value: 1 }} icon={<HiFolder />} />
     </Stack>
   )
 }
@@ -44,16 +31,10 @@ const FeatureUsage = (props: FeatureUsageProps) => {
   const { data, icon } = props
   return (
     <HStack gap="4">
-      <Square borderRadius="sm" bg="bg.muted" size="10">
+      <Square bg="bg.muted" borderRadius="sm" size="10">
         {icon}
       </Square>
-      <Progress.Root
-        size="sm"
-        min={data.min}
-        max={data.max}
-        value={data.value}
-        flex="1"
-      >
+      <Progress.Root flex="1" max={data.max} min={data.min} size="sm" value={data.value}>
         <HStack justify="space-between">
           <Progress.Label>{data.label}</Progress.Label>
           <Progress.ValueText color="inherit">

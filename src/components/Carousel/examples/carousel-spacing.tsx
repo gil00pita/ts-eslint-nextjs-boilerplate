@@ -7,21 +7,21 @@ const items = Array.from({ length: 5 })
 
 export const CarouselSpacing = () => {
   return (
-    <Carousel.Root spacing="48px" slidesPerPage={1.5} slideCount={items.length} maxW="xl" mx="auto">
-      <HStack textStyle="sm" mb="4">
+    <Carousel.Root maxW="xl" mx="auto" slideCount={items.length} slidesPerPage={1.5} spacing="48px">
+      <HStack mb="4" textStyle="sm">
         {"spacing='48px'"}
       </HStack>
       <Carousel.ItemGroup>
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
+      <Carousel.Control gap="4" justifyContent="center">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronLeft />

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Combobox,
@@ -9,12 +9,12 @@ import {
   Spinner,
   useCombobox,
   useListCollection,
-} from "@chakra-ui/react"
-import { useRef, useState } from "react"
-import { useAsync } from "react-use"
+} from '@chakra-ui/react'
+import { useRef, useState } from 'react'
+import { useAsync } from 'react-use'
 
 export const ComboboxRehydrateValue = () => {
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState('')
 
   const { collection, set } = useListCollection<Character>({
     initialItems: [],
@@ -24,16 +24,14 @@ export const ComboboxRehydrateValue = () => {
 
   const combobox = useCombobox({
     collection,
-    defaultValue: ["C-3PO"],
-    placeholder: "Example: Dexter",
+    defaultValue: ['C-3PO'],
     inputValue,
     onInputValueChange: (e) => setInputValue(e.inputValue),
+    placeholder: 'Example: Dexter',
   })
 
   const state = useAsync(async () => {
-    const response = await fetch(
-      `https://swapi.py4e.com/api/people/?search=${inputValue}`,
-    )
+    const response = await fetch(`https://swapi.py4e.com/api/people/?search=${inputValue}`)
     const data = await response.json()
     set(data.results)
   }, [inputValue, set])
@@ -62,16 +60,13 @@ export const ComboboxRehydrateValue = () => {
                 <Span>Loading...</Span>
               </HStack>
             ) : state.error ? (
-              <Span p="2" color="fg.error">
+              <Span color="fg.error" p="2">
                 {state.error.message}
               </Span>
             ) : (
-              <For
-                each={collection.items}
-                fallback={<Combobox.Empty>No items</Combobox.Empty>}
-              >
+              <For each={collection.items} fallback={<Combobox.Empty>No items</Combobox.Empty>}>
                 {(item) => (
-                  <Combobox.Item key={item.name} item={item}>
+                  <Combobox.Item item={item} key={item.name}>
                     <HStack justify="space-between" textStyle="sm">
                       <Span fontWeight="medium">{item.name}</Span>
                       <Span color="fg.muted">

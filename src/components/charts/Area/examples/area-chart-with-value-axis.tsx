@@ -1,57 +1,48 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Area, AreaChart, Tooltip, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const AreaChartWithValueAxis = () => {
   const chart = useChart({
     data: [
-      { windows: 186, mac: 80, linux: 120, month: "January" },
-      { windows: 165, mac: 95, linux: 110, month: "February" },
-      { windows: 190, mac: 87, linux: 125, month: "March" },
-      { windows: 195, mac: 88, linux: 130, month: "May" },
-      { windows: 182, mac: 98, linux: 122, month: "June" },
-      { windows: 175, mac: 90, linux: 115, month: "August" },
-      { windows: 180, mac: 86, linux: 124, month: "October" },
-      { windows: 185, mac: 91, linux: 126, month: "November" },
+      { linux: 120, mac: 80, month: 'January', windows: 186 },
+      { linux: 110, mac: 95, month: 'February', windows: 165 },
+      { linux: 125, mac: 87, month: 'March', windows: 190 },
+      { linux: 130, mac: 88, month: 'May', windows: 195 },
+      { linux: 122, mac: 98, month: 'June', windows: 182 },
+      { linux: 115, mac: 90, month: 'August', windows: 175 },
+      { linux: 124, mac: 86, month: 'October', windows: 180 },
+      { linux: 126, mac: 91, month: 'November', windows: 185 },
     ],
     series: [
-      { name: "windows", color: "teal.solid" },
-      { name: "mac", color: "purple.solid" },
-      { name: "linux", color: "orange.solid" },
+      { color: 'teal.solid', name: 'windows' },
+      { color: 'purple.solid', name: 'mac' },
+      { color: 'orange.solid', name: 'linux' },
     ],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <AreaChart
-        accessibilityLayer
-        data={chart.data}
-        margin={{ bottom: 24, left: 24 }}
-        responsive
-      >
+    <Chart.Root chart={chart} maxH="sm">
+      <AreaChart accessibilityLayer data={chart.data} margin={{ bottom: 24, left: 24 }} responsive>
         <XAxis
-          dataKey={chart.key("month")}
-          tickMargin={8}
+          dataKey={chart.key('month')}
+          stroke={chart.color('border')}
           tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
+          tickMargin={8}
         />
-        <YAxis stroke={chart.color("border")} />
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip />}
-        />
+        <YAxis stroke={chart.color('border')} />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip />} cursor={false} />
         {chart.series.map((item) => (
           <Area
-            type="natural"
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             fill={chart.color(item.color)}
             fillOpacity={0.2}
-            stroke={chart.color(item.color)}
+            isAnimationActive={false}
+            key={item.name}
             stackId="a"
+            stroke={chart.color(item.color)}
+            type="natural"
           />
         ))}
       </AreaChart>

@@ -6,7 +6,7 @@ export const CheckmarkWithColors = () => {
   return (
     <HStack gap={4}>
       <For each={colorPalettes}>
-        {(colorPalette) => <Checkmark key={colorPalette} colorPalette={colorPalette} checked />}
+        {(colorPalette) => <Checkmark checked colorPalette={colorPalette} key={colorPalette} />}
       </For>
     </HStack>
   )

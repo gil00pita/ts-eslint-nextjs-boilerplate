@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [
-  { name: "Product A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Product B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Product C", uv: -1000, pv: 9800, amt: 2290 },
-  { name: "Product D", uv: 500, pv: 3908, amt: 2000 },
-  { name: "Product E", uv: -2000, pv: 4800, amt: 2181 },
-  { name: "Product F", uv: -250, pv: 3800, amt: 2500 },
-  { name: "Product G", uv: 3490, pv: 4300, amt: 2100 },
+  { amt: 2400, name: 'Product A', pv: 2400, uv: 4000 },
+  { amt: 2210, name: 'Product B', pv: 1398, uv: 3000 },
+  { amt: 2290, name: 'Product C', pv: 9800, uv: -1000 },
+  { amt: 2000, name: 'Product D', pv: 3908, uv: 500 },
+  { amt: 2181, name: 'Product E', pv: 4800, uv: -2000 },
+  { amt: 2500, name: 'Product F', pv: 3800, uv: -250 },
+  { amt: 2100, name: 'Product G', pv: 4300, uv: 3490 },
 ]
 
 const gradientOffset = () => {
@@ -27,52 +27,48 @@ export const AreaChartFillWithValue = () => {
   const chart = useChart({
     data,
     series: [
-      { name: "uv", color: "teal.solid" },
-      { name: "pv", color: "purple.solid" },
+      { color: 'teal.solid', name: 'uv' },
+      { color: 'purple.solid', name: 'pv' },
     ],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
+    <Chart.Root chart={chart} maxH="sm">
       <AreaChart data={chart.data} responsive>
-        <CartesianGrid strokeDasharray="3 3" stroke={chart.color("border")} />
+        <CartesianGrid stroke={chart.color('border')} strokeDasharray="3 3" />
         <XAxis
           axisLine={false}
+          dataKey={chart.key('name')}
+          tickFormatter={(value) => value.replace('Product ', '')}
           tickLine={false}
-          dataKey={chart.key("name")}
-          tickFormatter={(value) => value.replace("Product ", "")}
         />
         <YAxis
           axisLine={false}
-          tickLine={false}
           tickFormatter={chart.formatNumber({
-            style: "currency",
-            currency: "USD",
-            currencyDisplay: "narrowSymbol",
-            notation: "compact",
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol',
+            notation: 'compact',
+            style: 'currency',
           })}
+          tickLine={false}
         />
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip />}
-        />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip />} cursor={false} />
         <defs>
           <Chart.Gradient
             id="uv-gradient"
             stops={[
-              { offset, color: "teal.solid", opacity: 1 },
-              { offset, color: "red.solid", opacity: 1 },
+              { color: 'teal.solid', offset, opacity: 1 },
+              { color: 'red.solid', offset, opacity: 1 },
             ]}
           />
         </defs>
         <Area
-          type="monotone"
-          isAnimationActive={false}
-          dataKey={chart.key("uv")}
+          dataKey={chart.key('uv')}
           fill="url(#uv-gradient)"
           fillOpacity={0.2}
-          stroke={chart.color("gray.solid")}
+          isAnimationActive={false}
+          stroke={chart.color('gray.solid')}
+          type="monotone"
         />
       </AreaChart>
     </Chart.Root>

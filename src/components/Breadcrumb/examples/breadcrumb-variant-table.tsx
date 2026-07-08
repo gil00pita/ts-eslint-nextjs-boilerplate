@@ -2,8 +2,8 @@
 
 import { Breadcrumb, For, Span, Stack, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const BreadcrumbVariantTable = () => {
   const recipe = useSlotRecipe({ key: 'breadcrumb' })
@@ -20,7 +20,7 @@ export const BreadcrumbVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
@@ -28,8 +28,8 @@ export const BreadcrumbVariantTable = () => {
                 {(v) => (
                   <td key={v}>
                     <Stack>
-                      <DemoBreadcrumb variant={v} colorPalette={c} />
-                      <DemoBreadcrumb variant={v} colorPalette={c} separator="/" />
+                      <DemoBreadcrumb colorPalette={c} variant={v} />
+                      <DemoBreadcrumb colorPalette={c} separator="/" variant={v} />
                     </Stack>
                   </td>
                 )}

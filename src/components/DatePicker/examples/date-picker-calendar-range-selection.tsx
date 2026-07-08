@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { DatePicker } from "@chakra-ui/react"
+import { DatePicker } from '@chakra-ui/react'
 
 export const DatePickerCalendarRangeSelection = () => {
   return (
-    <DatePicker.Root selectionMode="range" inline width="fit-content">
+    <DatePicker.Root inline selectionMode="range" width="fit-content">
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">
           <DatePicker.Header />

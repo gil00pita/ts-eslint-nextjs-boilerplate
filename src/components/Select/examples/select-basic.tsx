@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
 
 export const SelectBasic = () => {
   return (
@@ -33,9 +33,9 @@ export const SelectBasic = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

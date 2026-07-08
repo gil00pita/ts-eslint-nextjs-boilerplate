@@ -1,11 +1,11 @@
-import { For, HStack, RadioGroup } from "@chakra-ui/react"
+import { For, HStack, RadioGroup } from '@chakra-ui/react'
 
 export const RadioWithSizes = () => {
   return (
     <HStack gap="4">
-      <For each={["sm", "md", "lg"]}>
+      <For each={['sm', 'md', 'lg']}>
         {(size) => (
-          <RadioGroup.Root size={size} key={size}>
+          <RadioGroup.Root key={size} size={size}>
             <RadioGroup.Item value="react">
               <RadioGroup.ItemHiddenInput />
               <RadioGroup.ItemIndicator />

@@ -1,17 +1,12 @@
-"use client"
+'use client'
 
-import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
+import { ButtonGroup, IconButton, Pagination } from '@chakra-ui/react'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 export const PaginationWithSiblingCount = () => {
   return (
-    <Pagination.Root
-      count={200}
-      pageSize={10}
-      defaultPage={10}
-      siblingCount={2}
-    >
-      <ButtonGroup variant="ghost" size="sm">
+    <Pagination.Root count={200} defaultPage={10} pageSize={10} siblingCount={2}>
+      <ButtonGroup size="sm" variant="ghost">
         <Pagination.PrevTrigger asChild>
           <IconButton>
             <LuChevronLeft />
@@ -20,9 +15,7 @@ export const PaginationWithSiblingCount = () => {
 
         <Pagination.Items
           render={(page) => (
-            <IconButton variant={{ base: "ghost", _selected: "outline" }}>
-              {page.value}
-            </IconButton>
+            <IconButton variant={{ _selected: 'outline', base: 'ghost' }}>{page.value}</IconButton>
           )}
         />
 

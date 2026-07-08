@@ -1,10 +1,10 @@
-import { Center, Wrap, WrapItem } from "@chakra-ui/react"
+import { Center, Wrap, WrapItem } from '@chakra-ui/react'
 
 export const WrapWithAlign = () => (
-  <Wrap gap="30px" align="center">
+  <Wrap align="center" gap="30px">
     {Array.from({ length: 5 }).map((_, index) => (
       <WrapItem key={index}>
-        <Center w="180px" h="80px" bg="red.muted">
+        <Center bg="red.muted" h="80px" w="180px">
           Box {index + 1}
         </Center>
       </WrapItem>

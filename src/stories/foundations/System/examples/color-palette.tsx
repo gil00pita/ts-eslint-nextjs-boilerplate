@@ -1,14 +1,14 @@
-import { Center } from "@chakra-ui/react"
+import { Center } from '@chakra-ui/react'
 
 export const SystemColorPalette = () => {
   return (
     <Center
-      h="40px"
-      color="colorPalette.600"
-      borderWidth="4px"
-      borderStyle="solid"
       borderColor="colorPalette.600/30"
+      borderStyle="solid"
+      borderWidth="4px"
+      color="colorPalette.600"
       colorPalette="green"
+      h="40px"
     >
       3
     </Center>

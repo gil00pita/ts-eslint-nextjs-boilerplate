@@ -1,10 +1,10 @@
-import { Button, Menu, Portal } from "@chakra-ui/react"
+import { Button, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithPlacement = () => {
   return (
-    <Menu.Root positioning={{ placement: "right-start" }}>
+    <Menu.Root positioning={{ placement: 'right-start' }}>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Menu.Trigger>

@@ -1,56 +1,40 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  Legend,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Area, AreaChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const AreaChartWithGradient = () => {
   const chart = useChart({
     data: [
-      { windows: 186, mac: 80, linux: 120, month: "January" },
-      { windows: 165, mac: 95, linux: 110, month: "February" },
-      { windows: 190, mac: 87, linux: 125, month: "March" },
-      { windows: 195, mac: 88, linux: 130, month: "May" },
-      { windows: 182, mac: 98, linux: 122, month: "June" },
-      { windows: 175, mac: 90, linux: 115, month: "August" },
-      { windows: 180, mac: 86, linux: 124, month: "October" },
-      { windows: 185, mac: 91, linux: 126, month: "November" },
+      { linux: 120, mac: 80, month: 'January', windows: 186 },
+      { linux: 110, mac: 95, month: 'February', windows: 165 },
+      { linux: 125, mac: 87, month: 'March', windows: 190 },
+      { linux: 130, mac: 88, month: 'May', windows: 195 },
+      { linux: 122, mac: 98, month: 'June', windows: 182 },
+      { linux: 115, mac: 90, month: 'August', windows: 175 },
+      { linux: 124, mac: 86, month: 'October', windows: 180 },
+      { linux: 126, mac: 91, month: 'November', windows: 185 },
     ],
     series: [
-      { name: "windows", color: "teal.solid" },
-      { name: "mac", color: "purple.solid" },
-      { name: "linux", color: "blue.solid" },
+      { color: 'teal.solid', name: 'windows' },
+      { color: 'purple.solid', name: 'mac' },
+      { color: 'blue.solid', name: 'linux' },
     ],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
+    <Chart.Root chart={chart} maxH="sm">
       <AreaChart data={chart.data} responsive>
-        <CartesianGrid
-          stroke={chart.color("border")}
-          vertical={false}
-          strokeDasharray="3 3"
-        />
+        <CartesianGrid stroke={chart.color('border')} strokeDasharray="3 3" vertical={false} />
         <XAxis
-          dataKey={chart.key("month")}
-          tickLine={false}
           axisLine={false}
-          tickMargin={8}
+          dataKey={chart.key('month')}
           tickFormatter={(value) => value.slice(0, 3)}
+          tickLine={false}
+          tickMargin={8}
         />
-        <YAxis tickLine={false} axisLine={false} />
-        <Tooltip
-          cursor={false}
-          animationDuration={100}
-          content={<Chart.Tooltip />}
-        />
+        <YAxis axisLine={false} tickLine={false} />
+        <Tooltip animationDuration={100} content={<Chart.Tooltip />} cursor={false} />
         <Legend content={<Chart.Legend />} />
 
         {chart.series.map((item) => (
@@ -58,8 +42,8 @@ export const AreaChartWithGradient = () => {
             <Chart.Gradient
               id={`${item.name}-gradient`}
               stops={[
-                { offset: "0%", color: item.color, opacity: 0.3 },
-                { offset: "100%", color: item.color, opacity: 0.05 },
+                { color: item.color, offset: '0%', opacity: 0.3 },
+                { color: item.color, offset: '100%', opacity: 0.05 },
               ]}
             />
           </defs>
@@ -67,14 +51,14 @@ export const AreaChartWithGradient = () => {
 
         {chart.series.map((item) => (
           <Area
-            key={item.name}
-            type="natural"
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             fill={`url(#${item.name}-gradient)`}
+            isAnimationActive={false}
+            key={item.name}
+            stackId="a"
             stroke={chart.color(item.color)}
             strokeWidth={2}
-            stackId="a"
+            type="natural"
           />
         ))}
       </AreaChart>

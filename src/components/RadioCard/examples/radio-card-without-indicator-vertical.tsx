@@ -1,21 +1,16 @@
-import { HStack, Icon, RadioCard } from "@chakra-ui/react"
-import { RiAppleFill, RiBankCardFill, RiPaypalFill } from "react-icons/ri"
+import { HStack, Icon, RadioCard } from '@chakra-ui/react'
+import { RiAppleFill, RiBankCardFill, RiPaypalFill } from 'react-icons/ri'
 
 export const RadioCardWithoutIndicatorVertical = () => {
   return (
-    <RadioCard.Root
-      orientation="vertical"
-      align="center"
-      maxW="400px"
-      defaultValue="paypal"
-    >
+    <RadioCard.Root align="center" defaultValue="paypal" maxW="400px" orientation="vertical">
       <RadioCard.Label>Payment method</RadioCard.Label>
       <HStack>
         {items.map((item) => (
           <RadioCard.Item key={item.value} value={item.value}>
             <RadioCard.ItemHiddenInput />
             <RadioCard.ItemControl>
-              <Icon fontSize="2xl" color="fg.muted">
+              <Icon color="fg.muted" fontSize="2xl">
                 {item.icon}
               </Icon>
               <RadioCard.ItemText>{item.title}</RadioCard.ItemText>
@@ -28,7 +23,7 @@ export const RadioCardWithoutIndicatorVertical = () => {
 }
 
 const items = [
-  { value: "paypal", title: "Paypal", icon: <RiPaypalFill /> },
-  { value: "apple-pay", title: "Apple Pay", icon: <RiAppleFill /> },
-  { value: "card", title: "Card", icon: <RiBankCardFill /> },
+  { icon: <RiPaypalFill />, title: 'Paypal', value: 'paypal' },
+  { icon: <RiAppleFill />, title: 'Apple Pay', value: 'apple-pay' },
+  { icon: <RiBankCardFill />, title: 'Card', value: 'card' },
 ]

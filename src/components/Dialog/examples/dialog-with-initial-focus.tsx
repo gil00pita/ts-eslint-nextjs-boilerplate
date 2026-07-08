@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Field, Input, Portal, Stack } from "@chakra-ui/react"
-import { useRef } from "react"
+import { Button, Dialog, Field, Input, Portal, Stack } from '@chakra-ui/react'
+import { useRef } from 'react'
 
 export const DialogWithInitialFocus = () => {
   const ref = useRef<HTMLInputElement | null>(null)
@@ -25,7 +25,7 @@ export const DialogWithInitialFocus = () => {
                 </Field.Root>
                 <Field.Root>
                   <Field.Label>Last Name</Field.Label>
-                  <Input ref={ref} placeholder="Focus First" />
+                  <Input placeholder="Focus First" ref={ref} />
                 </Field.Root>
               </Stack>
             </Dialog.Body>

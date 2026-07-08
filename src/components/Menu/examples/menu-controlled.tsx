@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { Button, Code, Menu, Portal, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, Code, Menu, Portal, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const MenuControlled = () => {
   const [open, setOpen] = useState(false)
   return (
-    <Stack gap="4" align="flex-start">
+    <Stack align="flex-start" gap="4">
       <Code>open: {String(open)}</Code>
-      <Menu.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+      <Menu.Root onOpenChange={(e) => setOpen(e.open)} open={open}>
         <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open
           </Button>
         </Menu.Trigger>

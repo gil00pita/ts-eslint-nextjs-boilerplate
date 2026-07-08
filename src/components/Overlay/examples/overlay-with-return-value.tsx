@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, Dialog, Portal } from "@chakra-ui/react"
-import { createOverlay } from "@chakra-ui/react"
+import { Button, Dialog, Portal } from '@chakra-ui/react'
+import { createOverlay } from '@chakra-ui/react'
 
 interface DialogProps {
   title: string
@@ -10,7 +10,7 @@ interface DialogProps {
 }
 
 const dialog = createOverlay<DialogProps>((props) => {
-  const { title, description, content, ...rest } = props
+  const { content, description, title, ...rest } = props
   return (
     <Dialog.Root {...rest}>
       <Portal>
@@ -23,9 +23,7 @@ const dialog = createOverlay<DialogProps>((props) => {
               </Dialog.Header>
             )}
             <Dialog.Body spaceY="4">
-              {description && (
-                <Dialog.Description>{description}</Dialog.Description>
-              )}
+              {description && <Dialog.Description>{description}</Dialog.Description>}
               {content}
             </Dialog.Body>
           </Dialog.Content>
@@ -40,26 +38,26 @@ export const OverlayWithReturnValue = () => {
     <>
       <Button
         onClick={async () => {
-          const returnValue = await dialog.open("a", {
-            title: "Dialog Title",
-            description: "Dialog Description",
+          const returnValue = await dialog.open('a', {
             content: (
               <Button
                 onClick={() => {
-                  const returnValue = { message: "Welcome" }
-                  dialog.close("a", returnValue)
+                  const returnValue = { message: 'Welcome' }
+                  dialog.close('a', returnValue)
                 }}
               >
                 Close
               </Button>
             ),
+            description: 'Dialog Description',
+            title: 'Dialog Title',
           })
 
-          await dialog.waitForExit("a")
+          await dialog.waitForExit('a')
 
-          dialog.open("b", {
+          dialog.open('b', {
+            description: 'Next Dialog Description',
             title: returnValue.message,
-            description: "Next Dialog Description",
           })
         }}
       >

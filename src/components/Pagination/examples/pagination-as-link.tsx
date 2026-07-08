@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   ButtonGroup,
@@ -6,17 +6,15 @@ import {
   type IconButtonProps,
   Pagination,
   usePaginationContext,
-} from "@chakra-ui/react"
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi"
+} from '@chakra-ui/react'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
-const PaginationLink = (
-  props: IconButtonProps & { page?: "prev" | "next" | number },
-) => {
+const PaginationLink = (props: IconButtonProps & { page?: 'prev' | 'next' | number }) => {
   const { page, ...rest } = props
   const pagination = usePaginationContext()
   const pageValue = () => {
-    if (page === "prev") return pagination.previousPage
-    if (page === "next") return pagination.nextPage
+    if (page === 'prev') return pagination.previousPage
+    if (page === 'next') return pagination.nextPage
     return page
   }
   return (
@@ -28,18 +26,15 @@ const PaginationLink = (
 
 export const PaginationAsLink = () => {
   return (
-    <Pagination.Root count={20} pageSize={2} defaultPage={1}>
-      <ButtonGroup variant="ghost" size="sm">
+    <Pagination.Root count={20} defaultPage={1} pageSize={2}>
+      <ButtonGroup size="sm" variant="ghost">
         <PaginationLink page="prev">
           <HiChevronLeft />
         </PaginationLink>
 
         <Pagination.Items
           render={(page) => (
-            <PaginationLink
-              page={page.value}
-              variant={{ base: "ghost", _selected: "outline" }}
-            >
+            <PaginationLink page={page.value} variant={{ _selected: 'outline', base: 'ghost' }}>
               {page.value}
             </PaginationLink>
           )}

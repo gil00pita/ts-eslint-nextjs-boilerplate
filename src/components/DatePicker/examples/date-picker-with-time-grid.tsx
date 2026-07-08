@@ -1,24 +1,9 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Button,
-  Center,
-  DatePicker,
-  Flex,
-  HStack,
-  Stack,
-  Text,
-} from "@chakra-ui/react"
-import {
-  type DateValue,
-  Time,
-  getLocalTimeZone,
-  isToday,
-  isWeekend,
-} from "@internationalized/date"
-import { useState } from "react"
-import { LuGlobe } from "react-icons/lu"
+import { Box, Button, Center, DatePicker, Flex, HStack, Stack, Text } from '@chakra-ui/react'
+import { type DateValue, getLocalTimeZone, isToday, isWeekend, Time } from '@internationalized/date'
+import { useState } from 'react'
+import { LuGlobe } from 'react-icons/lu'
 
 const tz = getLocalTimeZone()
 
@@ -36,43 +21,38 @@ export const DatePickerWithTimeGrid = () => {
   }
 
   const handleTimeClick = (time: Time) => {
-    setSelectedTime(
-      selectedTime && selectedTime.compare(time) === 0 ? null : time,
-    )
+    setSelectedTime(selectedTime && selectedTime.compare(time) === 0 ? null : time)
   }
 
   return (
     <Flex
-      direction={{ base: "column", md: "row" }}
       borderWidth="1px"
-      rounded="xl"
+      direction={{ base: 'column', md: 'row' }}
       overflow="hidden"
+      rounded="xl"
       width="fit-content"
     >
       {/* Calendar */}
-      <Box
-        borderEndWidth={{ md: "1px" }}
-        borderBottomWidth={{ base: "1px", md: "0" }}
-      >
+      <Box borderBottomWidth={{ base: '1px', md: '0' }} borderEndWidth={{ md: '1px' }}>
         <Stack gap="0" px="5" py="5">
           <Text fontWeight="semibold" textStyle="lg">
             Select a Date
           </Text>
-          <Text textStyle="sm" color="fg.muted">
+          <Text color="fg.muted" textStyle="sm">
             Pick a day for your meeting
           </Text>
         </Stack>
 
         <DatePicker.Root
           inline
-          value={selectedDate}
+          isDateUnavailable={(date) => isWeekend(date, 'en-US')}
           onValueChange={handleDateChange}
-          isDateUnavailable={(date) => isWeekend(date, "en-US")}
+          value={selectedDate}
           width="fit-content"
         >
-          <DatePicker.Content unstyled px="3" pb="4">
+          <DatePicker.Content pb="4" px="3" unstyled>
             <DatePicker.View view="day">
-              <HStack justify="space-between" gap="0">
+              <HStack gap="0" justify="space-between">
                 <DatePicker.PrevTrigger />
                 <DatePicker.RangeText fontWeight="medium" textStyle="sm" />
                 <DatePicker.NextTrigger />
@@ -82,35 +62,31 @@ export const DatePickerWithTimeGrid = () => {
           </DatePicker.Content>
         </DatePicker.Root>
 
-        <HStack px="5" pb="4" color="fg.muted" textStyle="xs">
+        <HStack color="fg.muted" pb="4" px="5" textStyle="xs">
           <LuGlobe />
           <span>{tz}</span>
         </HStack>
       </Box>
 
       {/* Time slots */}
-      <Stack minW="240px" flex="1">
+      <Stack flex="1" minW="240px">
         {date && nativeDate ? (
-          <Stack gap="0" flex="1">
-            <Stack gap="0" px="5" pt="5" pb="3">
+          <Stack flex="1" gap="0">
+            <Stack gap="0" pb="3" pt="5" px="5">
               <Text fontWeight="semibold">
-                {isToday(date, tz) ? "Today" : formatWeekday(nativeDate)}
+                {isToday(date, tz) ? 'Today' : formatWeekday(nativeDate)}
               </Text>
-              <Text textStyle="sm" color="fg.muted">
+              <Text color="fg.muted" textStyle="sm">
                 {formatMonthDay(nativeDate)}
               </Text>
             </Stack>
 
-            <TimeGrid
-              slots={slots}
-              selectedTime={selectedTime}
-              onTimeClick={handleTimeClick}
-            />
+            <TimeGrid onTimeClick={handleTimeClick} selectedTime={selectedTime} slots={slots} />
           </Stack>
         ) : (
-          <Center height="full" px="8" py="10" color="fg.muted">
+          <Center color="fg.muted" height="full" px="8" py="10">
             <Stack align="center" gap="1" textAlign="center">
-              <Text textStyle="sm" fontWeight="medium">
+              <Text fontWeight="medium" textStyle="sm">
                 Select a date
               </Text>
               <Text textStyle="xs">Available time slots will appear here</Text>
@@ -131,23 +107,22 @@ interface TimeGridProps {
 }
 
 const TimeGrid = (props: TimeGridProps) => {
-  const { slots, selectedTime, onTimeClick } = props
+  const { onTimeClick, selectedTime, slots } = props
 
   return (
-    <Stack gap="2" px="4" pb="4" flex="1" overflowY="auto" maxH="380px">
+    <Stack flex="1" gap="2" maxH="380px" overflowY="auto" pb="4" px="4">
       {slots.map((time) => {
-        const isSelected =
-          selectedTime != null && selectedTime.compare(time) === 0
+        const isSelected = selectedTime != null && selectedTime.compare(time) === 0
         const label = formatTime(time)
 
         return (
           <Button
-            key={label}
-            variant={isSelected ? "solid" : "outline"}
-            size="sm"
-            rounded="lg"
             fontWeight="semibold"
+            key={label}
             onClick={() => onTimeClick(time)}
+            rounded="lg"
+            size="sm"
+            variant={isSelected ? 'solid' : 'outline'}
           >
             {label}
           </Button>
@@ -178,10 +153,9 @@ const generateTimeSlots = (date: DateValue): Time[] => {
 }
 
 const formatTime = (time: Time) =>
-  `${String(time.hour).padStart(2, "0")}:${String(time.minute).padStart(2, "0")}`
+  `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}`
 
-const formatWeekday = (date: Date) =>
-  date.toLocaleDateString("en-US", { weekday: "long" })
+const formatWeekday = (date: Date) => date.toLocaleDateString('en-US', { weekday: 'long' })
 
 const formatMonthDay = (date: Date) =>
-  date.toLocaleDateString("en-US", { month: "long", day: "numeric" })
+  date.toLocaleDateString('en-US', { day: 'numeric', month: 'long' })

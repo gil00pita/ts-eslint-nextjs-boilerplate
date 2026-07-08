@@ -1,26 +1,20 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Center,
-  Presence,
-  Stack,
-  useDisclosure,
-} from "@chakra-ui/react"
+import { Button, Center, Presence, Stack, useDisclosure } from '@chakra-ui/react'
 
 export const PresenceScaleFade = () => {
-  const { open, onToggle } = useDisclosure()
+  const { onToggle, open } = useDisclosure()
   return (
     <Stack gap="4">
       <Button alignSelf="flex-start" onClick={onToggle}>
         Click Me
       </Button>
       <Presence
-        present={open}
-        animationStyle={{ _open: "scale-fade-in", _closed: "scale-fade-out" }}
         animationDuration="moderate"
+        animationStyle={{ _closed: 'scale-fade-out', _open: 'scale-fade-in' }}
+        present={open}
       >
-        <Center p="10" layerStyle="fill.muted">
+        <Center layerStyle="fill.muted" p="10">
           Scale Fade
         </Center>
       </Presence>

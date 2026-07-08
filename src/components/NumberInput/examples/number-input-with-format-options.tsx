@@ -1,14 +1,14 @@
-import { NumberInput, Stack } from "@chakra-ui/react"
+import { NumberInput, Stack } from '@chakra-ui/react'
 
 export const NumberInputWithFormatOptions = () => {
   return (
     <Stack gap="5" maxW="200px">
       <NumberInput.Root
         defaultValue="5"
-        step={0.01}
         formatOptions={{
-          style: "percent",
+          style: 'percent',
         }}
+        step={0.01}
       >
         <NumberInput.Control />
         <NumberInput.Input />
@@ -17,10 +17,10 @@ export const NumberInputWithFormatOptions = () => {
       <NumberInput.Root
         defaultValue="45"
         formatOptions={{
-          style: "currency",
-          currency: "EUR",
-          currencyDisplay: "code",
-          currencySign: "accounting",
+          currency: 'EUR',
+          currencyDisplay: 'code',
+          currencySign: 'accounting',
+          style: 'currency',
         }}
       >
         <NumberInput.Control />
@@ -30,9 +30,9 @@ export const NumberInputWithFormatOptions = () => {
       <NumberInput.Root
         defaultValue="4"
         formatOptions={{
-          style: "unit",
-          unit: "inch",
-          unitDisplay: "long",
+          style: 'unit',
+          unit: 'inch',
+          unitDisplay: 'long',
         }}
       >
         <NumberInput.Control />

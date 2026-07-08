@@ -1,47 +1,47 @@
-"use client"
+'use client'
 
-import { Control, RichTextEditor } from "@/ui/rich-text-editor"
+import Placeholder from '@tiptap/extension-placeholder'
+import { useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
 
-import Placeholder from "@tiptap/extension-placeholder"
-import StarterKit from "@tiptap/starter-kit"
-import { useEditor } from "@tiptap/react"
+import { Control, RichTextEditor } from '@/ui/rich-text-editor'
 
 export const RichTextEditorWithPlaceholder = () => {
-	const editor = useEditor({
-		extensions: [
-			StarterKit,
-			Placeholder.configure({
-				placeholder: "Start typing your content here...",
-			}),
-		],
-		content: "",
-		shouldRerenderOnTransaction: true,
-		immediatelyRender: false,
-	})
+  const editor = useEditor({
+    content: '',
+    extensions: [
+      StarterKit,
+      Placeholder.configure({
+        placeholder: 'Start typing your content here...',
+      }),
+    ],
+    immediatelyRender: false,
+    shouldRerenderOnTransaction: true,
+  })
 
-	if (!editor) return null
+  if (!editor) return null
 
-	return (
-		<RichTextEditor.Root editor={editor} borderWidth='1px' rounded='l2'>
-			<RichTextEditor.Toolbar>
-				<RichTextEditor.ControlGroup>
-					<Control.Bold />
-					<Control.Italic />
-					<Control.Underline />
-				</RichTextEditor.ControlGroup>
+  return (
+    <RichTextEditor.Root borderWidth="1px" editor={editor} rounded="l2">
+      <RichTextEditor.Toolbar>
+        <RichTextEditor.ControlGroup>
+          <Control.Bold />
+          <Control.Italic />
+          <Control.Underline />
+        </RichTextEditor.ControlGroup>
 
-				<RichTextEditor.ControlGroup>
-					<Control.BulletList />
-					<Control.OrderedList />
-				</RichTextEditor.ControlGroup>
+        <RichTextEditor.ControlGroup>
+          <Control.BulletList />
+          <Control.OrderedList />
+        </RichTextEditor.ControlGroup>
 
-				<RichTextEditor.ControlGroup>
-					<Control.Undo />
-					<Control.Redo />
-				</RichTextEditor.ControlGroup>
-			</RichTextEditor.Toolbar>
+        <RichTextEditor.ControlGroup>
+          <Control.Undo />
+          <Control.Redo />
+        </RichTextEditor.ControlGroup>
+      </RichTextEditor.Toolbar>
 
-			<RichTextEditor.Content />
-		</RichTextEditor.Root>
-	)
+      <RichTextEditor.Content />
+    </RichTextEditor.Root>
+  )
 }

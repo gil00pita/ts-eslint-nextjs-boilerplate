@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { TreeView, createTreeCollection } from "@chakra-ui/react"
-import { LuChevronRight, LuExternalLink, LuFile } from "react-icons/lu"
+import { createTreeCollection, TreeView } from '@chakra-ui/react'
+import { LuChevronRight, LuExternalLink, LuFile } from 'react-icons/lu'
 
 export const TreeViewWithLinks = () => {
   return (
@@ -21,9 +21,7 @@ export const TreeViewWithLinks = () => {
                 <a href={node.href}>
                   <LuFile />
                   <TreeView.ItemText>{node.name}</TreeView.ItemText>
-                  {node.href?.startsWith("http") && (
-                    <LuExternalLink size={12} />
-                  )}
+                  {node.href?.startsWith('http') && <LuExternalLink size={12} />}
                 </a>
               </TreeView.Item>
             )
@@ -42,89 +40,89 @@ interface Node {
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
       {
-        id: "docs",
-        name: "Documentation",
         children: [
           {
-            id: "docs/getting-started",
-            name: "Getting Started",
-            href: "/docs/getting-started",
+            href: '/docs/getting-started',
+            id: 'docs/getting-started',
+            name: 'Getting Started',
           },
           {
-            id: "docs/installation",
-            name: "Installation",
-            href: "/docs/installation",
+            href: '/docs/installation',
+            id: 'docs/installation',
+            name: 'Installation',
           },
           {
-            id: "docs/components",
-            name: "Components",
             children: [
               {
-                id: "docs/components/accordion",
-                name: "Accordion",
-                href: "/docs/components/accordion",
+                href: '/docs/components/accordion',
+                id: 'docs/components/accordion',
+                name: 'Accordion',
               },
               {
-                id: "docs/components/dialog",
-                name: "Dialog",
-                href: "/docs/components/dialog",
+                href: '/docs/components/dialog',
+                id: 'docs/components/dialog',
+                name: 'Dialog',
               },
               {
-                id: "docs/components/menu",
-                name: "Menu",
-                href: "/docs/components/menu",
+                href: '/docs/components/menu',
+                id: 'docs/components/menu',
+                name: 'Menu',
               },
             ],
+            id: 'docs/components',
+            name: 'Components',
           },
         ],
+        id: 'docs',
+        name: 'Documentation',
       },
       {
-        id: "examples",
-        name: "Examples",
         children: [
           {
-            id: "examples/react",
-            name: "React Examples",
-            href: "/examples/react",
+            href: '/examples/react',
+            id: 'examples/react',
+            name: 'React Examples',
           },
-          { id: "examples/vue", name: "Vue Examples", href: "/examples/vue" },
+          { href: '/examples/vue', id: 'examples/vue', name: 'Vue Examples' },
           {
-            id: "examples/solid",
-            name: "Solid Examples",
-            href: "/examples/solid",
+            href: '/examples/solid',
+            id: 'examples/solid',
+            name: 'Solid Examples',
           },
         ],
+        id: 'examples',
+        name: 'Examples',
       },
       {
-        id: "external",
-        name: "External Links",
         children: [
           {
-            id: "external/github",
-            name: "GitHub Repository",
-            href: "https://github.com/chakra-ui/zag",
+            href: 'https://github.com/chakra-ui/zag',
+            id: 'external/github',
+            name: 'GitHub Repository',
           },
           {
-            id: "external/npm",
-            name: "NPM Package",
-            href: "https://www.npmjs.com/package/@zag-js/core",
+            href: 'https://www.npmjs.com/package/@zag-js/core',
+            id: 'external/npm',
+            name: 'NPM Package',
           },
           {
-            id: "external/docs",
-            name: "Official Docs",
-            href: "https://zagjs.com",
+            href: 'https://zagjs.com',
+            id: 'external/docs',
+            name: 'Official Docs',
           },
         ],
+        id: 'external',
+        name: 'External Links',
       },
-      { id: "readme.md", name: "README.md", href: "/readme" },
-      { id: "license", name: "LICENSE", href: "/license" },
+      { href: '/readme', id: 'readme.md', name: 'README.md' },
+      { href: '/license', id: 'license', name: 'LICENSE' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })

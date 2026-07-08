@@ -1,8 +1,8 @@
-import { Progress } from "@chakra-ui/react"
+import { Progress } from '@chakra-ui/react'
 
 export const ProgressWithAnimatedStripes = () => {
   return (
-    <Progress.Root maxW="240px" striped animated>
+    <Progress.Root animated maxW="240px" striped>
       <Progress.Track>
         <Progress.Range />
       </Progress.Track>

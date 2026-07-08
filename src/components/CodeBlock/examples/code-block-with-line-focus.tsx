@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { CodeBlock, createShikiAdapter } from "@chakra-ui/react"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter } from '@chakra-ui/react'
 
 const file = {
   code: `
@@ -13,8 +14,8 @@ function sayHello() {
 
 sayHello()
 `,
-  language: "tsx",
-  title: "index.tsx",
+  language: 'tsx',
+  title: 'index.tsx',
 }
 
 export const CodeBlockWithLineFocus = () => {
@@ -37,11 +38,11 @@ export const CodeBlockWithLineFocus = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

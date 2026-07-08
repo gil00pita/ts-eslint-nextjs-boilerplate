@@ -19,14 +19,14 @@ export const TabsSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <Tabs.Root defaultValue="settings" size={v} variant={c} mt="3" minW="300px">
+                    <Tabs.Root defaultValue="settings" minW="300px" mt="3" size={v} variant={c}>
                       <Tabs.List>
                         <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
                         <Tabs.Trigger value="billing">Billing</Tabs.Trigger>

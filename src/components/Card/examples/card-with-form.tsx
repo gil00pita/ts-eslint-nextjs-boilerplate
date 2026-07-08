@@ -1,12 +1,10 @@
-import { Button, Card, Field, Input, Stack } from "@chakra-ui/react"
+import { Button, Card, Field, Input, Stack } from '@chakra-ui/react'
 
 export const CardWithForm = () => (
   <Card.Root maxW="sm">
     <Card.Header>
       <Card.Title>Sign up</Card.Title>
-      <Card.Description>
-        Fill in the form below to create an account
-      </Card.Description>
+      <Card.Description>Fill in the form below to create an account</Card.Description>
     </Card.Header>
     <Card.Body>
       <Stack gap="4" w="full">

@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { AbsoluteCenter, Span, TagsInput } from "@chakra-ui/react"
+import { AbsoluteCenter, Span, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithClear = () => {
   return (
-    <TagsInput.Root defaultValue={["React", "Chakra", "TypeScript"]}>
+    <TagsInput.Root defaultValue={['React', 'Chakra', 'TypeScript']}>
       <TagsInput.Label>Tags</TagsInput.Label>
       <TagsInput.Control pe="8">
         <TagsInput.Items />
@@ -13,7 +13,7 @@ export const TagsInputWithClear = () => {
           <TagsInput.ClearTrigger />
         </AbsoluteCenter>
       </TagsInput.Control>
-      <Span textStyle="xs" color="fg.muted" ms="auto">
+      <Span color="fg.muted" ms="auto" textStyle="xs">
         Press Enter or Return to add tag
       </Span>
     </TagsInput.Root>

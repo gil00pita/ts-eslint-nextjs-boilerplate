@@ -1,86 +1,50 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Guidelines/Content" />
 
-# Content
-
-Phenix UI content should help people act with confidence. Use plain language, name the object or task clearly, and put the consequence close to the action.
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Content"
+  lead="Phenix UI content should help people act with confidence. Use plain language, name the object or task clearly, and put the consequence close to the action."
+/>
 
 ## Voice
 
-<table>
-  <thead>
-    <tr>
-      <th>Quality</th>
-      <th>Guidance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Direct</td>
-      <td>Say what happened and what to do next.</td>
-    </tr>
-    <tr>
-      <td>Calm</td>
-      <td>Do not exaggerate urgency.</td>
-    </tr>
-    <tr>
-      <td>Specific</td>
-      <td>Name the item, status, or requirement when it helps recovery.</td>
-    </tr>
-    <tr>
-      <td>Respectful</td>
-      <td>Avoid blame and avoid making assumptions about user intent.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'quality', header: 'Quality', width: '20%' },
+    { key: 'guidance', header: 'Guidance' },
+  ]}
+  rows={[
+    { quality: 'Direct', guidance: 'Say what happened and what to do next.' },
+    { quality: 'Calm', guidance: 'Do not exaggerate urgency.' },
+    { quality: 'Specific', guidance: 'Name the item, status, or requirement when it helps recovery.' },
+    { quality: 'Respectful', guidance: 'Avoid blame and avoid making assumptions about user intent.' },
+  ]}
+/>
 
 ## Common Patterns
 
-<table>
-  <thead>
-    <tr>
-      <th>Pattern</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Primary action</td>
-      <td>
-        <code>Save changes</code>
-      </td>
-    </tr>
-    <tr>
-      <td>Destructive action</td>
-      <td>
-        <code>Delete workspace</code>
-      </td>
-    </tr>
-    <tr>
-      <td>Error summary</td>
-      <td>
-        <code>Fix 3 fields before continuing</code>
-      </td>
-    </tr>
-    <tr>
-      <td>Empty state title</td>
-      <td>
-        <code>No pending reviews</code>
-      </td>
-    </tr>
-    <tr>
-      <td>Loading label</td>
-      <td>
-        <code>Loading account history</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'pattern', header: 'Pattern', width: '26%' },
+    { key: 'example', header: 'Example', isCode: true },
+  ]}
+  rows={[
+    { pattern: 'Primary action', example: 'Save changes' },
+    { pattern: 'Destructive action', example: 'Delete workspace' },
+    { pattern: 'Error summary', example: 'Fix 3 fields before continuing' },
+    { pattern: 'Empty state title', example: 'No pending reviews' },
+    { pattern: 'Loading label', example: 'Loading account history' },
+  ]}
+/>
 
-## Rules
-
+<Callout title="Rules" tone="tip">
 - Start button labels with a verb when possible.
 - Avoid "Are you sure?" without explaining the consequence.
 - Write errors in complete, helpful sentences.
 - Keep alert titles short and put detail in the body.
+</Callout>

@@ -1,9 +1,10 @@
 'use client'
 
 import { Box, ScrollArea } from '@chakra-ui/react'
-import { type VirtualItem, useVirtualizer } from '@tanstack/react-virtual'
-import { DecorativeBox } from '@/utils/storybook/decorative-box'
+import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual'
 import React, { useCallback, useMemo, useRef } from 'react'
+
+import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const ScrollAreaVirtualization = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null)
@@ -19,8 +20,8 @@ export const ScrollAreaVirtualization = () => {
 
   const virtualizer = useVirtualizer({
     count: items.length,
-    getScrollElement: () => scrollRef.current,
     estimateSize: () => 80,
+    getScrollElement: () => scrollRef.current,
     overscan: 5,
   })
 
@@ -28,8 +29,8 @@ export const ScrollAreaVirtualization = () => {
     (): React.ComponentProps<'div'> => ({
       style: {
         height: `${virtualizer.getTotalSize()}px`,
-        width: '100%',
         position: 'relative',
+        width: '100%',
       },
     }),
     [virtualizer]
@@ -38,13 +39,13 @@ export const ScrollAreaVirtualization = () => {
   const getItemProps = useCallback(
     (item: VirtualItem): React.ComponentProps<'div'> => ({
       style: {
+        height: `${item.size}px`,
+        left: 0,
+        paddingBottom: 4,
         position: 'absolute',
         top: 0,
-        left: 0,
-        width: '100%',
-        paddingBottom: 4,
-        height: `${item.size}px`,
         transform: `translateY(${item.start}px)`,
+        width: '100%',
       },
     }),
     []

@@ -1,47 +1,47 @@
-"use client"
+'use client'
 
-import { Editable, HStack, IconButton, Text, VStack } from "@chakra-ui/react"
-import { LuCheck, LuPencilLine, LuX } from "react-icons/lu"
+import { Editable, HStack, IconButton, Text, VStack } from '@chakra-ui/react'
+import { LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
 
 export const EditableExplorerDemo = () => {
   return (
-    <VStack p="6" maxW="600px" mx="auto" gap="6" align="stretch">
-      <Editable.Root defaultValue="Click to edit" defaultEdit>
+    <VStack align="stretch" gap="6" maxW="600px" mx="auto" p="6">
+      <Editable.Root defaultEdit defaultValue="Click to edit">
         <VStack align="stretch" gap="3">
           <Editable.Label>
-            <Text fontSize="sm" color="fg.muted">
+            <Text color="fg.muted" fontSize="sm">
               Editable Label
             </Text>
           </Editable.Label>
 
           <Editable.Area>
-            <Editable.Preview p="2" minH="40px" />
-            <Editable.Input p="2" mt="1" />
+            <Editable.Preview minH="40px" p="2" />
+            <Editable.Input mt="1" p="2" />
           </Editable.Area>
 
           <Editable.Textarea
-            placeholder="Editable textarea"
-            minH="80px"
-            data-part="textarea"
-            border={"1px solid"}
+            border={'1px solid'}
             borderColor="fg.muted"
+            data-part="textarea"
+            minH="80px"
             p="2"
+            placeholder="Editable textarea"
           />
 
           <Editable.Control>
-            <HStack justify="flex-end" gap="2">
+            <HStack gap="2" justify="flex-end">
               <Editable.EditTrigger asChild>
-                <IconButton size="sm" aria-label="Edit">
+                <IconButton aria-label="Edit" size="sm">
                   <LuPencilLine />
                 </IconButton>
               </Editable.EditTrigger>
               <Editable.CancelTrigger asChild>
-                <IconButton size="sm" aria-label="Cancel">
+                <IconButton aria-label="Cancel" size="sm">
                   <LuX />
                 </IconButton>
               </Editable.CancelTrigger>
               <Editable.SubmitTrigger asChild>
-                <IconButton size="sm" aria-label="Submit">
+                <IconButton aria-label="Submit" size="sm">
                   <LuCheck />
                 </IconButton>
               </Editable.SubmitTrigger>

@@ -1,5 +1,5 @@
-import { Breadcrumb } from "@chakra-ui/react"
-import { LiaSlashSolid } from "react-icons/lia"
+import { Breadcrumb } from '@chakra-ui/react'
+import { LiaSlashSolid } from 'react-icons/lia'
 
 export const BreadcrumbWithSeparator = () => {
   return (

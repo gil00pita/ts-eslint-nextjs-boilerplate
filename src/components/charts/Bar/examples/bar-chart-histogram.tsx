@@ -1,38 +1,28 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const BarChartHistogram = () => {
   const chart = useChart({ data })
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <BarChart
-        data={chart.data}
-        margin={{ top: 20, right: 20, bottom: 20, left: 40 }}
-        responsive
-      >
-        <CartesianGrid strokeDasharray="3 3" stroke={chart.color("border")} />
+    <Chart.Root chart={chart} maxH="sm">
+      <BarChart data={chart.data} margin={{ bottom: 20, left: 40, right: 20, top: 20 }} responsive>
+        <CartesianGrid stroke={chart.color('border')} strokeDasharray="3 3" />
         <XAxis
           dataKey="from"
+          label={{ offset: -5, position: 'insideBottom', value: 'Value Range' }}
           ticks={ticks}
-          label={{ value: "Value Range", position: "insideBottom", offset: -5 }}
         />
-        <YAxis
-          label={{ value: "Frequency", angle: -90, position: "insideLeft" }}
-        />
+        <YAxis label={{ angle: -90, position: 'insideLeft', value: 'Frequency' }} />
         <Tooltip
-          formatter={(value) => [`${value}`, "Frequency"]}
+          formatter={(value) => [`${value}`, 'Frequency']}
           labelFormatter={(label) => {
             const bin = data.find((item) => item.from === Number(label))
-            return bin ? `Range: ${bin.from}-${bin.to}` : ""
+            return bin ? `Range: ${bin.from}-${bin.to}` : ''
           }}
         />
-        <Bar
-          dataKey="value"
-          fill={chart.color("teal.solid")}
-          name="Frequency"
-        />
+        <Bar dataKey="value" fill={chart.color('teal.solid')} name="Frequency" />
       </BarChart>
     </Chart.Root>
   )

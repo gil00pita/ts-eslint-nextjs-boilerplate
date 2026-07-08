@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Combobox,
@@ -10,7 +10,7 @@ import {
   useComboboxContext,
   useFilter,
   useListCollection,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 function ComboboxValue() {
   const combobox = useComboboxContext()
@@ -18,13 +18,8 @@ function ComboboxValue() {
   return (
     <Stack mt="2">
       {selectedItems.map((item) => (
-        <HStack key={item.value} textStyle="sm" p="1" borderWidth="1px">
-          <Image
-            boxSize="10"
-            p="2"
-            src={item.logo}
-            alt={item.label + " logo"}
-          />
+        <HStack borderWidth="1px" key={item.value} p="1" textStyle="sm">
+          <Image alt={item.label + ' logo'} boxSize="10" p="2" src={item.logo} />
           <span>{item.label}</span>
         </HStack>
       ))}
@@ -33,21 +28,21 @@ function ComboboxValue() {
 }
 
 export const ComboboxWithCustomItem = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: items,
     filter: contains,
+    initialItems: items,
   })
 
   return (
     <Combobox.Root
-      collection={collection}
-      onInputValueChange={(e) => filter(e.inputValue)}
-      width="320px"
-      placeholder="Example: Audi"
-      multiple
       closeOnSelect
+      collection={collection}
+      multiple
+      onInputValueChange={(e) => filter(e.inputValue)}
+      placeholder="Example: Audi"
+      width="320px"
     >
       <Combobox.Label>Search and select car brands</Combobox.Label>
       <Combobox.Control>
@@ -63,7 +58,7 @@ export const ComboboxWithCustomItem = () => {
             <Combobox.Empty>No items found</Combobox.Empty>
             {collection.items.map((item) => (
               <Combobox.Item item={item} key={item.value}>
-                <Image boxSize="5" src={item.logo} alt={item.label + " logo"} />
+                <Image alt={item.label + ' logo'} boxSize="5" src={item.logo} />
                 <Span flex="1">{item.label}</Span>
                 <Combobox.ItemIndicator />
               </Combobox.Item>
@@ -77,148 +72,148 @@ export const ComboboxWithCustomItem = () => {
 
 export const items = [
   {
-    label: "Audi",
-    value: "audi",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/audi-logo.png",
+    label: 'Audi',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/audi-logo.png',
+    value: 'audi',
   },
   {
-    label: "BMW",
-    value: "bmw",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/bmw-logo.png",
+    label: 'BMW',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/bmw-logo.png',
+    value: 'bmw',
   },
   {
-    label: "Citroen",
-    value: "citroen",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/citroen-logo.png",
+    label: 'Citroen',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/citroen-logo.png',
+    value: 'citroen',
   },
   {
-    label: "Dacia",
-    value: "dacia",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/dacia-logo.png",
+    label: 'Dacia',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/dacia-logo.png',
+    value: 'dacia',
   },
   {
-    label: "Fiat",
-    value: "fiat",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/fiat-logo.png",
+    label: 'Fiat',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/fiat-logo.png',
+    value: 'fiat',
   },
   {
-    label: "Ford",
-    value: "ford",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/ford-logo.png",
+    label: 'Ford',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/ford-logo.png',
+    value: 'ford',
   },
   {
-    label: "Ferrari",
-    value: "ferrari",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/ferrari-logo.png",
+    label: 'Ferrari',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/ferrari-logo.png',
+    value: 'ferrari',
   },
   {
-    label: "Honda",
-    value: "honda",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/honda-logo.png",
+    label: 'Honda',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/honda-logo.png',
+    value: 'honda',
   },
   {
-    label: "Hyundai",
-    value: "hyundai",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/hyundai-logo.png",
+    label: 'Hyundai',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/hyundai-logo.png',
+    value: 'hyundai',
   },
   {
-    label: "Jaguar",
-    value: "jaguar",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/jaguar-logo.png",
+    label: 'Jaguar',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/jaguar-logo.png',
+    value: 'jaguar',
   },
   {
-    label: "Jeep",
-    value: "jeep",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/jeep-logo.png",
+    label: 'Jeep',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/jeep-logo.png',
+    value: 'jeep',
   },
   {
-    label: "Kia",
-    value: "kia",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/kia-logo.png",
+    label: 'Kia',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/kia-logo.png',
+    value: 'kia',
   },
   {
-    label: "Land Rover",
-    value: "land rover",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/land-rover-logo.png",
+    label: 'Land Rover',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/land-rover-logo.png',
+    value: 'land rover',
   },
   {
-    label: "Mazda",
-    value: "mazda",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mazda-logo.png",
+    label: 'Mazda',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mazda-logo.png',
+    value: 'mazda',
   },
   {
-    label: "Mercedes",
-    value: "mercedes",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mercedes-logo.png",
+    label: 'Mercedes',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mercedes-logo.png',
+    value: 'mercedes',
   },
   {
-    label: "Mini",
-    value: "mini",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mini-logo.png",
+    label: 'Mini',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mini-logo.png',
+    value: 'mini',
   },
   {
-    label: "Mitsubishi",
-    value: "mitsubishi",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mitsubishi-logo.png",
+    label: 'Mitsubishi',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/mitsubishi-logo.png',
+    value: 'mitsubishi',
   },
   {
-    label: "Nissan",
-    value: "nissan",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/nissan-logo.png",
+    label: 'Nissan',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/nissan-logo.png',
+    value: 'nissan',
   },
   {
-    label: "Opel",
-    value: "opel",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/opel-logo.png",
+    label: 'Opel',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/opel-logo.png',
+    value: 'opel',
   },
   {
-    label: "Peugeot",
-    value: "peugeot",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/peugeot-logo.png",
+    label: 'Peugeot',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/peugeot-logo.png',
+    value: 'peugeot',
   },
   {
-    label: "Porsche",
-    value: "porsche",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/porsche-logo.png",
+    label: 'Porsche',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/porsche-logo.png',
+    value: 'porsche',
   },
   {
-    label: "Renault",
-    value: "renault",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/renault-logo.png",
+    label: 'Renault',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/renault-logo.png',
+    value: 'renault',
   },
   {
-    label: "Saab",
-    value: "saab",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/saab-logo.png",
+    label: 'Saab',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/saab-logo.png',
+    value: 'saab',
   },
   {
-    label: "Skoda",
-    value: "skoda",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/skoda-logo.png",
+    label: 'Skoda',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/skoda-logo.png',
+    value: 'skoda',
   },
   {
-    label: "Subaru",
-    value: "subaru",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/subaru-logo.png",
+    label: 'Subaru',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/subaru-logo.png',
+    value: 'subaru',
   },
   {
-    label: "Suzuki",
-    value: "suzuki",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/suzuki-logo.png",
+    label: 'Suzuki',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/suzuki-logo.png',
+    value: 'suzuki',
   },
   {
-    label: "Toyota",
-    value: "toyota",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/toyota-logo.png",
+    label: 'Toyota',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/toyota-logo.png',
+    value: 'toyota',
   },
   {
-    label: "Volkswagen",
-    value: "volkswagen",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/volkswagen-logo.png",
+    label: 'Volkswagen',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/volkswagen-logo.png',
+    value: 'volkswagen',
   },
   {
-    label: "Volvo",
-    value: "volvo",
-    logo: "https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/volvo-logo.png",
+    label: 'Volvo',
+    logo: 'https://s3.amazonaws.com/cdn.formk.it/example-assets/car-brands/volvo-logo.png',
+    value: 'volvo',
   },
 ]

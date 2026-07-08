@@ -1,10 +1,10 @@
-import { Button, Popover, Portal } from "@chakra-ui/react"
+import { Button, Popover, Portal } from '@chakra-ui/react'
 
 export const PopoverWithSameWidth = () => {
   return (
     <Popover.Root positioning={{ sameWidth: true }}>
       <Popover.Trigger asChild>
-        <Button size="sm" variant="outline" minW="xs">
+        <Button minW="xs" size="sm" variant="outline">
           Click me
         </Button>
       </Popover.Trigger>
@@ -12,9 +12,7 @@ export const PopoverWithSameWidth = () => {
         <Popover.Positioner>
           <Popover.Content width="auto">
             <Popover.Arrow />
-            <Popover.Body>
-              This is a popover with the same width as the trigger button
-            </Popover.Body>
+            <Popover.Body>This is a popover with the same width as the trigger button</Popover.Body>
           </Popover.Content>
         </Popover.Positioner>
       </Portal>

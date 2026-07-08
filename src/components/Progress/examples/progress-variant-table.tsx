@@ -2,8 +2,8 @@
 
 import { For, Progress, Span, Stack, useSlotRecipe } from '@chakra-ui/react'
 
-import { PlaygroundTable } from '@/utils/storybook/playground-table'
 import { colorPalettes } from '@/utils/storybook/color-palettes'
+import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const ProgressVariantTable = () => {
   const recipe = useSlotRecipe({ key: 'progress' })
@@ -20,7 +20,7 @@ export const ProgressVariantTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
@@ -28,9 +28,9 @@ export const ProgressVariantTable = () => {
                 {(v) => (
                   <td key={v}>
                     <Stack minW="200px">
-                      <DemoProgress colorPalette={c} variant={v} value={65} />
-                      <DemoProgress colorPalette={c} variant={v} striped value={65} />
-                      <DemoProgress colorPalette={c} variant={v} striped animated value={65} />
+                      <DemoProgress colorPalette={c} value={65} variant={v} />
+                      <DemoProgress colorPalette={c} striped value={65} variant={v} />
+                      <DemoProgress animated colorPalette={c} striped value={65} variant={v} />
                     </Stack>
                   </td>
                 )}

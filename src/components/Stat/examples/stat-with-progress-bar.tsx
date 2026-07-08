@@ -1,16 +1,11 @@
-import { FormatNumber, Progress, Stat } from "@chakra-ui/react"
+import { FormatNumber, Progress, Stat } from '@chakra-ui/react'
 
 export const StatWithProgressBar = () => {
   return (
     <Stat.Root maxW="240px">
       <Stat.Label>This week</Stat.Label>
       <Stat.ValueText>
-        <FormatNumber
-          value={1340}
-          style="currency"
-          currency="USD"
-          maximumFractionDigits={0}
-        />
+        <FormatNumber currency="USD" maximumFractionDigits={0} style="currency" value={1340} />
       </Stat.ValueText>
       <Stat.HelpText mb="2">+12% from last week</Stat.HelpText>
       <Progress.Root>

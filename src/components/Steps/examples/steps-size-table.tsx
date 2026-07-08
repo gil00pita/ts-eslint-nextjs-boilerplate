@@ -9,6 +9,7 @@ import {
   type StepsRootProps,
   useSlotRecipe,
 } from '@chakra-ui/react'
+
 import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const StepsSizeTable = () => {
@@ -26,14 +27,14 @@ export const StepsSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <DemoSteps size={v} variant={c} minW="600px" defaultStep={1} />
+                    <DemoSteps defaultStep={1} minW="600px" size={v} variant={c} />
                   </td>
                 )}
               </For>
@@ -50,7 +51,7 @@ const DemoSteps = (props: StepsRootProps) => {
     <Steps.Root count={steps.length} {...props}>
       <Steps.List>
         {steps.map((step, index) => (
-          <Steps.Item key={index} index={index} title={step.title}>
+          <Steps.Item index={index} key={index} title={step.title}>
             <Steps.Indicator />
             <Steps.Title>{step.title}</Steps.Title>
             <Steps.Separator />
@@ -59,7 +60,7 @@ const DemoSteps = (props: StepsRootProps) => {
       </Steps.List>
 
       {steps.map((step, index) => (
-        <Steps.Content key={index} index={index}>
+        <Steps.Content index={index} key={index}>
           {step.description}
         </Steps.Content>
       ))}
@@ -79,15 +80,15 @@ const DemoSteps = (props: StepsRootProps) => {
 
 const steps = [
   {
-    title: 'Step 1',
     description: 'Step 1 description',
+    title: 'Step 1',
   },
   {
-    title: 'Step 2',
     description: 'Step 2 description',
+    title: 'Step 2',
   },
   {
-    title: 'Step 3',
     description: 'Step 3 description',
+    title: 'Step 3',
   },
 ]

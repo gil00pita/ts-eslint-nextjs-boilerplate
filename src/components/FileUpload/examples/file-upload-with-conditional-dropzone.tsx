@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, FileUpload, Icon, useFileUploadContext } from "@chakra-ui/react"
-import { LuUpload } from "react-icons/lu"
+import { Box, FileUpload, Icon, useFileUploadContext } from '@chakra-ui/react'
+import { LuUpload } from 'react-icons/lu'
 
 const MAX_FILES = 3
 
@@ -15,14 +15,14 @@ const ConditionalDropzone = () => {
 
   return (
     <FileUpload.Dropzone>
-      <Icon size="md" color="fg.muted">
+      <Icon color="fg.muted" size="md">
         <LuUpload />
       </Icon>
       <FileUpload.DropzoneContent>
         <Box>Drag and drop files here</Box>
         <Box color="fg.muted">
           {MAX_FILES - acceptedFiles.length} more file
-          {MAX_FILES - acceptedFiles.length !== 1 ? "s" : ""} allowed
+          {MAX_FILES - acceptedFiles.length !== 1 ? 's' : ''} allowed
         </Box>
       </FileUpload.DropzoneContent>
     </FileUpload.Dropzone>
@@ -31,7 +31,7 @@ const ConditionalDropzone = () => {
 
 export const FileUploadWithConditionalDropzone = () => {
   return (
-    <FileUpload.Root maxW="xl" alignItems="stretch" maxFiles={MAX_FILES}>
+    <FileUpload.Root alignItems="stretch" maxFiles={MAX_FILES} maxW="xl">
       <FileUpload.HiddenInput />
       <ConditionalDropzone />
       <FileUpload.List clearable />

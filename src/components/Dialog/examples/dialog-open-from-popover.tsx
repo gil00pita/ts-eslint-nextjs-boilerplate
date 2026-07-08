@@ -1,13 +1,6 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  CloseButton,
-  Dialog,
-  Popover,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Popover, Portal, Text } from '@chakra-ui/react'
 
 export const DialogOpenFromPopover = () => {
   return (
@@ -22,8 +15,8 @@ export const DialogOpenFromPopover = () => {
             <Popover.Body>
               <Popover.Title fontWeight="medium">Popover Title</Popover.Title>
               <Text my="4">
-                This popover contains a button that opens a dialog. The dialog
-                should appear above the popover.
+                This popover contains a button that opens a dialog. The dialog should appear above
+                the popover.
               </Text>
               <PopoverDialog />
             </Popover.Body>
@@ -38,7 +31,7 @@ function PopoverDialog() {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button size="sm" variant="solid" colorPalette="blue">
+        <Button colorPalette="blue" size="sm" variant="solid">
           Open Dialog
         </Button>
       </Dialog.Trigger>
@@ -54,8 +47,8 @@ function PopoverDialog() {
             </Dialog.Header>
             <Dialog.Body>
               <Text>
-                This dialog was opened from within a popover. It should appear
-                above the popover thanks to the unified z-index system.
+                This dialog was opened from within a popover. It should appear above the popover
+                thanks to the unified z-index system.
               </Text>
             </Dialog.Body>
             <Dialog.Footer>

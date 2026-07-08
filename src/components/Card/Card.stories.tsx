@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Data Display / Card',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,14 +12,15 @@ export default {
       </Box>
     ),
   ],
+  title: 'Data Display / Card',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Card')
 
 export { CardBasic as Basic } from './examples/card-basic'
-export { CardVariantTable as Variants } from './examples/card-variant-table'
-export { CardSizeTable as Sizes } from './examples/card-size-table'
-export { CardWithAvatar as Avatar } from './examples/card-with-avatar'
-export { CardWithImage as Image } from './examples/card-with-image'
 export { CardHorizontal as Horizontal } from './examples/card-horizontal'
+export { CardSizeTable as Sizes } from './examples/card-size-table'
+export { CardVariantTable as Variants } from './examples/card-variant-table'
+export { CardWithAvatar as Avatar } from './examples/card-with-avatar'
 export { CardWithForm as Form } from './examples/card-with-form'
+export { CardWithImage as Image } from './examples/card-with-image'

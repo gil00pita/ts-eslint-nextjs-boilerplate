@@ -11,19 +11,19 @@ export const GridWithTemplateAreas = () => {
       "four five five three"
     `}
     >
-      <GridItem bg="green.500" area="one">
+      <GridItem area="one" bg="green.500">
         <DecorativeBox minH="20">one</DecorativeBox>
       </GridItem>
-      <GridItem bg="pink.500" area="two">
+      <GridItem area="two" bg="pink.500">
         <DecorativeBox minH="20">two</DecorativeBox>
       </GridItem>
-      <GridItem bg="red.500" area="three">
+      <GridItem area="three" bg="red.500">
         <DecorativeBox minH="20">three</DecorativeBox>
       </GridItem>
-      <GridItem bg="teal.500" area="four">
+      <GridItem area="four" bg="teal.500">
         <DecorativeBox minH="20">four</DecorativeBox>
       </GridItem>
-      <GridItem bg="yellow.500" area="five">
+      <GridItem area="five" bg="yellow.500">
         <DecorativeBox minH="20">five</DecorativeBox>
       </GridItem>
     </Grid>

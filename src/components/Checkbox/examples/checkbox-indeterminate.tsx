@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { Checkbox, Stack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Checkbox, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 const initialValues = [
-  { label: "Monday", checked: false, value: "monday" },
-  { label: "Tuesday", checked: false, value: "tuesday" },
-  { label: "Wednesday", checked: false, value: "wednesday" },
-  { label: "Thursday", checked: false, value: "thursday" },
+  { checked: false, label: 'Monday', value: 'monday' },
+  { checked: false, label: 'Tuesday', value: 'tuesday' },
+  { checked: false, label: 'Wednesday', value: 'wednesday' },
+  { checked: false, label: 'Thursday', value: 'thursday' },
 ]
 
 export const CheckboxIndeterminate = () => {
@@ -18,9 +18,9 @@ export const CheckboxIndeterminate = () => {
 
   const items = values.map((item, index) => (
     <Checkbox.Root
-      ms="6"
-      key={item.value}
       checked={item.checked}
+      key={item.value}
+      ms="6"
       onCheckedChange={(e) => {
         setValues((current) => {
           const newValues = [...current]
@@ -38,11 +38,9 @@ export const CheckboxIndeterminate = () => {
   return (
     <Stack align="flex-start">
       <Checkbox.Root
-        checked={indeterminate ? "indeterminate" : allChecked}
+        checked={indeterminate ? 'indeterminate' : allChecked}
         onCheckedChange={(e) => {
-          setValues((current) =>
-            current.map((value) => ({ ...value, checked: !!e.checked })),
-          )
+          setValues((current) => current.map((value) => ({ ...value, checked: !!e.checked })))
         }}
       >
         <Checkbox.HiddenInput />

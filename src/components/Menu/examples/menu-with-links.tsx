@@ -1,4 +1,4 @@
-import { Button, Menu, Portal } from "@chakra-ui/react"
+import { Button, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithLinks = () => {
   return (
@@ -12,8 +12,8 @@ export const MenuWithLinks = () => {
         <Menu.Positioner>
           <Menu.Content>
             {links.map((link) => (
-              <Menu.Item key={link.href} asChild value={link.title}>
-                <a href={link.href} target="_blank" rel="noreferrer">
+              <Menu.Item asChild key={link.href} value={link.title}>
+                <a href={link.href} rel="noreferrer" target="_blank">
                   {link.title}
                 </a>
               </Menu.Item>
@@ -27,15 +27,15 @@ export const MenuWithLinks = () => {
 
 const links = [
   {
-    title: "Naruto",
-    href: "https://www.crunchyroll.com/naruto",
+    href: 'https://www.crunchyroll.com/naruto',
+    title: 'Naruto',
   },
   {
-    title: "One Piece",
-    href: "https://www.crunchyroll.com/one-piece",
+    href: 'https://www.crunchyroll.com/one-piece',
+    title: 'One Piece',
   },
   {
-    title: "Attack on Titan",
-    href: "https://www.crunchyroll.com/attack-on-titan",
+    href: 'https://www.crunchyroll.com/attack-on-titan',
+    title: 'Attack on Titan',
   },
 ]

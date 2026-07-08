@@ -1,4 +1,4 @@
-import { Alert, Button } from "@chakra-ui/react"
+import { Alert, Button } from '@chakra-ui/react'
 
 export const AlertWithButtons = () => {
   return (
@@ -8,7 +8,7 @@ export const AlertWithButtons = () => {
         <Alert.Title>This is the alert title</Alert.Title>
         <Alert.Description>This is the alert description</Alert.Description>
       </Alert.Content>
-      <Button size="sm" alignSelf="center">
+      <Button alignSelf="center" size="sm">
         Action
       </Button>
     </Alert.Root>

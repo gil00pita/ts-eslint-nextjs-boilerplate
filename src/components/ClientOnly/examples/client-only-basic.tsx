@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { ClientOnly, Text } from "@chakra-ui/react"
+import { ClientOnly, Text } from '@chakra-ui/react'
 
 export const ClientOnlyBasic = () => {
   return (

@@ -1,60 +1,45 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { Callout, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/Guidelines/Accessibility" />
 
-# Accessibility
-
-Accessibility is a baseline requirement in Phenix UI. Every product team is responsible for validating the final experience in context.
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Accessibility"
+  lead="Accessibility is a baseline requirement in Phenix UI. Every product team is responsible for validating the final experience in context."
+/>
 
 ## Checklist
 
-<table>
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Check</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Keyboard</td>
-      <td>All interactive elements can be reached and operated without a pointer.</td>
-    </tr>
-    <tr>
-      <td>Focus</td>
-      <td>Focus order follows the visual and task order.</td>
-    </tr>
-    <tr>
-      <td>Contrast</td>
-      <td>Text, icons, borders, and focus indicators meet contrast requirements.</td>
-    </tr>
-    <tr>
-      <td>Names</td>
-      <td>Buttons, links, fields, and regions have clear accessible names.</td>
-    </tr>
-    <tr>
-      <td>Errors</td>
-      <td>Errors identify the field, explain the problem, and suggest recovery.</td>
-    </tr>
-    <tr>
-      <td>Motion</td>
-      <td>Non-essential animation respects reduced-motion preferences.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'area', header: 'Area', width: '20%' },
+    { key: 'check', header: 'Check' },
+  ]}
+  rows={[
+    { area: 'Keyboard', check: 'All interactive elements can be reached and operated without a pointer.' },
+    { area: 'Focus', check: 'Focus order follows the visual and task order.' },
+    { area: 'Contrast', check: 'Text, icons, borders, and focus indicators meet contrast requirements.' },
+    { area: 'Names', check: 'Buttons, links, fields, and regions have clear accessible names.' },
+    { area: 'Errors', check: 'Errors identify the field, explain the problem, and suggest recovery.' },
+    { area: 'Motion', check: 'Non-essential animation respects reduced-motion preferences.' },
+  ]}
+/>
 
-## Component Expectations
-
+<Callout title="Component Expectations" tone="warning">
 - Icon-only buttons must include an accessible name.
 - Form inputs should use `Field.Root` so labels, help text, and errors are connected.
 - Dialogs, menus, popovers, and selects should use their full compound structure.
 - Status cannot be communicated by color alone.
+</Callout>
 
-## Review Moments
-
+<Callout title="Review Moments" tone="tip">
 Run accessibility checks when:
 
 - A new workflow is released.
 - A component is added or changed.
 - A route introduces custom keyboard behavior.
 - Tokens or themes are updated.
+</Callout>

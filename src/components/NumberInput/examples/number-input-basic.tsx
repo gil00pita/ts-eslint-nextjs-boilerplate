@@ -1,4 +1,4 @@
-import { NumberInput } from "@chakra-ui/react"
+import { NumberInput } from '@chakra-ui/react'
 
 export const NumberInputBasic = () => {
   return (

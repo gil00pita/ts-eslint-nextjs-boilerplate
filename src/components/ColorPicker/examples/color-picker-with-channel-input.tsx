@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
 import {
   ColorPicker,
   For,
+  getColorChannels,
   HStack,
+  parseColor,
   Portal,
   VStack,
-  getColorChannels,
-  parseColor,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
   const channels = getColorChannels(props.format)
@@ -16,17 +16,15 @@ const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
     <ColorPicker.View format={props.format}>
       <For each={channels}>
         {(channel) => (
-          <VStack gap="1" key={channel} flex="1">
+          <VStack flex="1" gap="1" key={channel}>
             <ColorPicker.ChannelInput
               channel={channel}
-              px="0"
               height="7"
-              textStyle="xs"
+              px="0"
               textAlign="center"
+              textStyle="xs"
             />
-            <ColorPicker.ChannelText>
-              {channel.charAt(0).toUpperCase()}
-            </ColorPicker.ChannelText>
+            <ColorPicker.ChannelText>{channel.charAt(0).toUpperCase()}</ColorPicker.ChannelText>
           </VStack>
         )}
       </For>
@@ -36,7 +34,7 @@ const ChannelInputs = (props: { format: ColorPicker.ColorFormat }) => {
 
 export const ColorPickerWithChannelInput = () => {
   return (
-    <ColorPicker.Root defaultValue={parseColor("#eb5e41")} maxW="200px">
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>Color</ColorPicker.Label>
       <ColorPicker.Control>

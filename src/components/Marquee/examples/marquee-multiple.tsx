@@ -1,6 +1,8 @@
-"use client"
+'use client'
 
-import { Marquee, Stack } from "@chakra-ui/react"
+import type { IconType } from 'react-icons/lib'
+
+import { Marquee, Stack } from '@chakra-ui/react'
 import {
   IoLogoFigma,
   IoLogoGitlab,
@@ -8,8 +10,7 @@ import {
   IoLogoLinkedin,
   IoLogoTwitter,
   IoLogoVimeo,
-} from "react-icons/io5"
-import type { IconType } from "react-icons/lib"
+} from 'react-icons/io5'
 
 interface Item {
   icon: IconType
@@ -17,12 +18,12 @@ interface Item {
 }
 
 const items: Item[] = [
-  { icon: IoLogoFigma, color: "#F24E1E" },
-  { icon: IoLogoTwitter, color: "#1da1f2" },
-  { icon: IoLogoLinkedin, color: "#0077b5" },
-  { icon: IoLogoGitlab, color: "#fc6d26" },
-  { icon: IoLogoVimeo, color: "#1ab7ea" },
-  { icon: IoLogoJavascript, color: "#f7df1e" },
+  { color: '#F24E1E', icon: IoLogoFigma },
+  { color: '#1da1f2', icon: IoLogoTwitter },
+  { color: '#0077b5', icon: IoLogoLinkedin },
+  { color: '#fc6d26', icon: IoLogoGitlab },
+  { color: '#1ab7ea', icon: IoLogoVimeo },
+  { color: '#f7df1e', icon: IoLogoJavascript },
 ]
 
 export const MarqueeMultiple = () => {
@@ -42,12 +43,12 @@ interface MarqueeRowProps {
 const MarqueeRow = (props: MarqueeRowProps) => {
   const { items, reverse = false } = props
   return (
-    <Marquee.Root reverse={reverse} autoFill>
+    <Marquee.Root autoFill reverse={reverse}>
       <Marquee.Viewport>
         <Marquee.Content>
           {items.map((item, i) => (
             <Marquee.Item key={i} px="2rem">
-              <item.icon size="3rem" color={item.color} />
+              <item.icon color={item.color} size="3rem" />
             </Marquee.Item>
           ))}
         </Marquee.Content>

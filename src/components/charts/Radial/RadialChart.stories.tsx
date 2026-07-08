@@ -1,11 +1,11 @@
-import { chartStoryDecorators, chartStoryParameters } from "../story-layout"
+import { chartStoryDecorators, chartStoryParameters } from '../story-layout'
 
 export default {
-	title: "Charts/Radial Chart",
-	parameters: chartStoryParameters,
-	decorators: chartStoryDecorators,
+  decorators: chartStoryDecorators,
+  parameters: chartStoryParameters,
+  title: 'Charts/Radial Chart',
 }
 
-export { RadialChartBasic as Basic } from "./examples/radial-chart-basic"
-export { RadialChartWithLegend as Legend } from "./examples/radial-chart-with-legend"
-export { RadialChartWithLabel as Label } from "./examples/radial-chart-with-label"
+export { RadialChartBasic as Basic } from './examples/radial-chart-basic'
+export { RadialChartWithLabel as Label } from './examples/radial-chart-with-label'
+export { RadialChartWithLegend as Legend } from './examples/radial-chart-with-legend'

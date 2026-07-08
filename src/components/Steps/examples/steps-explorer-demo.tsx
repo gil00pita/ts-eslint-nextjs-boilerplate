@@ -1,21 +1,13 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Heading,
-  Stack,
-  Steps,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Button, ButtonGroup, Heading, Stack, Steps, Text } from '@chakra-ui/react'
 
 export const StepsExplorerDemo = () => {
   return (
-    <Stack maxW="md" gap="8">
+    <Stack gap="8" maxW="md">
       <Heading size="md">Onboarding Steps</Heading>
 
-      <Steps.Root defaultStep={1} count={steps.length} orientation="vertical">
+      <Steps.Root count={steps.length} defaultStep={1} orientation="vertical">
         <Stack gap="8">
           <Steps.List gap="6">
             {steps.map((step, index) => (
@@ -26,7 +18,7 @@ export const StepsExplorerDemo = () => {
                   <Steps.Separator />
                 </Steps.Item>
 
-                <Box pl="10" mt="2">
+                <Box mt="2" pl="10">
                   <Steps.Content index={index}>
                     <Text color="gray.500">{step.description}</Text>
                   </Steps.Content>
@@ -36,18 +28,13 @@ export const StepsExplorerDemo = () => {
           </Steps.List>
 
           <Steps.CompletedContent>
-            <Text mt="2" fontWeight="medium" color="green.600">
+            <Text color="green.600" fontWeight="medium" mt="2">
               ✅ All steps are complete! You're ready to go.
             </Text>
           </Steps.CompletedContent>
 
           <Box>
-            <ButtonGroup
-              size="sm"
-              variant="outline"
-              width="full"
-              justifyContent="space-between"
-            >
+            <ButtonGroup justifyContent="space-between" size="sm" variant="outline" width="full">
               <Steps.PrevTrigger asChild>
                 <Button>Previous</Button>
               </Steps.PrevTrigger>
@@ -64,18 +51,18 @@ export const StepsExplorerDemo = () => {
 
 const steps = [
   {
-    title: "Create Account",
     description:
-      "Sign up with your email and create a secure password. Make sure to verify your email address.",
+      'Sign up with your email and create a secure password. Make sure to verify your email address.',
+    title: 'Create Account',
   },
   {
-    title: "Profile Setup",
     description:
-      "Add your personal details, profile picture, and preferences so we can tailor your experience.",
+      'Add your personal details, profile picture, and preferences so we can tailor your experience.',
+    title: 'Profile Setup',
   },
   {
-    title: "Get Started",
     description:
-      "Explore the dashboard, connect with others, and start using the features immediately.",
+      'Explore the dashboard, connect with others, and start using the features immediately.',
+    title: 'Get Started',
   },
 ]

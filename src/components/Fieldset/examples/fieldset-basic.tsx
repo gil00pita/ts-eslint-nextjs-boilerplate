@@ -1,21 +1,11 @@
-import {
-  Button,
-  Field,
-  Fieldset,
-  For,
-  Input,
-  NativeSelect,
-  Stack,
-} from "@chakra-ui/react"
+import { Button, Field, Fieldset, For, Input, NativeSelect, Stack } from '@chakra-ui/react'
 
 export const FieldsetBasic = () => {
   return (
-    <Fieldset.Root size="lg" maxW="md">
+    <Fieldset.Root maxW="md" size="lg">
       <Stack>
         <Fieldset.Legend>Contact details</Fieldset.Legend>
-        <Fieldset.HelperText>
-          Please provide your contact details below.
-        </Fieldset.HelperText>
+        <Fieldset.HelperText>Please provide your contact details below.</Fieldset.HelperText>
       </Stack>
 
       <Fieldset.Content>
@@ -33,7 +23,7 @@ export const FieldsetBasic = () => {
           <Field.Label>Country</Field.Label>
           <NativeSelect.Root>
             <NativeSelect.Field name="country">
-              <For each={["United Kingdom", "Canada", "United States"]}>
+              <For each={['United Kingdom', 'Canada', 'United States']}>
                 {(item) => (
                   <option key={item} value={item}>
                     {item}
@@ -46,7 +36,7 @@ export const FieldsetBasic = () => {
         </Field.Root>
       </Fieldset.Content>
 
-      <Button type="submit" alignSelf="flex-start">
+      <Button alignSelf="flex-start" type="submit">
         Submit
       </Button>
     </Fieldset.Root>

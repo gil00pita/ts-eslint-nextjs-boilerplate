@@ -1,7 +1,7 @@
-import { Portal } from "@chakra-ui/react"
+import { Portal } from '@chakra-ui/react'
 
 export default {
-  title: "Components / Portal",
+  title: 'Components / Portal',
 }
 
 export const PortalBasic = () => (

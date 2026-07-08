@@ -1,16 +1,16 @@
-import { Center, Menu, Portal } from "@chakra-ui/react"
+import { Center, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithContextTrigger = () => {
   return (
     <Menu.Root>
       <Menu.ContextTrigger width="full">
         <Center
-          height="40"
-          userSelect="none"
-          borderWidth="2px"
           borderStyle="dashed"
-          rounded="lg"
+          borderWidth="2px"
+          height="40"
           padding="4"
+          rounded="lg"
+          userSelect="none"
         >
           Right click here
         </Center>

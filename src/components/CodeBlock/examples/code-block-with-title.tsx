@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
-import { CodeBlock, Icon, createShikiAdapter } from "@chakra-ui/react"
-import { FaHtml5 } from "react-icons/fa"
-import type { HighlighterGeneric } from "shiki"
+import type { HighlighterGeneric } from 'shiki'
+
+import { CodeBlock, createShikiAdapter, Icon } from '@chakra-ui/react'
+import { FaHtml5 } from 'react-icons/fa'
 
 const file = {
   code: `
@@ -10,8 +11,8 @@ const file = {
   <h1>Hello, world!</h1>
 </div>
 `,
-  language: "html",
-  title: "index.html",
+  language: 'html',
+  title: 'index.html',
 }
 
 export const CodeBlockWithTitle = () => {
@@ -36,11 +37,11 @@ export const CodeBlockWithTitle = () => {
 
 const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
   async load() {
-    const { createHighlighter } = await import("shiki")
+    const { createHighlighter } = await import('shiki')
     return createHighlighter({
-      langs: ["tsx", "scss", "html", "bash", "json"],
-      themes: ["github-dark"],
+      langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
     })
   },
-  theme: "github-dark",
+  theme: 'github-dark',
 })

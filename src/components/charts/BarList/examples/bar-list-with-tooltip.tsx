@@ -1,26 +1,26 @@
-"use client"
+'use client'
 
-import { BarList, type BarListData, useChart } from "@chakra-ui/charts"
+import { BarList, type BarListData, useChart } from '@chakra-ui/charts'
 
 export const BarListWithTooltip = () => {
   const chart = useChart<BarListData>({
-    sort: { by: "value", direction: "desc" },
     data: [
-      { name: "Google", value: 1200000 },
-      { name: "Direct", value: 100000 },
-      { name: "Bing", value: 200000 },
-      { name: "Yahoo", value: 20000 },
-      { name: "ChatGPT", value: 1345000 },
-      { name: "Github", value: 100000 },
-      { name: "Yandex", value: 100000 },
+      { name: 'Google', value: 1200000 },
+      { name: 'Direct', value: 100000 },
+      { name: 'Bing', value: 200000 },
+      { name: 'Yahoo', value: 20000 },
+      { name: 'ChatGPT', value: 1345000 },
+      { name: 'Github', value: 100000 },
+      { name: 'Yandex', value: 100000 },
     ],
-    series: [{ name: "name", color: "teal.subtle", label: "Search Engine" }],
+    series: [{ color: 'teal.subtle', label: 'Search Engine', name: 'name' }],
+    sort: { by: 'value', direction: 'desc' },
   })
 
   return (
     <BarList.Root chart={chart}>
       <BarList.Content>
-        <BarList.Label title="Search Engine" flex="1">
+        <BarList.Label flex="1" title="Search Engine">
           <BarList.Bar tooltip />
         </BarList.Label>
         <BarList.Label title="Downloads" titleAlignment="end">

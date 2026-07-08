@@ -1,4 +1,4 @@
-import { PinInput } from "@chakra-ui/react"
+import { PinInput } from '@chakra-ui/react'
 
 export const PinInputBasic = () => {
   return (

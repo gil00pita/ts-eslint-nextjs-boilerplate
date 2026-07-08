@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Avatar, Code, Stack, useAvatar } from "@chakra-ui/react"
+import { Avatar, Code, Stack, useAvatar } from '@chakra-ui/react'
 
 export const AvatarWithStore = () => {
   const avatar = useAvatar()
@@ -10,7 +10,7 @@ export const AvatarWithStore = () => {
         <Avatar.Image src="https://bit.ly/sage-adebayo" />
         <Avatar.Fallback name="Segun Adebayo" />
       </Avatar.RootProvider>
-      <Code>{avatar.loaded ? "loaded" : "not loaded"}</Code>
+      <Code>{avatar.loaded ? 'loaded' : 'not loaded'}</Code>
     </Stack>
   )
 }

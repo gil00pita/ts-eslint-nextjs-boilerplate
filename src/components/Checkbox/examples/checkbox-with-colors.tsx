@@ -4,20 +4,20 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const CheckboxWithColors = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack align="flex-start" gap="2">
       {colorPalettes.map((colorPalette) => (
-        <Stack align="center" key={colorPalette} direction="row" gap="10" width="full">
+        <Stack align="center" direction="row" gap="10" key={colorPalette} width="full">
           <Text minW="8ch">{colorPalette}</Text>
           <For each={['outline', 'subtle', 'solid']}>
             {(variant) => (
               <Stack key={variant} mb="4">
-                <Checkbox.Root variant={variant} colorPalette={colorPalette}>
+                <Checkbox.Root colorPalette={colorPalette} variant={variant}>
                   <Checkbox.HiddenInput />
                   <Checkbox.Control />
                   <Checkbox.Label>Checkbox</Checkbox.Label>
                 </Checkbox.Root>
 
-                <Checkbox.Root defaultChecked variant={variant} colorPalette={colorPalette}>
+                <Checkbox.Root colorPalette={colorPalette} defaultChecked variant={variant}>
                   <Checkbox.HiddenInput />
                   <Checkbox.Control />
                   <Checkbox.Label>Checkbox</Checkbox.Label>

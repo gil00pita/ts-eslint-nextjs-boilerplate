@@ -1,15 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal, parseDate } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, parseDate, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerMinMax = () => {
   return (
-    <DatePicker.Root
-      min={parseDate("2025-03-05")}
-      max={parseDate("2025-03-31")}
-      maxWidth="20rem"
-    >
+    <DatePicker.Root max={parseDate('2025-03-31')} maxWidth="20rem" min={parseDate('2025-03-05')}>
       <DatePicker.Label>Date of creation</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

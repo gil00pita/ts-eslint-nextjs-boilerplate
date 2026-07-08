@@ -1,4 +1,4 @@
-import { Button, Menu, Portal } from "@chakra-ui/react"
+import { Button, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithGroupDynamic = () => {
   return (
@@ -28,19 +28,19 @@ export const MenuWithGroupDynamic = () => {
 
 const items = [
   {
-    name: "Top Panel",
-    value: "top",
     children: [
-      { value: "5", name: "index.html" },
-      { value: "6", name: "styles.css" },
+      { name: 'index.html', value: '5' },
+      { name: 'styles.css', value: '6' },
     ],
+    name: 'Top Panel',
+    value: 'top',
   },
   {
-    name: "Bottom Panel",
-    value: "bottom",
     children: [
-      { value: "7", name: "script.js" },
-      { value: "8", name: "assets" },
+      { name: 'script.js', value: '7' },
+      { name: 'assets', value: '8' },
     ],
+    name: 'Bottom Panel',
+    value: 'bottom',
   },
 ]

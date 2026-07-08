@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button, Field, Input, Stack, TagsInput } from "@chakra-ui/react"
+import { Button, Field, Input, Stack, TagsInput } from '@chakra-ui/react'
 
 export const TagsInputWithForm = () => {
   return (
@@ -8,9 +8,9 @@ export const TagsInputWithForm = () => {
       onSubmit={(e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
-        const title = formData.get("title")
-        const categories = formData.get("categories")
-        console.log("Submitted formData:", { title, categories })
+        const title = formData.get('title')
+        const categories = formData.get('categories')
+        console.log('Submitted formData:', { categories, title })
       }}
     >
       <Stack gap="4">
@@ -29,12 +29,10 @@ export const TagsInputWithForm = () => {
 
             <TagsInput.HiddenInput />
           </TagsInput.Root>
-          <Field.HelperText>
-            Add frameworks and libraries you use
-          </Field.HelperText>
+          <Field.HelperText>Add frameworks and libraries you use</Field.HelperText>
         </Field.Root>
 
-        <Button type="submit" variant="solid" mt="3">
+        <Button mt="3" type="submit" variant="solid">
           Submit
         </Button>
       </Stack>

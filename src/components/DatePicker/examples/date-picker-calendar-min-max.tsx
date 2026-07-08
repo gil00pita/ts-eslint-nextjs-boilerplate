@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import { DatePicker, parseDate } from "@chakra-ui/react"
+import { DatePicker, parseDate } from '@chakra-ui/react'
 
 export const DatePickerCalendarMinMax = () => {
   return (
     <DatePicker.Root
-      min={parseDate("2025-03-05")}
-      max={parseDate("2025-03-25")}
       inline
+      max={parseDate('2025-03-25')}
+      min={parseDate('2025-03-05')}
       width="fit-content"
     >
       <DatePicker.Content unstyled>

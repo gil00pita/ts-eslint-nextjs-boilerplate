@@ -1,14 +1,7 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  Dialog,
-  Input,
-  Portal,
-  Stack,
-  createOverlay,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, createOverlay, Dialog, Input, Portal, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 interface ContactFormProps {
   title?: string
@@ -16,7 +9,7 @@ interface ContactFormProps {
 
 const contactDialog = createOverlay<ContactFormProps>((props) => {
   const { title, ...rest } = props
-  const [name, setName] = useState("")
+  const [name, setName] = useState('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -26,7 +19,7 @@ const contactDialog = createOverlay<ContactFormProps>((props) => {
     // Close dialog using injected `onOpenChange` prop
     props.onOpenChange?.({ open: false })
 
-    setName("")
+    setName('')
   }
 
   return (
@@ -44,9 +37,9 @@ const contactDialog = createOverlay<ContactFormProps>((props) => {
               <form onSubmit={handleSubmit}>
                 <Stack gap="4">
                   <Input
-                    value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name"
+                    value={name}
                   />
                   <Button type="submit">Submit</Button>
                 </Stack>
@@ -64,7 +57,7 @@ export const OverlayWithForm = () => {
     <>
       <Button
         onClick={() => {
-          contactDialog.open("form", { title: "Simple Form" })
+          contactDialog.open('form', { title: 'Simple Form' })
         }}
       >
         Open Form

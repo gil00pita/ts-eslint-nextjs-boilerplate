@@ -1,8 +1,8 @@
-import { Box, HoverCard, Link, Portal, Strong } from "@chakra-ui/react"
+import { Box, HoverCard, Link, Portal, Strong } from '@chakra-ui/react'
 
 export const HoverCardWithPlacement = () => {
   return (
-    <HoverCard.Root size="sm" positioning={{ placement: "top" }}>
+    <HoverCard.Root positioning={{ placement: 'top' }} size="sm">
       <HoverCard.Trigger asChild>
         <Link href="#">@chakra_ui</Link>
       </HoverCard.Trigger>
@@ -11,8 +11,8 @@ export const HoverCardWithPlacement = () => {
           <HoverCard.Content maxWidth="240px">
             <HoverCard.Arrow />
             <Box>
-              <Strong>Chakra</Strong> is a Sanskrit word that means disk or
-              wheel, referring to energy centers in the body
+              <Strong>Chakra</Strong> is a Sanskrit word that means disk or wheel, referring to
+              energy centers in the body
             </Box>
           </HoverCard.Content>
         </HoverCard.Positioner>

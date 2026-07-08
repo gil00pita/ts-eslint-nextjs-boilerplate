@@ -1,34 +1,34 @@
-"use client"
+'use client'
 
-import { Box, Button, CheckboxCard, Text } from "@chakra-ui/react"
+import { Box, Button, CheckboxCard, Text } from '@chakra-ui/react'
 
 export const CheckboxCardExplorerDemo = () => {
   return (
     <CheckboxCard.Root
+      _checked={{ border: '1px solid', borderColor: 'fg.subtle' }}
+      border="none"
       defaultChecked
       maxW="280px"
-      border="none"
-      shadow="none"
-      rounded="lg"
       px="3"
       py="2"
-      _checked={{ border: "1px solid", borderColor: "fg.subtle" }}
+      rounded="lg"
+      shadow="none"
     >
       <CheckboxCard.HiddenInput />
 
       <CheckboxCard.Control>
         <CheckboxCard.Addon border="none">
           <Box
+            alignItems="center"
             bg="blue.500"
             color="white"
+            display="flex"
+            fontSize="xs"
             fontWeight="bold"
+            h="6"
+            justifyContent="center"
             rounded="full"
             w="6"
-            h="6"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            fontSize="xs"
           >
             N
           </Box>
@@ -36,7 +36,7 @@ export const CheckboxCardExplorerDemo = () => {
 
         <Box flex="1">
           <CheckboxCard.Label fontWeight="medium">Next.js</CheckboxCard.Label>
-          <CheckboxCard.Description fontSize="sm" color="fg.muted">
+          <CheckboxCard.Description color="fg.muted" fontSize="sm">
             A React framework for building web apps.
           </CheckboxCard.Description>
         </Box>
@@ -45,11 +45,10 @@ export const CheckboxCardExplorerDemo = () => {
       </CheckboxCard.Control>
 
       <CheckboxCard.Content>
-        <Text fontSize="sm" color="fg.muted" mb="2">
-          Includes features like server-side rendering, API routes, and
-          internationalization.
+        <Text color="fg.muted" fontSize="sm" mb="2">
+          Includes features like server-side rendering, API routes, and internationalization.
         </Text>
-        <Button size="sm" variant="outline" colorScheme="blue">
+        <Button colorScheme="blue" size="sm" variant="outline">
           Learn More
         </Button>
       </CheckboxCard.Content>

@@ -1,10 +1,10 @@
-import { AbsoluteCenter, Box, HStack, Spinner, Text } from "@chakra-ui/react"
+import { AbsoluteCenter, Box, HStack, Spinner, Text } from '@chakra-ui/react'
 
 const Overlay = () => (
-  <AbsoluteCenter bg="bg/80" backdropFilter="blur(2px)" rounded="md" p="4">
+  <AbsoluteCenter backdropFilter="blur(2px)" bg="bg/80" p="4" rounded="md">
     <HStack gap="3">
-      <Spinner size="sm" colorPalette="blue" />
-      <Text fontSize="sm" color="fg.muted">
+      <Spinner colorPalette="blue" size="sm" />
+      <Text color="fg.muted" fontSize="sm">
         Loading...
       </Text>
     </HStack>
@@ -13,8 +13,8 @@ const Overlay = () => (
 
 export const AbsoluteCenterWithOverlay = () => {
   return (
-    <Box position="relative" h="120px" bg="bg.muted" rounded="md" p="10">
-      <Box opacity="0.5" aria-busy="true">
+    <Box bg="bg.muted" h="120px" p="10" position="relative" rounded="md">
+      <Box aria-busy="true" opacity="0.5">
         Some content that is being loaded...
       </Box>
       <Overlay />

@@ -8,26 +8,26 @@ const items = Array.from({ length: 5 })
 export const CarouselSlidesPerMove = () => {
   return (
     <Carousel.Root
+      maxW="xl"
+      mx="auto"
       slideCount={items.length}
       slidesPerMove={1}
       slidesPerPage={2}
-      maxW="xl"
-      mx="auto"
     >
-      <HStack textStyle="sm" mb="4">
+      <HStack mb="4" textStyle="sm">
         {'slidesPerPage={2} + slidesPerMove={1}'}
       </HStack>
       <Carousel.ItemGroup>
         {items.map((_, index) => (
-          <Carousel.Item key={index} index={index}>
-            <DecorativeBox w="100%" h="300px" rounded="lg" fontSize="2.5rem">
+          <Carousel.Item index={index} key={index}>
+            <DecorativeBox fontSize="2.5rem" h="300px" rounded="lg" w="100%">
               {index + 1}
             </DecorativeBox>
           </Carousel.Item>
         ))}
       </Carousel.ItemGroup>
 
-      <Carousel.Control justifyContent="center" gap="4">
+      <Carousel.Control gap="4" justifyContent="center">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="ghost">
             <LuChevronLeft />

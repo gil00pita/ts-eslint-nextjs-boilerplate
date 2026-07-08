@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal, parseDate } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, parseDate, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerDefaultValue = () => {
   return (
-    <DatePicker.Root defaultValue={[parseDate("2026-01-26")]} maxWidth="20rem">
+    <DatePicker.Root defaultValue={[parseDate('2026-01-26')]} maxWidth="20rem">
       <DatePicker.Label>Start Date</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

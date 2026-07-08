@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, Menu, Portal } from "@chakra-ui/react"
-import { LuChevronRight } from "react-icons/lu"
+import { Button, Menu, Portal } from '@chakra-ui/react'
+import { LuChevronRight } from 'react-icons/lu'
 
 interface Item {
   value: string
@@ -10,26 +10,26 @@ interface Item {
 }
 
 const items: Item[] = [
-  { value: "new-txt", label: "New Text File" },
-  { value: "new-file", label: "New File..." },
+  { label: 'New Text File', value: 'new-txt' },
+  { label: 'New File...', value: 'new-file' },
   {
-    value: "open-recent",
-    label: "Open Recent",
     children: [
-      { value: "panda", label: "Panda" },
-      { value: "ark", label: "Ark UI" },
+      { label: 'Panda', value: 'panda' },
+      { label: 'Ark UI', value: 'ark' },
       {
-        value: "chakra",
-        label: "Chakra v3",
         children: [
-          { value: "chakra-1", label: "Chakra v3.1" },
-          { value: "chakra-2", label: "Chakra v3.2" },
+          { label: 'Chakra v3.1', value: 'chakra-1' },
+          { label: 'Chakra v3.2', value: 'chakra-2' },
         ],
+        label: 'Chakra v3',
+        value: 'chakra',
       },
     ],
+    label: 'Open Recent',
+    value: 'open-recent',
   },
-  { value: "open-file", label: "Open File..." },
-  { value: "export", label: "Export" },
+  { label: 'Open File...', value: 'open-file' },
+  { label: 'Export', value: 'export' },
 ]
 
 const MenuItem = ({ item }: { item: Item }) => {
@@ -38,7 +38,7 @@ const MenuItem = ({ item }: { item: Item }) => {
   }
 
   return (
-    <Menu.Root positioning={{ placement: "right-start", gutter: 2 }}>
+    <Menu.Root positioning={{ gutter: 2, placement: 'right-start' }}>
       <Menu.TriggerItem>
         {item.label} <LuChevronRight />
       </Menu.TriggerItem>
@@ -46,7 +46,7 @@ const MenuItem = ({ item }: { item: Item }) => {
         <Menu.Positioner>
           <Menu.Content>
             {item.children.map((child) => (
-              <MenuItem key={child.value} item={child} />
+              <MenuItem item={child} key={child.value} />
             ))}
           </Menu.Content>
         </Menu.Positioner>
@@ -65,7 +65,7 @@ export const MenuWithSubmenuDynamic = () => {
         <Menu.Positioner>
           <Menu.Content>
             {items.map((item) => (
-              <MenuItem key={item.value} item={item} />
+              <MenuItem item={item} key={item.value} />
             ))}
           </Menu.Content>
         </Menu.Positioner>

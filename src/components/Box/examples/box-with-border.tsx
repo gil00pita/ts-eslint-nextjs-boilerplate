@@ -1,13 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/react'
 
 export const BoxWithBorder = () => {
   return (
-    <Box
-      p="4"
-      borderWidth="1px"
-      borderColor="border.disabled"
-      color="fg.disabled"
-    >
+    <Box borderColor="border.disabled" borderWidth="1px" color="fg.disabled" p="4">
       Somewhat disabled box
     </Box>
   )

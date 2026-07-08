@@ -1,10 +1,10 @@
-import { Button, Menu, Portal } from "@chakra-ui/react"
+import { Button, Menu, Portal } from '@chakra-ui/react'
 
 export const MenuWithOverflow = () => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Menu
         </Button>
       </Menu.Trigger>
@@ -24,27 +24,27 @@ export const MenuWithOverflow = () => {
 }
 
 const menuItems = [
-  { value: "new-file", label: "New File" },
-  { value: "new-folder", label: "New Folder" },
-  { value: "open", label: "Open..." },
-  { value: "open-recent", label: "Open Recent" },
-  { value: "save", label: "Save" },
-  { value: "save-as", label: "Save As..." },
-  { value: "save-all", label: "Save All" },
-  { value: "export", label: "Export" },
-  { value: "import", label: "Import" },
-  { value: "print", label: "Print" },
-  { value: "share", label: "Share" },
-  { value: "duplicate", label: "Duplicate" },
-  { value: "rename", label: "Rename" },
-  { value: "move", label: "Move To..." },
-  { value: "copy", label: "Copy To..." },
-  { value: "delete", label: "Delete" },
-  { value: "find", label: "Find" },
-  { value: "replace", label: "Replace" },
-  { value: "preferences", label: "Preferences" },
-  { value: "settings", label: "Settings" },
-  { value: "help", label: "Help" },
-  { value: "about", label: "About" },
-  { value: "quit", label: "Quit" },
+  { label: 'New File', value: 'new-file' },
+  { label: 'New Folder', value: 'new-folder' },
+  { label: 'Open...', value: 'open' },
+  { label: 'Open Recent', value: 'open-recent' },
+  { label: 'Save', value: 'save' },
+  { label: 'Save As...', value: 'save-as' },
+  { label: 'Save All', value: 'save-all' },
+  { label: 'Export', value: 'export' },
+  { label: 'Import', value: 'import' },
+  { label: 'Print', value: 'print' },
+  { label: 'Share', value: 'share' },
+  { label: 'Duplicate', value: 'duplicate' },
+  { label: 'Rename', value: 'rename' },
+  { label: 'Move To...', value: 'move' },
+  { label: 'Copy To...', value: 'copy' },
+  { label: 'Delete', value: 'delete' },
+  { label: 'Find', value: 'find' },
+  { label: 'Replace', value: 'replace' },
+  { label: 'Preferences', value: 'preferences' },
+  { label: 'Settings', value: 'settings' },
+  { label: 'Help', value: 'help' },
+  { label: 'About', value: 'about' },
+  { label: 'Quit', value: 'quit' },
 ]

@@ -1,4 +1,4 @@
-import { Button, Popover, Portal, Text } from "@chakra-ui/react"
+import { Button, Popover, Portal, Text } from '@chakra-ui/react'
 
 export const PopoverLazyMounted = () => {
   return (
@@ -15,8 +15,7 @@ export const PopoverLazyMounted = () => {
             <Popover.Body>
               <Popover.Title fontWeight="medium">Naruto Form</Popover.Title>
               <Text my="4">
-                Naruto is a Japanese manga series written and illustrated by
-                Masashi Kishimoto.
+                Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
               </Text>
             </Popover.Body>
           </Popover.Content>

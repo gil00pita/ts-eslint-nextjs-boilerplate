@@ -1,21 +1,16 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
 
 export const SelectWithColorPalette = () => {
   return (
-    <Select.Root
-      colorPalette="red"
-      collection={frameworks}
-      size="sm"
-      width="320px"
-    >
+    <Select.Root collection={frameworks} colorPalette="red" size="sm" width="320px">
       <Select.HiddenSelect />
       <Select.Label>Select framework</Select.Label>
       <Select.Control>
         <Select.Trigger
-          borderColor="colorPalette.muted"
           bg="colorPalette.subtle"
+          borderColor="colorPalette.muted"
           color="colorPalette.fg"
         >
           <Select.ValueText placeholder="Select framework" />
@@ -42,9 +37,9 @@ export const SelectWithColorPalette = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

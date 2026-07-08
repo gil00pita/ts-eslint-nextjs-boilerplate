@@ -1,6 +1,7 @@
 import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
 import { brandFontSizes } from '@/utils/px-to-rem'
+
 import { colors } from './colors'
 import { fonts } from './fonts'
 

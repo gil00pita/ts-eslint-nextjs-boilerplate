@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerLocale = () => {
   return (
-    <DatePicker.Root locale="de-DE" startOfWeek={1} maxWidth="20rem">
+    <DatePicker.Root locale="de-DE" maxWidth="20rem" startOfWeek={1}>
       <DatePicker.Label>Datum auswählen</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

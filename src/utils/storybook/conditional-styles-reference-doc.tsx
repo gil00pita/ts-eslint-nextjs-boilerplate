@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Code, Table, defaultSystem } from "@chakra-ui/react"
+import { Code, defaultSystem, Table } from '@chakra-ui/react'
 
 const conditionEntries = Object.entries(defaultSystem._config.conditions ?? {})
 

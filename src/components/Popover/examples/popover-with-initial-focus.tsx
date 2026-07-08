@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, Button, Group, Popover, Portal } from "@chakra-ui/react"
-import { useRef } from "react"
+import { Box, Button, Group, Popover, Portal } from '@chakra-ui/react'
+import { useRef } from 'react'
 
 export const PopoverWithInitialFocus = () => {
   const ref = useRef<HTMLButtonElement | null>(null)
@@ -17,15 +17,13 @@ export const PopoverWithInitialFocus = () => {
           <Popover.Content>
             <Popover.Header>Manage Your Channels</Popover.Header>
             <Popover.Arrow />
-            <Popover.Body>
-              This is a popover with the same width as the trigger button
-            </Popover.Body>
+            <Popover.Body>This is a popover with the same width as the trigger button</Popover.Body>
             <Popover.Footer>
-              <Box fontSize="sm" flex="1">
+              <Box flex="1" fontSize="sm">
                 Step 2 of 4
               </Box>
               <Group>
-                <Button size="sm" ref={ref}>
+                <Button ref={ref} size="sm">
                   Prev
                 </Button>
                 <Button size="sm">Next</Button>

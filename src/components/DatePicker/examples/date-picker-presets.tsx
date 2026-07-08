@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Flex, Portal, VStack } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { Button, DatePicker, Flex, Portal, VStack } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerPresets = () => {
   return (
-    <DatePicker.Root selectionMode="range" maxWidth="32rem">
+    <DatePicker.Root maxWidth="32rem" selectionMode="range">
       <DatePicker.Label>Select range</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input index={0} />
@@ -18,46 +18,46 @@ export const DatePickerPresets = () => {
       </DatePicker.Control>
       <Portal>
         <DatePicker.Positioner>
-          <DatePicker.Content maxW="100dvw" w="fit-content" overflow="auto">
+          <DatePicker.Content maxW="100dvw" overflow="auto" w="fit-content">
             <Flex
-              px={{ base: "3", sm: "4" }}
-              py={{ base: "3", sm: "4" }}
-              gap={{ base: "3", sm: "6" }}
-              flexDirection={{ base: "column", sm: "row" }}
+              flexDirection={{ base: 'column', sm: 'row' }}
+              gap={{ base: '3', sm: '6' }}
+              px={{ base: '3', sm: '4' }}
+              py={{ base: '3', sm: '4' }}
             >
               <VStack
                 align="stretch"
-                gap={{ base: "1.5", sm: "2" }}
-                minW={{ base: "full", sm: "140px" }}
+                gap={{ base: '1.5', sm: '2' }}
                 height="100%"
+                minW={{ base: 'full', sm: '140px' }}
               >
-                <DatePicker.PresetTrigger value="last7Days" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="last7Days">
+                  <Button size="sm" variant="surface" width="100%">
                     Last 7 days
                   </Button>
                 </DatePicker.PresetTrigger>
-                <DatePicker.PresetTrigger value="last30Days" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="last30Days">
+                  <Button size="sm" variant="surface" width="100%">
                     Last 30 days
                   </Button>
                 </DatePicker.PresetTrigger>
-                <DatePicker.PresetTrigger value="thisMonth" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="thisMonth">
+                  <Button size="sm" variant="surface" width="100%">
                     This month
                   </Button>
                 </DatePicker.PresetTrigger>
-                <DatePicker.PresetTrigger value="lastMonth" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="lastMonth">
+                  <Button size="sm" variant="surface" width="100%">
                     Last month
                   </Button>
                 </DatePicker.PresetTrigger>
-                <DatePicker.PresetTrigger value="thisYear" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="thisYear">
+                  <Button size="sm" variant="surface" width="100%">
                     This year
                   </Button>
                 </DatePicker.PresetTrigger>
-                <DatePicker.PresetTrigger value="lastYear" asChild>
-                  <Button variant="surface" size="sm" width="100%">
+                <DatePicker.PresetTrigger asChild value="lastYear">
+                  <Button size="sm" variant="surface" width="100%">
                     Last year
                   </Button>
                 </DatePicker.PresetTrigger>

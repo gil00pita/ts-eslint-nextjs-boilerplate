@@ -1,6 +1,6 @@
 import { For, HStack, IconButton } from '@chakra-ui/react'
-
 import { LuSearch } from 'react-icons/lu'
+
 import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const IconButtonWithColors = () => {
@@ -8,7 +8,7 @@ export const IconButtonWithColors = () => {
     <HStack wrap="wrap">
       <For each={colorPalettes}>
         {(c) => (
-          <IconButton aria-label="Search database" key={c} colorPalette={c}>
+          <IconButton aria-label="Search database" colorPalette={c} key={c}>
             <LuSearch />
           </IconButton>
         )}

@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
 import {
+  createTreeCollection,
   Menu,
   Portal,
   TreeView,
-  createTreeCollection,
   useTreeViewContext,
   useTreeViewNodeContext,
   useTreeViewStyles,
-} from "@chakra-ui/react"
-import { useId } from "react"
-import { LuFile, LuFolder } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { useId } from 'react'
+import { LuFile, LuFolder } from 'react-icons/lu'
 
 interface TreeNodeContextMenuProps extends Menu.RootProps {
   uid: string
@@ -19,15 +19,15 @@ interface TreeNodeContextMenuProps extends Menu.RootProps {
 }
 
 const TreeNodeContextMenu = (props: TreeNodeContextMenuProps) => {
-  const { children, uid, node, ...rest } = props
+  const { children, node, uid, ...rest } = props
 
   const treeView = useTreeViewContext()
   const treeStyles = useTreeViewStyles()
   const nodeState = useTreeViewNodeContext()
 
   const attrs = nodeState.isBranch
-    ? treeView.getBranchControlProps({ node, indexPath: nodeState.indexPath })
-    : treeView.getItemProps({ node, indexPath: nodeState.indexPath })
+    ? treeView.getBranchControlProps({ indexPath: nodeState.indexPath, node })
+    : treeView.getItemProps({ indexPath: nodeState.indexPath, node })
 
   const styles = nodeState.isBranch ? treeStyles.branchControl : treeStyles.item
 
@@ -55,8 +55,8 @@ export const TreeViewContextMenu = () => {
   return (
     <TreeView.Root
       collection={collection}
-      maxW="sm"
       ids={{ node: (value) => getNodeId(uid, value) }}
+      maxW="sm"
     >
       <TreeView.Label>Tree</TreeView.Label>
       <TreeView.Tree>
@@ -64,12 +64,12 @@ export const TreeViewContextMenu = () => {
           indentGuide={<TreeView.BranchIndentGuide />}
           render={({ node, nodeState }) =>
             nodeState.isBranch ? (
-              <TreeNodeContextMenu uid={uid} node={node}>
+              <TreeNodeContextMenu node={node} uid={uid}>
                 <LuFolder />
                 <TreeView.BranchText>{node.name}</TreeView.BranchText>
               </TreeNodeContextMenu>
             ) : (
-              <TreeNodeContextMenu uid={uid} node={node}>
+              <TreeNodeContextMenu node={node} uid={uid}>
                 <LuFile />
                 <TreeView.ItemText>{node.name}</TreeView.ItemText>
               </TreeNodeContextMenu>
@@ -88,40 +88,40 @@ interface Node {
 }
 
 const collection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
       {
-        id: "node_modules",
-        name: "node_modules",
         children: [
-          { id: "node_modules/zag-js", name: "zag-js" },
-          { id: "node_modules/pandacss", name: "panda" },
+          { id: 'node_modules/zag-js', name: 'zag-js' },
+          { id: 'node_modules/pandacss', name: 'panda' },
           {
-            id: "node_modules/@types",
-            name: "@types",
             children: [
-              { id: "node_modules/@types/react", name: "react" },
-              { id: "node_modules/@types/react-dom", name: "react-dom" },
+              { id: 'node_modules/@types/react', name: 'react' },
+              { id: 'node_modules/@types/react-dom', name: 'react-dom' },
             ],
+            id: 'node_modules/@types',
+            name: '@types',
           },
         ],
+        id: 'node_modules',
+        name: 'node_modules',
       },
       {
-        id: "src",
-        name: "src",
         children: [
-          { id: "src/app.tsx", name: "app.tsx" },
-          { id: "src/index.ts", name: "index.ts" },
+          { id: 'src/app.tsx', name: 'app.tsx' },
+          { id: 'src/index.ts', name: 'index.ts' },
         ],
+        id: 'src',
+        name: 'src',
       },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { id: 'panda.config', name: 'panda.config.ts' },
+      { id: 'package.json', name: 'package.json' },
+      { id: 'renovate.json', name: 'renovate.json' },
+      { id: 'readme.md', name: 'README.md' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })

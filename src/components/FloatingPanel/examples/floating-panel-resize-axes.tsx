@@ -1,22 +1,16 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FloatingPanel,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+import { Button, FloatingPanel, IconButton, Portal, Text } from '@chakra-ui/react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 export const FloatingPanelResizeAxes = () => {
   return (
     <FloatingPanel.Root
-      defaultSize={{ width: 320, height: 200 }}
-      minSize={{ width: 240, height: 160 }}
+      defaultSize={{ height: 200, width: 320 }}
+      minSize={{ height: 160, width: 240 }}
     >
       <FloatingPanel.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Panel
         </Button>
       </FloatingPanel.Trigger>
@@ -30,18 +24,16 @@ export const FloatingPanelResizeAxes = () => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>
               </FloatingPanel.Control>
             </FloatingPanel.Header>
             <FloatingPanel.Body>
-              <Text textStyle="sm">
-                Only the south, east, and southeast handles are enabled.
-              </Text>
+              <Text textStyle="sm">Only the south, east, and southeast handles are enabled.</Text>
             </FloatingPanel.Body>
-            <FloatingPanel.ResizeTriggers axes={["s", "e", "se"]} />
+            <FloatingPanel.ResizeTriggers axes={['s', 'e', 'se']} />
           </FloatingPanel.Content>
         </FloatingPanel.Positioner>
       </Portal>

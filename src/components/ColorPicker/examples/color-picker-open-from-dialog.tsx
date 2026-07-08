@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -6,9 +6,9 @@ import {
   ColorPicker,
   Dialog,
   HStack,
-  Portal,
   parseColor,
-} from "@chakra-ui/react"
+  Portal,
+} from '@chakra-ui/react'
 
 export const ColorPickerOpenFromDialog = () => {
   return (
@@ -39,7 +39,7 @@ export const ColorPickerOpenFromDialog = () => {
 
 const DialogColorPicker = () => {
   return (
-    <ColorPicker.Root defaultValue={parseColor("#eb5e41")} maxW="200px">
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>Color</ColorPicker.Label>
       <ColorPicker.Control>

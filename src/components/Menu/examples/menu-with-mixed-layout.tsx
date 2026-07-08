@@ -1,4 +1,4 @@
-import { Box, Button, Group, Menu, Portal } from "@chakra-ui/react"
+import { Box, Button, Group, Menu, Portal } from '@chakra-ui/react'
 import {
   LuClipboard,
   LuCopy,
@@ -6,40 +6,40 @@ import {
   LuMessageSquare,
   LuScissors,
   LuShare,
-} from "react-icons/lu"
+} from 'react-icons/lu'
 
 const horizontalMenuItems = [
-  { label: "Cut", value: "cut", icon: <LuScissors /> },
-  { label: "Copy", value: "copy", icon: <LuCopy /> },
-  { label: "Paste", value: "paste", icon: <LuClipboard /> },
+  { icon: <LuScissors />, label: 'Cut', value: 'cut' },
+  { icon: <LuCopy />, label: 'Copy', value: 'copy' },
+  { icon: <LuClipboard />, label: 'Paste', value: 'paste' },
 ]
 
 const verticalMenuItems = [
-  { label: "Look Up", value: "look-up", icon: <LuFileSearch /> },
-  { label: "Translate", value: "translate", icon: <LuMessageSquare /> },
-  { label: "Share", value: "share", icon: <LuShare /> },
+  { icon: <LuFileSearch />, label: 'Look Up', value: 'look-up' },
+  { icon: <LuMessageSquare />, label: 'Translate', value: 'translate' },
+  { icon: <LuShare />, label: 'Share', value: 'share' },
 ]
 
 export const MenuWithMixedLayout = () => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open
         </Button>
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
           <Menu.Content>
-            <Group grow gap="0">
+            <Group gap="0" grow>
               {horizontalMenuItems.map((item) => (
                 <Menu.Item
+                  flexDirection="column"
+                  gap="1"
+                  justifyContent="center"
                   key={item.value}
                   value={item.value}
                   width="14"
-                  gap="1"
-                  flexDirection="column"
-                  justifyContent="center"
                 >
                   {item.icon}
                   {item.label}

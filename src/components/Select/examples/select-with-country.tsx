@@ -1,16 +1,11 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
-import { groupBy } from "es-toolkit"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
+import { groupBy } from 'es-toolkit'
 
 export const SelectWithCountry = () => {
   return (
-    <Select.Root
-      collection={countries}
-      size="sm"
-      width="320px"
-      defaultValue={["NG"]}
-    >
+    <Select.Root collection={countries} defaultValue={['NG']} size="sm" width="320px">
       <Select.HiddenSelect />
       <Select.Label>Select country</Select.Label>
       <Select.Control>
@@ -44,31 +39,29 @@ export const SelectWithCountry = () => {
 
 const countries = createListCollection({
   items: [
-    { value: "US", label: "United States", flag: "🇺🇸", continent: "America" },
-    { value: "CA", label: "Canada", flag: "🇨🇦", continent: "America" },
-    { value: "MX", label: "Mexico", flag: "🇲🇽", continent: "America" },
-    { value: "BR", label: "Brazil", flag: "🇧🇷", continent: "America" },
-    { value: "ZA", label: "South Africa", flag: "🇿🇦", continent: "Africa" },
-    { value: "NG", label: "Nigeria", flag: "🇳🇬", continent: "Africa" },
-    { value: "MA", label: "Morocco", flag: "🇲🇦", continent: "Africa" },
-    { value: "EG", label: "Egypt", flag: "🇪🇬", continent: "Africa" },
-    { value: "CN", label: "China", flag: "🇨🇳", continent: "Asia" },
-    { value: "JP", label: "Japan", flag: "🇯🇵", continent: "Asia" },
-    { value: "IN", label: "India", flag: "🇮🇳", continent: "Asia" },
-    { value: "KR", label: "South Korea", flag: "🇰🇷", continent: "Asia" },
-    { value: "GB", label: "United Kingdom", flag: "🇬🇧", continent: "Europe" },
-    { value: "FR", label: "France", flag: "🇫🇷", continent: "Europe" },
-    { value: "DE", label: "Germany", flag: "🇩🇪", continent: "Europe" },
-    { value: "IT", label: "Italy", flag: "🇮🇹", continent: "Europe" },
-    { value: "ES", label: "Spain", flag: "🇪🇸", continent: "Europe" },
-    { value: "AU", label: "Australia", flag: "🇦🇺", continent: "Oceania" },
-    { value: "NZ", label: "New Zealand", flag: "🇳🇿", continent: "Oceania" },
-    { value: "FJ", label: "Fiji", flag: "🇫🇯", continent: "Oceania" },
+    { continent: 'America', flag: '🇺🇸', label: 'United States', value: 'US' },
+    { continent: 'America', flag: '🇨🇦', label: 'Canada', value: 'CA' },
+    { continent: 'America', flag: '🇲🇽', label: 'Mexico', value: 'MX' },
+    { continent: 'America', flag: '🇧🇷', label: 'Brazil', value: 'BR' },
+    { continent: 'Africa', flag: '🇿🇦', label: 'South Africa', value: 'ZA' },
+    { continent: 'Africa', flag: '🇳🇬', label: 'Nigeria', value: 'NG' },
+    { continent: 'Africa', flag: '🇲🇦', label: 'Morocco', value: 'MA' },
+    { continent: 'Africa', flag: '🇪🇬', label: 'Egypt', value: 'EG' },
+    { continent: 'Asia', flag: '🇨🇳', label: 'China', value: 'CN' },
+    { continent: 'Asia', flag: '🇯🇵', label: 'Japan', value: 'JP' },
+    { continent: 'Asia', flag: '🇮🇳', label: 'India', value: 'IN' },
+    { continent: 'Asia', flag: '🇰🇷', label: 'South Korea', value: 'KR' },
+    { continent: 'Europe', flag: '🇬🇧', label: 'United Kingdom', value: 'GB' },
+    { continent: 'Europe', flag: '🇫🇷', label: 'France', value: 'FR' },
+    { continent: 'Europe', flag: '🇩🇪', label: 'Germany', value: 'DE' },
+    { continent: 'Europe', flag: '🇮🇹', label: 'Italy', value: 'IT' },
+    { continent: 'Europe', flag: '🇪🇸', label: 'Spain', value: 'ES' },
+    { continent: 'Oceania', flag: '🇦🇺', label: 'Australia', value: 'AU' },
+    { continent: 'Oceania', flag: '🇳🇿', label: 'New Zealand', value: 'NZ' },
+    { continent: 'Oceania', flag: '🇫🇯', label: 'Fiji', value: 'FJ' },
   ],
   itemToString: (item) => `${item.flag} ${item.label}`,
   itemToValue: (item) => item.value,
 })
 
-const continents = Object.entries(
-  groupBy(countries.items, (item) => item.continent),
-)
+const continents = Object.entries(groupBy(countries.items, (item) => item.continent))

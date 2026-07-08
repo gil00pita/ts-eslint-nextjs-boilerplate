@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Kbd, Listbox, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Kbd, Listbox } from '@chakra-ui/react'
 
 export const ListboxExtendedSelect = () => {
   return (
@@ -22,9 +22,9 @@ export const ListboxExtendedSelect = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

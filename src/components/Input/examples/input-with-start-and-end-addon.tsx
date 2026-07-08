@@ -1,8 +1,8 @@
-import { Input, InputGroup } from "@chakra-ui/react"
+import { Input, InputGroup } from '@chakra-ui/react'
 
 export const InputWithStartAndEndAddon = () => {
   return (
-    <InputGroup startAddon="$" endAddon="USD">
+    <InputGroup endAddon="USD" startAddon="$">
       <Input placeholder="0.00" />
     </InputGroup>
   )

@@ -1,9 +1,10 @@
-"use client"
+'use client'
 
-import { PasswordInput } from "@/ui/password-input"
-import { useState } from "react"
+import { useState } from 'react'
+
+import { PasswordInput } from '@/ui/password-input'
 
 export const PasswordInputControlled = () => {
-	const [value, setValue] = useState("")
-	return <PasswordInput value={value} onChange={(e) => setValue(e.target.value)} />
+  const [value, setValue] = useState('')
+  return <PasswordInput onChange={(e) => setValue(e.target.value)} value={value} />
 }

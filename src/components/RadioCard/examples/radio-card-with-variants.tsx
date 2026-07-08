@@ -1,16 +1,11 @@
-import { For, HStack, RadioCard, Stack } from "@chakra-ui/react"
+import { For, HStack, RadioCard, Stack } from '@chakra-ui/react'
 
 export const RadioCardWithVariants = () => {
   return (
     <Stack gap="8">
-      <For each={["surface", "subtle", "outline", "solid"]}>
+      <For each={['surface', 'subtle', 'outline', 'solid']}>
         {(variant) => (
-          <RadioCard.Root
-            colorPalette="teal"
-            key={variant}
-            variant={variant}
-            defaultValue="next"
-          >
+          <RadioCard.Root colorPalette="teal" defaultValue="next" key={variant} variant={variant}>
             <RadioCard.Label>variant = ({variant})</RadioCard.Label>
             <HStack align="stretch">
               {items.map((item) => (
@@ -31,6 +26,6 @@ export const RadioCardWithVariants = () => {
 }
 
 const items = [
-  { value: "next", title: "Next.js" },
-  { value: "vite", title: "Vite" },
+  { title: 'Next.js', value: 'next' },
+  { title: 'Vite', value: 'vite' },
 ]

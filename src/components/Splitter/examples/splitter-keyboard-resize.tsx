@@ -1,10 +1,10 @@
-import { Box, Center, HStack, Span, Splitter } from "@chakra-ui/react"
-import { LuKeyboard, LuMoveLeft, LuMoveRight } from "react-icons/lu"
+import { Box, Center, HStack, Span, Splitter } from '@chakra-ui/react'
+import { LuKeyboard, LuMoveLeft, LuMoveRight } from 'react-icons/lu'
 
 export const SplitterKeyboardResize = () => {
   return (
     <Box>
-      <HStack textStyle="sm" mb={4} gap={2} wrap="wrap">
+      <HStack gap={2} mb={4} textStyle="sm" wrap="wrap">
         <LuKeyboard />
         <Span>Focus the resize handle and use arrow keys</Span>
         <LuMoveLeft />
@@ -12,10 +12,10 @@ export const SplitterKeyboardResize = () => {
       </HStack>
 
       <Splitter.Root
-        panels={[{ id: "a" }, { id: "b" }]}
         borderWidth="1px"
         keyboardResizeBy={5}
         minH="60"
+        panels={[{ id: 'a' }, { id: 'b' }]}
       >
         <Splitter.Panel id="a">
           <Center boxSize="full" textStyle="2xl">

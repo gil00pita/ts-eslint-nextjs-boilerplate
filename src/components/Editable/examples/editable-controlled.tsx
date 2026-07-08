@@ -1,16 +1,12 @@
-"use client"
+'use client'
 
-import { Editable } from "@chakra-ui/react"
-import { useState } from "react"
+import { Editable } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const EditableControlled = () => {
-  const [name, setName] = useState("")
+  const [name, setName] = useState('')
   return (
-    <Editable.Root
-      value={name}
-      onValueChange={(e) => setName(e.value)}
-      placeholder="Click to edit"
-    >
+    <Editable.Root onValueChange={(e) => setName(e.value)} placeholder="Click to edit" value={name}>
       <Editable.Preview />
       <Editable.Input />
     </Editable.Root>

@@ -1,13 +1,14 @@
-"use client"
+'use client'
 
-import { Button } from "@chakra-ui/react"
-import { useColorMode } from "@/ui/color-mode"
+import { Button } from '@chakra-ui/react'
+
+import { useColorMode } from '@/ui/color-mode'
 
 export const ColorModeBasic = () => {
-	const { toggleColorMode } = useColorMode()
-	return (
-		<Button variant='outline' onClick={toggleColorMode}>
-			Toggle Mode
-		</Button>
-	)
+  const { toggleColorMode } = useColorMode()
+  return (
+    <Button onClick={toggleColorMode} variant="outline">
+      Toggle Mode
+    </Button>
+  )
 }

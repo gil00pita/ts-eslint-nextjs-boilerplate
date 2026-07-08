@@ -1,11 +1,11 @@
-import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
+import { ButtonGroup, IconButton, Pagination } from '@chakra-ui/react'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 export const PaginationWithCountText = () => {
   return (
-    <Pagination.Root count={50} pageSize={5} defaultPage={1} maxW="240px">
-      <ButtonGroup variant="ghost" size="sm" w="full">
-        <Pagination.PageText format="long" flex="1" />
+    <Pagination.Root count={50} defaultPage={1} maxW="240px" pageSize={5}>
+      <ButtonGroup size="sm" variant="ghost" w="full">
+        <Pagination.PageText flex="1" format="long" />
         <Pagination.PrevTrigger asChild>
           <IconButton>
             <LuChevronLeft />

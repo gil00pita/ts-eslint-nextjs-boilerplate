@@ -1,17 +1,11 @@
-"use client"
+'use client'
 
-import {
-  ColorPicker,
-  HStack,
-  Portal,
-  Square,
-  parseColor,
-} from "@chakra-ui/react"
-import { LuCheck, LuPlus } from "react-icons/lu"
+import { ColorPicker, HStack, parseColor, Portal, Square } from '@chakra-ui/react'
+import { LuCheck, LuPlus } from 'react-icons/lu'
 
 export const ColorPickerWithSwatchesAndTrigger = () => {
   return (
-    <ColorPicker.Root defaultValue={parseColor("#eb5e41")} maxW="200px">
+    <ColorPicker.Root defaultValue={parseColor('#eb5e41')} maxW="200px">
       <ColorPicker.HiddenInput />
       <ColorPicker.Label>
         Color: <ColorPicker.ValueText />
@@ -29,11 +23,11 @@ export const ColorPickerWithSwatchesAndTrigger = () => {
           ))}
           <ColorPicker.Trigger textStyle="lg">
             <Square
-              size="7"
               bgSize="cover"
-              overflow="hidden"
               border="4px solid"
               borderImage="conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) 1"
+              overflow="hidden"
+              size="7"
             >
               <LuPlus />
             </Square>
@@ -55,4 +49,4 @@ export const ColorPickerWithSwatchesAndTrigger = () => {
   )
 }
 
-const swatches = ["red", "blue", "green"]
+const swatches = ['red', 'blue', 'green']

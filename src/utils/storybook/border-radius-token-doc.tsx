@@ -1,33 +1,27 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  For,
-  SimpleGrid,
-  Square,
-  Stack,
-  defaultSystem,
-} from "@chakra-ui/react"
-import { TokenDoc } from "./token-doc"
+import { Box, defaultSystem, For, SimpleGrid, Square, Stack } from '@chakra-ui/react'
 
-const { tokens, _config } = defaultSystem
+import { TokenDoc } from './token-doc'
+
+const { _config, tokens } = defaultSystem
 const keys = Object.keys(_config.theme?.tokens?.radii ?? {})
 
 export const BorderRadiusTokenDoc = () => {
   return (
-    <TokenDoc title="theme.tokens.radii" mt="8">
-      <SimpleGrid minChildWidth="120px" gap="4">
+    <TokenDoc mt="8" title="theme.tokens.radii">
+      <SimpleGrid gap="4" minChildWidth="120px">
         <For each={keys}>
           {(radius) => {
             const token = tokens.getByName(`radii.${radius}`)
             return (
-              <Stack key={radius} flex="1">
+              <Stack flex="1" key={radius}>
                 <Square
-                  borderRadius={radius}
-                  size="20"
                   bg="bg.subtle"
-                  color="fg.muted"
+                  borderRadius={radius}
                   borderWidth="1px"
+                  color="fg.muted"
+                  size="20"
                 />
                 <Box lineHeight="1">{radius}</Box>
                 <Box as="pre" color="fg.subtle" fontSize="xs">

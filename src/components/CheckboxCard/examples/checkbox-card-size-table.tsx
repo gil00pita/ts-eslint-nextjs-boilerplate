@@ -21,8 +21,8 @@ export const CheckboxCardSizeTable = () => {
             {(v) => (
               <td key={v}>
                 <Stack gap="4">
-                  <DemoCheckboxCard size={v} variant="outline" defaultChecked />
-                  <DemoCheckboxCard size={v} variant="subtle" defaultChecked />
+                  <DemoCheckboxCard defaultChecked size={v} variant="outline" />
+                  <DemoCheckboxCard defaultChecked size={v} variant="subtle" />
                 </Stack>
               </td>
             )}

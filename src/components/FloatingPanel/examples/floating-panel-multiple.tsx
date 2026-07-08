@@ -1,53 +1,46 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FloatingPanel,
-  HStack,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { LuGripHorizontal, LuX } from "react-icons/lu"
+import { Button, FloatingPanel, HStack, IconButton, Portal, Text } from '@chakra-ui/react'
+import { LuGripHorizontal, LuX } from 'react-icons/lu'
 
 const panels = [
   {
-    id: "notes",
-    label: "Notes",
-    title: "Notes",
     defaultPosition: { x: 80, y: 80 },
-    description: "Jot down quick ideas and reminders.",
+    description: 'Jot down quick ideas and reminders.',
+    id: 'notes',
+    label: 'Notes',
+    title: 'Notes',
   },
   {
-    id: "tasks",
-    label: "Tasks",
-    title: "Tasks",
     defaultPosition: { x: 260, y: 120 },
-    description: "Track items you want to finish today.",
+    description: 'Track items you want to finish today.',
+    id: 'tasks',
+    label: 'Tasks',
+    title: 'Tasks',
   },
   {
-    id: "chat",
-    label: "Chat",
-    title: "Chat",
     defaultPosition: { x: 440, y: 160 },
-    description: "Keep a lightweight conversation panel open.",
+    description: 'Keep a lightweight conversation panel open.',
+    id: 'chat',
+    label: 'Chat',
+    title: 'Chat',
   },
 ] as const
 
 export const FloatingPanelMultiple = () => {
   return (
-    <HStack gap="2" flexWrap="wrap">
+    <HStack flexWrap="wrap" gap="2">
       {panels.map((panel) => (
         <FloatingPanel.Root
-          key={panel.id}
-          id={panel.id}
-          persistRect
           defaultPosition={panel.defaultPosition}
-          defaultSize={{ width: 280, height: 200 }}
-          minSize={{ width: 240, height: 160 }}
+          defaultSize={{ height: 200, width: 280 }}
+          id={panel.id}
+          key={panel.id}
+          minSize={{ height: 160, width: 240 }}
+          persistRect
         >
           <FloatingPanel.Trigger asChild>
-            <Button variant="outline" size="sm">
+            <Button size="sm" variant="outline">
               {panel.label}
             </Button>
           </FloatingPanel.Trigger>
@@ -61,7 +54,7 @@ export const FloatingPanelMultiple = () => {
                   </FloatingPanel.DragTrigger>
                   <FloatingPanel.Control>
                     <FloatingPanel.CloseTrigger asChild>
-                      <IconButton variant="ghost" size="2xs">
+                      <IconButton size="2xs" variant="ghost">
                         <LuX />
                       </IconButton>
                     </FloatingPanel.CloseTrigger>

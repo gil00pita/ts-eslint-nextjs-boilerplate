@@ -1,10 +1,10 @@
-import { Alert, Spinner } from "@chakra-ui/react"
+import { Alert, Spinner } from '@chakra-ui/react'
 
 export const AlertWithSpinner = () => {
   return (
     <Alert.Root
-      borderStartWidth="3px"
       borderStartColor="colorPalette.600"
+      borderStartWidth="3px"
       title="We are loading something"
     >
       <Alert.Indicator>

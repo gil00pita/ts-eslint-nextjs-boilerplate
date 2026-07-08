@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import { Button, CloseButton, Drawer, Portal } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, CloseButton, Drawer, Portal } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const DrawerControlled = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+    <Drawer.Root onOpenChange={(e) => setOpen(e.open)} open={open}>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Drawer
         </Button>
       </Drawer.Trigger>
@@ -22,8 +22,8 @@ export const DrawerControlled = () => {
             </Drawer.Header>
             <Drawer.Body>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
               </p>
             </Drawer.Body>
             <Drawer.Footer>

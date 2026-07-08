@@ -8,13 +8,13 @@ import {
   Image,
   Span,
   Stack,
-} from "@chakra-ui/react"
-import { FaStar } from "react-icons/fa"
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
+} from '@chakra-ui/react'
+import { FaStar } from 'react-icons/fa'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 export const CarouselComposition = () => {
   return (
-    <Carousel.Root slideCount={properties.length} slidesPerPage={3} gap="3">
+    <Carousel.Root gap="3" slideCount={properties.length} slidesPerPage={3}>
       <HStack justify="space-between">
         <Span fontWeight="medium">Popular homes in Cape Town</Span>
         <HStack>
@@ -32,7 +32,7 @@ export const CarouselComposition = () => {
       </HStack>
       <Carousel.ItemGroup>
         {properties.map((property, index) => (
-          <Carousel.Item key={property.id} index={index}>
+          <Carousel.Item index={index} key={property.id}>
             <PropertyCard data={property} />
           </Carousel.Item>
         ))}
@@ -49,16 +49,16 @@ const PropertyCard = ({ data }: PropertyCardProps) => (
   <Stack gap="3">
     <Box position="relative">
       <Image
-        src={data.image}
         alt={data.title}
-        rounded="l2"
-        w="full"
+        draggable={false}
         h="200px"
         objectFit="cover"
-        draggable={false}
+        rounded="l2"
+        src={data.image}
+        w="full"
       />
       {data.favorite && (
-        <Badge pos="absolute" top="2" insetStart="2" size="sm">
+        <Badge insetStart="2" pos="absolute" size="sm" top="2">
           Guest favorite
         </Badge>
       )}
@@ -94,79 +94,71 @@ interface Property {
 
 const properties: Property[] = [
   {
-    id: 1,
-    title: "Loft Apartment in City Bowl",
-    price: 152,
-    nights: 2,
-    rating: 4.92,
-    image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
     favorite: true,
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
+    nights: 2,
+    price: 152,
+    rating: 4.92,
+    title: 'Loft Apartment in City Bowl',
   },
   {
-    id: 2,
-    title: "Modern Studio, Camps Bay Beachfront",
-    price: 296,
-    nights: 2,
-    rating: 4.99,
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
     favorite: true,
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+    nights: 2,
+    price: 296,
+    rating: 4.99,
+    title: 'Modern Studio, Camps Bay Beachfront',
   },
   {
     id: 3,
-    title: "Retreat in Hout Bay with Views",
-    price: 257,
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
     nights: 2,
+    price: 257,
     rating: 4.94,
-    image:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80",
+    title: 'Retreat in Hout Bay with Views',
   },
   {
     id: 4,
-    title: "Sunny Flat in Sea Point",
-    price: 132,
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
     nights: 2,
+    price: 132,
     rating: 4.87,
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    title: 'Sunny Flat in Sea Point',
   },
   {
-    id: 5,
-    title: "V&A Waterfront City Studio",
-    price: 200,
-    nights: 2,
-    rating: 4.83,
-    image:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
     favorite: true,
+    id: 5,
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
+    nights: 2,
+    price: 200,
+    rating: 4.83,
+    title: 'V&A Waterfront City Studio',
   },
   {
     id: 6,
-    title: "Luxury Pad, Bantry Bay",
-    price: 247,
+    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
     nights: 2,
+    price: 247,
     rating: 4.96,
-    image:
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+    title: 'Luxury Pad, Bantry Bay',
   },
   {
-    id: 7,
-    title: "Cozy Nest in Green Point",
-    price: 135,
-    nights: 2,
-    rating: 4.81,
-    image:
-      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80",
     favorite: true,
+    id: 7,
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80',
+    nights: 2,
+    price: 135,
+    rating: 4.81,
+    title: 'Cozy Nest in Green Point',
   },
   {
     id: 8,
-    title: "Elegant Villa in Constantia",
-    price: 450,
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
     nights: 2,
+    price: 450,
     rating: 4.98,
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    title: 'Elegant Villa in Constantia',
   },
 ]

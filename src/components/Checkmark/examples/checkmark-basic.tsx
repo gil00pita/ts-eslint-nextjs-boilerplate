@@ -1,4 +1,4 @@
-import { Checkmark, Stack } from "@chakra-ui/react"
+import { Checkmark, Stack } from '@chakra-ui/react'
 
 export const CheckmarkBasic = () => {
   return (
@@ -8,7 +8,7 @@ export const CheckmarkBasic = () => {
       <Checkmark indeterminate />
       <Checkmark disabled />
       <Checkmark checked disabled />
-      <Checkmark indeterminate disabled />
+      <Checkmark disabled indeterminate />
     </Stack>
   )
 }

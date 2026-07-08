@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Portal, Select, createListCollection } from "@chakra-ui/react"
-import { groupBy } from "es-toolkit"
+import { createListCollection, Portal, Select } from '@chakra-ui/react'
+import { groupBy } from 'es-toolkit'
 
 export const SelectWithOptionGroup = () => {
   return (
@@ -39,19 +39,17 @@ export const SelectWithOptionGroup = () => {
 
 const collection = createListCollection({
   items: [
-    { label: "Naruto", value: "naruto", category: "Anime" },
-    { label: "One Piece", value: "one-piece", category: "Anime" },
-    { label: "Dragon Ball", value: "dragon-ball", category: "Anime" },
+    { category: 'Anime', label: 'Naruto', value: 'naruto' },
+    { category: 'Anime', label: 'One Piece', value: 'one-piece' },
+    { category: 'Anime', label: 'Dragon Ball', value: 'dragon-ball' },
     {
-      label: "The Shawshank Redemption",
-      value: "the-shawshank-redemption",
-      category: "Movies",
+      category: 'Movies',
+      label: 'The Shawshank Redemption',
+      value: 'the-shawshank-redemption',
     },
-    { label: "The Godfather", value: "the-godfather", category: "Movies" },
-    { label: "The Dark Knight", value: "the-dark-knight", category: "Movies" },
+    { category: 'Movies', label: 'The Godfather', value: 'the-godfather' },
+    { category: 'Movies', label: 'The Dark Knight', value: 'the-dark-knight' },
   ],
 })
 
-const categories = Object.entries(
-  groupBy(collection.items, (item) => item.category),
-)
+const categories = Object.entries(groupBy(collection.items, (item) => item.category))

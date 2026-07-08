@@ -1,5 +1,5 @@
-import { InputGroup, NativeSelect } from "@chakra-ui/react"
-import { LuUser } from "react-icons/lu"
+import { InputGroup, NativeSelect } from '@chakra-ui/react'
+import { LuUser } from 'react-icons/lu'
 
 export const NativeSelectWithInputGroup = () => {
   return (

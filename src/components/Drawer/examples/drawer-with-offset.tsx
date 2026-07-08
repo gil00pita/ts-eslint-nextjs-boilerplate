@@ -1,10 +1,10 @@
-import { Button, CloseButton, Drawer, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Drawer, Portal } from '@chakra-ui/react'
 
 export const DrawerWithOffset = () => {
   return (
     <Drawer.Root>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button size="sm" variant="outline">
           Open Drawer
         </Button>
       </Drawer.Trigger>
@@ -17,8 +17,8 @@ export const DrawerWithOffset = () => {
             </Drawer.Header>
             <Drawer.Body>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
               </p>
             </Drawer.Body>
             <Drawer.Footer>

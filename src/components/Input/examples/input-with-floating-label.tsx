@@ -1,14 +1,9 @@
-"use client"
+'use client'
 
-import type { InputProps } from "@chakra-ui/react"
-import {
-  Box,
-  Field,
-  Input,
-  defineStyle,
-  useControllableState,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import type { InputProps } from '@chakra-ui/react'
+
+import { Box, defineStyle, Field, Input, useControllableState } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const InputWithFloatingLabel = () => {
   return (
@@ -27,7 +22,7 @@ interface FloatingLabelInputProps extends InputProps {
 }
 
 const FloatingLabelInput = (props: FloatingLabelInputProps) => {
-  const { label, onValueChange, value, defaultValue = "", ...rest } = props
+  const { defaultValue = '', label, onValueChange, value, ...rest } = props
 
   const [inputState, setInputState] = useControllableState({
     defaultValue,
@@ -42,10 +37,7 @@ const FloatingLabelInput = (props: FloatingLabelInputProps) => {
     <Box pos="relative" w="full">
       <Input
         {...rest}
-        onFocus={(e) => {
-          props.onFocus?.(e)
-          setFocused(true)
-        }}
+        data-float={shouldFloat || undefined}
         onBlur={(e) => {
           props.onBlur?.(e)
           setFocused(false)
@@ -54,8 +46,11 @@ const FloatingLabelInput = (props: FloatingLabelInputProps) => {
           props.onChange?.(e)
           setInputState(e.target.value)
         }}
+        onFocus={(e) => {
+          props.onFocus?.(e)
+          setFocused(true)
+        }}
         value={inputState}
-        data-float={shouldFloat || undefined}
       />
       <Field.Label css={floatingStyles} data-float={shouldFloat || undefined}>
         {label}
@@ -65,18 +60,18 @@ const FloatingLabelInput = (props: FloatingLabelInputProps) => {
 }
 
 const floatingStyles = defineStyle({
-  pos: "absolute",
-  bg: "bg",
-  px: "0.5",
-  top: "2.5",
-  insetStart: "3",
-  fontWeight: "normal",
-  pointerEvents: "none",
-  transition: "position",
-  color: "fg.muted",
-  "&[data-float]": {
-    top: "-3",
-    insetStart: "2",
-    color: "fg",
+  '&[data-float]': {
+    color: 'fg',
+    insetStart: '2',
+    top: '-3',
   },
+  bg: 'bg',
+  color: 'fg.muted',
+  fontWeight: 'normal',
+  insetStart: '3',
+  pointerEvents: 'none',
+  pos: 'absolute',
+  px: '0.5',
+  top: '2.5',
+  transition: 'position',
 })

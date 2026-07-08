@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Button, DatePicker, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { Button, DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerWithTodayButton = () => {
   return (
@@ -23,11 +23,7 @@ export const DatePickerWithTodayButton = () => {
               <DatePicker.DayTable />
               <DatePicker.Context>
                 {(api) => (
-                  <Button
-                    variant="subtle"
-                    size="sm"
-                    onClick={() => api.selectToday()}
-                  >
+                  <Button onClick={() => api.selectToday()} size="sm" variant="subtle">
                     Today
                   </Button>
                 )}

@@ -55,13 +55,13 @@ export function pxToRemBatch(pixelValues: number[], baseFontSize: number = 16): 
 
 // Common Brand spacing values converted to rem
 export const brandSpacing = {
+  xs: pxToRem(4), // 0.25rem
+  sm: pxToRem(8), // 0.5rem
+  md: pxToRem(16), // 1rem
+  lg: pxToRem(24), // 1.5rem
+  xl: pxToRem(32), // 2rem
   '2xl': pxToRem(48), // 3rem
   '3xl': pxToRem(64), // 4rem
-  lg: pxToRem(24), // 1.5rem
-  md: pxToRem(16), // 1rem
-  sm: pxToRem(8), // 0.5rem
-  xl: pxToRem(32), // 2rem
-  xs: pxToRem(4), // 0.25rem
 } as const
 
 // Common Brand font sizes converted to rem

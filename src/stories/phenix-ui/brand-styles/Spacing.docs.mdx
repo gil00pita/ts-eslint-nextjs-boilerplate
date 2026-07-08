@@ -1,84 +1,48 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import { Box } from '@chakra-ui/react'
+
+import { Callout, DocsHero, SpecTable } from '../_kit'
 
 <Meta title="Phenix UI/Brand Styles/Spacing" />
 
-# Spacing
-
-Spacing is based on a 4px rhythm. Product screens should feel compact but breathable, especially around forms and tables.
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Spacing"
+  lead="Spacing is based on a 4px rhythm. Product screens should feel compact but breathable, especially around forms and tables."
+/>
 
 ## Scale
 
-<table>
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Value</th>
-      <th>Common use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>1</code>
-      </td>
-      <td>4px</td>
-      <td>Tight icon and text gaps.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>2</code>
-      </td>
-      <td>8px</td>
-      <td>Compact control spacing.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>3</code>
-      </td>
-      <td>12px</td>
-      <td>Related label and content spacing.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>4</code>
-      </td>
-      <td>16px</td>
-      <td>Default component padding.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>6</code>
-      </td>
-      <td>24px</td>
-      <td>Section spacing.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>8</code>
-      </td>
-      <td>32px</td>
-      <td>Page region spacing.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>10</code>
-      </td>
-      <td>40px</td>
-      <td>Major vertical separation.</td>
-    </tr>
-    <tr>
-      <td>
-        <code>12</code>
-      </td>
-      <td>48px</td>
-      <td>Large editorial spacing.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    {
+      key: 'preview',
+      header: 'Preview',
+      width: '16%',
+      render: (_value, row) => (
+        <Box bg="colorPalette.solid" borderRadius="sm" colorPalette="teal" height="3" width={String(row.value)} />
+      ),
+    },
+    { key: 'token', header: 'Token', width: '12%', isCode: true },
+    { key: 'value', header: 'Value', width: '12%' },
+    { key: 'use', header: 'Common use' },
+  ]}
+  rows={[
+    { token: '1', value: '4px', use: 'Tight icon and text gaps.' },
+    { token: '2', value: '8px', use: 'Compact control spacing.' },
+    { token: '3', value: '12px', use: 'Related label and content spacing.' },
+    { token: '4', value: '16px', use: 'Default component padding.' },
+    { token: '6', value: '24px', use: 'Section spacing.' },
+    { token: '8', value: '32px', use: 'Page region spacing.' },
+    { token: '10', value: '40px', use: 'Major vertical separation.' },
+    { token: '12', value: '48px', use: 'Large editorial spacing.' },
+  ]}
+/>
 
-## Rules
-
+<Callout title="Rules" tone="tip">
 - Use `gap` for Stack, HStack, and VStack layouts.
 - Keep related controls closer than unrelated sections.
 - Use larger spacing to signal a new task or region.
 - Avoid one-off pixel values unless a component requires exact geometry.
+</Callout>

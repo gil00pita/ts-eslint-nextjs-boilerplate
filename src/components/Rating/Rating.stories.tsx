@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Forms / Rating',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Forms / Rating',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('Rating')
@@ -24,6 +26,6 @@ export { RatingWithColors as Colors } from './examples/rating-with-colors'
 export { RatingWithCustomIcon as CustomIcon } from './examples/rating-with-custom-icon'
 export { RatingWithHalf as Half } from './examples/rating-with-half'
 export { RatingWithHookForm as HookForm } from './examples/rating-with-hook-form'
+export { RatingWithLabel as Label } from './examples/rating-with-label'
 export { RatingWithReadonly as ReadOnly } from './examples/rating-with-readonly'
 export { RatingWithStore as Store } from './examples/rating-with-store'
-export { RatingWithLabel as Label } from './examples/rating-with-label'

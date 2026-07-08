@@ -1,31 +1,29 @@
-"use client"
+'use client'
 
-import { TreeView, createTreeCollection } from "@chakra-ui/react"
-import { useState } from "react"
-import { LuFile, LuFolder, LuLoaderCircle } from "react-icons/lu"
+import { createTreeCollection, TreeView } from '@chakra-ui/react'
+import { useState } from 'react'
+import { LuFile, LuFolder, LuLoaderCircle } from 'react-icons/lu'
 
 // mock api result
 const response: Record<string, Node[]> = {
   node_modules: [
-    { id: "zag-js", name: "zag-js" },
-    { id: "pandacss", name: "panda" },
-    { id: "@types", name: "@types", childrenCount: 2 },
+    { id: 'zag-js', name: 'zag-js' },
+    { id: 'pandacss', name: 'panda' },
+    { childrenCount: 2, id: '@types', name: '@types' },
   ],
-  "node_modules/@types": [
-    { id: "react", name: "react" },
-    { id: "react-dom", name: "react-dom" },
+  'node_modules/@types': [
+    { id: 'react', name: 'react' },
+    { id: 'react-dom', name: 'react-dom' },
   ],
   src: [
-    { id: "app.tsx", name: "app.tsx" },
-    { id: "index.ts", name: "index.ts" },
+    { id: 'app.tsx', name: 'app.tsx' },
+    { id: 'index.ts', name: 'index.ts' },
   ],
 }
 
 // function to load children of a node
-function loadChildren(
-  details: TreeView.LoadChildrenDetails<Node>,
-): Promise<Node[]> {
-  const value = details.valuePath.join("/")
+function loadChildren(details: TreeView.LoadChildrenDetails<Node>): Promise<Node[]> {
+  const value = details.valuePath.join('/')
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(response[value] ?? [])
@@ -49,7 +47,7 @@ export const TreeViewAsync = () => {
             nodeState.isBranch ? (
               <TreeView.BranchControl>
                 {nodeState.loading ? (
-                  <LuLoaderCircle style={{ animation: "spin 1s infinite" }} />
+                  <LuLoaderCircle style={{ animation: 'spin 1s infinite' }} />
                 ) : (
                   <LuFolder />
                 )}
@@ -76,18 +74,18 @@ interface Node {
 }
 
 const initialCollection = createTreeCollection<Node>({
-  nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,
+  nodeToValue: (node) => node.id,
   rootNode: {
-    id: "ROOT",
-    name: "",
     children: [
-      { id: "node_modules", name: "node_modules", childrenCount: 3 },
-      { id: "src", name: "src", childrenCount: 2 },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { childrenCount: 3, id: 'node_modules', name: 'node_modules' },
+      { childrenCount: 2, id: 'src', name: 'src' },
+      { id: 'panda.config', name: 'panda.config.ts' },
+      { id: 'package.json', name: 'package.json' },
+      { id: 'renovate.json', name: 'renovate.json' },
+      { id: 'readme.md', name: 'README.md' },
     ],
+    id: 'ROOT',
+    name: '',
   },
 })

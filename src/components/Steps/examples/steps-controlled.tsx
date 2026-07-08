@@ -1,20 +1,16 @@
-"use client"
+'use client'
 
-import { Button, ButtonGroup, Steps } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, ButtonGroup, Steps } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const StepsControlled = () => {
   const [step, setStep] = useState(1)
 
   return (
-    <Steps.Root
-      step={step}
-      onStepChange={(e) => setStep(e.step)}
-      count={steps.length}
-    >
+    <Steps.Root count={steps.length} onStepChange={(e) => setStep(e.step)} step={step}>
       <Steps.List>
         {steps.map((step, index) => (
-          <Steps.Item key={index} index={index} title={step.title}>
+          <Steps.Item index={index} key={index} title={step.title}>
             <Steps.Indicator />
             <Steps.Title>{step.title}</Steps.Title>
             <Steps.Separator />
@@ -23,7 +19,7 @@ export const StepsControlled = () => {
       </Steps.List>
 
       {steps.map((step, index) => (
-        <Steps.Content key={index} index={index}>
+        <Steps.Content index={index} key={index}>
           {step.description}
         </Steps.Content>
       ))}
@@ -43,15 +39,15 @@ export const StepsControlled = () => {
 
 const steps = [
   {
-    title: "Step 1",
-    description: "Step 1 description",
+    description: 'Step 1 description',
+    title: 'Step 1',
   },
   {
-    title: "Step 2",
-    description: "Step 2 description",
+    description: 'Step 2 description',
+    title: 'Step 2',
   },
   {
-    title: "Step 3",
-    description: "Step 3 description",
+    description: 'Step 3 description',
+    title: 'Step 3',
   },
 ]

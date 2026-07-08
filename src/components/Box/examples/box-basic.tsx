@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/react'
 
 export const BoxBasic = () => {
   return (
-    <Box background="tomato" width="100%" padding="4" color="white">
+    <Box background="tomato" color="white" padding="4" width="100%">
       This is the Box
     </Box>
   )

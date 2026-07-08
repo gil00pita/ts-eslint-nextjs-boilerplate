@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerRangeSelection = () => {
   return (
-    <DatePicker.Root selectionMode="range" maxWidth="20rem">
+    <DatePicker.Root maxWidth="20rem" selectionMode="range">
       <DatePicker.Label>Select range</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input index={0} />

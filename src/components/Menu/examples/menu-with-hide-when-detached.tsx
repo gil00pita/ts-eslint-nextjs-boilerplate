@@ -1,26 +1,18 @@
-import { Box, Center, Flex, Menu, Portal, Text } from "@chakra-ui/react"
+import { Box, Center, Flex, Menu, Portal, Text } from '@chakra-ui/react'
 
 export const MenuWithHideWhenDetached = () => {
   return (
     <Center minH="sm">
-      <Flex
-        w="300px"
-        h="full"
-        overflowX="auto"
-        gapX="6"
-        p="4"
-        borderWidth="1px"
-        bg="bg.subtle"
-      >
+      <Flex bg="bg.subtle" borderWidth="1px" gapX="6" h="full" overflowX="auto" p="4" w="300px">
         {[...Array(6).keys()].map((x) => (
-          <Box layerStyle="fill.surface" p="4" borderRadius="md" key={x}>
+          <Box borderRadius="md" key={x} layerStyle="fill.surface" p="4">
             <Text>Item{x}</Text>
           </Box>
         ))}
         <Box>
           <Menu.Root positioning={{ hideWhenDetached: true }}>
             <Menu.Trigger asChild>
-              <Box as="button" bg="green.100" p="4" borderRadius="md">
+              <Box as="button" bg="green.100" borderRadius="md" p="4">
                 Menu
               </Box>
             </Menu.Trigger>

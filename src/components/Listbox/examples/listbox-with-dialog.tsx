@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Button,
@@ -11,43 +11,43 @@ import {
   Text,
   useFilter,
   useListCollection,
-} from "@chakra-ui/react"
-import { useState } from "react"
+} from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const ListboxWithDialog = () => {
   const [selectedFrameworks, setSelectedFrameworks] = useState<string[]>([])
   const [isOpen, setIsOpen] = useState(false)
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: [
-      { label: "Linear.app", value: "linear", type: "applications" },
-      { label: "Notion", value: "notion", type: "applications" },
-      { label: "Figma", value: "figma", type: "applications" },
-      { label: "Slack", value: "slack", type: "applications" },
-      { label: "Cursor", value: "cursor", type: "applications" },
-
-      { label: "Open Terminal", value: "terminal", type: "commands" },
-      { label: "Search Files", value: "search", type: "commands" },
-      { label: "Git Status", value: "git-status", type: "commands" },
-      { label: "Run Tests", value: "run-tests", type: "commands" },
-      { label: "Deploy App", value: "deploy", type: "commands" },
-    ],
     filter: contains,
     groupBy: (item) => item.type,
-    groupSort: ["applications", "commands"],
+    groupSort: ['applications', 'commands'],
+    initialItems: [
+      { label: 'Linear.app', type: 'applications', value: 'linear' },
+      { label: 'Notion', type: 'applications', value: 'notion' },
+      { label: 'Figma', type: 'applications', value: 'figma' },
+      { label: 'Slack', type: 'applications', value: 'slack' },
+      { label: 'Cursor', type: 'applications', value: 'cursor' },
+
+      { label: 'Open Terminal', type: 'commands', value: 'terminal' },
+      { label: 'Search Files', type: 'commands', value: 'search' },
+      { label: 'Git Status', type: 'commands', value: 'git-status' },
+      { label: 'Run Tests', type: 'commands', value: 'run-tests' },
+      { label: 'Deploy App', type: 'commands', value: 'deploy' },
+    ],
   })
 
   const handleSelectionChange = (details: any) => {
     setSelectedFrameworks(details.value)
     setIsOpen(false)
-    filter("")
+    filter('')
   }
 
   return (
     <>
-      <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
+      <Dialog.Root onOpenChange={(e) => setIsOpen(e.open)} open={isOpen}>
         <Dialog.Trigger asChild>
           <Button variant="outline">Open Search</Button>
         </Dialog.Trigger>
@@ -58,35 +58,31 @@ export const ListboxWithDialog = () => {
             <Dialog.Content>
               <Listbox.Root
                 collection={collection}
-                value={selectedFrameworks}
                 onValueChange={handleSelectionChange}
+                value={selectedFrameworks}
                 variant="plain"
               >
                 <Dialog.Header>
                   <Listbox.Input
-                    placeholder="Search for apps or command..."
-                    minH="6"
-                    outline="0"
-                    width="full"
-                    onChange={(e) => filter(e.currentTarget.value)}
                     autoHighlight
+                    minH="6"
+                    onChange={(e) => filter(e.currentTarget.value)}
+                    outline="0"
+                    placeholder="Search for apps or command..."
+                    width="full"
                   />
                 </Dialog.Header>
 
-                <Listbox.Content px="3" maxH="300px">
+                <Listbox.Content maxH="300px" px="3">
                   {collection.group().map(([group, items]) => (
                     <Listbox.ItemGroup key={group}>
                       <Listbox.ItemGroupLabel textTransform="capitalize">
                         {group}
                       </Listbox.ItemGroupLabel>
                       {items.map((item) => (
-                        <Listbox.Item
-                          item={item}
-                          key={item.value}
-                          justifyContent="space-between"
-                        >
+                        <Listbox.Item item={item} justifyContent="space-between" key={item.value}>
                           <Listbox.ItemText>{item.label}</Listbox.ItemText>
-                          <Span fontSize="xs" color="fg.muted">
+                          <Span color="fg.muted" fontSize="xs">
                             {item.type}
                           </Span>
                         </Listbox.Item>
@@ -95,10 +91,10 @@ export const ListboxWithDialog = () => {
                   ))}
                 </Listbox.Content>
 
-                <Dialog.Footer textStyle="xs" borderTopWidth="1px">
-                  <CommandItem label="Press Esc to close" keys={["Esc"]} />
-                  <CommandItem label="Open Application" keys={["⏎"]} />
-                  <CommandItem label="Actions" keys={["⌘", "K"]} />
+                <Dialog.Footer borderTopWidth="1px" textStyle="xs">
+                  <CommandItem keys={['Esc']} label="Press Esc to close" />
+                  <CommandItem keys={['⏎']} label="Open Application" />
+                  <CommandItem keys={['⌘', 'K']} label="Actions" />
                 </Dialog.Footer>
               </Listbox.Root>
             </Dialog.Content>
@@ -118,7 +114,7 @@ export const ListboxWithDialog = () => {
 const CommandItem = (props: { label: string; keys: string[] }) => {
   return (
     <HStack>
-      {props.label} <Kbd size="sm">{props.keys.join(" ")}</Kbd>
+      {props.label} <Kbd size="sm">{props.keys.join(' ')}</Kbd>
     </HStack>
   )
 }

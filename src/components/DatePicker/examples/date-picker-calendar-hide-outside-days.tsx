@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { DatePicker, parseDate } from "@chakra-ui/react"
+import { DatePicker, parseDate } from '@chakra-ui/react'
 
 export const DatePickerCalendarHideOutsideDays = () => {
   return (
     <DatePicker.Root
+      defaultValue={[parseDate('2025-03-15')]}
       hideOutsideDays
       inline
       width="fit-content"
-      defaultValue={[parseDate("2025-03-15")]}
     >
       <DatePicker.Content unstyled>
         <DatePicker.View view="day">

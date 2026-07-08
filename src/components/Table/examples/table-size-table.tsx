@@ -1,6 +1,7 @@
 'use client'
 
 import { For, Span, Table, type TableRootProps, useSlotRecipe } from '@chakra-ui/react'
+
 import { PlaygroundTable } from '@/utils/storybook/playground-table'
 
 export const TableSizeTable = () => {
@@ -18,14 +19,14 @@ export const TableSizeTable = () => {
           {(c) => (
             <tr key={c}>
               <td>
-                <Span fontSize="sm" color="fg.muted" minW="8ch">
+                <Span color="fg.muted" fontSize="sm" minW="8ch">
                   {c}
                 </Span>
               </td>
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td key={v}>
-                    <DemoTable size={v} variant={c} striped />
+                    <DemoTable size={v} striped variant={c} />
                   </td>
                 )}
               </For>
@@ -61,9 +62,9 @@ const DemoTable = (props: TableRootProps) => {
 }
 
 const items = [
-  { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
-  { id: 2, name: 'Coffee Maker', category: 'Home Appliances', price: 49.99 },
-  { id: 3, name: 'Desk Chair', category: 'Furniture', price: 150.0 },
-  { id: 4, name: 'Smartphone', category: 'Electronics', price: 799.99 },
-  { id: 5, name: 'Headphones', category: 'Accessories', price: 199.99 },
+  { category: 'Electronics', id: 1, name: 'Laptop', price: 999.99 },
+  { category: 'Home Appliances', id: 2, name: 'Coffee Maker', price: 49.99 },
+  { category: 'Furniture', id: 3, name: 'Desk Chair', price: 150.0 },
+  { category: 'Electronics', id: 4, name: 'Smartphone', price: 799.99 },
+  { category: 'Accessories', id: 5, name: 'Headphones', price: 199.99 },
 ]

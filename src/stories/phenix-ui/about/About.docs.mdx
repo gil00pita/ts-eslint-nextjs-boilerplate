@@ -1,50 +1,46 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
+import { CompareList, DocsHero, SpecTable } from '../_kit'
+
 <Meta title="Phenix UI/About/Overview" />
 
-# About Phenix UI
-
-Phenix UI is a fictional component library and design language for teams that need to ship consistent, accessible interfaces quickly. It sits on top of Chakra UI v3 and adds product-ready components, tokens, recipes, and decision guidance.
+<DocsHero
+  colorPalette="brand"
+  eyebrow="About"
+  title="About Phenix UI"
+  lead="A fictional component library and design language for teams that need to ship consistent, accessible interfaces quickly. It sits on top of Chakra UI v3 and adds product-ready components, tokens, recipes, and decision guidance."
+/>
 
 ## Who It Is For
 
-<table>
-  <thead>
-    <tr>
-      <th>Audience</th>
-      <th>What they get</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Product designers</td>
-      <td>Shared foundations, interaction patterns, and component rules.</td>
-    </tr>
-    <tr>
-      <td>Frontend engineers</td>
-      <td>Typed React components, theme tokens, recipes, and examples.</td>
-    </tr>
-    <tr>
-      <td>Content designers</td>
-      <td>Voice, tone, error-writing, and flow guidance.</td>
-    </tr>
-    <tr>
-      <td>Accessibility reviewers</td>
-      <td>Checklists and expected keyboard, focus, and contrast behavior.</td>
-    </tr>
-  </tbody>
-</table>
+<SpecTable
+  columns={[
+    { key: 'audience', header: 'Audience', width: '28%' },
+    { key: 'gets', header: 'What they get' },
+  ]}
+  rows={[
+    { audience: 'Product designers', gets: 'Shared foundations, interaction patterns, and component rules.' },
+    { audience: 'Frontend engineers', gets: 'Typed React components, theme tokens, recipes, and examples.' },
+    { audience: 'Content designers', gets: 'Voice, tone, error-writing, and flow guidance.' },
+    { audience: 'Accessibility reviewers', gets: 'Checklists and expected keyboard, focus, and contrast behavior.' },
+  ]}
+/>
 
-## What It Includes
+## Scope
 
-- Components for application shells, forms, feedback, navigation, and data display.
-- Tokens for color, spacing, typography, radius, elevation, and motion.
-- Guidelines for accessibility, content, and reusable product patterns.
-- Release notes and migration guidance for teams already using the system.
-
-## What It Does Not Include
-
-- A complete product framework.
-- Business-domain copy or data models.
-- Finished page templates for every possible workflow.
-- A substitute for user research, service design, or accessibility testing.
+<CompareList
+  includeTitle="What It Includes"
+  includeItems={[
+    'Components for application shells, forms, feedback, navigation, and data display.',
+    'Tokens for color, spacing, typography, radius, elevation, and motion.',
+    'Guidelines for accessibility, content, and reusable product patterns.',
+    'Release notes and migration guidance for teams already using the system.',
+  ]}
+  excludeTitle="What It Does Not Include"
+  excludeItems={[
+    'A complete product framework.',
+    'Business-domain copy or data models.',
+    'Finished page templates for every possible workflow.',
+    'A substitute for user research, service design, or accessibility testing.',
+  ]}
+/>

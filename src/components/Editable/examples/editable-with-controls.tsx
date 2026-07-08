@@ -1,5 +1,5 @@
-import { Editable, IconButton } from "@chakra-ui/react"
-import { LuCheck, LuPencilLine, LuX } from "react-icons/lu"
+import { Editable, IconButton } from '@chakra-ui/react'
+import { LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
 
 export const EditableWithControls = () => {
   return (
@@ -8,17 +8,17 @@ export const EditableWithControls = () => {
       <Editable.Input />
       <Editable.Control>
         <Editable.EditTrigger asChild>
-          <IconButton variant="ghost" size="xs">
+          <IconButton size="xs" variant="ghost">
             <LuPencilLine />
           </IconButton>
         </Editable.EditTrigger>
         <Editable.CancelTrigger asChild>
-          <IconButton variant="outline" size="xs">
+          <IconButton size="xs" variant="outline">
             <LuX />
           </IconButton>
         </Editable.CancelTrigger>
         <Editable.SubmitTrigger asChild>
-          <IconButton variant="outline" size="xs">
+          <IconButton size="xs" variant="outline">
             <LuCheck />
           </IconButton>
         </Editable.SubmitTrigger>

@@ -1,15 +1,7 @@
-"use client"
+'use client'
 
-import {
-  Button,
-  FloatingPanel,
-  Grid,
-  HStack,
-  IconButton,
-  Portal,
-  Text,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, FloatingPanel, Grid, HStack, IconButton, Portal, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import {
   LuArrowDown,
   LuArrowLeft,
@@ -17,65 +9,59 @@ import {
   LuArrowUp,
   LuGripHorizontal,
   LuX,
-} from "react-icons/lu"
+} from 'react-icons/lu'
 
 export const FloatingPanelControlledPosition = () => {
   const [position, setPosition] = useState({ x: 16, y: 100 })
 
-  const move = (dx: number, dy: number) =>
-    setPosition((p) => ({ x: p.x + dx, y: p.y + dy }))
+  const move = (dx: number, dy: number) => setPosition((p) => ({ x: p.x + dx, y: p.y + dy }))
 
   return (
     <FloatingPanel.Root
-      position={position}
       onPositionChange={(details) => setPosition(details.position)}
+      position={position}
     >
       <HStack align="start" p="3">
         <FloatingPanel.Trigger asChild>
-          <Button variant="outline" size="sm">
+          <Button size="sm" variant="outline">
             Open Panel
           </Button>
         </FloatingPanel.Trigger>
-        <Grid templateColumns="repeat(3, 1fr)" gap="1">
+        <Grid gap="1" templateColumns="repeat(3, 1fr)">
           <span />
-          <IconButton
-            size="xs"
-            variant="outline"
-            aria-label="Move up"
-            onClick={() => move(0, -50)}
-          >
+          <IconButton aria-label="Move up" onClick={() => move(0, -50)} size="xs" variant="outline">
             <LuArrowUp />
           </IconButton>
           <span />
           <IconButton
-            size="xs"
-            variant="outline"
             aria-label="Move left"
             onClick={() => move(-50, 0)}
+            size="xs"
+            variant="outline"
           >
             <LuArrowLeft />
           </IconButton>
           <span />
           <IconButton
-            size="xs"
-            variant="outline"
             aria-label="Move right"
             onClick={() => move(50, 0)}
+            size="xs"
+            variant="outline"
           >
             <LuArrowRight />
           </IconButton>
           <span />
           <IconButton
-            size="xs"
-            variant="outline"
             aria-label="Move down"
             onClick={() => move(0, 50)}
+            size="xs"
+            variant="outline"
           >
             <LuArrowDown />
           </IconButton>
           <span />
         </Grid>
-        <Text textStyle="xs" fontFamily="mono" color="fg.muted" pt="1">
+        <Text color="fg.muted" fontFamily="mono" pt="1" textStyle="xs">
           x: {Math.round(position.x)}, y: {Math.round(position.y)}
         </Text>
       </HStack>
@@ -89,7 +75,7 @@ export const FloatingPanelControlledPosition = () => {
               </FloatingPanel.DragTrigger>
               <FloatingPanel.Control>
                 <FloatingPanel.CloseTrigger asChild>
-                  <IconButton variant="ghost" size="2xs">
+                  <IconButton size="2xs" variant="ghost">
                     <LuX />
                   </IconButton>
                 </FloatingPanel.CloseTrigger>

@@ -1,15 +1,15 @@
-import { Tabs } from "@chakra-ui/react"
-import { LuFolder, LuSquareCheck, LuUser } from "react-icons/lu"
+import { Tabs } from '@chakra-ui/react'
+import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 
 export const TabsWithManualActivation = () => {
   return (
-    <Tabs.Root defaultValue="members" activationMode="manual">
+    <Tabs.Root activationMode="manual" defaultValue="members">
       <Tabs.List>
         <Tabs.Trigger value="members">
           <LuUser />
           Members
         </Tabs.Trigger>
-        <Tabs.Trigger value="projects" disabled>
+        <Tabs.Trigger disabled value="projects">
           <LuFolder />
           Projects
         </Tabs.Trigger>

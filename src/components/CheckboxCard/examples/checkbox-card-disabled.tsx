@@ -1,4 +1,4 @@
-import { CheckboxCard } from "@chakra-ui/react"
+import { CheckboxCard } from '@chakra-ui/react'
 
 export const CheckboxCardDisabled = () => {
   return (
@@ -7,9 +7,7 @@ export const CheckboxCardDisabled = () => {
       <CheckboxCard.Control>
         <CheckboxCard.Content>
           <CheckboxCard.Label>Disabled</CheckboxCard.Label>
-          <CheckboxCard.Description>
-            This is a disabled checkbox
-          </CheckboxCard.Description>
+          <CheckboxCard.Description>This is a disabled checkbox</CheckboxCard.Description>
         </CheckboxCard.Content>
         <CheckboxCard.Indicator />
       </CheckboxCard.Control>

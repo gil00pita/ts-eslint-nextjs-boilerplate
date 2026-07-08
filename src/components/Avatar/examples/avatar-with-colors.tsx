@@ -4,9 +4,9 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const AvatarWithColors = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack align="flex-start" gap="2">
       {colorPalettes.map((colorPalette) => (
-        <Stack key={colorPalette} align="center" direction="row" gap="10">
+        <Stack align="center" direction="row" gap="10" key={colorPalette}>
           <Text minW="8ch">{colorPalette}</Text>
           <Avatar.Root colorPalette={colorPalette}>
             <Avatar.Fallback name="Segun Adebayo" />

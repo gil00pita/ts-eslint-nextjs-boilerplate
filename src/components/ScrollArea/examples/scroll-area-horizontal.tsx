@@ -3,12 +3,12 @@ import { Flex, ScrollArea } from '@chakra-ui/react'
 import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 export const ScrollAreaHorizontal = () => (
-  <ScrollArea.Root width="24rem" size="xs">
+  <ScrollArea.Root size="xs" width="24rem">
     <ScrollArea.Viewport>
       <ScrollArea.Content py="4">
-        <Flex gap="4" flexWrap="nowrap">
+        <Flex flexWrap="nowrap" gap="4">
           {Array.from({ length: 12 }, (_, i) => (
-            <DecorativeBox rounded="sm" key={i} h="20" w="40" flexShrink="0">
+            <DecorativeBox flexShrink="0" h="20" key={i} rounded="sm" w="40">
               Item {i + 1}
             </DecorativeBox>
           ))}

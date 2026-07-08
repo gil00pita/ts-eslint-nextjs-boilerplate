@@ -1,5 +1,5 @@
-import { HStack, Tag } from "@chakra-ui/react"
-import { LuActivity } from "react-icons/lu"
+import { HStack, Tag } from '@chakra-ui/react'
+import { LuActivity } from 'react-icons/lu'
 
 export const TagWithClose = () => {
   return (

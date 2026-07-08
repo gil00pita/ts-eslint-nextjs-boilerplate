@@ -1,27 +1,17 @@
-"use client"
+'use client'
 
-import {
-  Code,
-  ColorPicker,
-  HStack,
-  Portal,
-  Stack,
-  parseColor,
-} from "@chakra-ui/react"
-import { useState } from "react"
+import { Code, ColorPicker, HStack, parseColor, Portal, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export const ColorPickerChangeEnd = () => {
-  const [value, setValue] = useState(parseColor("#eb5e41"))
+  const [value, setValue] = useState(parseColor('#eb5e41'))
 
   return (
-    <Stack gap="8" align="flex-start">
+    <Stack align="flex-start" gap="8">
       <Code>
-        onChangeEnd: <b>{value.toString("hex")}</b>
+        onChangeEnd: <b>{value.toString('hex')}</b>
       </Code>
-      <ColorPicker.Root
-        defaultValue={value}
-        onValueChangeEnd={(e) => setValue(e.value)}
-      >
+      <ColorPicker.Root defaultValue={value} onValueChangeEnd={(e) => setValue(e.value)}>
         <ColorPicker.HiddenInput />
         <ColorPicker.Label>Color</ColorPicker.Label>
         <ColorPicker.Control>

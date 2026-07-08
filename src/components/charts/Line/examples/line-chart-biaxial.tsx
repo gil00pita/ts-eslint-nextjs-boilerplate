@@ -1,92 +1,79 @@
-"use client"
+'use client'
 
-import { Chart, useChart } from "@chakra-ui/charts"
-import {
-  CartesianGrid,
-  Label,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { Chart, useChart } from '@chakra-ui/charts'
+import { CartesianGrid, Label, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 export const LineChartBiaxial = () => {
   const chart = useChart({
     data: [
-      { windows: 186, mac: 20, month: "January" },
-      { windows: 165, mac: 45, month: "February" },
-      { windows: 190, mac: 37, month: "March" },
-      { windows: 195, mac: 28, month: "May" },
-      { windows: 182, mac: 48, month: "June" },
-      { windows: 175, mac: 30, month: "August" },
-      { windows: 180, mac: 26, month: "October" },
-      { windows: 185, mac: 41, month: "November" },
+      { mac: 20, month: 'January', windows: 186 },
+      { mac: 45, month: 'February', windows: 165 },
+      { mac: 37, month: 'March', windows: 190 },
+      { mac: 28, month: 'May', windows: 195 },
+      { mac: 48, month: 'June', windows: 182 },
+      { mac: 30, month: 'August', windows: 175 },
+      { mac: 26, month: 'October', windows: 180 },
+      { mac: 41, month: 'November', windows: 185 },
     ],
     series: [
-      { name: "windows", color: "teal.solid", yAxisId: "left" },
-      { name: "mac", color: "purple.solid", yAxisId: "right" },
+      { color: 'teal.solid', name: 'windows', yAxisId: 'left' },
+      { color: 'purple.solid', name: 'mac', yAxisId: 'right' },
     ],
   })
 
   return (
-    <Chart.Root maxH="sm" chart={chart}>
-      <LineChart
-        data={chart.data}
-        margin={{ left: 20, bottom: 20, right: 20, top: 20 }}
-        responsive
-      >
-        <CartesianGrid stroke={chart.color("border")} vertical={false} />
+    <Chart.Root chart={chart} maxH="sm">
+      <LineChart data={chart.data} margin={{ bottom: 20, left: 20, right: 20, top: 20 }} responsive>
+        <CartesianGrid stroke={chart.color('border')} vertical={false} />
         <XAxis
           axisLine={false}
-          dataKey={chart.key("month")}
+          dataKey={chart.key('month')}
+          stroke={chart.color('border')}
           tickFormatter={(value) => value.slice(0, 3)}
-          stroke={chart.color("border")}
         >
-          <Label value="Month" position="bottom" />
+          <Label position="bottom" value="Month" />
         </XAxis>
         <YAxis
           axisLine={false}
+          dataKey={chart.key('windows')}
+          stroke={chart.color('border')}
           tickLine={false}
           tickMargin={10}
           yAxisId="left"
-          dataKey={chart.key("windows")}
-          stroke={chart.color("border")}
         >
-          <Label value="Windows" position="left" angle={-90} offset={-10} />
+          <Label angle={-90} offset={-10} position="left" value="Windows" />
         </YAxis>
         <YAxis
           axisLine={false}
+          dataKey={chart.key('mac')}
+          orientation="right"
+          stroke={chart.color('border')}
           tickLine={false}
           tickMargin={10}
           yAxisId="right"
-          orientation="right"
-          dataKey={chart.key("mac")}
-          stroke={chart.color("border")}
         >
-          <Label value="Mac" position="right" angle={90} offset={-10} />
+          <Label angle={90} offset={-10} position="right" value="Mac" />
         </YAxis>
         <Tooltip
           animationDuration={100}
-          cursor={{ stroke: chart.color("border") }}
           content={<Chart.Tooltip />}
+          cursor={{ stroke: chart.color('border') }}
         />
         <Legend
-          verticalAlign="top"
           align="right"
-          wrapperStyle={{ marginTop: -20, marginRight: 20 }}
           content={<Chart.Legend />}
+          verticalAlign="top"
+          wrapperStyle={{ marginRight: 20, marginTop: -20 }}
         />
         {chart.series.map((item) => (
           <Line
-            yAxisId={item.yAxisId}
-            key={item.name}
-            isAnimationActive={false}
             dataKey={chart.key(item.name)}
             fill={chart.color(item.color)}
+            isAnimationActive={false}
+            key={item.name}
             stroke={chart.color(item.color)}
             strokeWidth={2}
+            yAxisId={item.yAxisId}
           />
         ))}
       </LineChart>

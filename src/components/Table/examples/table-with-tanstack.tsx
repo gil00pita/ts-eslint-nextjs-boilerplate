@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Table } from "@chakra-ui/react"
+import { Table } from '@chakra-ui/react'
 import {
   createColumnHelper,
   flexRender,
@@ -8,7 +8,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
+} from '@tanstack/react-table'
 
 type Product = {
   id: number
@@ -21,35 +21,35 @@ type Product = {
 const columnHelper = createColumnHelper<Product>()
 
 const columns = [
-  columnHelper.accessor("name", {
-    header: "Product",
+  columnHelper.accessor('name', {
     cell: (info) => info.getValue(),
+    header: 'Product',
   }),
-  columnHelper.accessor("category", {
-    header: "Category",
+  columnHelper.accessor('category', {
     cell: (info) => info.getValue(),
+    header: 'Category',
   }),
-  columnHelper.accessor("price", {
-    header: "Price",
+  columnHelper.accessor('price', {
     cell: (info) => `$${info.getValue().toFixed(2)}`,
+    header: 'Price',
   }),
-  columnHelper.accessor("stock", {
-    header: "Stock",
+  columnHelper.accessor('stock', {
     cell: (info) => info.getValue(),
+    header: 'Stock',
   }),
 ]
 
 export const TableWithTanstack = () => {
   const table = useReactTable({
-    data,
     columns,
+    data,
     getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   })
 
   return (
-    <Table.Root size="sm" variant="outline" native>
+    <Table.Root native size="sm" variant="outline">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
@@ -57,10 +57,7 @@ export const TableWithTanstack = () => {
               <th key={header.id}>
                 {header.isPlaceholder
                   ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
+                  : flexRender(header.column.columnDef.header, header.getContext())}
               </th>
             ))}
           </tr>
@@ -70,9 +67,7 @@ export const TableWithTanstack = () => {
         {table.getRowModel().rows.map((row) => (
           <tr key={row.id}>
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
+              <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
             ))}
           </tr>
         ))}
@@ -82,32 +77,32 @@ export const TableWithTanstack = () => {
 }
 
 const data: Product[] = [
-  { id: 1, name: "Laptop", category: "Electronics", price: 999.99, stock: 50 },
+  { category: 'Electronics', id: 1, name: 'Laptop', price: 999.99, stock: 50 },
   {
+    category: 'Home Appliances',
     id: 2,
-    name: "Coffee Maker",
-    category: "Home Appliances",
+    name: 'Coffee Maker',
     price: 49.99,
     stock: 120,
   },
   {
+    category: 'Furniture',
     id: 3,
-    name: "Desk Chair",
-    category: "Furniture",
+    name: 'Desk Chair',
     price: 150.0,
     stock: 30,
   },
   {
+    category: 'Electronics',
     id: 4,
-    name: "Smartphone",
-    category: "Electronics",
+    name: 'Smartphone',
     price: 799.99,
     stock: 75,
   },
   {
+    category: 'Accessories',
     id: 5,
-    name: "Headphones",
-    category: "Accessories",
+    name: 'Headphones',
     price: 199.99,
     stock: 200,
   },

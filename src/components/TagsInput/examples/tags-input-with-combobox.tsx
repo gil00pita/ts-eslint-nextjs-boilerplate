@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Combobox,
@@ -7,41 +7,34 @@ import {
   useFilter,
   useListCollection,
   useTagsInput,
-} from "@chakra-ui/react"
-import { useId, useRef } from "react"
+} from '@chakra-ui/react'
+import { useId, useRef } from 'react'
 
 export const TagsInputWithCombobox = () => {
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: [
-      "React",
-      "Chakra",
-      "TypeScript",
-      "Next.js",
-      "Ark UI",
-      "Zag.js",
-    ],
     filter: contains,
+    initialItems: ['React', 'Chakra', 'TypeScript', 'Next.js', 'Ark UI', 'Zag.js'],
   })
 
   const uid = useId()
   const controlRef = useRef<HTMLDivElement | null>(null)
 
   const tags = useTagsInput({
-    ids: { input: `input_${uid}`, control: `control_${uid}` },
+    ids: { control: `control_${uid}`, input: `input_${uid}` },
   })
 
   const comobobox = useCombobox({
-    ids: { input: `input_${uid}`, control: `control_${uid}` },
+    allowCustomValue: true,
     collection,
+    ids: { control: `control_${uid}`, input: `input_${uid}` },
     onInputValueChange(e) {
       filter(e.inputValue)
     },
-    value: [],
-    allowCustomValue: true,
     onValueChange: (e) => tags.addValue(e.value[0]),
-    selectionBehavior: "clear",
+    selectionBehavior: 'clear',
+    value: [],
   })
 
   return (
@@ -51,7 +44,7 @@ export const TagsInputWithCombobox = () => {
 
         <TagsInput.Control ref={controlRef}>
           {tags.value.map((tag, index) => (
-            <TagsInput.Item key={index} index={index} value={tag}>
+            <TagsInput.Item index={index} key={index} value={tag}>
               <TagsInput.ItemPreview>
                 <TagsInput.ItemText>{tag}</TagsInput.ItemText>
                 <TagsInput.ItemDeleteTrigger />
@@ -59,7 +52,7 @@ export const TagsInputWithCombobox = () => {
             </TagsInput.Item>
           ))}
 
-          <Combobox.Input unstyled asChild>
+          <Combobox.Input asChild unstyled>
             <TagsInput.Input placeholder="Add tag..." />
           </Combobox.Input>
         </TagsInput.Control>

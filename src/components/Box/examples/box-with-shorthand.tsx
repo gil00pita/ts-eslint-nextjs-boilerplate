@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/react'
 
 export const BoxWithShorthand = () => {
   return (
-    <Box bg="tomato" w="100%" p="4" color="white">
+    <Box bg="tomato" color="white" p="4" w="100%">
       This is the Box
     </Box>
   )

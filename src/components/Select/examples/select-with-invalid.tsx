@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Field, Portal, Select, createListCollection } from "@chakra-ui/react"
+import { createListCollection, Field, Portal, Select } from '@chakra-ui/react'
 
 export const SelectWithInvalid = () => {
   return (
@@ -36,9 +36,9 @@ export const SelectWithInvalid = () => {
 
 const frameworks = createListCollection({
   items: [
-    { label: "React.js", value: "react" },
-    { label: "Vue.js", value: "vue" },
-    { label: "Angular", value: "angular" },
-    { label: "Svelte", value: "svelte" },
+    { label: 'React.js', value: 'react' },
+    { label: 'Vue.js', value: 'vue' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'Svelte', value: 'svelte' },
   ],
 })

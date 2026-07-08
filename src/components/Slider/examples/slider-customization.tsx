@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Box, Slider } from "@chakra-ui/react"
-import { MdGraphicEq } from "react-icons/md"
+import { Box, Slider } from '@chakra-ui/react'
+import { MdGraphicEq } from 'react-icons/md'
 
 export const SliderCustomization = () => {
   return (
@@ -10,8 +10,8 @@ export const SliderCustomization = () => {
         <Slider.Track bg="red.100">
           <Slider.Range bg="tomato" />
         </Slider.Track>
-        <Slider.Thumb index={0} boxSize={6} borderColor="tomato">
-          <Box color="tomato" as={MdGraphicEq} />
+        <Slider.Thumb borderColor="tomato" boxSize={6} index={0}>
+          <Box as={MdGraphicEq} color="tomato" />
         </Slider.Thumb>
       </Slider.Control>
     </Slider.Root>

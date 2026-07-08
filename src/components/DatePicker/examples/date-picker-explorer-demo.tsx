@@ -1,15 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, parseDate } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, parseDate } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerExplorerDemo = () => {
   return (
-    <DatePicker.Root
-      defaultValue={[parseDate("2025-03-15")]}
-      open
-      maxWidth="320px"
-    >
+    <DatePicker.Root defaultValue={[parseDate('2025-03-15')]} maxWidth="320px" open>
       <DatePicker.Label>Select date</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />

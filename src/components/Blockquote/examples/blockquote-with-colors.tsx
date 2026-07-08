@@ -4,9 +4,9 @@ import { colorPalettes } from '@/utils/storybook/color-palettes'
 
 export const BlockquoteWithColors = () => {
   return (
-    <Stack gap="5" align="flex-start">
+    <Stack align="flex-start" gap="5">
       {colorPalettes.map((colorPalette) => (
-        <Stack align="center" key={colorPalette} direction="row" gap="10" px="4" width="full">
+        <Stack align="center" direction="row" gap="10" key={colorPalette} px="4" width="full">
           <Text minW="8ch">{colorPalette}</Text>
           <Blockquote.Root colorPalette={colorPalette}>
             <Blockquote.Content cite="Uzumaki Naruto">

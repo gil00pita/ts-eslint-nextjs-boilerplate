@@ -1,9 +1,9 @@
-import { For, HStack, Switch } from "@chakra-ui/react"
+import { For, HStack, Switch } from '@chakra-ui/react'
 
 export const SwitchWithVariants = () => {
   return (
     <HStack gap="8">
-      <For each={["raised", "solid"]}>
+      <For each={['raised', 'solid']}>
         {(variant) => (
           <Switch.Root key={variant} variant={variant}>
             <Switch.HiddenInput />

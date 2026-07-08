@@ -1,20 +1,21 @@
-"use client"
+'use client'
 
-import { DatePicker, Portal } from "@chakra-ui/react"
-import type { DateValue } from "@chakra-ui/react"
-import { CalendarDate } from "@internationalized/date"
-import { LuCalendar } from "react-icons/lu"
+import type { DateValue } from '@chakra-ui/react'
+
+import { DatePicker, Portal } from '@chakra-ui/react'
+import { CalendarDate } from '@internationalized/date'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerMonthRange = () => {
   return (
     <DatePicker.Root
-      selectionMode="range"
       defaultView="month"
-      minView="month"
       format={format}
+      maxWidth="20rem"
+      minView="month"
       parse={parse}
       placeholder="mm/yyyy"
-      maxWidth="20rem"
+      selectionMode="range"
     >
       <DatePicker.Label>Select range</DatePicker.Label>
       <DatePicker.Control>
@@ -45,7 +46,7 @@ export const DatePickerMonthRange = () => {
 }
 
 const format = (date: DateValue) => {
-  const month = date.month.toString().padStart(2, "0")
+  const month = date.month.toString().padStart(2, '0')
   const year = date.year.toString()
   return `${month}/${year}`
 }

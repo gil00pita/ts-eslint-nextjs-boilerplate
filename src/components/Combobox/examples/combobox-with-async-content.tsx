@@ -1,18 +1,11 @@
-"use client"
+'use client'
 
-import {
-  Combobox,
-  HStack,
-  Portal,
-  Span,
-  Spinner,
-  useListCollection,
-} from "@chakra-ui/react"
-import { useState } from "react"
-import { useAsync } from "react-use"
+import { Combobox, HStack, Portal, Span, Spinner, useListCollection } from '@chakra-ui/react'
+import { useState } from 'react'
+import { useAsync } from 'react-use'
 
 export const ComboboxWithAsyncContent = () => {
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState('')
 
   const { collection, set } = useListCollection<Character>({
     initialItems: [],
@@ -21,20 +14,18 @@ export const ComboboxWithAsyncContent = () => {
   })
 
   const state = useAsync(async () => {
-    const response = await fetch(
-      `https://swapi.py4e.com/api/people/?search=${inputValue}`,
-    )
+    const response = await fetch(`https://swapi.py4e.com/api/people/?search=${inputValue}`)
     const data = await response.json()
     set(data.results)
   }, [inputValue, set])
 
   return (
     <Combobox.Root
-      width="320px"
       collection={collection}
-      placeholder="Example: C-3PO"
       onInputValueChange={(e) => setInputValue(e.inputValue)}
-      positioning={{ sameWidth: false, placement: "bottom-start" }}
+      placeholder="Example: C-3PO"
+      positioning={{ placement: 'bottom-start', sameWidth: false }}
+      width="320px"
     >
       <Combobox.Label>Search Star Wars Characters</Combobox.Label>
 
@@ -51,16 +42,16 @@ export const ComboboxWithAsyncContent = () => {
           <Combobox.Content minW="sm">
             {state.loading ? (
               <HStack p="2">
-                <Spinner size="xs" borderWidth="1px" />
+                <Spinner borderWidth="1px" size="xs" />
                 <Span>Loading...</Span>
               </HStack>
             ) : state.error ? (
-              <Span p="2" color="fg.error">
+              <Span color="fg.error" p="2">
                 Error fetching
               </Span>
             ) : (
               collection.items?.map((character) => (
-                <Combobox.Item key={character.name} item={character}>
+                <Combobox.Item item={character} key={character.name}>
                   <HStack justify="space-between" textStyle="sm">
                     <Span fontWeight="medium" truncate>
                       {character.name}

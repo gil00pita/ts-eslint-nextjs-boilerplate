@@ -1,7 +1,7 @@
 import { For, Stack, VStack } from '@chakra-ui/react'
+import { LuBox } from 'react-icons/lu'
 
 import { DecorativeBox } from '@/utils/storybook/decorative-box'
-import { LuBox } from 'react-icons/lu'
 
 export const ForWithFallback = () => {
   return (
@@ -9,7 +9,7 @@ export const ForWithFallback = () => {
       <For
         each={[]}
         fallback={
-          <VStack textAlign="center" fontWeight="medium">
+          <VStack fontWeight="medium" textAlign="center">
             <LuBox />
             No items to show
           </VStack>

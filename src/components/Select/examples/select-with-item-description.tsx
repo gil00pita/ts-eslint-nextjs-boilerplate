@@ -1,21 +1,10 @@
-"use client"
+'use client'
 
-import {
-  Portal,
-  Select,
-  Span,
-  Stack,
-  createListCollection,
-} from "@chakra-ui/react"
+import { createListCollection, Portal, Select, Span, Stack } from '@chakra-ui/react'
 
 export const SelectWithItemDescription = () => {
   return (
-    <Select.Root
-      collection={frameworks}
-      size="sm"
-      width="320px"
-      defaultValue={["pro"]}
-    >
+    <Select.Root collection={frameworks} defaultValue={['pro']} size="sm" width="320px">
       <Select.HiddenSelect />
       <Select.Label>Select plan</Select.Label>
       <Select.Control>
@@ -50,24 +39,24 @@ export const SelectWithItemDescription = () => {
 const frameworks = createListCollection({
   items: [
     {
-      label: "Basic Plan",
-      value: "basic",
-      description: "$9/month - Perfect for small projects",
+      description: '$9/month - Perfect for small projects',
+      label: 'Basic Plan',
+      value: 'basic',
     },
     {
-      label: "Pro Plan",
-      value: "pro",
-      description: "$29/month - Advanced features",
+      description: '$29/month - Advanced features',
+      label: 'Pro Plan',
+      value: 'pro',
     },
     {
-      label: "Business Plan",
-      value: "business",
-      description: "$99/month - Enterprise-grade solutions",
+      description: '$99/month - Enterprise-grade solutions',
+      label: 'Business Plan',
+      value: 'business',
     },
     {
-      label: "Enterprise Plan",
-      value: "enterprise",
-      description: "Custom pricing - Tailored solutions",
+      description: 'Custom pricing - Tailored solutions',
+      label: 'Enterprise Plan',
+      value: 'enterprise',
     },
   ],
 })

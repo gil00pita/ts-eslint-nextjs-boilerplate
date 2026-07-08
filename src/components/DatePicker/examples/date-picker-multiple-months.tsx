@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { DatePicker, Flex } from "@chakra-ui/react"
-import { LuCalendar } from "react-icons/lu"
+import { DatePicker, Flex } from '@chakra-ui/react'
+import { LuCalendar } from 'react-icons/lu'
 
 export const DatePickerMultipleMonths = () => {
   return (
-    <DatePicker.Root numOfMonths={2} maxWidth="24rem">
+    <DatePicker.Root maxWidth="24rem" numOfMonths={2}>
       <DatePicker.Label>Select months</DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input index={0} />

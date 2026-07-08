@@ -1,12 +1,12 @@
-import { Box, FileUpload, Icon } from "@chakra-ui/react"
-import { LuUpload } from "react-icons/lu"
+import { Box, FileUpload, Icon } from '@chakra-ui/react'
+import { LuUpload } from 'react-icons/lu'
 
 export const FileUploadWithDropzone = () => {
   return (
-    <FileUpload.Root maxW="xl" alignItems="stretch" maxFiles={10}>
+    <FileUpload.Root alignItems="stretch" maxFiles={10} maxW="xl">
       <FileUpload.HiddenInput />
       <FileUpload.Dropzone>
-        <Icon size="md" color="fg.muted">
+        <Icon color="fg.muted" size="md">
           <LuUpload />
         </Icon>
         <FileUpload.DropzoneContent>

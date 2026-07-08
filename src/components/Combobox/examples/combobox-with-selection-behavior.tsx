@@ -1,14 +1,6 @@
-"use client"
+'use client'
 
-import {
-  Box,
-  Combobox,
-  Heading,
-  Stack,
-  Text,
-  useFilter,
-  useListCollection,
-} from "@chakra-ui/react"
+import { Box, Combobox, Heading, Stack, Text, useFilter, useListCollection } from '@chakra-ui/react'
 
 export const ComboboxWithSelectionBehavior = () => {
   return (
@@ -21,34 +13,34 @@ export const ComboboxWithSelectionBehavior = () => {
 }
 
 const descriptions = {
-  replace: "Selected item replaces the input value",
-  clear: "Input value is cleared after selection",
-  preserve: "Input value is preserved after selection",
+  clear: 'Input value is cleared after selection',
+  preserve: 'Input value is preserved after selection',
+  replace: 'Selected item replaces the input value',
 }
 
 const ComboboxDemo = (props: Partial<Combobox.RootProps>) => {
-  const { selectionBehavior = "replace" } = props
+  const { selectionBehavior = 'replace' } = props
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
-    initialItems: companies,
     filter: contains,
+    initialItems: companies,
   })
 
   return (
     <Box>
       <Stack mb={4}>
         <Heading as="h3">{selectionBehavior} Selection</Heading>
-        <Text textStyle="sm" color="gray.600">
+        <Text color="gray.600" textStyle="sm">
           {descriptions[selectionBehavior]}
         </Text>
       </Stack>
 
       <Combobox.Root
         collection={collection}
-        selectionBehavior={selectionBehavior}
         onInputValueChange={(details) => filter(details.inputValue)}
+        selectionBehavior={selectionBehavior}
       >
         <Combobox.Label>Select Companies</Combobox.Label>
 
@@ -58,7 +50,7 @@ const ComboboxDemo = (props: Partial<Combobox.RootProps>) => {
 
         <Combobox.Content>
           {collection.items.map((item) => (
-            <Combobox.Item key={item.value} item={item}>
+            <Combobox.Item item={item} key={item.value}>
               {item.label}
               <Combobox.ItemIndicator />
             </Combobox.Item>
@@ -70,9 +62,9 @@ const ComboboxDemo = (props: Partial<Combobox.RootProps>) => {
 }
 
 const companies = [
-  { label: "Apple", value: "apple" },
-  { label: "Amazon", value: "amazon" },
-  { label: "Meta", value: "meta" },
-  { label: "Netflix", value: "netflix" },
-  { label: "Google", value: "google" },
+  { label: 'Apple', value: 'apple' },
+  { label: 'Amazon', value: 'amazon' },
+  { label: 'Meta', value: 'meta' },
+  { label: 'Netflix', value: 'netflix' },
+  { label: 'Google', value: 'google' },
 ]

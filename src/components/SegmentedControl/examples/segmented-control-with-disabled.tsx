@@ -1,10 +1,10 @@
-import { SegmentGroup } from "@chakra-ui/react"
+import { SegmentGroup } from '@chakra-ui/react'
 
 export const SegmentedControlWithDisabled = () => {
   return (
-    <SegmentGroup.Root disabled defaultValue="React">
+    <SegmentGroup.Root defaultValue="React" disabled>
       <SegmentGroup.Indicator />
-      <SegmentGroup.Items items={["React", "Vue", "Solid"]} />
+      <SegmentGroup.Items items={['React', 'Vue', 'Solid']} />
     </SegmentGroup.Root>
   )
 }

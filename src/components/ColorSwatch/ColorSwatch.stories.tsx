@@ -1,9 +1,10 @@
-import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
 import type { Meta } from '@storybook/react-vite'
+
 import { Box } from '@chakra-ui/react'
 
+import { createComponentPlayground } from '@/utils/storybook/component-playgrounds'
+
 export default {
-  title: 'Forms / Color Swatch',
   decorators: [
     (Story) => (
       <Box p="10">
@@ -11,6 +12,7 @@ export default {
       </Box>
     ),
   ],
+  title: 'Forms / Color Swatch',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('ColorSwatch')
