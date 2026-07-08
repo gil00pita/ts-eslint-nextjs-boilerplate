@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
 const meta = {
-  title: 'Components / Visually Hidden',
+  title: 'Utilities / Visually Hidden',
   decorators: [
     (Story) => (
       <Box p="10">

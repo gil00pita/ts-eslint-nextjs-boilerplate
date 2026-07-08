@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react-vite'
 import { Box } from '@chakra-ui/react'
 
 export default {
-  title: 'Rich Text Editor / Tiptap',
+  title: 'Typography / Rich Text Editor / Tiptap',
   decorators: [
     (Story) => (
       <Box p="10">

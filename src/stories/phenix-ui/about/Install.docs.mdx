@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/About/Install" />
+
+# Install
+
+Phenix UI is fictional, but the installation model mirrors a Chakra UI v3 package.
+
+## Package Manager
+
+```bash
+npm install phenix-ui @chakra-ui/react @emotion/react next-themes
+```
+
+```bash
+yarn add phenix-ui @chakra-ui/react @emotion/react next-themes
+```
+
+```bash
+pnpm add phenix-ui @chakra-ui/react @emotion/react next-themes
+```
+
+## Provider
+
+```tsx
+'use client'
+
+import { PhenixProvider } from 'phenix-ui'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <PhenixProvider>{children}</PhenixProvider>
+}
+```
+
+## Import Components
+
+```tsx
+import { Button, Field, Input } from 'phenix-ui'
+
+export function ExampleForm() {
+  return (
+    <Field.Root required>
+      <Field.Label>
+        Email <Field.RequiredIndicator />
+      </Field.Label>
+      <Input type="email" />
+      <Button colorPalette="ember">Save</Button>
+    </Field.Root>
+  )
+}
+```
+
+## Peer Dependency Notes
+
+| Dependency         | Why it is needed                                 |
+| ------------------ | ------------------------------------------------ |
+| `@chakra-ui/react` | Provides the component runtime and style system. |
+| `@emotion/react`   | Required by Chakra UI v3.                        |
+| `next-themes`      | Powers color mode in Next.js applications.       |

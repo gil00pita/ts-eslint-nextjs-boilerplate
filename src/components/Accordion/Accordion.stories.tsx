@@ -12,7 +12,7 @@ const meta = {
       </Box>
     ),
   ],
-  title: 'Components / Accordion',
+  title: 'Disclosure / Accordion',
 } satisfies Meta
 
 export default meta

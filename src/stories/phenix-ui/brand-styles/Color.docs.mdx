@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Color" />
+
+# Color
+
+Phenix UI uses color to clarify state, hierarchy, and brand expression. Product surfaces stay mostly neutral so status and action colors remain meaningful.
+
+## Core Palettes
+
+| Palette | Use                                                   |
+| ------- | ----------------------------------------------------- |
+| Ember   | Primary actions, focus accents, and brand moments.    |
+| Ash     | App backgrounds, text, borders, and neutral surfaces. |
+| Sky     | Information and assistive guidance.                   |
+| Moss    | Success, completion, and healthy system states.       |
+| Berry   | Errors, destructive actions, and urgent validation.   |
+
+## Semantic Tokens
+
+| Token                   | Purpose                                          |
+| ----------------------- | ------------------------------------------------ |
+| `bg.canvas`             | Page background.                                 |
+| `bg.panel`              | Raised application panels and cards.             |
+| `fg`                    | Primary text.                                    |
+| `fg.muted`              | Secondary text and supporting labels.            |
+| `border.muted`          | Default separators and low-emphasis borders.     |
+| `colorPalette.solid`    | Solid surface for the active palette.            |
+| `colorPalette.contrast` | Text placed on the active palette's solid color. |
+
+## Usage Rules
+
+- Use semantic tokens before raw palette steps.
+- Reserve Ember for primary actions and branded highlights.
+- Pair every status color with text or an icon; never rely on color alone.
+- Check contrast in light, dark, and high-contrast themes.

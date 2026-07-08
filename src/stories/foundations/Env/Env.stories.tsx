@@ -1,10 +1,11 @@
-import { useEffect, useLayoutEffect, useState } from "react"
-import { createPortal } from "react-dom"
-import Frame, { type FrameContextProps, useFrame } from "react-frame-component"
-import { EnvironmentProvider, useEnvironmentContext } from "@/ui/environment"
+import { useEffect, useLayoutEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
+import Frame, { type FrameContextProps, useFrame } from 'react-frame-component'
+
+import { EnvironmentProvider, useEnvironmentContext } from '@/ui/environment'
 
 export default {
-  title: "Components / Environment",
+  title: 'Utilities / Environment',
 }
 
 const Portal = (props: React.PropsWithChildren<{}>) => {
@@ -35,25 +36,23 @@ function useWindow() {
       setMatch(query.matches)
     }
 
-    const mql = win.matchMedia("(min-width: 600px)")
+    const mql = win.matchMedia('(min-width: 600px)')
     setMatch(mql.matches)
 
-    mql.addEventListener("change", handler)
+    mql.addEventListener('change', handler)
     return () => {
-      mql.removeEventListener("change", handler)
+      mql.removeEventListener('change', handler)
     }
   }, [win])
 
   return {
-    w: win.innerWidth,
     h: win.innerHeight,
     match,
+    w: win.innerWidth,
   }
 }
 
-function FrameContext(props: {
-  children: (ctx: FrameContextProps) => React.ReactNode
-}) {
+function FrameContext(props: { children: (ctx: FrameContextProps) => React.ReactNode }) {
   const ctx = useFrame()
   return props.children(ctx)
 }
@@ -69,7 +68,7 @@ export const WithPortal = () => {
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
       <Portal>Outside iframe</Portal>
-      <Frame style={{ background: "yellow" }}>
+      <Frame style={{ background: 'yellow' }}>
         <EnvironmentProvider>
           <span>Welcome home</span>
           <Portal>Inside iframe</Portal>
@@ -83,7 +82,7 @@ export const WithSize = () => {
   return (
     <>
       <WindowSize />
-      <Frame style={{ background: "yellow", width: "100%", maxWidth: "300px" }}>
+      <Frame style={{ background: 'yellow', maxWidth: '300px', width: '100%' }}>
         <FrameContext>
           {({ document }) => (
             <EnvironmentProvider value={() => document ?? globalThis.document}>

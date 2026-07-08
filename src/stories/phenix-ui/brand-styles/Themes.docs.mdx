@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Themes" />
+
+# Themes
+
+Phenix UI supports light, dark, and high-contrast themes through semantic tokens. Components should read tokens, not inspect color mode directly.
+
+## Theme Modes
+
+| Theme         | Use                                                                         |
+| ------------- | --------------------------------------------------------------------------- |
+| Light         | Default for most business workflows and documentation.                      |
+| Dark          | Useful for monitoring, long-running operations, and low-light environments. |
+| High contrast | Required for users who need stronger text, border, and focus contrast.      |
+
+## Token Strategy
+
+| Layer           | Example                                        |
+| --------------- | ---------------------------------------------- |
+| Raw palette     | `ember.500`, `ash.900`, `sky.300`.             |
+| Semantic token  | `bg.canvas`, `fg.muted`, `border.emphasized`.  |
+| Component token | `colorPalette.solid`, `colorPalette.contrast`. |
+
+## Rules
+
+- Prefer semantic tokens in component usage.
+- Define light and dark values at the token layer.
+- Test focus, hover, selected, invalid, and disabled states in every theme.
+- Avoid mode-specific ternaries in application components.

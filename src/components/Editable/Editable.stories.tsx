@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
 export default {
-  title: 'Components / Editable',
+  title: 'Forms / Editable',
   decorators: [
     (Story) => (
       <Box p="10">

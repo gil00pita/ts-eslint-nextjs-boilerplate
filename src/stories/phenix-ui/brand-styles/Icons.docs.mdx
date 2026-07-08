@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Icons" />
+
+# Icons
+
+Icons in Phenix UI are functional first. They help people scan, confirm intent, and understand state quickly.
+
+## Style
+
+| Attribute | Standard                                            |
+| --------- | --------------------------------------------------- |
+| Form      | Outlined, rounded stroke icons.                     |
+| Stroke    | 2px at the base 24px size.                          |
+| Corners   | Slightly rounded to match the Phenix radius system. |
+| Detail    | Minimal; avoid decorative micro-detail.             |
+
+## Sizes
+
+| Token | Size | Use                                               |
+| ----- | ---- | ------------------------------------------------- |
+| `xs`  | 12px | Inline metadata and compact indicators.           |
+| `sm`  | 16px | Table rows, form help, and dense UI.              |
+| `md`  | 20px | Buttons and navigation.                           |
+| `lg`  | 24px | Empty states, page headers, and feature callouts. |
+
+## Accessibility
+
+- Decorative icons should be hidden from assistive technology.
+- Icon-only actions must use an accessible name.
+- Icons that communicate status need visible text nearby.
+- Do not replace clear button text with an icon when the action could be ambiguous.

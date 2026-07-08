@@ -12,7 +12,7 @@ const meta = {
       </Box>
     ),
   ],
-  title: 'Components / Absolute Center',
+  title: 'Layout / Absolute Center',
 } satisfies Meta
 
 export default meta

@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Guidelines/Accessibility" />
+
+# Accessibility
+
+Accessibility is a baseline requirement in Phenix UI. Every product team is responsible for validating the final experience in context.
+
+## Checklist
+
+| Area     | Check                                                                   |
+| -------- | ----------------------------------------------------------------------- |
+| Keyboard | All interactive elements can be reached and operated without a pointer. |
+| Focus    | Focus order follows the visual and task order.                          |
+| Contrast | Text, icons, borders, and focus indicators meet contrast requirements.  |
+| Names    | Buttons, links, fields, and regions have clear accessible names.        |
+| Errors   | Errors identify the field, explain the problem, and suggest recovery.   |
+| Motion   | Non-essential animation respects reduced-motion preferences.            |
+
+## Component Expectations
+
+- Icon-only buttons must include an accessible name.
+- Form inputs should use `Field.Root` so labels, help text, and errors are connected.
+- Dialogs, menus, popovers, and selects should use their full compound structure.
+- Status cannot be communicated by color alone.
+
+## Review Moments
+
+Run accessibility checks when:
+
+- A new workflow is released.
+- A component is added or changed.
+- A route introduces custom keyboard behavior.
+- Tokens or themes are updated.

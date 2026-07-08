@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Radius" />
+
+# Radius
+
+Radius gives Phenix UI a softened product feel without making operational screens look casual.
+
+## Scale
+
+| Token  | Value  | Use                                            |
+| ------ | ------ | ---------------------------------------------- |
+| `none` | 0px    | Tables, dividers, and flush app shell regions. |
+| `xs`   | 2px    | Tiny badges and status marks.                  |
+| `sm`   | 4px    | Inputs, compact buttons, and table controls.   |
+| `md`   | 6px    | Default cards and form groups.                 |
+| `lg`   | 8px    | Prominent panels and empty states.             |
+| `full` | 9999px | Pills, avatars, and circular controls.         |
+
+## Rules
+
+- Use smaller radius values in dense workflows.
+- Use `full` only when the shape itself communicates a pill or circle.
+- Do not mix many radius values inside one component.
+- Keep focus rings aligned with the component radius.

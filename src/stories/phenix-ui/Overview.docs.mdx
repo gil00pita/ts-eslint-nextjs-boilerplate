@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Overview" />
+
+# Phenix UI
+
+Phenix UI is a fictional design system for resilient product teams building workflow-heavy digital services. It gives teams a shared language for interface decisions, reusable React components, brand foundations, and accessibility standards.
+
+The system is designed for products that must feel calm under pressure: operations dashboards, service portals, support tooling, and user journeys where clarity matters more than decoration.
+
+## Principles
+
+| Principle            | What it means                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| Clear by default     | Screens should explain state, next steps, and consequences without extra training. |
+| Built for recovery   | Empty, loading, error, and partial-success states are first-class design work.     |
+| Efficient at scale   | Components support dense information, keyboard use, and repeated workflows.        |
+| Brand with restraint | The Phenix identity adds warmth and recognition without overpowering content.      |
+
+## Documentation Map
+
+- **What's New** tracks recent system releases and notable decisions.
+- **About** explains the system, how to start, and how to install it.
+- **Brand Styles** documents foundations such as color, typography, spacing, motion, and themes.
+- **Guidelines** covers accessibility, content design, and product patterns.
+
+## Package Shape
+
+```tsx
+import { Button, Card, PhenixProvider } from 'phenix-ui'
+
+export function App() {
+  return (
+    <PhenixProvider>
+      <Card.Root>
+        <Card.Body>
+          <Button colorPalette="ember">Review case</Button>
+        </Card.Body>
+      </Card.Root>
+    </PhenixProvider>
+  )
+}
+```
+
+Phenix UI follows Chakra UI v3 conventions: compound components, semantic tokens, `colorPalette`, and provider-based theming.

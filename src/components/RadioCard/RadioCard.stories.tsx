@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react-vite'
 import { Box } from '@chakra-ui/react'
 
 export default {
-  title: 'Components / Radio Card',
+  title: 'Forms / Radio Card',
   decorators: [
     (Story) => (
       <Box p="10">

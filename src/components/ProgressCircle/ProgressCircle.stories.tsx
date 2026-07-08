@@ -12,7 +12,7 @@ export default {
       </Box>
     ),
   ],
-  title: 'Components / Progress Circle',
+  title: 'Feedback / Progress Circle',
 } satisfies Meta
 
 export const Playground = createComponentPlayground('ProgressCircle')

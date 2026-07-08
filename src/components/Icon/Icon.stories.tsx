@@ -12,7 +12,7 @@ const meta = {
       </Box>
     ),
   ],
-  title: 'Components / Icon',
+  title: 'Data Display / Icon',
 } satisfies Meta
 
 export default meta

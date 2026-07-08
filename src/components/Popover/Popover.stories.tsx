@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react-vite'
 import { Box } from '@chakra-ui/react'
 
 export default {
-  title: 'Components / Popover',
+  title: 'Overlays / Popover',
   decorators: [
     (Story) => (
       <Box p="10">

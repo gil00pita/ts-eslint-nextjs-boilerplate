@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 import type { Meta } from '@storybook/nextjs-vite'
 
 const meta = {
-  title: 'Components / Format Number',
+  title: 'Internationalization / Format Number',
   decorators: [
     (Story) => (
       <Box p="10">

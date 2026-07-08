@@ -4,7 +4,7 @@ import { Toaster } from '@/ui/toaster'
 import { Box } from '@chakra-ui/react'
 
 export default {
-  title: 'Components / Toast',
+  title: 'Feedback / Toast',
   decorators: [
     (Story: any) => (
       <Box p="10">

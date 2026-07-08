@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Grid" />
+
+# Grid
+
+The Phenix UI grid keeps dense product screens readable across breakpoints. Use it for page structure, not for every small alignment decision.
+
+## Breakpoints
+
+| Name   | Min width | Typical layout                               |
+| ------ | --------- | -------------------------------------------- |
+| `base` | 0px       | Single column.                               |
+| `sm`   | 480px     | Single column with more comfortable spacing. |
+| `md`   | 768px     | Two-column forms and split content.          |
+| `lg`   | 1024px    | App shell with supporting panels.            |
+| `xl`   | 1280px    | Data views with filters and summary areas.   |
+| `2xl`  | 1536px    | Wide dashboards and monitoring views.        |
+
+## Page Layout
+
+| Region | Guidance                                       |
+| ------ | ---------------------------------------------- |
+| Shell  | Persistent navigation and product context.     |
+| Header | Page title, status, and primary actions.       |
+| Main   | The workflow or data table people came to use. |
+| Aside  | Filters, details, or supporting context.       |
+
+## Rules
+
+- Start mobile layouts with one column.
+- Use two columns only when the relationship between regions is clear.
+- Keep line lengths readable in content-heavy pages.
+- Align major page regions to shared grid columns.

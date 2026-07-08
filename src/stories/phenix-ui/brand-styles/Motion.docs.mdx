@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Phenix UI/Brand Styles/Motion" />
+
+# Motion
+
+Motion in Phenix UI helps people understand cause, location, and state. It should be quick, subtle, and interruptible.
+
+## Timing
+
+| Token      | Duration | Use                                        |
+| ---------- | -------- | ------------------------------------------ |
+| `fast`     | 120ms    | Hover, focus, pressed, small fades.        |
+| `moderate` | 180ms    | Popovers, menus, inline expansion.         |
+| `slow`     | 240ms    | Dialogs, drawers, route-level transitions. |
+
+## Easing
+
+| Token        | Use                                           |
+| ------------ | --------------------------------------------- |
+| `standard`   | Most UI transitions.                          |
+| `enter`      | Elements entering the screen.                 |
+| `exit`       | Elements leaving the screen.                  |
+| `emphasized` | Rare, larger movement that needs more weight. |
+
+## Rules
+
+- Motion should reveal relationship, not attract attention for its own sake.
+- Non-essential motion must respect reduced-motion preferences.
+- Loading motion should communicate activity without suggesting precise progress.
+- Avoid movement that shifts layout after people start reading.
