@@ -215,6 +215,14 @@ export default defineConfig([
     },
   },
   {
+    // The Storybook manager bundle (esbuild) doesn't apply the `viteFinal` `@/*`
+    // alias config, so files it bundles must use relative imports.
+    files: ['.storybook/manager.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: tsParser,

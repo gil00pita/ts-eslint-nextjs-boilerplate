@@ -2,6 +2,9 @@ import { GLOBALS_UPDATED, SET_GLOBALS, UPDATE_GLOBALS } from 'storybook/internal
 import { addons } from 'storybook/manager-api'
 import { create } from 'storybook/theming'
 
+import { colors } from '../src/theme/colors'
+import { fonts } from '../src/theme/fonts'
+
 type StorybookThemeMode = 'dark' | 'light'
 
 type StorybookGlobalsPayload = {
@@ -10,51 +13,39 @@ type StorybookGlobalsPayload = {
   }
 }
 
-const managerTokens = {
-  brand700: '#0e4d88',
-  fontBody: 'Inter, Arial, sans-serif',
-  fontMono: 'monospace',
-  gray100: '#cecece',
-  gray50: '#f3f3f3',
-  gray700: '#303030',
-  gray900: '#191b1b',
-  gray950: '#0b0c0c',
-  white: '#ffffff',
-}
-
 const managerThemes = {
   dark: create({
-    appBg: managerTokens.gray950,
-    appContentBg: managerTokens.gray900,
-    appPreviewBg: managerTokens.gray900,
-    barBg: managerTokens.gray950,
-    barSelectedColor: managerTokens.brand700,
-    barTextColor: managerTokens.white,
-    colorPrimary: managerTokens.brand700,
-    colorSecondary: managerTokens.brand700,
-    fontBase: managerTokens.fontBody,
-    fontCode: managerTokens.fontMono,
-    inputBg: managerTokens.gray900,
-    inputBorder: managerTokens.gray700,
-    inputTextColor: managerTokens.white,
-    textColor: managerTokens.white,
+    appBg: colors.gray[950].value,
+    appContentBg: colors.gray[900].value,
+    appPreviewBg: colors.gray[900].value,
+    barBg: colors.gray[950].value,
+    barSelectedColor: colors.brand[400].value,
+    barTextColor: colors.common.white.value,
+    colorPrimary: colors.brand[400].value,
+    colorSecondary: colors.brand[400].value,
+    fontBase: fonts.body.value,
+    fontCode: fonts.mono.value,
+    inputBg: colors.gray[900].value,
+    inputBorder: colors.gray[700].value,
+    inputTextColor: colors.common.white.value,
+    textColor: colors.common.white.value,
     base: 'dark',
   }),
   light: create({
-    appBg: managerTokens.white,
-    appContentBg: managerTokens.white,
-    appPreviewBg: managerTokens.white,
-    barBg: managerTokens.white,
-    barSelectedColor: managerTokens.brand700,
-    barTextColor: managerTokens.gray950,
-    colorPrimary: managerTokens.brand700,
-    colorSecondary: managerTokens.brand700,
-    fontBase: managerTokens.fontBody,
-    fontCode: managerTokens.fontMono,
-    inputBg: managerTokens.gray50,
-    inputBorder: managerTokens.gray100,
-    inputTextColor: managerTokens.gray950,
-    textColor: managerTokens.gray950,
+    appBg: colors.common.white.value,
+    appContentBg: colors.common.white.value,
+    appPreviewBg: colors.common.white.value,
+    barBg: colors.common.white.value,
+    barSelectedColor: colors.brand[700].value,
+    barTextColor: colors.gray[950].value,
+    colorPrimary: colors.brand[700].value,
+    colorSecondary: colors.brand[700].value,
+    fontBase: fonts.body.value,
+    fontCode: fonts.mono.value,
+    inputBg: colors.gray[50].value,
+    inputBorder: colors.gray[100].value,
+    inputTextColor: colors.gray[950].value,
+    textColor: colors.gray[950].value,
     base: 'light',
   }),
 }
