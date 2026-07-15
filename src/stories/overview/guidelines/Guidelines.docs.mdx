@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Guidelines/Overview" />
+
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Guidelines"
+  lead="Phenix UI guidelines help teams make consistent product decisions after choosing a component. They cover accessibility, content, and repeated patterns."
+/>
+
+## What Guidelines Are For
+
+<SpecTable
+  columns={[
+    { key: 'guideline', header: 'Guideline', width: '22%' },
+    { key: 'helps', header: 'Helps teams decide' },
+  ]}
+  rows={[
+    {
+      guideline: 'Accessibility',
+      helps:
+        'Whether an experience works for people using different input methods, assistive technology, or display settings.',
+    },
+    { guideline: 'Content', helps: 'What to say, how to say it, and when to be brief.' },
+    { guideline: 'Patterns', helps: 'Which reusable flow shape fits a task.' },
+  ]}
+/>
+
+<Callout title="Working Agreement" tone="tip">
+  - Components provide a strong baseline, not automatic accessibility. - Content is part of the
+  interface and should be reviewed with the same care as layout. - Patterns should be adapted to the
+  user journey, not copied blindly. - When guidance conflicts with user research, bring the evidence
+  back to the system team.
+</Callout>

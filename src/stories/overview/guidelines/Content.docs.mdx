@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Guidelines/Content" />
+
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Content"
+  lead="Phenix UI content should help people act with confidence. Use plain language, name the object or task clearly, and put the consequence close to the action."
+/>
+
+## Voice
+
+<SpecTable
+  columns={[
+    { key: 'quality', header: 'Quality', width: '20%' },
+    { key: 'guidance', header: 'Guidance' },
+  ]}
+  rows={[
+    { quality: 'Direct', guidance: 'Say what happened and what to do next.' },
+    { quality: 'Calm', guidance: 'Do not exaggerate urgency.' },
+    {
+      quality: 'Specific',
+      guidance: 'Name the item, status, or requirement when it helps recovery.',
+    },
+    {
+      quality: 'Respectful',
+      guidance: 'Avoid blame and avoid making assumptions about user intent.',
+    },
+  ]}
+/>
+
+## Common Patterns
+
+<SpecTable
+  columns={[
+    { key: 'pattern', header: 'Pattern', width: '26%' },
+    { key: 'example', header: 'Example', isCode: true },
+  ]}
+  rows={[
+    { pattern: 'Primary action', example: 'Save changes' },
+    { pattern: 'Destructive action', example: 'Delete workspace' },
+    { pattern: 'Error summary', example: 'Fix 3 fields before continuing' },
+    { pattern: 'Empty state title', example: 'No pending reviews' },
+    { pattern: 'Loading label', example: 'Loading account history' },
+  ]}
+/>
+
+<Callout title="Rules" tone="tip">
+  - Start button labels with a verb when possible. - Avoid "Are you sure?" without explaining the
+  consequence. - Write errors in complete, helpful sentences. - Keep alert titles short and put
+  detail in the body.
+</Callout>

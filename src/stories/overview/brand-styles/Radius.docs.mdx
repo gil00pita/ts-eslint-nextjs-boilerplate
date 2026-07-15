@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Box } from '@chakra-ui/react'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Brand Styles/Radius" />
+
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Radius"
+  lead="Radius gives Phenix UI a softened product feel without making operational screens look casual."
+/>
+
+## Scale
+
+<SpecTable
+  columns={[
+    {
+      key: 'preview',
+      header: 'Preview',
+      width: '10%',
+      render: (_value, row) => (
+        <Box
+          bg="colorPalette.solid"
+          borderRadius={String(row.value)}
+          boxSize="8"
+          colorPalette="teal"
+        />
+      ),
+    },
+    { key: 'token', header: 'Token', width: '14%', isCode: true },
+    { key: 'value', header: 'Value', width: '14%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'none', value: '0px', use: 'Tables, dividers, and flush app shell regions.' },
+    { token: 'xs', value: '2px', use: 'Tiny badges and status marks.' },
+    { token: 'sm', value: '4px', use: 'Inputs, compact buttons, and table controls.' },
+    { token: 'md', value: '6px', use: 'Default cards and form groups.' },
+    { token: 'lg', value: '8px', use: 'Prominent panels and empty states.' },
+    { token: 'full', value: '9999px', use: 'Pills, avatars, and circular controls.' },
+  ]}
+/>
+
+<Callout title="Rules" tone="tip">
+  - Use smaller radius values in dense workflows. - Use `full` only when the shape itself
+  communicates a pill or circle. - Do not mix many radius values inside one component. - Keep focus
+  rings aligned with the component radius.
+</Callout>

@@ -56,26 +56,36 @@ const config: StorybookConfig = {
     },
   },
   async viteFinal(config) {
+    const inheritedAliases = Array.isArray(config.resolve?.alias)
+      ? config.resolve.alias
+      : Object.entries(config.resolve?.alias ?? {}).map(([find, replacement]) => ({
+          find,
+          replacement,
+        }))
+
     return {
       ...config,
       resolve: {
         ...config.resolve,
-        alias: {
-          ...(config.resolve?.alias ?? {}),
-          '@': srcPath(),
-          '@/components': srcPath('components'),
-          '@/constant': srcPath('app/constant/index.ts'),
-          '@/hoc': srcPath('app/hoc/index.ts'),
-          '@/internationalization': srcPath('internationalization/index.ts'),
-          '@/providers': srcPath('providers/index.ts'),
-          '@/storybook': srcPath('utils/storybook'),
-          '@/storybook/utils': srcPath('utils/storybook'),
-          '@/theme': themePath,
-          '@/types': srcPath('types/index.ts'),
-          '@/ui': srcPath('components/ui'),
-          '@/utils': srcPath('utils'),
-          '@/utils/storybook': srcPath('utils/storybook'),
-        },
+        alias: [
+          { find: '@/components', replacement: srcPath('components') },
+          { find: '@/constant', replacement: srcPath('app/constant/index.ts') },
+          { find: '@/hoc', replacement: srcPath('app/hoc/index.ts') },
+          {
+            find: '@/internationalization',
+            replacement: srcPath('internationalization/index.ts'),
+          },
+          { find: '@/providers', replacement: srcPath('providers/index.ts') },
+          { find: '@/storybook/utils', replacement: srcPath('utils/storybook') },
+          { find: '@/storybook', replacement: srcPath('utils/storybook') },
+          { find: '@/theme', replacement: themePath },
+          { find: '@/types', replacement: srcPath('types/index.ts') },
+          { find: '@/ui', replacement: srcPath('components/ui') },
+          { find: '@/utils/storybook', replacement: srcPath('utils/storybook') },
+          { find: '@/utils', replacement: srcPath('utils') },
+          { find: '@', replacement: srcPath() },
+          ...inheritedAliases,
+        ],
       },
     }
   },

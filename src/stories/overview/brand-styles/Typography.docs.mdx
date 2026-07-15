@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Brand Styles/Typography" />
+
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Typography"
+  lead="Phenix UI typography is designed for scanning, decision-making, and sustained reading. It uses a restrained scale with clear hierarchy."
+/>
+
+## Type Roles
+
+<SpecTable
+  columns={[
+    { key: 'role', header: 'Role', width: '18%' },
+    { key: 'token', header: 'Token', width: '18%', isCode: true },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { role: 'Display', token: 'display.lg', use: 'Rare product moments and overview pages.' },
+    { role: 'Page title', token: 'heading.xl', use: 'Main page heading.' },
+    { role: 'Section title', token: 'heading.md', use: 'Major regions within a workflow.' },
+    { role: 'Body', token: 'body.md', use: 'Default reading text.' },
+    { role: 'Compact', token: 'body.sm', use: 'Tables, dense forms, and metadata.' },
+    { role: 'Label', token: 'label.sm', use: 'Form labels and field-level UI.' },
+    { role: 'Code', token: 'code.sm', use: 'Technical values, ids, and snippets.' },
+  ]}
+/>
+
+<Callout title="Writing With Type" tone="tip">
+  - Use one page title per page. - Keep button labels short and verb-led. - Use compact text only
+  when density helps the task. - Do not rely on size alone for hierarchy; pair type with structure
+  and spacing.
+</Callout>
+
+## Line Length
+
+<SpecTable
+  columns={[
+    { key: 'content', header: 'Content', width: '26%' },
+    { key: 'width', header: 'Recommended width' },
+  ]}
+  rows={[
+    { content: 'Long-form guidance', width: '60 to 80 characters per line.' },
+    { content: 'Forms', width: 'Align labels and inputs to the surrounding grid.' },
+    { content: 'Tables', width: 'Prefer compact text with clear headers.' },
+    { content: 'Alerts', width: 'Keep to one main message and one next step.' },
+  ]}
+/>

@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Brand Styles/Illustrations" />
+
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Illustrations"
+  lead="Illustrations are used sparingly in Phenix UI. They should support comprehension, not decorate an interface that already has enough information."
+/>
+
+## When To Use
+
+<SpecTable
+  columns={[
+    { key: 'scenario', header: 'Scenario', width: '24%' },
+    { key: 'guidance', header: 'Guidance' },
+  ]}
+  rows={[
+    {
+      scenario: 'Empty states',
+      guidance: 'Show what kind of content belongs here or what happened.',
+    },
+    { scenario: 'Onboarding', guidance: 'Help orient people to a new workflow.' },
+    {
+      scenario: 'Major success',
+      guidance: 'Use only when the moment deserves more warmth than a status badge.',
+    },
+    { scenario: 'Error states', guidance: 'Avoid whimsy; focus on recovery and next steps.' },
+  ]}
+/>
+
+<Callout title="Visual Direction" tone="tip">
+  - Simple geometric forms with clear silhouettes. - Limited color, usually neutral surfaces with
+  one Ember or Sky accent. - Human figures only when they clarify scale or collaboration. - No
+  decorative background blobs or abstract atmosphere.
+</Callout>
+
+<Callout title="Production Requirements" tone="warning">
+  - Provide descriptive alt text when the image adds meaning. - Use empty alt text when the image is
+  decorative. - Keep file sizes small and export at the required display size. - Test illustrations
+  in light and dark themes.
+</Callout>

@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Guidelines/Accessibility" />
+
+<DocsHero
+  colorPalette="orange"
+  eyebrow="Guidelines"
+  title="Accessibility"
+  lead="Accessibility is a baseline requirement in Phenix UI. Every product team is responsible for validating the final experience in context."
+/>
+
+## Checklist
+
+<SpecTable
+  columns={[
+    { key: 'area', header: 'Area', width: '20%' },
+    { key: 'check', header: 'Check' },
+  ]}
+  rows={[
+    {
+      area: 'Keyboard',
+      check: 'All interactive elements can be reached and operated without a pointer.',
+    },
+    { area: 'Focus', check: 'Focus order follows the visual and task order.' },
+    {
+      area: 'Contrast',
+      check: 'Text, icons, borders, and focus indicators meet contrast requirements.',
+    },
+    { area: 'Names', check: 'Buttons, links, fields, and regions have clear accessible names.' },
+    {
+      area: 'Errors',
+      check: 'Errors identify the field, explain the problem, and suggest recovery.',
+    },
+    { area: 'Motion', check: 'Non-essential animation respects reduced-motion preferences.' },
+  ]}
+/>
+
+<Callout title="Component Expectations" tone="warning">
+  <ul>
+    <li>Icon-only buttons must include an accessible name.</li>
+    <li>
+      Form inputs should use <code>Field.Root</code> so labels, help text, and errors are connected.
+    </li>
+    <li>Dialogs, menus, popovers, and selects should use their full compound structure.</li>
+    <li>Status cannot be communicated by color alone.</li>
+  </ul>
+</Callout>
+
+<Callout title="Review Moments" tone="tip">
+  <p>Run accessibility checks when:</p>
+  <ul>
+    <li>A new workflow is released.</li>
+    <li>A component is added or changed.</li>
+    <li>A route introduces custom keyboard behavior.</li>
+    <li>Tokens or themes are updated.</li>
+  </ul>
+</Callout>

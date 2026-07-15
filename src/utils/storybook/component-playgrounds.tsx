@@ -35,13 +35,13 @@ import {
 } from 'react-icons/lu'
 import { expect, fn, userEvent, within } from 'storybook/test'
 
-import { ColorModeButton, useColorMode } from '@/ui/color-mode'
-import { PasswordInput } from '@/ui/password-input'
-import { Prose } from '@/ui/prose'
-import { RichTextEditor } from '@/ui/rich-text-editor'
-import { toaster, Toaster } from '@/ui/toaster'
-import { ToggleTip } from '@/ui/toggle-tip'
-import { Tooltip } from '@/ui/tooltip'
+import { ColorModeButton, useColorMode } from '@/components/ui/color-mode'
+import { PasswordInput } from '@/components/ui/password-input'
+import { Prose } from '@/components/ui/prose'
+import { RichTextEditor } from '@/components/ui/rich-text-editor'
+import { toaster, Toaster } from '@/components/ui/toaster'
+import { ToggleTip } from '@/components/ui/toggle-tip'
+import { Tooltip } from '@/components/ui/tooltip'
 import { DecorativeBox } from '@/utils/storybook/decorative-box'
 
 import {

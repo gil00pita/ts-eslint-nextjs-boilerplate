@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Brand Styles/Icons" />
+
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Icons"
+  lead="Icons in Phenix UI are functional first. They help people scan, confirm intent, and understand state quickly."
+/>
+
+## Style
+
+<SpecTable
+  columns={[
+    { key: 'attribute', header: 'Attribute', width: '22%' },
+    { key: 'standard', header: 'Standard' },
+  ]}
+  rows={[
+    { attribute: 'Form', standard: 'Outlined, rounded stroke icons.' },
+    { attribute: 'Stroke', standard: '2px at the base 24px size.' },
+    { attribute: 'Corners', standard: 'Slightly rounded to match the Phenix radius system.' },
+    { attribute: 'Detail', standard: 'Minimal; avoid decorative micro-detail.' },
+  ]}
+/>
+
+## Sizes
+
+<SpecTable
+  columns={[
+    { key: 'token', header: 'Token', width: '16%', isCode: true },
+    { key: 'size', header: 'Size', width: '14%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { token: 'xs', size: '12px', use: 'Inline metadata and compact indicators.' },
+    { token: 'sm', size: '16px', use: 'Table rows, form help, and dense UI.' },
+    { token: 'md', size: '20px', use: 'Buttons and navigation.' },
+    { token: 'lg', size: '24px', use: 'Empty states, page headers, and feature callouts.' },
+  ]}
+/>
+
+<Callout title="Accessibility" tone="warning">
+  - Decorative icons should be hidden from assistive technology. - Icon-only actions must use an
+  accessible name. - Icons that communicate status need visible text nearby. - Do not replace clear
+  button text with an icon when the action could be ambiguous.
+</Callout>

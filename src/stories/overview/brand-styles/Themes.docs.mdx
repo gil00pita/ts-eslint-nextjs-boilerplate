@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { Callout, DocsHero, SpecTable } from '@/components/_storybook'
+
+<Meta title="Phenix UI/Brand Styles/Themes" />
+
+<DocsHero
+  colorPalette="teal"
+  eyebrow="Brand Styles"
+  title="Themes"
+  lead="Phenix UI supports light, dark, and high-contrast themes through semantic tokens. Components should read tokens, not inspect color mode directly."
+/>
+
+## Theme Modes
+
+<SpecTable
+  columns={[
+    { key: 'theme', header: 'Theme', width: '20%' },
+    { key: 'use', header: 'Use' },
+  ]}
+  rows={[
+    { theme: 'Light', use: 'Default for most business workflows and documentation.' },
+    {
+      theme: 'Dark',
+      use: 'Useful for monitoring, long-running operations, and low-light environments.',
+    },
+    {
+      theme: 'High contrast',
+      use: 'Required for users who need stronger text, border, and focus contrast.',
+    },
+  ]}
+/>
+
+## Token Strategy
+
+<SpecTable
+  columns={[
+    { key: 'layer', header: 'Layer', width: '24%' },
+    { key: 'example', header: 'Example' },
+  ]}
+  rows={[
+    {
+      layer: 'Raw palette',
+      example: (
+        <>
+          <code>ember.500</code>, <code>ash.900</code>, <code>sky.300</code>.
+        </>
+      ),
+    },
+    {
+      layer: 'Semantic token',
+      example: (
+        <>
+          <code>bg.canvas</code>, <code>fg.muted</code>, <code>border.emphasized</code>.
+        </>
+      ),
+    },
+    {
+      layer: 'Component token',
+      example: (
+        <>
+          <code>colorPalette.solid</code>, <code>colorPalette.contrast</code>.
+        </>
+      ),
+    },
+  ]}
+/>
+
+<Callout title="Rules" tone="tip">
+  - Prefer semantic tokens in component usage. - Define light and dark values at the token layer. -
+  Test focus, hover, selected, invalid, and disabled states in every theme. - Avoid mode-specific
+  ternaries in application components.
+</Callout>

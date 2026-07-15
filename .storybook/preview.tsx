@@ -120,8 +120,9 @@ export const parameters = {
         [
           'Overview',
           "What's New",
+          'Getting Started',
+          'Install',
           'About',
-          ['Overview', 'Getting Started', 'Install'],
           'Brand Styles',
           [
             'Overview',
