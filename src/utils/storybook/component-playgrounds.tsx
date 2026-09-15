@@ -35,6 +35,7 @@ import {
 } from 'react-icons/lu'
 import { expect, fn, userEvent, within } from 'storybook/test'
 
+import { ScrollArea } from '@/components/ScrollArea'
 import { ColorModeButton, useColorMode } from '@/components/ui/color-mode'
 import { PasswordInput } from '@/components/ui/password-input'
 import { Prose } from '@/components/ui/prose'
@@ -1223,19 +1224,19 @@ function RichTextEditorPlayground(args: PlaygroundArgs) {
 
 function ScrollAreaPlayground(args: PlaygroundArgs) {
   return (
-    <C.ScrollArea.Root height="180px" width="320px" {...recipeProps(args, false)}>
-      <C.ScrollArea.Viewport>
-        <C.Box p="4">
-          {Array.from({ length: Number(args.count) || 6 }).map((_, index) => (
-            <C.Text key={index} py="2">
-              {args.children} {index + 1}
-            </C.Text>
-          ))}
-        </C.Box>
-      </C.ScrollArea.Viewport>
-      <C.ScrollArea.Scrollbar />
-      <C.ScrollArea.Corner />
-    </C.ScrollArea.Root>
+    <ScrollArea
+      contentProps={{ p: '4' }}
+      height="44"
+      size={args.size === 'xs' || args.size === 'sm' || args.size === 'lg' ? args.size : 'md'}
+      variant={args.variant === 'always' ? 'always' : 'hover'}
+      width="80"
+    >
+      {Array.from({ length: Number(args.count) || 6 }).map((_, index) => (
+        <C.Text key={index} py="2">
+          {args.children} {index + 1}
+        </C.Text>
+      ))}
+    </ScrollArea>
   )
 }
 
